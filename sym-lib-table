@@ -1,0 +1,10 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "49e")(type "KiCad")(uri "${KIPRJMOD}/symbols/VoidSwitch/49e.kicad_sym")(options "")(descr ""))
+  (lib (name "voidswitch")(type "KiCad")(uri "${KIPRJMOD}/symbols/VoidSwitch/voidswitch.kicad_sym")(options "")(descr ""))
+  (lib (name "rp2350a")(type "KiCad")(uri "${KIPRJMOD}/symbols/rp2350/rp2350a-qfn60.kicad_sym")(options "")(descr ""))
+  (lib (name "rp2350b")(type "KiCad")(uri "${KIPRJMOD}/symbols/rp2350/rp2350b-qfn80.kicad_sym")(options "")(descr ""))
+  (lib (name "MCU_RaspberryPi")(type "KiCad")(uri "${KIPRJMOD}/symbols/rp2350/MCU_RaspberryPi.kicad_sym")(options "")(descr ""))
+  (lib (name "Waveshare Core2350B")(type "KiCad")(uri "${KIPRJMOD}/symbols/rp2350/Waveshare Core2350B.kicad_sym")(options "")(descr ""))
+  (lib (name "Seeed_Studio_XIAO_Series")(type "KiCad")(uri "${KIPRJMOD}/Seeed Studio XIAO Series Library/Seeed_Studio_XIAO_Series.kicad_sym")(options "")(descr ""))
+)

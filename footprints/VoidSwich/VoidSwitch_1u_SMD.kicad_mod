@@ -1,0 +1,193 @@
+(footprint "VoidSwitch_1u_SMD"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Void Switch 1U Layout Template")
+	(tags "Void Switch Hall Effect keyswitch 1.00u 1U")
+	(property "Reference" "AM1:5"
+		(at 3.3 6.3 0)
+		(layer "F.SilkS")
+		(uuid "0df06cd2-3ef2-4d0b-9ce7-d5cc3428e17d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+			)
+		)
+	)
+	(property "Value" "VoidSwitch"
+		(at 0 8.502858 0)
+		(layer "F.Fab")
+		(uuid "5a713687-b00d-4963-8f60-6ac295f2bcf1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f44ae3bb-16d4-4a46-95ac-2fc2ffc02668")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Symbol placeholder for the VoidSwitch footprints so they don't accidentally get removed"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8d298162-52cc-4a2b-94a4-4b02c01e3c6b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "NOTE" "Replace \"AM0:0\" with the actual MUX pin"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "4804665a-86d4-427e-ab62-28ea92c7fcc4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd exclude_from_bom)
+	(fp_line
+		(start -6.985 -6.985)
+		(end 6.985 -6.985)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "5b335deb-5d38-4e3b-aa00-7f5b0896f627")
+	)
+	(fp_line
+		(start -6.985 6.985)
+		(end -6.985 -6.985)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "1031d63a-5934-4680-8ae9-d0bfbf620023")
+	)
+	(fp_line
+		(start 6.985 -6.985)
+		(end 6.985 6.985)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "44c7fce7-7c40-42f4-9eec-5b5289293fe3")
+	)
+	(fp_line
+		(start 6.985 6.985)
+		(end -6.985 6.985)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "eddbc10f-8aa7-4f08-b849-91d6e6a3a066")
+	)
+	(fp_circle
+		(center 3.25 3.25)
+		(end 3.493778 3.25)
+		(stroke
+			(width 0.125)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "4a20b105-c3d6-4957-8374-abbf44a92de0")
+	)
+	(fp_line
+		(start -9.525 -9.525)
+		(end 9.525 -9.525)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "a7fd00bc-c32d-4f63-8ee4-ae4c49b14abc")
+	)
+	(fp_line
+		(start -9.525 9.525)
+		(end -9.525 -9.525)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "83fabd20-5be6-4a6e-843f-1ab898b0df1b")
+	)
+	(fp_line
+		(start 9.525 -9.525)
+		(end 9.525 9.525)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "b9549573-9408-4f05-bba5-d0424b4d32f6")
+	)
+	(fp_line
+		(start 9.525 9.525)
+		(end -9.525 9.525)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "fd712007-196a-4b57-bb68-a45fe42c2600")
+	)
+	(fp_circle
+		(center 3.25 3.25)
+		(end 5.25 3.25)
+		(stroke
+			(width 0.125)
+			(type solid)
+		)
+		(fill no)
+		(layer "Dwgs.User")
+		(uuid "b0b7ebf7-46c5-4af0-9fdb-a429648f08a0")
+	)
+	(fp_text user "${VALUE}"
+		(at 0 -5.6 0)
+		(layer "F.SilkS")
+		(uuid "e54f017d-cc63-43bb-9b25-d47add850758")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.25)
+			)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 -7.874 0)
+		(layer "F.Fab")
+		(uuid "e38cf296-08c1-4591-9ad7-4efbcd385197")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

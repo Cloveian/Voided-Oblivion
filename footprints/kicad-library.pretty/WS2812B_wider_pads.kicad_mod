@@ -1,0 +1,218 @@
+(footprint "WS2812B_wider_pads"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "D0"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "8db47770-86fa-474e-8c89-b5c5637a1fa3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "WS2812B"
+		(at -0.040639 -3.81 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "255ebb43-b523-4ca1-a47b-d78f83b7b0a1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2108072030_XINGLIGHT-XL-5050RGBC-WS2812B_C2843785.pdf"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1e762282-f413-4fbd-a4ec-2ee593c890fd")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d6c8170b-f54c-4933-a761-b09c86a0d530")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "LCSC Part" "C2843785"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2f16041a-6e6d-4808-9ec9-3ecca022d692")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2.540639 -2.605)
+		(end 2.459361 -2.605)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b061ad0e-ac8e-4891-9db4-a2394562750a")
+	)
+	(fp_line
+		(start -2.539999 2.39436)
+		(end -2.54 -2.60436)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "06741e82-06fa-4a1e-be47-198264f67839")
+	)
+	(fp_line
+		(start 0.15936 2.395)
+		(end 2.459361 0.145)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7c7b2f8c-173f-4305-b4f7-5099db41ab0b")
+	)
+	(fp_line
+		(start 2.159361 2.395)
+		(end -2.540639 2.395)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "17c6ac53-53f4-4497-86cd-11c169609e1b")
+	)
+	(fp_line
+		(start 2.159361 2.395)
+		(end 2.459361 2.145)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "13de3535-2f93-4fc4-aeae-69407042488b")
+	)
+	(fp_line
+		(start 2.459361 2.145)
+		(end 2.459361 -2.605)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0a9e180f-2f54-4346-a397-b1fbee5ab5b2")
+	)
+	(fp_line
+		(start -3.440639 -2.705001)
+		(end -3.440639 2.495001)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "a609c1b3-d301-4b41-8acb-6b775178aa70")
+	)
+	(fp_line
+		(start -3.440639 2.495001)
+		(end 3.359361 2.495001)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "b6c58e87-cca6-433f-ab0d-1eb8e56e073b")
+	)
+	(fp_line
+		(start 3.359361 -2.705001)
+		(end -3.440639 -2.705001)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "fbf1ec42-615e-47ae-9639-02616d499098")
+	)
+	(fp_line
+		(start 3.359361 2.495001)
+		(end 3.359361 -2.705001)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "4dfca07b-1713-4d71-b569-8ad1dcf5f313")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "417d5169-b51f-466d-8569-e8c6ac0b77be")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -2.490639 -1.705 90)
+		(size 1 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "ac481b14-655a-4192-a2a6-1addcb5a7980")
+	)
+	(pad "2" smd rect
+		(at -2.490639 1.495 90)
+		(size 1 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "3c84bcff-f609-4b77-b87b-daf164f396e4")
+	)
+	(pad "3" smd rect
+		(at 2.409361 1.495 90)
+		(size 1 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "fdf6021e-3e2d-4066-a858-03e76b642da1")
+	)
+	(pad "4" smd rect
+		(at 2.409361 -1.705 90)
+		(size 1 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "b7cf4fcb-a138-48eb-9045-f5bb779689d7")
+	)
+	(group ""
+		(uuid "d4633c17-d151-4d6e-82ac-3e21daea4636")
+		(members "06741e82-06fa-4a1e-be47-198264f67839" "0a9e180f-2f54-4346-a397-b1fbee5ab5b2"
+			"13de3535-2f93-4fc4-aeae-69407042488b" "17c6ac53-53f4-4497-86cd-11c169609e1b"
+			"3c84bcff-f609-4b77-b87b-daf164f396e4" "4dfca07b-1713-4d71-b569-8ad1dcf5f313"
+			"7c7b2f8c-173f-4305-b4f7-5099db41ab0b" "a609c1b3-d301-4b41-8acb-6b775178aa70"
+			"ac481b14-655a-4192-a2a6-1addcb5a7980" "b061ad0e-ac8e-4891-9db4-a2394562750a"
+			"b6c58e87-cca6-433f-ab0d-1eb8e56e073b" "b7cf4fcb-a138-48eb-9045-f5bb779689d7"
+			"fbf1ec42-615e-47ae-9639-02616d499098" "fdf6021e-3e2d-4066-a858-03e76b642da1"
+		)
+	)
+	(embedded_fonts no)
+)
