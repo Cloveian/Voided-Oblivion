@@ -962,7 +962,7 @@
 	)
 	(global_label "AM1:2"
 		(shape input)
-		(at 389.89 146.05 0)
+		(at 389.89 196.85 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -972,7 +972,7 @@
 		)
 		(uuid "2400267d-39c3-4dff-a272-8bc229f5e3f3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 398.439 146.05 0)
+			(at 398.439 196.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1028,7 +1028,7 @@
 	)
 	(global_label "AM1:0"
 		(shape input)
-		(at 389.89 196.85 0)
+		(at 389.89 146.05 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1038,7 +1038,7 @@
 		)
 		(uuid "2ed2ce50-b08d-4d51-8ce8-983e8ab033cb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 398.439 196.85 0)
+			(at 398.439 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2590,7 +2590,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1ab707c1-a930-49b5-950c-8e090b40c968")
-		(property "Reference" "H1:2"
+		(property "Reference" "H1:0"
 			(at 380.2888 145.0848 0)
 			(effects
 				(font
@@ -2674,7 +2674,7 @@
 		(instances
 			(project "Voided Oblivion"
 				(path "/df1ec8c4-45f4-4cf8-9b57-41eae012015d/25a16f08-5358-4d05-9289-d71459998688"
-					(reference "H1:2")
+					(reference "H1:0")
 					(unit 1)
 				)
 			)
@@ -4964,7 +4964,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "496da3ee-7c8c-4b86-8707-3e2a1dd1b82c")
-		(property "Reference" "H1:0"
+		(property "Reference" "H1:2"
 			(at 380.2888 195.8848 0)
 			(effects
 				(font
@@ -5048,7 +5048,7 @@
 		(instances
 			(project "Voided Oblivion"
 				(path "/df1ec8c4-45f4-4cf8-9b57-41eae012015d/25a16f08-5358-4d05-9289-d71459998688"
-					(reference "H1:0")
+					(reference "H1:2")
 					(unit 1)
 				)
 			)
@@ -7556,7 +7556,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8b67cc47-12db-4334-94ce-1eb16e14e749")
-		(property "Reference" "AM1:2"
+		(property "Reference" "AM1:0"
 			(at 212.852 193.548 0)
 			(effects
 				(font
@@ -7613,7 +7613,7 @@
 		(instances
 			(project "Voided Oblivion"
 				(path "/df1ec8c4-45f4-4cf8-9b57-41eae012015d/25a16f08-5358-4d05-9289-d71459998688"
-					(reference "AM1:2")
+					(reference "AM1:0")
 					(unit 1)
 				)
 			)
@@ -8263,7 +8263,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "abe26810-8103-4a0a-a776-d372f067e2a0")
-		(property "Reference" "AM1:5"
+		(property "Reference" "AM1:3"
 			(at 212.852 257.048 0)
 			(effects
 				(font
@@ -8320,7 +8320,7 @@
 		(instances
 			(project "Voided Oblivion"
 				(path "/df1ec8c4-45f4-4cf8-9b57-41eae012015d/25a16f08-5358-4d05-9289-d71459998688"
-					(reference "AM1:5")
+					(reference "AM1:3")
 					(unit 1)
 				)
 			)
@@ -8471,7 +8471,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "aeda9d60-e982-4c0b-9dab-6c7e064ec7e5")
-		(property "Reference" "AM1:3"
+		(property "Reference" "AM1:5"
 			(at 212.852 231.648 0)
 			(effects
 				(font
@@ -8528,7 +8528,7 @@
 		(instances
 			(project "Voided Oblivion"
 				(path "/df1ec8c4-45f4-4cf8-9b57-41eae012015d/25a16f08-5358-4d05-9289-d71459998688"
-					(reference "AM1:3")
+					(reference "AM1:5")
 					(unit 1)
 				)
 			)
@@ -9133,7 +9133,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d6799d46-a050-41d1-ae57-ba33f5d5dca4")
-		(property "Reference" "AM1:0"
+		(property "Reference" "AM1:2"
 			(at 212.852 218.948 0)
 			(effects
 				(font
@@ -9190,7 +9190,7 @@
 		(instances
 			(project "Voided Oblivion"
 				(path "/df1ec8c4-45f4-4cf8-9b57-41eae012015d/25a16f08-5358-4d05-9289-d71459998688"
-					(reference "AM1:0")
+					(reference "AM1:2")
 					(unit 1)
 				)
 			)
