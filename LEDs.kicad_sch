@@ -2010,7 +2010,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 242.57 106.68 0)
 			(effects
 				(font
@@ -2161,7 +2161,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 255.27 109.22 0)
 			(effects
 				(font
@@ -2248,7 +2248,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 255.27 124.46 0)
 			(effects
 				(font
@@ -2335,7 +2335,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 255.27 139.7 0)
 			(effects
 				(font
@@ -2422,7 +2422,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 255.27 154.94 0)
 			(effects
 				(font
@@ -2509,7 +2509,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 255.27 170.18 0)
 			(effects
 				(font
@@ -2596,7 +2596,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 255.27 185.42 0)
 			(effects
 				(font
@@ -2683,7 +2683,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 298.45 182.88 0)
 			(effects
 				(font
@@ -2770,7 +2770,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 298.45 167.64 0)
 			(effects
 				(font
@@ -2857,7 +2857,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 298.45 152.4 0)
 			(effects
 				(font
@@ -2944,7 +2944,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 298.45 137.16 0)
 			(effects
 				(font
@@ -3031,7 +3031,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 298.45 121.92 0)
 			(effects
 				(font
@@ -3118,7 +3118,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 298.45 106.68 0)
 			(effects
 				(font
@@ -3205,7 +3205,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 311.15 109.22 0)
 			(effects
 				(font
@@ -3292,7 +3292,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 311.15 124.46 0)
 			(effects
 				(font
@@ -3379,7 +3379,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 311.15 139.7 0)
 			(effects
 				(font
@@ -3466,7 +3466,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 311.15 154.94 0)
 			(effects
 				(font
@@ -3553,7 +3553,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 311.15 170.18 0)
 			(effects
 				(font
@@ -3640,7 +3640,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 311.15 185.42 0)
 			(effects
 				(font
@@ -3727,7 +3727,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 354.33 182.88 0)
 			(effects
 				(font
@@ -3814,7 +3814,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 354.33 167.64 0)
 			(effects
 				(font
@@ -3901,7 +3901,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 354.33 152.4 0)
 			(effects
 				(font
@@ -3988,7 +3988,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 354.33 137.16 0)
 			(effects
 				(font
@@ -4075,7 +4075,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 354.33 121.92 0)
 			(effects
 				(font
@@ -4162,7 +4162,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 354.33 106.68 0)
 			(effects
 				(font
@@ -4378,7 +4378,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 242.57 152.4 0)
 			(effects
 				(font
@@ -4456,7 +4456,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+5VP"
 			(at 332.74 189.23 0)
 			(effects
 				(font
@@ -4521,8 +4521,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
-			(at 276.86 189.0196 0)
+		(property "Value" "+5VP"
+			(at 276.86 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4595,7 +4595,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 242.57 182.88 0)
 			(effects
 				(font
@@ -4682,7 +4682,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 242.57 121.92 0)
 			(effects
 				(font
@@ -4760,12 +4760,13 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
-			(at 219.71 184.15 0)
+		(property "Value" "+5VP"
+			(at 220.98 184.1499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -4834,7 +4835,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 242.57 137.16 0)
 			(effects
 				(font
@@ -5070,7 +5071,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "+5VP"
 			(at 374.65 129.54 0)
 			(effects
 				(font
@@ -5144,7 +5145,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "kicad-library:WS2812B_wider_pads"
+		(property "Footprint" "easyeda2kicad:LED-SMD_4P-L5.0-W5.0-BL_XL-5050RGBC"
 			(at 242.57 167.64 0)
 			(effects
 				(font
