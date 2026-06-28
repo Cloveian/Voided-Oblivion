@@ -1,0 +1,37 @@
+{
+	"nodes":[
+		{"id":"98b025b45bde53db","type":"text","text":"USB-C port","x":300,"y":-320,"width":140,"height":60},
+		{"id":"6f30ff1d6eccf622","type":"text","text":"Bootstrap 5V","x":910,"y":-100,"width":175,"height":60},
+		{"id":"3e1a76ec4934fb6d","type":"text","text":"High voltage rail","x":910,"y":-200,"width":175,"height":60},
+		{"id":"0a84a28f02001652","type":"text","text":"GND","x":910,"y":0,"width":175,"height":60},
+		{"id":"f911ae9e2d2a43bd","type":"text","text":"Rx","x":910,"y":100,"width":175,"height":60},
+		{"id":"377a2df617549dec","type":"text","text":"Tx","x":910,"y":200,"width":175,"height":60},
+		{"id":"cb09e67628054543","type":"text","text":"GND","x":910,"y":300,"width":175,"height":60},
+		{"id":"978e3ab4bcb68c9b","type":"text","text":"Bootstrap 5V","x":910,"y":400,"width":175,"height":60},
+		{"id":"6e8944ce9e36355b","type":"text","text":"High voltage rail","x":910,"y":500,"width":175,"height":60},
+		{"id":"8665d052bc027b19","type":"text","text":"Buck converter","x":305,"y":0,"width":131,"height":95},
+		{"id":"425fa5fb18d3070e","type":"text","text":"3.3V regulator","x":310,"y":160,"width":120,"height":70},
+		{"id":"0b121b80f2018022","type":"text","text":"MCU","x":600,"y":148,"width":111,"height":95},
+		{"id":"56f2093d12c00bdb","type":"text","text":"5V output switch (default, on)","x":570,"y":-200,"width":171,"height":60},
+		{"id":"d1f524058aac1e6a","type":"text","text":"High voltage output switch (default off)","x":440,"y":360,"width":191,"height":60},
+		{"id":"fc0cea4a936c69b4","type":"text","text":"PD chip","x":340,"y":-165,"width":131,"height":95}
+	],
+	"edges":[
+		{"id":"4b38ab4d7997e791","fromNode":"98b025b45bde53db","fromSide":"bottom","toNode":"fc0cea4a936c69b4","toSide":"top"},
+		{"id":"886c176cd7fb2523","fromNode":"8665d052bc027b19","fromSide":"bottom","toNode":"425fa5fb18d3070e","toSide":"top"},
+		{"id":"2206f7ffdbf3c6b0","fromNode":"425fa5fb18d3070e","fromSide":"right","toNode":"0b121b80f2018022","toSide":"left"},
+		{"id":"726c27f5d581ac3e","fromNode":"fc0cea4a936c69b4","fromSide":"right","toNode":"0b121b80f2018022","toSide":"top","label":"Available voltages"},
+		{"id":"2c00546a1936ddf0","fromNode":"0b121b80f2018022","fromSide":"left","toNode":"fc0cea4a936c69b4","toSide":"right","label":"Chosen voltage"},
+		{"id":"abd7a67b80c276ae","fromNode":"0b121b80f2018022","fromSide":"right","toNode":"f911ae9e2d2a43bd","toSide":"left"},
+		{"id":"9d12feaf6e1bc638","fromNode":"377a2df617549dec","fromSide":"left","toNode":"0b121b80f2018022","toSide":"right"},
+		{"id":"1a32914b89419a46","fromNode":"98b025b45bde53db","fromSide":"bottom","toNode":"cb09e67628054543","toSide":"left"},
+		{"id":"9eb653fe507b701a","fromNode":"8665d052bc027b19","fromSide":"right","toNode":"56f2093d12c00bdb","toSide":"left"},
+		{"id":"3c5d500930684ae4","fromNode":"56f2093d12c00bdb","fromSide":"right","toNode":"6f30ff1d6eccf622","toSide":"left"},
+		{"id":"5f44d658739cc703","fromNode":"56f2093d12c00bdb","fromSide":"right","toNode":"978e3ab4bcb68c9b","toSide":"left"},
+		{"id":"c2280ec1d033aba0","fromNode":"d1f524058aac1e6a","fromSide":"right","toNode":"6e8944ce9e36355b","toSide":"left"},
+		{"id":"9033c559cd5ef814","fromNode":"d1f524058aac1e6a","fromSide":"right","toNode":"3e1a76ec4934fb6d","toSide":"left"},
+		{"id":"99ca304a962be540","fromNode":"98b025b45bde53db","fromSide":"bottom","toNode":"0a84a28f02001652","toSide":"left"},
+		{"id":"0b6367787684152e","fromNode":"fc0cea4a936c69b4","fromSide":"left","toNode":"d1f524058aac1e6a","toSide":"left"},
+		{"id":"ef890d9569d9613e","fromNode":"98b025b45bde53db","fromSide":"bottom","toNode":"8665d052bc027b19","toSide":"top"}
+	]
+}
