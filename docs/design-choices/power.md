@@ -15,7 +15,7 @@ I need to decide on how i am going to do power distribution
 
 ### Design rules
 
-**80% rule — firmware enforced:** firmware never draws more than 80% of the negotiated PD capacity from any port. This applies to the total allocated power budget across all tiles in a region. Consequences that flow from this:
+**80% rule - firmware enforced:** firmware never draws more than 80% of the negotiated PD capacity from any port. This applies to the total allocated power budget across all tiles in a region. Consequences that flow from this:
 - A 100W port (20V @ 5A) is treated as 80W (20V @ 4A) available to spend
 - Components on the HV path (backfeed diodes, switches) are sized to the 80% current ceiling, not the port's rated max
 - RGB brightness caps, submodule power limits, and multi-port load balancing all operate against the 80% budget, not the raw negotiated wattage
@@ -111,7 +111,7 @@ Order:
 2. raw 5V gets OR'd onto the bootstrap rail and spans the network, every MCU + comms boots
 3. master discovers topology over comms (HV still off)
 4. master closes the HV tree switches while everything is still at 5V (low-energy connect)
-5. as VBUS ramps past ~6V, the hardware comparator fires: VBUS→bootstrap switch opens AND VBUS connects to the local HV rail simultaneously. the tile's clean buck spins up from HV and feeds bootstrap back almost immediately — hold-up caps only need to cover the microseconds in between. no firmware involvement.
+5. as VBUS ramps past ~6V, the hardware comparator fires: VBUS→bootstrap switch opens AND VBUS connects to the local HV rail simultaneously. the tile's clean buck spins up from HV and feeds bootstrap back almost immediately - hold-up caps only need to cover the microseconds in between. no firmware involvement.
 6. negotiate PD up to ~20V. VBUS + the whole HV rail ramp 5V->20V together, PD slew limits the inrush
 7. each tile's bucks now make their own 5V from HV (clean buck -> MCU/sensors + bootstrap, big buck -> RGB/submodules)
 8. master turns loads on within the negotiated power budget
@@ -181,7 +181,7 @@ Needs to: take orders from the RP2350B, negotiate any PD profile (not just a fix
 
 
 #### Small clean buck (HV → 5V, always on)
-Needs to: take HV (5–20V input — has to work from the moment VBUS arrives at 5V, before PD negotiates up) and output a stable 5V for the LDO. Load is just MCU + sensors (~150–300mA). Doesn't need to be ultra-quiet itself since the LDO is downstream. Must run always-on (MCU and comms need it).
+Needs to: take HV (5–20V input - has to work from the moment VBUS arrives at 5V, before PD negotiates up) and output a stable 5V for the LDO. Load is just MCU + sensors (~150–300mA). Doesn't need to be ultra-quiet itself since the LDO is downstream. Must run always-on (MCU and comms need it).
 
 **Options:**
 - **MP2161GJ-Z** (MPS, 2A, SOT-23-5, ~$0.20 LCSC): cheap, very common, 2A gives headroom on a ≤300mA load, ~1.5 MHz.
@@ -207,7 +207,7 @@ Needs to: be low-noise (this feeds the ADC + hall sensor chain), handle ~200–3
 
 
 #### Ideal diode (bootstrap OR'ing, one per tile)
-Needs to: OR each tile's clean 5V output onto the shared bootstrap net with near-zero forward drop. ~1A per tile is sufficient. Can't be a plain Schottky — 0.3–0.5V drop on a 5V rail is too much.
+Needs to: OR each tile's clean 5V output onto the shared bootstrap net with near-zero forward drop. ~1A per tile is sufficient. Can't be a plain Schottky - 0.3–0.5V drop on a 5V rail is too much.
 
 **Options:**
 - **MAX40203** (ADI, integrated ideal diode, 1A, SOT-23-3, ~$0.40 LCSC): no external FET, handles it all internally, tiny. 1A is comfortable at typical clean buck bootstrap contribution per tile.
@@ -218,24 +218,24 @@ Needs to: OR each tile's clean 5V output onto the shared bootstrap net with near
 #### VBUS → bootstrap switch + HV connect
 
 This is handled entirely in hardware with a comparator doing double duty. A comparator watches VBUS with a threshold at ~6V (between the 5V pre-negotiation level and the 9V lowest PD voltage). It drives two things simultaneously:
-- **VBUS→bootstrap switch opens** — disconnects VBUS from bootstrap before it can climb past 5V
-- **VBUS→HV rail connects** — routes VBUS directly onto the local tile's HV rail
+- **VBUS→bootstrap switch opens** - disconnects VBUS from bootstrap before it can climb past 5V
+- **VBUS→HV rail connects** - routes VBUS directly onto the local tile's HV rail
 
-The second action is the key improvement: the tile's clean buck immediately sees HV input and starts making 5V, which feeds bootstrap right back. Bootstrap never actually droops — the hold-up caps only need to cover the few microseconds between the comparator firing and the buck spinning up, not any meaningful hold time. This also means a second cable hotplugged into a running tile self-powers that tile's HV rail and restores bootstrap instantly with no firmware involvement.
+The second action is the key improvement: the tile's clean buck immediately sees HV input and starts making 5V, which feeds bootstrap right back. Bootstrap never actually droops - the hold-up caps only need to cover the few microseconds between the comparator firing and the buck spinning up, not any meaningful hold time. This also means a second cable hotplugged into a running tile self-powers that tile's HV rail and restores bootstrap instantly with no firmware involvement.
 
 **Implementation:** one comparator (TLV1805 or similar, SOT-23-5, ~$0.15) watching VBUS against a resistor-divider reference at ~6V drives:
-- A P-FET (AO3415 or similar, 20V/4A, SOT-23) for the VBUS→bootstrap path — gate pulled to GND by default (on), comparator pulls high (off)
-- An N-FET or dedicated switch for the VBUS→HV path — off by default, comparator turns it on
+- A P-FET (AO3415 or similar, 20V/4A, SOT-23) for the VBUS→bootstrap path - gate pulled to GND by default (on), comparator pulls high (off)
+- An N-FET or dedicated switch for the VBUS→HV path - off by default, comparator turns it on
 
 No MCU GPIO involved.
 
-*Note: AO3415 is 20V rated — fine for the bootstrap switch because VBUS is only at 5V while that switch is conducting. The HV-path switch needs to be rated for the full negotiated voltage (≥24V).*
+*Note: AO3415 is 20V rated - fine for the bootstrap switch because VBUS is only at 5V while that switch is conducting. The HV-path switch needs to be rated for the full negotiated voltage (≥24V).*
 
 
 #### HV per-side switches (×4 per tile)
 Needs to: switch the HV rail (~9–20V) between neighboring tiles, provide soft-start to protect downstream buck input caps from inrush, allow OCP (hardware or firmware), and be MCU-enable controlled. Must be rated ≥24V (20V + ~20% margin) and handle ≥3A (covering a region of multiple tiles, not just one tile's local load).
 
-This is the hardest slot — ">24V + ≥3A + soft-start + cheap + small" is awkward in the integrated eFuse market.
+This is the hardest slot - ">24V + ≥3A + soft-start + cheap + small" is awkward in the integrated eFuse market.
 
 **Options:**
 
@@ -270,7 +270,7 @@ Hard gate first: must give the MCU full real-time visibility into PD capabilitie
 
 **Winner: FUSB302BMPX (345/390, 88.5%)**
 
-STUSB4500's NVM-based negotiation trades firmware flexibility for standalone simplicity — the wrong trade for a design where the MCU owns power budget decisions dynamically.
+STUSB4500's NVM-based negotiation trades firmware flexibility for standalone simplicity - the wrong trade for a design where the MCU owns power budget decisions dynamically.
 
 ---
 
@@ -280,7 +280,7 @@ STUSB4500's NVM-based negotiation trades firmware flexibility for standalone sim
 
 The clean buck must start from the comparator threshold (~5.5V) and run through 20V. The big buck is MCU-gated and only enabled post-PD negotiation (≥9V input), but it still needs to be rated for the full 20V rail it sits on.
 
-**BOM note:** TPS54302 (3A) covers both bucks — the clean buck only draws ~300mA but using one part across both simplifies sourcing and removes a unique BOM line.
+**BOM note:** TPS54302 (3A) covers both bucks - the clean buck only draws ~300mA but using one part across both simplifies sourcing and removes a unique BOM line.
 
 | Criteria | Weight | TPS54302 (TI, 4.5–28V, 3A) | MP2315 (MPS, 4.5–24V, 3A) | SY8205 (Silergy, 6–36V, 3A) |
 | --- | :---: | :---: | :---: | :---: |
@@ -294,7 +294,7 @@ The clean buck must start from the comparator threshold (~5.5V) and run through 
 
 **Winner: TPS54302 (366/430, 85.1%), both bucks**
 
-MP2315 (79.5%) fails the voltage rating axis — 24V max derated to 19.2V, below the 20V HV rail. SY8205 (73.7%) has excellent voltage headroom (36V) but its 6V minimum input means the clean buck can't reliably start from the ~5.5V comparator threshold.
+MP2315 (79.5%) fails the voltage rating axis - 24V max derated to 19.2V, below the 20V HV rail. SY8205 (73.7%) has excellent voltage headroom (36V) but its 6V minimum input means the clean buck can't reliably start from the ~5.5V comparator threshold.
 
 ---
 
@@ -322,7 +322,7 @@ XC6220 and XC6206 score identically (310/400, 77.5%). AMS1117 is eliminated by n
 
 ### Ideal diode (bootstrap OR'ing)
 
-Plain Schottky is disqualified on hard requirements before scoring — a 0.3–0.5V forward drop on a 5V rail cascades through the LDO headroom budget and is not recoverable. Not scored.
+Plain Schottky is disqualified on hard requirements before scoring - a 0.3–0.5V forward drop on a 5V rail cascades through the LDO headroom budget and is not recoverable. Not scored.
 
 | Criteria | Weight | MAX40203 (integrated, 1A) | LM74700 + external PFET |
 | --- | :---: | :---: | :---: |
@@ -352,7 +352,7 @@ The 1A ceiling is comfortable for the bootstrap OR'ing load at any realistic til
 | Implementation risk | 6 | 9 | 5 |
 | **Weighted total** | | **350** | **329** |
 
-The table favors TPS1663 (350/470, 74.5%) over discrete (329/470, 70.0%), but the margin is narrow and the cost axis does not fully reflect the per-keyboard impact: at ×4 per tile, TPS1663 is ~$6/tile vs ~$1/tile discrete. On a 6-tile board that is $36 vs $6 purely for switching — a meaningful fraction of the $250 total budget.
+The table favors TPS1663 (350/470, 74.5%) over discrete (329/470, 70.0%), but the margin is narrow and the cost axis does not fully reflect the per-keyboard impact: at ×4 per tile, TPS1663 is ~$6/tile vs ~$1/tile discrete. On a 6-tile board that is $36 vs $6 purely for switching - a meaningful fraction of the $250 total budget.
 
 **Going with discrete** as a deliberate engineering tradeoff: the performance gap is real but the cost and area penalty of TPS1663 locks in $6/tile before any measurements exist to justify it. The failure mode (firmware OCP too slow to catch a fault) is diagnosable on real hardware.
 
