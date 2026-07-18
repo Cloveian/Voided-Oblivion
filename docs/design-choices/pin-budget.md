@@ -43,17 +43,17 @@ ok dumping it all in a table to see the damage:
 | Key mux select lines (shared) | 4 | anywhere |
 | HV per-side enable | 4 | anywhere |
 | HV per-side current sense (firmware OCP) | 4 | **ADC** (or mux, see below) |
-| FUSB302 I²C (SDA + SCL) | 2 | I²C-capable |
-| FUSB302 INT | 1 | anywhere |
+| FUSB302 I²C (SDA + SCL, shared by both PHYs) | 2 | I²C-capable |
+| FUSB302 INT (2 PHYs, 1 line each) | 2 | anywhere |
 | Inter-tile comms (4 sides × Tx/Rx) | 8 | 2 sides UART-capable |
 | Submodule comms (4 corners × Tx/Rx) | 8 | anywhere (PIO) |
 | RGB (SK9822 HW SPI: SCK + TX) | 2 | same SPI instance |
 | Big buck enable | 1 | anywhere |
 | Steno flash CS1n (if 2nd chip) | 1 | QMI CS1n: GPIO0/8/19/47 |
-| **Total** | **37** | |
+| **Total** | **38** | |
 
 **ADC used:** 2 (key mux) + 4 (HV sense) = **6 of 8**
-**GPIO used:** **37 of 48 → 11 spare** (and 2 of those spares, 46/47, are still ADC-capable, so i even have analog headroom)
+**GPIO used:** **38 of 48 → 10 spare** (and 2 of those spares, 46/47, are still ADC-capable, so i even have analog headroom). the +1 over the original 37 is the **2nd FUSB302's INT** - the dual-PHY PD call from the [comms revisit](comms.md#revisit-pdcc-architecture-the-cc-mux-doesnt-survive-cold-start).
 
 it fits!! and not even barely, like there's real room left over. one RP2350B per tile does everything, no second MCU, no painful cuts. very relieved ngl >w<
 
@@ -66,8 +66,9 @@ this isn't final (KiCad gets the final say once i'm actually routing), but i wan
 | GPIO40, 41 | Key mux A/B ADC outputs | ADC |
 | GPIO42–45 | HV per-side current sense | ADC |
 | GPIO34 (SPI0 SCK), 35 (SPI0 TX) | RGB to SK9822 | hardware SPI0 |
-| GPIO20 (I2C0 SDA), 21 (I2C0 SCL) | FUSB302 | hardware I²C0 |
-| GPIO15 | FUSB302 INT | anywhere |
+| GPIO20 (I2C0 SDA), 21 (I2C0 SCL) | FUSB302 ×2 (shared bus, address variants) | hardware I²C0 |
+| GPIO15 | FUSB302 #1 INT | anywhere |
+| GPIO18 | FUSB302 #2 INT | anywhere |
 | GPIO12/13 + 16/17 | Inter-tile **Top + Left** (UART0 pair) | both UART0 TX/RX capable, for the rotation thing |
 | GPIO4/5 + 6/7 | Inter-tile **Bottom + Right** (UART1 pair) | both UART1 TX/RX capable |
 | GPIO22–29 | Submodule corners (4× Tx/Rx) | PIO, anywhere |
@@ -75,7 +76,7 @@ this isn't final (KiCad gets the final say once i'm actually routing), but i wan
 | GPIO0–3 | HV per-side enable | anywhere |
 | GPIO14 | Big buck enable | anywhere |
 | GPIO19 | Steno flash CS1n | QMI CS1n |
-| **Spare** | GPIO18, 30–33, 36–39, 46, 47 | 11 free :3 |
+| **Spare** | GPIO30–33, 36–39, 46, 47 | 10 free :3 |
 
 the **rotation pairing** ([comms](comms.md)) is why Top+Left are both on UART0-capable pins and Bottom+Right are both on UART1-capable pins. that way when a tile gets turned 90° the same UART firmware path still works, firmware just hands the hardware UART to whichever side in the pair actually has a neighbor and lets the other side run on a PIO SM. past-me on the comms page was smart for once.
 
@@ -89,4 +90,4 @@ couple things i'm leaving for later, none of them break anything:
 - **Steno flash:** if the dict just fits on the boot flash, i drop the CS1n pin and it's 36/48. the second-chip option is only if boot + dict don't wanna share nicely.
 - **PIO SM sanity check** (cross-checking [comms](comms.md)): RGB on HW SPI (0 SMs) + 2 inter-tile sides on HW UART (0) + 2 inter-tile sides on PIO (4) + submodules NOT muxed, 1 Tx + 1 Rx per corner × 4 (8) = **12 of 12 SMs**. that's the whole budget with 0 spare, on purpose, see the [comms revisit](comms.md#revisit-actually-dont-mux-them) for why (simpler build, and muxing is an easy lever to claw back 6 SMs later if something else needs them). pins don't change either way, the 8 submodule lines are GPIO regardless. the two pages agree :3
 
-so the verdict: **pins close (37/48), ADC closes (6/8), PIO SMs close (6/12).** everything fits on one chip with headroom in all three budgets. AND this clears the thing that was blocking [submodules](submodules.md), there's definitely room for the 4-corner connector, so i can go un-pause that page now >w<
+so the verdict: **pins close (38/48), ADC closes (6/8), PIO SMs close (6/12).** everything fits on one chip with headroom in all three budgets. AND this clears the thing that was blocking [submodules](submodules.md), there's definitely room for the 4-corner connector, so i can go un-pause that page now >w<

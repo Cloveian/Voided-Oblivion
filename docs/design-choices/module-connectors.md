@@ -141,7 +141,7 @@ mezzanine and card-edge stay out (neither likes blind hotplug or genderless mati
 | Doesn't complicate the genderless connector | 5 | 9 | 6 | 7 | 8 |
 | **Weighted total** | | **329** | 279 | 295 | 279 |
 
-**Winner: case-wall magnets (329 / 440, 74.8%)** — which is the plan i walked in with, but now it's earned. it holds well, keeps the magnets clear of the sensors, and leaves the connector dumb. mechanical latch (295) scores well on holding + zero magnet risk but loses on bulk + snap feel + reconfig friction. in-connector magnets self-align best but park magnets right next to the hall sensors, the one thing i'm trying to avoid.
+**Winner: case-wall magnets (329 / 440, 74.8%)** - which is the plan i walked in with, but now it's earned. it holds well, keeps the magnets clear of the sensors, and leaves the connector dumb. mechanical latch (295) scores well on holding + zero magnet risk but loses on bulk + snap feel + reconfig friction. in-connector magnets self-align best but park magnets right next to the hall sensors, the one thing i'm trying to avoid.
 
 ## decision
 - **contacts:** leaning pogo + flat pad (genderless via the center gender split), but it's a true tie with spring-finger, decided only by pogo's Z-compliance. spring-finger is a live co-winner if low-profile gets tight. **prototype both before committing.**

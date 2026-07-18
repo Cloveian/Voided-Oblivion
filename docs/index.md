@@ -58,5 +58,11 @@ Continuing:
 - [RGB (revisit)](design-choices/rgb.md#Continue)- SK9822-EC20 was chosen
 - [Pin budget](design-choices/pin-budget.md) - it all fits on one RP2350B: 37/48 GPIO, 6/8 ADC, 12/12 PIO SMs
 - [Submodules (revisit)](design-choices/submodules.md#Continue) - 4-pin (5V/GND/Rx/Tx) per corner, independent UART, un-paused
-- [Pin Budget](design-choices/pin-budget.md)
 - [module-connectors](design-choices/module-connectors.md)
+- [Key sensors (revisit)](design-choices/hall-effect-sensors.md#Revisit) - rework heat is not a concern with hotplate + low temp paste + firmware calibration
+
+## Building the schematic
+Design choices are settled; now wiring up one tile.
+- [Schematic checklist](schematic-checklist.md) - what to wire, per block, with the pin assignment
+- [Schematic-design calcs](schematic-design/index.md) - datasheet math behind the component values
+- [Build log](schematic-design/log.md) - dated, pick-up-where-I-left-off notes

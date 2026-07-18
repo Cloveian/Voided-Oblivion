@@ -151,7 +151,7 @@ Takeaways:
 
 I am gonna put a pin in this file for now as i need to figure our what the current state of what pins are available is, if reading by stream of consciousness go back to [index](../index.md)
 
-## Continue — pins exist, un-pausing
+## Continue - pins exist, un-pausing
 
 ok i did the [pin-budget](pin-budget.md) page and the thing i was waiting on is answered: there's room. so let me actually lock the submodule connector down.
 
@@ -160,13 +160,13 @@ sticking with the 4-pin per-corner idea from up top: **5V, GND, Rx, Tx**, one co
 
 pin budget says each corner gets its own dedicated Tx + Rx straight off the RP2350B:
 - 4 corners × (Tx + Rx) = **8 GPIO**, assigned GPIO22–29 in the budget
-- and per the [comms revisit](comms.md#revisit-actually-dont-mux-them) these are **not muxed** — every corner is an independent PIO Tx/Rx pair, so all 4 corners can talk at once with zero queueing. (if i ever need those SMs back, muxing is the easy lever, but for now they're independent.)
+- and per the [comms revisit](comms.md#revisit-actually-dont-mux-them) these are **not muxed** - every corner is an independent PIO Tx/Rx pair, so all 4 corners can talk at once with zero queueing. (if i ever need those SMs back, muxing is the easy lever, but for now they're independent.)
 - 5V comes off the tile's big buck (the gated noisy rail), GND is the common reference. no per-corner power switching, the per-port current is small enough not to bother.
 
 so each corner connector is dead simple: power + ground + a full-duplex UART. a submodule is just "has an MCU, speaks UART, pulls ≤300mA."
 
 ### power
-already worked out above — reserve a **per-port allowance** (~300mA if displays/touch are in scope, way less for simple input modules), additive on top of the tile's own load, carried into [power](power.md). firmware does live estimation: a module announces what class it is when it connects, master adds it to the budget, and if there isn't headroom it trims elsewhere (RGB first).
+already worked out above - reserve a **per-port allowance** (~300mA if displays/touch are in scope, way less for simple input modules), additive on top of the tile's own load, carried into [power](power.md). firmware does live estimation: a module announces what class it is when it connects, master adds it to the budget, and if there isn't headroom it trims elsewhere (RGB first).
 
 ### protocol (the firmware side, just noting it)
 - module connects → sends a hello on its corner UART saying what it is
@@ -175,7 +175,7 @@ already worked out above — reserve a **per-port allowance** (~300mA if display
 - disconnect detection falls out of the same Rx-idle / pulldown trick comms already uses for neighbor detection
 
 ### what's actually still open
-- **physical connector choice** — pin headers vs something keyed/magnetic vs pogo pins. this is a mechanical/enclosure call, not an electrical one, so it waits until i'm doing the case + board outline. the 4 signals don't change whatever i pick.
-- everything electrical is settled. submodules are off the critical path now — i can design tiles without a single submodule existing, then add modules later against this fixed 4-pin contract.
+- **physical connector choice** - pin headers vs something keyed/magnetic vs pogo pins. this is a mechanical/enclosure call, not an electrical one, so it waits until i'm doing the case + board outline. the 4 signals don't change whatever i pick.
+- everything electrical is settled. submodules are off the critical path now - i can design tiles without a single submodule existing, then add modules later against this fixed 4-pin contract.
 
 so: **submodule connector = 4-pin (5V/GND/Rx/Tx) per corner, independent UART per corner, ~300mA/port budget.** un-paused and basically done, just the connector body to pick later. back to [index](../index.md)
