@@ -23,13 +23,13 @@ Pin numbers are the **starting assignment** from [pin-budget](design-choices/pin
 
 See [power](design-choices/power.md) for the full flow. Three rails: **HV** (per-side switched), **bootstrap 5V** (always-on, shared), **clean 3.3V** (LDO). GND common everywhere.
 
-- [ ] **FUSB302BMPX** USB-PD PHY - I²C0 **SDA GPIO20 / SCL GPIO21**, **INT GPIO15**, CC1/CC2 from the active port (via CC mux, §6)
-- [ ] **TPS54302** ×2 (same part, 2 BOM instances):
-  - [ ] **Clean buck** (HV→5V, always-on) - input must work from ~5.5V (pre-PD) through 20V; feeds the LDO + OR's onto bootstrap
-  - [ ] **Big buck** (HV→5V, gated) - enable on **GPIO14**; feeds RGB + submodules
-  - [ ] Each: inductor, input/output caps, feedback divider for 5V per datasheet
-- [ ] **XC6220B331MR** 3.3V LDO off clean 5V - feeds MCU + hall sensors + mux (low-noise, this is the analog rail). **5-pin SOT-25 with a CE pin - tie CE to VIN** (always-on clean rail, must never gate off)
-- [ ] **MAX40203** ideal diode - clean buck 5V → shared **bootstrap** net (near-zero drop OR'ing)
+- [x] **FUSB302BMPX** USB-PD PHY - I²C0 **SDA GPIO20 / SCL GPIO21**, **INT GPIO15**, CC1/CC2 from the active port (via CC mux, §6)
+- [x] **TPS54302** ×2 (same part, 2 BOM instances):
+  - [x] **Clean buck** (HV→5V, always-on) - input must work from ~5.5V (pre-PD) through 20V; feeds the LDO + OR's onto bootstrap
+  - [x] **Big buck** (HV→5V, gated) - enable on **GPIO14**; feeds RGB + submodules
+  - [x] Each: inductor, input/output caps, feedback divider for 5V per datasheet
+- [x] **XC6220B331MR** 3.3V LDO off clean 5V - feeds MCU + hall sensors + mux (low-noise, this is the analog rail). **5-pin SOT-25 with a CE pin - tie CE to VIN** (always-on clean rail, must never gate off)
+- [x] **MAX40203** ideal diode - clean buck 5V → shared **bootstrap** net (near-zero drop OR'ing)
 
 ## 3. Power - VBUS handoff & HV switching (hardware, no firmware)
 
@@ -55,7 +55,7 @@ See [power](design-choices/power.md) for the full flow. Three rails: **HV** (per
 
 ## 5. RGB
 
-- [ ] **SK9822-EC20** ×30 (reverse-mount, lights through switch) - daisy-chained
+- [ ] **SK9822-EC20** ×30 - daisy-chained
 - [ ] Hardware **SPI0**: SCK **GPIO34**, TX(MOSI) **GPIO35**
 - [ ] Powered from the **big (gated) buck** 5V, NOT the clean rail
 - [ ] Level-shift 3.3V→5V on SCK/data if SK9822 needs it (check VIH; add 74AHCT if marginal)
