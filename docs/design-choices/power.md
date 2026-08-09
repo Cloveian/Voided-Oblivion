@@ -88,6 +88,12 @@ Bootstrap does NOT get per-side switches: it's always on and spans every side be
 
 (this adds 4 HV-enable GPIO per tile, noting it for the pin budget)
 
+> **Correction - "boundary switches stay open" is only half an isolation.** A single MOSFET is a **unidirectional** switch: its intrinsic body diode sits across source–drain, the gate has no control over it, and with the switch wired source-on-PD+ / drain-on-connector it blocks **outbound** only. Inbound current from a neighbour flows straight through the diode regardless of whether my switch is on.
+>
+> The partition scheme still works, but **cooperatively** - both sides of a boundary have to be open, and then the two body diodes oppose each other and the edge net genuinely floats. What's *not* true is that a tile can unilaterally refuse power from a neighbour that has decided to send it. Two PD sources at different voltages still can't fight (that case has both boundary switches open by definition), so the architecture holds - the mechanism is just "both agreed" rather than "either can veto".
+>
+> Not being fixed: true bidirectional blocking needs back-to-back FETs and a gate drive referenced to a floating shared source, to defend against a firmware topology bug. Full working, including the firmware teardown requirement it creates, in [power schematic-design](../schematic-design/power.md#the-body-diode---an-open-switch-only-blocks-outbound).
+
 ### Buck setup
 The buck has to source from the HV rail, not just the local PD chip, so a tile with no USB port can still make its own 5V off the incoming high voltage. Leaning toward 2 bucks: a small always-on one for bootstrap/clean, and a big gated one for the HV->5V heavy loads.
 
@@ -356,6 +362,66 @@ The table favors TPS1663 (350/470, 74.5%) over discrete (329/470, 70.0%), but th
 
 **Going with discrete** as a deliberate engineering tradeoff: the performance gap is real but the cost and area penalty of TPS1663 locks in $6/tile before any measurements exist to justify it. The failure mode (firmware OCP too slow to catch a fault) is diagnosable on real hardware.
 
+> **Update - the discrete option got much stronger, and this decision was re-run.** Once the connector fixed the per-side current at 4A ceiling / ≥2A continuous, I re-scored this against the actual FET choices in [power schematic-design](../schematic-design/power.md#hv-per-side-switches---picking-the-fet). TPS1663 came second again (329 on that table's scale). The winner is **AO4407A ×4** - the same part already at Q2, so no new BOM line - and crucially its **±25V Vgs** closes the "Voltage / VGS headroom" row that discrete lost 10-vs-7 on here. The AO3401A this table implicitly assumed was ±12V against a 20V rail and only survived because of a zener. So the discrete option now wins that row on merit, not on cost.
+>
+> **The one thing this decision still owes:** it was made explicitly accepting *"no automatic hardware OCP; firmware OCP via ADC instead."* The current-sense amplifier that makes firmware OCP possible **has never been picked**. Until it is, this table's premise isn't actually implemented.
+
+### Re-decision: does this need per-edge OCP at all?
+
+Went to finally pick the sense amp and ended up questioning whether the whole sensing path earns its place. **It doesn't.**
+
+#### Identify - what am i actually protecting against?
+
+| fault | what covers it *today*, without any sensing |
+| --- | --- |
+| **dead short across an edge** (debris, shorted neighbour) | **the PD source.** Q4 is ~13mΩ and the contacts/traces are a few more, so the current is set entirely by the source's own limit (~5A for a 60W brick), not by anything on my board. At 5A the AO4407A dissipates **0.33W** - it isn't even warm. The tile browns out until the offending neighbour is removed, then recovers. Unpleasant, not damaging |
+| **sustained overcurrent** (too many tiles through one joint) | nothing in hardware - **but firmware already knows the topology.** Master does tile discovery over UART, so it can refuse to enable a path that exceeds the budget, or negotiate a higher PD voltage to cut the current. That's **free**, and it prevents the fault instead of reacting after the contacts have already been at 1.5A |
+| **exceeding the connector rating** | already **2× derated** - 2A design target against a 4A connector |
+
+The fast, dangerous fault is bounded by the source. The slow fault is preventable in firmware at zero cost. That's the whole argument.
+
+#### The constraint that actually decides it
+
+This got re-run because **board area is the binding constraint** - the current footprints are already a struggle to place. That kills the obvious hedge (fit the pads, leave them DNP): **a DNP footprint costs exactly as much board as a populated one.** It also reprices everything, because the original discrete-vs-eFuse table above scored **cost** at weight 8 and never scored **area or ADC channels at all**.
+
+ADC is the scarce one. There are **8 ADC total**; 2 go to the key muxes. Per-edge sensing takes **4 more** → 6/8 spent. Dropping it leaves **2/8**.
+
+#### Brainstorm
+
+| | option | area | ADC used | $/tile |
+| --- | --- | --- | --- | --- |
+| A | 4× INA181A2 (C2058784) + 10mΩ shunts + REF bias | ~95mm² | 4 | ~$1.08 |
+| B | 4× TPS1663 eFuse | ~160mm² | **0** | ~$6 |
+| C | Footprints fitted, DNP | **~95mm²** | 4 reserved | ~$0 |
+| D | **None - firmware topology limiting** | **0** | **0** | **$0** |
+
+#### Select
+
+| Criteria | Weight | A: INA181 | B: eFuse | C: DNP | D: none |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| Board area (the binding constraint) | 9 | 2 | 3 | 2 | 10 |
+| ADC channels left free | 8 | 1 | 10 | 3 | 10 |
+| Covers a dead short | 7 | 6 | 10 | 3 | 7 |
+| Covers sustained overcurrent | 7 | 9 | 10 | 3 | 8 |
+| Cost | 5 | 6 | 1 | 9 | 10 |
+| BOM lines / schematic complexity | 5 | 4 | 7 | 8 | 10 |
+| Observability for bring-up | 4 | 10 | 5 | 3 | 2 |
+| **Weighted total** | | 221 | **307** | 181 | **383** |
+
+**Winner: D, no per-edge current sensing (383/450, 85.1%).**
+
+**C is dominated and that's the finding.** Fitting the footprints DNP costs the same area as populating them and delivers none of the protection - the hedge only ever made sense while i thought area was free.
+
+**And B beat A, which is worth sitting with.** The eFuse scores *higher* than the sense-amp path, because it consumes no ADC. The original table above chose discrete over TPS1663 on **cost**, weight 8 - but the constraints that actually bind on this board turned out to be **area and ADC**, neither of which was on that table. Re-scored honestly: **if this design needed per-edge OCP, the eFuse would now be the right answer, not the sense amp.** It doesn't need it, so D wins outright - but the original decision was right for a reason that has since stopped being the reason.
+
+#### Result
+
+- **No shunts, no sense amps, no footprints.** Not DNP - absent.
+- **GPIO42–45 are freed**, ADC budget drops to **2/8**.
+- **Firmware owns overcurrent**, by limiting topology *before* enabling a path rather than tripping after. It already has the tile map.
+- `INA180` is worth recording as a trap: 71,901 in stock and the cheapest part in the class, and it's **SOT-23-5 with no REF pin** - unidirectional only, which [the body diode finding](../schematic-design/power.md#the-body-diode---an-open-switch-only-blocks-outbound) disqualifies outright. Current flows *inward* whenever a neighbour is sourcing, and a unidirectional amp reads that as zero.
+- **What i'm giving up:** bring-up observability. There'll be no way to read per-edge current on real hardware, which is exactly the thing i'd want when something misbehaves. Accepting that deliberately - a bench supply and a meter can do the same job on a prototype, and it doesn't have to be on every tile forever.
+
 ## Budget fallback
 
 If the full design BOM comes in way over budget, there's a coherent cheaper version: ditch the per-side HV switches and the bootstrap rail entirely. HV routes directly to each tile's buck converter (TPS54302 handles 4.5–28V, so it runs straight from 5V VBUS before PD even negotiates). No bootstrap needed because the buck IS the bootstrap, every tile self-powers the moment any port gets VBUS.
@@ -365,4 +431,4 @@ What you lose:
 - **Multi-PD:** two sources at different voltages on the same rail fight each other, stuck to one cable
 - **Fault isolation:** overcurrent on one tile can drag down the whole board
 
-Valid design for "assemble flat, plug in one cable, don't touch it while powered." Not for the modular hotplug use case that was a core goal. Keep this as the "it costs HOW much?" escape hatch. The savings are the 4× AO3401A + 4× NPN + MAX40203 ideal diodes per tile.
+Valid design for "assemble flat, plug in one cable, don't touch it while powered." Not for the modular hotplug use case that was a core goal. Keep this as the "it costs HOW much?" escape hatch. The savings are the 4× AO4407A + 4× NPN + the LM66100 ideal diode per tile.

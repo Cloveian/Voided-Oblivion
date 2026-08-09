@@ -144,6 +144,8 @@ mezzanine and card-edge stay out (neither likes blind hotplug or genderless mati
 **Winner: case-wall magnets (329 / 440, 74.8%)** - which is the plan i walked in with, but now it's earned. it holds well, keeps the magnets clear of the sensors, and leaves the connector dumb. mechanical latch (295) scores well on holding + zero magnet risk but loses on bulk + snap feel + reconfig friction. in-connector magnets self-align best but park magnets right next to the hall sensors, the one thing i'm trying to avoid.
 
 ## decision
+> **superseded in part** - the contact *mechanism* below still stands, but the physical realization changed completely. see [revisit](#revisit-i-picked-a-real-connector-and-it-killed-the-custom-cutout-idea) at the bottom: it's an off-the-shelf 6P connector pair now, not loose pogo pins, and the pinout grew from 8 contacts to 12.
+
 - **contacts:** leaning pogo + flat pad (genderless via the center gender split), but it's a true tie with spring-finger, decided only by pogo's Z-compliance. spring-finger is a live co-winner if low-profile gets tight. **prototype both before committing.**
 - **retention:** magnets baked into the case walls, separate from the contacts
 - **pinout:** the palindrome (GND HV BOOT Tx Rx BOOT HV GND), power doubled, split pogo/pad down the middle
@@ -151,6 +153,119 @@ mezzanine and card-edge stay out (neither likes blind hotplug or genderless mati
 
 ### still open (carry forward)
 - actually measure a case magnet's field at the nearest hall sensor, confirm it doesn't saturate
-- pick a real pogo part + magnet size once i'm doing the case + board outline
+- ~~pick a real pogo part + magnet size once i'm doing the case + board outline~~ - **pogo part picked**, see revisit. magnet size still open.
 
-back to [index](../index.md)
+## Revisit: i picked a real connector, and it killed the custom-cutout idea
+
+### what i was about to build
+
+i'd gone a long way down a rabbit hole. the plan was **individual discrete pogo pins** (Top-Link 10101012662) mounted into a **negative cutout routed into the board edge**, so the pin body lives *inside* the 1.6mm board thickness and adds zero Z-height. the contact side would be a **plated scallop** - a half-hole castellation routed at depanelization - giving the plunger a concave cradle of matched radius instead of a flat pad, so Hertzian contact spreads over a patch instead of a point.
+
+it was a genuinely nice idea and the physics checked out. i worked through most of it:
+- **0mm gap between tiles** makes working height = cutout depth, which drops the pin's own ±0.15mm length tolerance out of the stack entirely
+- **advance = cavity depth `t`, not radius `R`**, so conformity (R) and protrusion (t) are independent knobs - `protrusion = 0.80 + t`, `pocket depth = 3.50 − t`
+- landed on a ⌀1.5mm hole (R=0.75), t=0.40mm, 3.15mm pocket, 1.20mm protrusion
+
+### why it died
+
+none of the physics was wrong. what killed it was everything *around* the physics:
+
+- **it's an unproven custom footprint, hand-soldered, ×40.** four edges × ~10 pins × however many tiles, every one of them a hand-placed pin in a routed slot. if the footprint is off by the 0.13/−0.08mm JLC gives me on holes plus ±0.1mm on routing, i find out forty joints in.
+- **the tolerance stack was load-bearing and i'd already been wrong once.** i misread the pin drawing and told myself the body was ⌀1.54 when only the mid-lip is; i under-reported plunger protrusion as 0.85mm when the ⌀1.5 half-hole and its shallower pocket actually make it 1.55mm. two errors on the same part in one sitting is the design telling me something.
+- **the scallop is a depanelization artifact.** it only exists because the plated hole gets routed through when the board leaves the panel, which means its finish quality is a process side-effect, not a spec i can order. and a routed vertical edge can't take hard gold (that's a top/bottom-face service) - so it's **ENIG's 0.05–0.1µm** on a surface designed to be *rubbed*, versus 0.75–1.27µm on a real wear finish.
+- **i was designing a connector.** that's a solved problem someone else has already tooled.
+
+### the part
+
+**PG-6P-2.5-5.5H-SM-RA**, Shenzhen Yiwei Technology. 6 positions, 2.5mm pitch, 5.5mm height, surface-mount, right-angle. **Two per side: one 6P male + one 6P female.**
+
+**and the gender split falls out for free.** the whole "split the gender down the middle" trick above - the thing that made every edge self-mating - is now just *place two bodies per edge, male one side of the midline and female the other.* i don't have to engineer it, it's two parts. the cleverest bit of the original design became the least clever bit of the implementation, which is exactly what you want.
+
+### the gender rule: clockwise, male first
+
+the one thing that is **not** obvious, and that i'd get wrong if i wrote it down lazily as "male on the left half": *left* stops meaning anything once the edge rotates. the actual invariant is rotational.
+
+**going clockwise around the tile perimeter, every edge is male-then-female.**
+
+| edge | traversed clockwise | first body | second body |
+| --- | --- | --- | --- |
+| top | left → right | J1 **male** | J2 female |
+| right | top → bottom | J3 **male** | J4 female |
+| bottom | right → left | J7 **male** | J8 female |
+| left | bottom → top | J5 **male** | J6 female |
+
+and *that's* why it self-mates. when tile A's right edge butts against tile B's left edge, they're the same physical line, but A and B traverse it in **opposite** rotational senses - A's clockwise runs top→bottom along it, B's clockwise runs bottom→top. so A's male half is at the top and B's male half is at the bottom, which means A-male lands on B-female and A-female lands on B-male, everywhere, automatically. the 180° flip case falls out the same way.
+
+it's the same trick as the palindrome, just applied to gender instead of nets, and it only reads correctly if you state it as a rotation.
+
+### the pinout, now 12 contacts
+
+```
+contact:  1    2    3    4    5    6   |   7    8    9    10   11   12
+net:      GND  GND  HV   HV   BS   Tx  |   Rx   BS   HV   HV   GND  GND
+body:     <-------- 6P male -------->  |  <------- 6P female ------->
+pin:      1    2    3    4    5    6   |   1    2    3    4    5    6
+```
+
+so per body, and this is what's actually drawn: **male = GND GND HV HV BS Tx** on pins 1–6, **female = Rx BS HV HV GND GND** on pins 1–6.
+
+mirror check, contact `i` meets the neighbor's contact `13−i`:
+
+| pair | nets | gender |
+| --- | --- | --- |
+| 1 ↔ 12 | GND ↔ GND ✓ | male ↔ female ✓ |
+| 2 ↔ 11 | GND ↔ GND ✓ | male ↔ female ✓ |
+| 3 ↔ 10 | HV ↔ HV ✓ | male ↔ female ✓ |
+| 4 ↔ 9 | HV ↔ HV ✓ | male ↔ female ✓ |
+| 5 ↔ 8 | BS ↔ BS ✓ | male ↔ female ✓ |
+| 6 ↔ 7 | **Tx ↔ Rx** ✓ | male ↔ female ✓ |
+
+**4× GND, 4× HV, 2× BS, Tx, Rx.** power doubled from the original 8-contact sketch (which had 2 HV / 2 GND), because two 6P bodies hand you twelve contacts whether you want them or not and spending the extras on copper is the obvious move.
+
+**GND stays outboard**, exactly like the original `GND HV BOOT Tx Rx BOOT HV GND` sketch had it - i just doubled each pair rather than reordering. that ordering is worth keeping deliberately: the outermost contacts are the ones most exposed to debris, misalignment and a partially-inserted tile, and those should be **ground, not a 20V rail**. HV sits inboard behind them, and the comms pair sits dead centre where it's most protected.
+
+> **footprint rule, and it's the one that breaks everything if you get it wrong:** both bodies must be placed **symmetric about the edge midline**. the contacts don't need uniform 2.5mm spacing *across* the male/female boundary - the two bodies will have their own end margins, so that gap will be wider than 2.5mm - they only need to mirror. identical bodies butted symmetrically about center gives that automatically. an asymmetric placement silently maps HV onto Tx.
+
+### what this does to the rest of the design
+
+- **the per-side current budget finally exists.** 4× HV contacts at 1A each = **4A hard ceiling per side**, and i'm designing the switch for **≥2A continuous** (50% contact derate). that closed the question that had been blocking the HV per-side FET choice since the research flagged it as *"the single biggest lever"* - working through in [power schematic-design](../schematic-design/power.md#hv-per-side-switches---picking-the-fet). the FET went **AO3401A → AO4407A** as a direct result.
+- **2A supports the array sizes i care about:** ~18W at 9V (≈3.6 tiles downstream), ~40W at 20V (≈8 tiles). at 9V the connector's 4A ceiling is the real limit rather than the voltage - 36W ≈ 7 tiles.
+- **the "~6–8 contacts per edge" estimate in Identify was low**, and the "each power net has 2 mating contacts... HV ~4A = ~2A per contact" note is stale - it's 4 contacts at 1A now. leaving both as the record.
+- **no inset sequencing.** with loose pins i could have recessed the signal contacts so they broke first on unplug. two molded bodies can't do that - each body carries HV, GND *and* signal, so there's no way to split them by depth. **all twelve contacts make and break together.** that means hot-unplug safety rests entirely on the PD voltage, not on ordering.
+
+### the voltage consequence
+
+pogo voltage ratings are **arc-erosion** specs, not dielectric ones (the magnetic connector i looked at earlier rates 36VDC but withstands 500VAC). what actually matters on a hot break is the **minimum arcing voltage** of the contact metal: gold is **~15V**. below that a sustained arc physically cannot form, regardless of current. that's a floor, not a derating.
+
+and it's not just voltage - **an arc needs a minimum voltage AND a minimum current**, both. for gold that's **~15V and ~0.4A**. miss either one and it can't sustain.
+
+> **correction: 12V was the wrong default.** i'd written this around 12V, but **12V isn't a required PD voltage** - the USB PD Power Rules make the steps above 5V **9V (27W) / 15V (45W) / 20V (60W)**. 12V is never required at any power level, it's an optional extra PDO. a source may simply not offer it. so the plan can't be built on it.
+
+redoing it against the steps that actually exist:
+
+| PD step | vs V_min (15V) | per-tile draw | verdict |
+| --- | --- | --- | --- |
+| **9V** | below | 0.56A | **unconditionally safe** - the voltage axis alone blocks it, current doesn't matter |
+| **15V** | *at* the threshold | 0.33A/tile | safe **only when breaking ≤1 tile** (0.33A < 0.4A). 2 tiles = 0.67A → can arc |
+| **20V** | above | - | not arc-safe |
+
+so the standing plan is **firmware defaults to 9V**, and that's a stronger result than the 12V version it replaces - 12V was safe with ~3V of room, 9V has 6V, and it doesn't depend on how much is downstream. 15V turns out to be conditionally safe in a way that's nearly useless: it only holds for a single-tile break, which is exactly the case i don't care about. 20V stays behind an explicit flag with a "don't hot-unplug" warning.
+
+**what 9V costs:** 2A × 9V = 18W ≈ **3.6 tiles** per joint, down from 5 at 12V. the connector's 4A ceiling gives 36W ≈ 7 tiles. so at 9V the array is **current-limited rather than voltage-limited**, which is one more reason the [per-side FET](../schematic-design/power.md#hv-per-side-switches---picking-the-fet) needed to be the one with current headroom.
+
+**and one to actually check on the bench:** [session 2](../schematic-design/log.md) records that the TPS54302 *"can't make 5V below ~9V in"*, so **9V is exactly the buck's stated minimum input**. the safest arc voltage is also the tightest buck condition. that's a measurement, not an assumption.
+
+### risks i'm carrying knowingly
+
+- **single-source niche part.** it isn't in the LCSC/JLC catalogue at all (i searched). that's *fine* because these are hand-soldered - a constraint the original decision quietly assumed but never wrote down - but it means no second source and no JLC assembly for this line. buy spares.
+- **5.5mm height vs "low profile", which is a stated must-have.** this is taller than the 4.00mm magnetic connector i partly rejected on bulk, so i should be honest that i'm not applying the criterion evenly. the argument for why it's OK: it's a right-angle part at the board perimeter, below switch height, and the thing it actually has to clear is the case wall - not the key stack. **needs checking against the real case cross-section**, not hand-waved.
+- **populate 2 tiles first.** 40 hand-soldered connectors on a footprint that has never been built is not where i want to discover a 0.2mm error. validate the joint on one mating pair before committing the rest.
+
+### still open
+
+- price + stock, once i've actually ordered
+- confirm 5.5mm clears the case wall on the real cross-section
+- magnet size for retention (unchanged from above)
+- draw the two footprints (short 5un / long 6un edge) with the symmetric-about-midline rule baked in
+
+if reading by stream of consciousness go back to [index](../index.md)

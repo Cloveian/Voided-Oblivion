@@ -602,72 +602,12 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
-        },
-        {
-          "group_by": false,
-          "label": "LCSC Part",
-          "name": "LCSC Part",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "MPN",
-          "name": "MPN",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "NOTE",
-          "name": "NOTE",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Notes",
-          "name": "Notes",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Purpose",
-          "name": "Purpose",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Sim.Device",
-          "name": "Sim.Device",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Sim.Pins",
-          "name": "Sim.Pins",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "LCSC",
-          "name": "LCSC",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Description",
-          "name": "Description",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "#",
-          "name": "${ITEM_NUMBER}",
-          "show": false
         }
       ],
-      "filter_string": "h",
+      "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "",
+      "name": "Default Editing",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -712,7 +652,7 @@
         "uuid": "d39297fe-343b-4cf0-9c31-a16e101c76da"
       }
     ],
-    "used_designators": "#FLG1-10,PD2,L2-3,J1,C1,C5,C23-45,D1-6,R5,R12,R14-51,R62-67,USB2-3,P1,Q1-3,U2,U4-14,Y2,#PWR1-3,#PWR7,#PWR10-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR151-158,#PWR177-179",
+    "used_designators": "#FLG1-10,PD2,L2-3,J1-3,J5-20,C1,C5,C23-45,C76-77,C114,C116-125,D1-6,R5,R12,R14-51,R62-100,USB2-3,P1,Q1-11,U2,U4-16,Y2,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-224",
     "variants": []
   },
   "sheets": [

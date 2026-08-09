@@ -55,11 +55,11 @@ Continuing:
 - [Submodules](design-choices/submodules.md) - basic idea sketched out
 - [Power](design-choices/power.md) - really complicated power flow mostly figured out
 - [Communications](design-choices/comms.md) - PIO uart for inter-module communication, independent uart per sub module corner
-- [RGB (revisit)](design-choices/rgb.md#Continue)- SK9822-EC20 was chosen
-- [Pin budget](design-choices/pin-budget.md) - it all fits on one RP2350B: 37/48 GPIO, 6/8 ADC, 12/12 PIO SMs
-- [Submodules (revisit)](design-choices/submodules.md#Continue) - 4-pin (5V/GND/Rx/Tx) per corner, independent UART, un-paused
+- [RGB (revisit)](design-choices/rgb.md#continue)- SK9822-EC20 was chosen
+- [Pin budget](design-choices/pin-budget.md) - it all fits on one RP2350B: 44/48 GPIO, 6/8 ADC, 12/12 PIO SMs
+- [Submodules (revisit)](design-choices/submodules.md#continue---pins-exist-un-pausing) - 4-pin (5V/GND/Rx/Tx) per corner, independent UART, un-paused
 - [module-connectors](design-choices/module-connectors.md)
-- [Key sensors (revisit)](design-choices/hall-effect-sensors.md#Revisit) - rework heat is not a concern with hotplate + low temp paste + firmware calibration
+- [Key sensors (revisit)](design-choices/hall-effect-sensors.md#revisit-hall-effect-sensor-heat-sensitivity) - rework heat is not a concern with hotplate + low temp paste + firmware calibration
 
 ## Building the schematic
 Design choices are settled; now wiring up one tile.
