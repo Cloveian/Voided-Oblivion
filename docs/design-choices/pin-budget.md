@@ -42,20 +42,35 @@ ok dumping it all in a table to see the damage:
 | Key mux ADC outputs (2× 74HC4067) | 2 | **ADC** (GPIO40–47) |
 | Key mux select lines (shared) | 4 | anywhere |
 | HV per-side enable | 4 | anywhere |
-| HV per-side current sense (firmware OCP) | 4 | **ADC** (or mux, see below) |
-| FUSB302 I²C (SDA + SCL, shared by both PHYs) | 2 | I²C-capable |
+| ~~HV per-side current sense (firmware OCP)~~ **cut** | ~~4~~ **0** | see the correction below |
+| **Submodule corner ID / analog** (4 corners) | **4** | **ADC** (GPIO42–47) |
+| **Submodule BS+ branch enable** (`SM BS EN`, U12) | **1** | anywhere |
+| **Submodule group switch enable** (`SM EN`, U16) | **1** | anywhere |
+| **Submodule rail fault** (`SM FLT`, U16 /FLG) | **1** | anywhere |
+| **`BS+ SRC`** — LM66100 ST status (which source is feeding BS+) | **1** | anywhere |
+| FUSB302 I²C — **2 separate buses** (SDA+SCL each) | **4** | I²C-capable |
 | FUSB302 INT (2 PHYs, 1 line each) | 2 | anywhere |
 | Inter-tile comms (4 sides × Tx/Rx) | 8 | 2 sides UART-capable |
 | Submodule comms (4 corners × Tx/Rx) | 8 | anywhere (PIO) |
 | RGB (SK9822 HW SPI: SCK + TX) | 2 | same SPI instance |
 | Big buck enable | 1 | anywhere |
 | Steno flash CS1n (if 2nd chip) | 1 | QMI CS1n: GPIO0/8/19/47 |
-| **Total** | **38** | |
+| **Total** | ~~38~~ **44** | |
 
-**ADC used:** 2 (key mux) + 4 (HV sense) = **6 of 8**
-**GPIO used:** **38 of 48 → 10 spare** (and 2 of those spares, 46/47, are still ADC-capable, so i even have analog headroom). the +1 over the original 37 is the **2nd FUSB302's INT** - the dual-PHY PD call from the [comms revisit](comms.md#revisit-pdcc-architecture-the-cc-mux-doesnt-survive-cold-start).
+**ADC used:** 2 (key mux) + 4 (submodule ID) = **6 of 8**
+**GPIO used:** **44 of 48 → 4 spare**
+
+> **Correction - this table has understated by 2 since session 4.** The I²C row said **2**, *"shared by both PHYs"*, but session 4 moved to **two separate I²C buses** so both PHYs could stay the plain BMPX. That added SDA/SCL *and* a second INT; the table picked up the INT (hence *"the +1 over the original 37"*) but never the extra bus. The [log](../schematic-design/log.md) recorded **"budget now 40/48"** at the time, which only works with I²C = 4 — so the log and this table have disagreed by 2 for three sessions. The schematic was always right; it has all four I²C pins drawn.
+>
+> Corrected chain: **40** (session 4) **− 4** (current sense cut) **+ 4** (submodule ID) **+ 3** (submodule: `SM BS EN`, `SM EN`, `SM FLT`) **+ 1** (`BS+ SRC`) = **44**. (and 2 of those spares, 46/47, are still ADC-capable, so i even have analog headroom). the +1 over the original 37 is the **2nd FUSB302's INT** - the dual-PHY PD call from the [comms revisit](comms.md#revisit-pdcc-architecture-the-cc-mux-doesnt-survive-cold-start).
 
 it fits!! and not even barely, like there's real room left over. one RP2350B per tile does everything, no second MCU, no painful cuts. very relieved ngl >w<
+
+> **Correction - HV current sense was cut entirely.** The line above says *"since i went discrete instead of the fancy eFuse, firmware OCP needs to actually **see** the current per side too"* - that premise is gone. Working through it properly ([re-decision](power.md#re-decision-does-this-need-per-edge-ocp-at-all)): the **fast** fault (dead short) is bounded by the PD source's own current limit, not by anything on my board, and at that limit the switch FET dissipates 0.33W. The **slow** fault (too many tiles on one joint) is preventable in firmware for free, because master already builds the tile map and can refuse to enable an over-budget path.
+>
+> Board **area** turned out to be the binding constraint, which also killed the "fit the footprints DNP" hedge - a DNP pad costs the same board as a populated one.
+>
+> **ADC goes 6/8 → 2/8, GPIO 38 → 34, and GPIO42–45 are free.** The "mux or dedicated?" question below is moot - there's nothing to route. Leaving it as the record.
 
 ## A starting assignment
 
@@ -64,14 +79,14 @@ this isn't final (KiCad gets the final say once i'm actually routing), but i wan
 | Pins | Use | why these |
 | --- | --- | --- |
 | GPIO40, 41 | Key mux A/B ADC outputs | ADC |
-| GPIO42–45 | HV per-side current sense | ADC |
+| GPIO42–45 | **Submodule corner ID / analog** | ADC |
 | GPIO34 (SPI0 SCK), 35 (SPI0 TX) | RGB to SK9822 | hardware SPI0 |
 | GPIO20 (I2C0 SDA), 21 (I2C0 SCL) | FUSB302 ×2 (shared bus, address variants) | hardware I²C0 |
 | GPIO15 | FUSB302 #1 INT | anywhere |
 | GPIO18 | FUSB302 #2 INT | anywhere |
-| GPIO12/13 + 16/17 | Inter-tile **Top + Left** (UART0 pair) | both UART0 TX/RX capable, for the rotation thing |
-| GPIO4/5 + 6/7 | Inter-tile **Bottom + Right** (UART1 pair) | both UART1 TX/RX capable |
-| GPIO22–29 | Submodule corners (4× Tx/Rx) | PIO, anywhere |
+| GPIO12/13 + 16/17 | Inter-tile **Top + Left** | ~~UART0 pair~~ **all inter-tile is PIO now** |
+| GPIO4/5 + 6/7 | Inter-tile **Bottom + Right** | ~~UART1 pair~~ **all inter-tile is PIO now** |
+| GPIO22–29 | Submodule corners (4× Tx/Rx) | **24/25 = UART1, 28/29 = UART0 (both F2); 22/23 + 26/27 on PIO** |
 | GPIO8–11 | Key mux select lines | anywhere |
 | GPIO0–3 | HV per-side enable | anywhere |
 | GPIO14 | Big buck enable | anywhere |
@@ -79,6 +94,8 @@ this isn't final (KiCad gets the final say once i'm actually routing), but i wan
 | **Spare** | GPIO30–33, 36–39, 46, 47 | 10 free :3 |
 
 the **rotation pairing** ([comms](comms.md)) is why Top+Left are both on UART0-capable pins and Bottom+Right are both on UART1-capable pins. that way when a tile gets turned 90° the same UART firmware path still works, firmware just hands the hardware UART to whichever side in the pair actually has a neighbor and lets the other side run on a PIO SM. past-me on the comms page was smart for once.
+
+> **superseded** - all four inter-tile sides are on PIO now, so there's no hardware UART to hand around and the pairing constraint is gone. The pins stay where they are (no reason to churn them), but they no longer *need* to be UART-capable. Why: [the PL011 is the slower path](comms.md#revisit-the-piosm-allocation-was-built-on-a-wrong-assumption).
 
 ## Open / notes
 
@@ -88,6 +105,8 @@ couple things i'm leaving for later, none of them break anything:
 
   i want this all-or-nothing for cleanliness, either ALL 4 sense lines on the muxes or NONE, because a 2-on-mux / 2-on-dedicated split is the ugly middle (mixed routing, firmware reading sense two different ways). all-4-on-mux isn't possible with only 2 spare channels, so that leaves **none**: all 4 HV sense on dedicated ADC, **6/8**. i've got the ADC channels and GPIO to spare anyway, so no reason to get cute. spare mux channels stay spare :3
 - **Steno flash:** if the dict just fits on the boot flash, i drop the CS1n pin and it's 36/48. the second-chip option is only if boot + dict don't wanna share nicely.
-- **PIO SM sanity check** (cross-checking [comms](comms.md)): RGB on HW SPI (0 SMs) + 2 inter-tile sides on HW UART (0) + 2 inter-tile sides on PIO (4) + submodules NOT muxed, 1 Tx + 1 Rx per corner × 4 (8) = **12 of 12 SMs**. that's the whole budget with 0 spare, on purpose, see the [comms revisit](comms.md#revisit-actually-dont-mux-them) for why (simpler build, and muxing is an easy lever to claw back 6 SMs later if something else needs them). pins don't change either way, the 8 submodule lines are GPIO regardless. the two pages agree :3
+- **PIO SM sanity check** (cross-checking [comms](comms.md)): RGB on HW SPI (0 SMs) + **4 inter-tile sides on PIO (8)** + **2 submodule corners on HW UART (0) + 2 on PIO (4)** = **12 of 12 SMs**. that's the whole budget with 0 spare, on purpose, see the [comms revisit](comms.md#revisit-actually-dont-mux-them) for why (simpler build, and muxing the corners is an easy lever to claw back SMs later if something else needs them). pins don't change either way. the two pages agree :3
+  - > **the allocation flipped**, same total. i'd put the hardware UARTs on the inter-tile sides assuming hardware was the faster path - it isn't. **PL011 caps at UARTCLK/16 = 7.8 Mbaud at 125MHz**; a PIO UART at 8 cycles/bit does ~18.75. So the low ceiling was sitting on the links that carry relayed traffic from every tile downstream, while a knob got the fast one. Swapped in [comms](comms.md#revisit-the-piosm-allocation-was-built-on-a-wrong-assumption). Side effects: **F11 disappears from the design**, and the 2+2 rotation pairing dissolves because all four sides are now identical.
+  - **what binds next is DMA channels, not SMs** - 8 PIO inter-tile + 4 submodule directions + RGB SPI + ADC is ~16 against 16 if everything is DMA'd. The low-rate links can be interrupt-driven.
 
-so the verdict: **pins close (38/48), ADC closes (6/8), PIO SMs close (6/12).** everything fits on one chip with headroom in all three budgets. AND this clears the thing that was blocking [submodules](submodules.md), there's definitely room for the 4-corner connector, so i can go un-pause that page now >w<
+so the verdict: **pins close (44/48), ADC closes (6/8), PIO SMs close (6/12).** everything fits on one chip with headroom in all three budgets. AND this clears the thing that was blocking [submodules](submodules.md), there's definitely room for the 4-corner connector, so i can go un-pause that page now >w<

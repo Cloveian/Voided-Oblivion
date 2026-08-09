@@ -310,9 +310,67 @@ and the safety net is that muxing is an easy "i need this for something else" le
 
 **going with Option B (not muxed), 12/12.** mux is the escape hatch if i ever need the SMs back.
 
+## Revisit: the PIO/SM allocation was built on a wrong assumption
+
+### the assumption
+
+[Which sides get the hardware UARTs](#which-sides-get-the-hardware-uarts) above, and the [12/12 SM allocation](#revisit-actually-dont-mux-them), both rest on something i never checked: **that the hardware UART is the better/faster path**, so it should go to the inter-tile sides where the relay traffic is, and the submodules can live on PIO.
+
+That's backwards. Straight from the RP2350 datasheet, UART chapter:
+
+> "Supports a maximum baud rate of **UARTCLK / 16** in UART mode (**7.8 Mbaud at 125MHz**)"
+
+~9.4 Mbaud at 150MHz. A PIO UART at the standard 8 cycles/bit does **18.75 Mbaud** at the same clock - **roughly 2× the ceiling of the hardware peripheral.**
+
+So the PL011 is the *slow* option, and the allocation had it capping the one path where bandwidth actually accumulates. Inter-tile links carry relayed traffic from **every tile downstream**; a submodule carries one encoder or one display. Putting the lower ceiling on the relay path and the higher one on a knob is exactly the wrong way round.
+
+### what the hardware UART is actually good for
+
+Not speed - **zero SM cost and a 32-byte FIFO.** That's a real advantage, it's just a *CPU-load* advantage, not a throughput one. Which means it belongs on the links that are low-rate and numerous, not the ones that are high-rate and few.
+
+### the swap
+
+Move the two hardware UARTs from the inter-tile sides to two submodule corners:
+
+| | before | after |
+| --- | --- | --- |
+| RGB (HW SPI) | 0 SMs | 0 SMs |
+| Inter-tile | 2 HW + 2 PIO = **4 SMs** | **4× PIO = 8 SMs** |
+| Submodules | 4× PIO = **8 SMs** | **2 HW + 2 PIO = 4 SMs** |
+| **Total** | **12 / 12** | **12 / 12** |
+
+**The SM budget doesn't move at all.** It's a pure reallocation - which is why this is a correction rather than a trade.
+
+### the pin constraint that decides *which* corners
+
+Of GPIO22-29, only two pairs are TX/RX at F2:
+
+| pins | F2 | F11 |
+| --- | --- | --- |
+| 22/23 | UART1 **CTS/RTS** | UART1 TX/RX |
+| **24/25** | **UART1 TX/RX** ✓ | - |
+| 26/27 | UART1 **CTS/RTS** | UART1 TX/RX |
+| **28/29** | **UART0 TX/RX** ✓ | - |
+
+And they're on *different* UARTs - one UART0, one UART1 - which is what makes running both at once possible. `22/23` and `26/27` are both UART1, so they could never have been paired with each other anyway.
+
+**So: hardware corners on GPIO24/25 (UART1) and GPIO28/29 (UART0); the other two corners on PIO.**
+
+### two things that fall out for free
+
+**F11 disappears from the entire design.** PIO functions (F6/F7/F8) are uniform across every GPIO, so all-PIO inter-tile has no per-pin special case, and the two hardware corners use F2. The "the Right side needs function 11 where the other three need function 2" firmware gotcha simply stops existing.
+
+**The rotation pairing dissolves for inter-tile.** [Which sides get the hardware UARTs](#which-sides-get-the-hardware-uarts) picked firmware-assignment (286) and the pins were then paired 2+2 across opposing axes so either orientation had both active sides on hardware. With all four sides on PIO they're **identical** - no assignment to make, no pairing constraint, no runtime handover. The decision was right for its premise; the premise is gone, and what replaces it is simpler.
+
+It also means the inter-tile pins no longer need to be UART-capable at all. Leaving them where they are (GPIO4/5, 6/7, 12/13, 16/17) since there's no reason to churn them, but that constraint is off the table for any future reshuffle.
+
+### what binds next
+
+Not SMs - **DMA channels.** Eight PIO inter-tile SMs, plus four submodule directions, plus RGB SPI and the ADC is ~16 against RP2350's 16 if every link is DMA'd. It doesn't have to be; the low-rate links are fine interrupt-driven. But that's the budget to watch now, not state machines.
+
 ## Revisit: PD/CC architecture (the CC-mux doesn't survive cold start)
 
-came back to this hard at schematic time. a second review pass aimed at cold-start bring-up (see [implementation](../schematic-design/implementation.md#snags-round-2--cold-start-bring-up-a-second-review-pass-caught-these) snag 3) found the CC-mux is a non-starter. re-picking.
+came back to this hard at schematic time. a second review pass aimed at cold-start bring-up (see [implementation](../schematic-design/implementation.md#snags-round-2---cold-start-bring-up-a-second-review-pass-caught-these) snag 3) found the CC-mux is a non-starter. re-picking.
 
 ### why the mux is dead
 **the tile has no power of its own** - it's a pure bus-powered sink, BS+ has nothing behind it, so at cold attach there is *literally no voltage anywhere* on it. the only way anything powers up is: a USB-C source sees **Rd** on the connector's CC pin and decides to apply VBUS. so that Rd has to be present **passively**, before a single rail comes alive.

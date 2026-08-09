@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "project": "Voided-Oblivion.kicad_pro",
+  "current": "2026-08-08_2107",
+  "runs": {
+    "2026-08-08_2107": {
+      "source_hashes": {
+        "Voided-Oblivion.kicad_sch": "sha256:4d4414bb8d9d8bf536055eecf17ff417397ec1b7fb6edf12a9dbe33b379f81b7",
+        "Voided-Oblivion.kicad_pcb": "sha256:065caca750c52057459bfa6a883a6a1714c18974ac543f6a10af71fad3823ebe"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "cross_analysis": "cross_analysis.json",
+        "thermal": "thermal.json"
+      },
+      "scripts": {
+        "schematic": "analyze_schematic.py Voided-Oblivion.kicad_sch"
+      },
+      "generated": "2026-08-08T21:08:18-06:00",
+      "pinned": false
+    }
+  }
+}

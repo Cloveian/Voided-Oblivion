@@ -8,9 +8,91 @@ newest stuff on top. dated notes live in the [build log](log.md).
 
 ---
 
+# Capacitor footprints
+
+*(the one that would actually have stopped the board)*
+
+## Snag
+Ran a proper audit of every cap ≥1µF against the footprint it's been assigned. **Five parts have values that don't exist in the package they're drawn in, and two more are on a 20V rail in a package that only exists at 6.3V.**
+
+| Ref | Value | Footprint | Net | Problem |
+| --- | --- | --- | --- | --- |
+| C28, C29 | 22µF | 0402 | +5VA | 22µF **does not exist** in 0402 |
+| C34, C35 | 22µF | 0402 | +5VP | same |
+| C41 | 100µF | 0402 | BS+ | 100µF **does not exist** in 0402 |
+| C26, C31 | 10µF | 0402 | **PD+, up to 20V** | 10µF 0402 exists only at ≤6.3V rating |
+| C24 | 10µF | 0402 | BS+ (~5.7V) | marginal at 6.3V |
+| C40 | 10µF | 0402 | +3V3 | fine (6.3V part OK here) |
+
+C26 and C31 are the serious pair - a 6.3V-rated part sitting directly on a rail that reaches 20V isn't a derating question, it's a part that fails.
+
+## Why the old note didn't catch it
+There's been a "cap voltage-derating pass" open in the [build log](log.md) since session 4. **That framing was wrong and that's why it stayed open harmlessly for so long.** Derating assumes the part exists and just loses capacitance under DC bias - you order it, measure it, and add more. Here the parts can't be ordered at all. It's a footprint/BOM error wearing a derating error's clothes.
+
+Worth naming the actual mistake: I picked values from TI's reference design (44µF output is straight out of Table 7-2, and it's the *right* number) and never went back to check that the value and the assigned footprint could coexist. The electrical design was fine. The BOM wasn't buildable.
+
+**Generalised lesson, same shape as the cold-start ones: a value being correct doesn't mean the part exists.** Reference designs give you values, not orderable parts. Worth a standing check before any fab order - sweep every passive for value-vs-package sanity.
+
+## Fix
+- **PD+ rail (C25, C26, C31, C32):** 25V minimum, **50V preferred** - at 20V bias a 25V X7R sits at 80% of rated and deep in the steep part of the derating curve; a 50V part at 40% is barely bending. **0805 or 1206.** The 0.1µF parts can stay 0402 if rated ≥25V.
+- **Buck outputs (C28/C29, C34/C35):** keep 44µF total (TI's own number), realise as 2×22µF in **0805/1206 at 16–25V**, and check the chosen part's actual DC-bias curve - half the nominal can vanish at 5V bias in a small case.
+- **C41 (100µF on BS+):** see below - the recommendation is to **delete it**, which fixes this and the inrush problem at once.
+- **C24 (10µF on BS+):** 0603/0805 at 16V.
+
+## And while auditing, a second thing fell out
+C41 isn't just an impossible footprint - it's **actively harmful**. USB Type-C caps a sink at **10µF between VBUS and GND before attach** (Table 4-3). Q1 is default-ON by design, so everything on BS+ is presented to the connector as VBUS ramps:
+
+```
+C24  10 uF  +  C41 100 uF  =  110 uF   vs a 10 uF ceiling  ->  11x over
+```
+
+With Q1's existing 1nF Miller soft-start that's roughly 550mA of inrush, against the 500mA a source gives by default before negotiation. That's the "droop/renegotiate loop" risk that's been half-open since the round-2 review.
+
+**C41 has no derivation behind it.** The LDO's datasheet asks for Cin = 10µF and C24 already provides it. **Deleting C41 takes attach capacitance to exactly 10µF and removes an unbuildable part.** One deletion, two problems gone. If bulk on BS+ turns out to be wanted later it belongs behind something that isn't presented at attach.
+
+## To do
+- [ ] Respec C25/C26/C31/C32 for the 20V rail (0805/1206, ≥25V, prefer 50V)
+- [ ] Respec C28/C29/C34/C35 to 0805/1206, 16–25V, check DC-bias curves
+- [ ] **Delete C41**
+- [ ] Respec C24 to 0603/0805 16V
+- [ ] Sweep every remaining passive for value-vs-footprint sanity before fab
+
+---
+
+# RGB level shifter
+
+*(right part, wrong reasoning - and the wrong rail)*
+
+## Implement (what i drew)
+put a **74AHCT125 (U8)** on the keys sheet buffering `LED SCK` / `LED TX` up to 5V for the SK9822 chain, powered off **+5VP** (the gated buck). i put it in on the "better safe than sorry" instinct without actually opening the SK9822 datasheet first.
+
+## Snags
+1. **it wasn't a judgement call at all.** SK9822-EC20 §9 says **VIH min = 3.4V**. the 3V3 rail's absolute best case is 3.366V (XC6220 at +2%). so direct drive was never "marginal" - it's out of spec at every condition, always. the buffer was *mandatory* and i'd added it on a hunch. right answer, wrong reasoning, and i only found that out by going back and reading the table. full math in [rgb](rgb.md#spi-drive---sckdata-series--level-shift).
+2. **the family i'd have reached for next doesn't work.** if i'd gone looking for something smaller than a quad, the obvious grab is the 74LVC1G125 (cheapest buffer on LCSC, 89k in stock). at VCC 4.5–5.5V its VIH is **0.7×VCC = 3.5V** - so it fails the exact same way direct drive does. **AHCT/HCT have a flat 2.0V VIH at 5V; LVC does not.** noting it loudly because "LVC is the modern cheap one" is a habit that would have quietly produced a broken board.
+3. **the real one: the shifter is on a rail that switches, and the MCU isn't.** the SK9822s (and U8) sit on gated-5V, the MCU sits on always-on 3V3. so any time the big buck is off - pre-PD, or firmware capping RGB - the MCU can drive SPI0 into a buffer whose VCC is 0V. the 74AHCT125 has **no Ioff**, so its input clamp diodes conduct and the MCU starts back-feeding a rail that's meant to be dead, through its own SPI pins.
+
+   this is the **same shape as all four cold-start latches**: something alive feeding something that's supposed to be off. i caught those by walking the bring-up order on the front end and then just... didn't do that pass on the RGB block. the lesson didn't transfer sheets.
+
+   - **the obvious fix doesn't work:** "power U8 off BS+ instead, it's always on." then the shifter drives 5V into 30 *unpowered* SK9822s and i'm back-feeding through 30 sets of LED input clamps instead of one buffer's. strictly worse.
+   - **the actual fix:** keep the shifter on the gated rail so the whole RGB domain dies together, and use a part that tolerates its output rail being dead - i.e. one specified for **partial-power-down (Ioff)**.
+
+## Re-Select
+full unbiased scoring (with the gates, LCSC stock, and the weighted table) lives in [rgb](rgb.md#picking-the-level-shifter). outcome: **SN74LVC2T45** (C15741, VSSOP-8) - dual-supply VCCA=3V3 / VCCB=gated-5V, DIR tied high, VIH 2.0V referenced to VCCA, Ioff. exactly 2 channels, no wasted gates. 323/370 vs 186 for the AHCT125 that's currently on the board.
+
+**why i'm not just leaving the AHCT125 in:** the alternative to Ioff is a rule that says *firmware must never touch SPI0 while the big buck is off*. that's a software-correctness promise held forever across every future firmware change, and i already refused that trade in [comms](../design-choices/comms.md) for the both-ports-plugged case. $0.16 to make it a hardware property instead is an easy yes.
+
+### done on the board
+- [x] **U8 is now SN74LVC2T45DCUR** (VSSOP-8), VCCA→+3V3, VCCB→+5VP, DIR→+3V3 via R62 0Ω
+- [x] **33Ω series on the B (5V) side**: R63 → LED1 SDI, R64 → LED1 CKI
+- [ ] decoupling per supply pin - TI wants 0.1µF on *each* VCC (§8.3.1); check both are placed
+
+as-built table in [rgb](rgb.md#as-built-done).
+
+---
+
 # VBUS front-end (the ~6V handoff)
 
-the planned front-end (TLV1805 comparator + AO3415 + Q2) lives over in [power](power.md#vbus-comparator--tlv1805). here's how drawing it actually went.
+the planned front-end (TLV1805 comparator + AO3415 + Q2) lives over in [power](power.md#threshold-detector---lm2903-u11). here's how drawing it actually went.
 
 ## Implement (what i drew / grabbed from datasheets)
 - **XC6220 3V3 (U7):** placed it, CE→VIN through a 0Ω (R12). turns out the output is **factory-fixed** by the `331` code - the R1/R2 divider is *inside the chip*, so there's nothing to tune on the board. cap pairing for the 3.00–3.50V row is **Cin = 10µF, Cout(CL) = 4.7µF**, low-ESR ceramic, jammed as close to the pins as i can get it.
@@ -20,7 +102,7 @@ the planned front-end (TLV1805 comparator + AO3415 + Q2) lives over in [power](p
 ### Snags (what bit me)
 1. **the XC6220 caps came out swapped** on the board (Cin 4.7 / Cout 10). datasheet's 3.3V row wants them the other way round - Cin 10 / Cout 4.7. just a value swap, no BOM change. (if i left Cin at 4.7 i'd need a chunky 47µF output to stay in Torex's characterized set, no thanks.)
 2. **the TPS54302 can't make 5V out of 5V.** it's a *buck* - the input has to sit a good bit above the output, realistically **≥~7–9V** to actually hold 5V under load (that's exactly why TI's own ref design starts VIN at 8V). and PD only hands out **5 / 9 / 12 / 15 / 20V**, nothing between 5 and 9 - so the **lowest input i can actually use is 9V**. both bucks really live at **9–20V**, not 5–20V like i wrote.
-   - *does this kill pre-PD bootstrap?* **nope.** pre-PD, BS+ comes from raw VBUS 5V through the AO3415 P-FET, **not** the buck. the buck only takes over BS+ once PD ramps ≥9V. so that "clean buck must start ~5.5V" line back in the plan was never actually doing any work - the buck's real job doesn't kick in till 9V. (leaving the wrong note in [power](power.md#clean-buck--tps54302) alone for the record, this here is the fix.)
+   - *does this kill pre-PD bootstrap?* **nope.** pre-PD, BS+ comes from raw VBUS 5V through the AO3415 P-FET, **not** the buck. the buck only takes over BS+ once PD ramps ≥9V. so that "clean buck must start ~5.5V" line back in the plan was never actually doing any work - the buck's real job doesn't kick in till 9V. (leaving the wrong note in [power](power.md#clean-buck---tps54302-u5) alone for the record, this here is the fix.)
 3. **the comparator eats its own tail (this is the real one).** i was about to power the TLV1805 off the exact node it's switching → classic bootstrap loop: the second it flips away from a source it browns out its own supply and starts chattering. the one-liner i'll remember: **power the detector off a node its own output can't cut.**
 
 ## Re-Brainstorm - the ~6V handoff
@@ -51,7 +133,7 @@ the thing that clicked from the snag: power the detector **off VBUS itself (upst
 
 **still open before this is actually decided:**
 - nail down the LM2903 + TLV431 divider + hysteresis resistor values for the 6V trip (rough cut ~47k / 12.2k, needs tuning) - those draft scores are still a first pass.
-- Q2 (VBUS→PD+) still needs a device + gate drive picked (P-FET high-side vs N-FET + charge pump) - carries over from [power](power.md#vbuspd-switch--q2).
+- Q2 (VBUS→PD+) still needs a device + gate drive picked (P-FET high-side vs N-FET + charge pump) - carries over from [power](power.md#q2q3d4---vbuspd-switch-ao4407a--bc857--bzx84c10).
 - if i end up loving the power-mux for BS+ (the one genuinely nice bit of C), i could steal just that and still gate PD+ with the supervisor + discrete switch - a B/C mashup worth a look.
 
 ### actually picking the supervisor
