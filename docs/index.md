@@ -60,6 +60,7 @@ Continuing:
 - [Submodules (revisit)](design-choices/submodules.md#continue---pins-exist-un-pausing) - 4-pin (5V/GND/Rx/Tx) per corner, independent UART, un-paused
 - [module-connectors](design-choices/module-connectors.md)
 - [Key sensors (revisit)](design-choices/hall-effect-sensors.md#revisit-hall-effect-sensor-heat-sensitivity) - rework heat is not a concern with hotplate + low temp paste + firmware calibration
+- [PCB stackup & net rules](design-choices/pcb-stackup.md) - **4-layer** (sig/GND/pwr/sig). The matrix picked 6, but this is open source and other people pay the layer count - track/via/clearance rules for every net class
 
 ## Building the schematic
 Design choices are settled; now wiring up one tile.

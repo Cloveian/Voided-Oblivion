@@ -405,57 +405,85 @@ Decide "VBUS is still vSafe5V" vs "VBUS has been negotiated up", entirely in har
 TI SLCS005AH. Supply 2–30V (non-B) - covers 5–20V from VBUS directly. **Output is open-drain NPN**, and its abs max (36V) is **independent of VCC** - which is what legally lets one channel's output ride VBUS while the other rides 3V3. VIO 15mV max full-range (non-B). IIB 500nA max. Response 0.3–1.3µs (irrelevant here, ~1000× faster than anything this does).
 
 ### Math - divider and trip
-As-built **R30 44.2kΩ / R31 12.2kΩ** off VBUS:
+
+**R30 35.7kΩ / R31 10kΩ** off VBUS (both ±0.1%), hysteresis from **R22 5.1kΩ** and **R46 1MΩ**:
+
 ```
-VDIV/VBUS = 12.2 / 56.4 = 0.21631
-no-hysteresis trip = 1.24 / 0.21631 = 5.732 V
+k = R31/(R30+R31) = 10 / 45.7 = 0.21882          divider ratio
+f = R22/(R22+R46) = 5.1k / 1.0051M = 0.005074     feedback fraction
 ```
 
-**Hysteresis** is on the reference side, not the divider side: R22 10kΩ from +1V24ref to U11A's + input, R46 1MΩ feedback from U11A's output back to that node.
-```
-out LOW  ->  V+ = 1.24 x (1M/1.01M) + ~0.1 x (10k/1.01M) = 1.2288 V
-out HIGH ->  V+ = 1.2278 + 0.00990 x VBUS
+Hysteresis is on the **reference** side, not the divider side - R22 from the +1V24 ref to U11A's + input, R46 from U11A's output back to that node:
 
-rising  (out currently HIGH): 0.21631 V = 1.2278 + 0.00990 V  ->  UTP = 5.95 V
-falling (out currently LOW):  0.21631 V = 1.2288             ->  LTP = 5.68 V
-hysteresis band = 267 mV
+```
+out LOW   ->  V+ = 1.24(1-f) + 0.1·f      = 1.23422 V
+out HIGH  ->  V+ = 1.23371 + f·VBUS
+
+falling (out LOW):   k·V = 1.23422            ->  LTP = 5.640 V
+rising  (out HIGH):  k·V = 1.23371 + f·V      ->  UTP = 1.23371/(k-f) = 5.772 V
+band = 132 mV
 ```
 
 ### Result
-**UTP ≈ 5.95V, LTP ≈ 5.68V, band ≈ 267mV.** The "5.73V" on the schematic is the no-hysteresis midpoint.
+**LTP ≈ 5.640V, UTP ≈ 5.772V, band ≈ 132mV.**
 
 ### The margin question (read this one)
-Two ceilings bracket this trip, and they're tighter than they look:
 
-| Bound | Value | Margin from |
+Two ceilings bracket this trip, and **they are not symmetric** - which is the thing the original design got backwards:
+
+| Bound | Value | What happens if exceeded |
 | --- | --- | --- |
-| vSafe5V max (USB-C) | 5.5V | **LTP 5.68V → 180mV** |
-| **MAX40203 abs max (any pin to GND)** | **6.0V** | **UTP 5.95V → 50mV** |
-| XC6220 VIN abs max | 6.5V | UTP 5.95V → 550mV (not the binding one) |
+| vSafe5V max (USB-C) | **5.5V** | trips early: Q1 opens, Q2 closes, PD+ = 5.5V, clean buck enables into dropout, LDO still has 2V of headroom. **Degrades gracefully** |
+| **LM66100 abs max (any pin to GND)** | **6.0V** | BS+ peaks at UTP because Q1 holds it there until the trip. **Damaged part** |
 
-> **The ceiling is the ideal diode, not the LDO.** Q1 holds BS+ up to the *rising* trip before it opens, so BS+ peaks at **UTP = 5.95V**, and U9's OUT pin sits on BS+ with a **6.0V absolute maximum**. That's 50mV of margin nominally, and **negative at tolerance corners** - which is an abs-max violation, i.e. a damaged part, not just a mis-sequence.
+**So margin belongs on the 6.0V side.** The old 44.2k/12.2k put 181mV on the graceful side and **52mV on the destructive one** - the protection was piled on the failure that doesn't matter.
 
-So BS+ is squeezed into a **500mV window** between vSafe5V's 5.5V floor and the ideal diode's 6.0V ceiling, and the 267mV hysteresis band already eats over half of it - leaving ~233mV to split between the two margins against a ±157mV RSS error budget. **This is the tightest thing on the board and it is tight in both directions at once.**
+| | LTP | UTP | vs 5.5V | vs 6.0V | band |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| ~~44.2k / 12.2k, R22 10k~~ | 5.681 | 5.948 | 181mV | **52mV** | 267mV |
+| 35.7k / 10k, R22 10k | 5.615 | 5.877 | 115mV | 123mV | 261mV |
+| **35.7k / 10k, R22 5.1k** | **5.640** | **5.772** | **140mV** | **228mV** | **132mV** |
 
-Worst-case static error, summed linearly:
+Two changes got there, and **the second one is the bigger lever**:
+
+1. **Re-centre the divider.** `12.2kΩ does not exist` - it isn't an E-series value (E96 has 12.1k and 12.4k), so the old BOM line was unbuyable in any package or tolerance. 35.7k/10k is the nearest pair that both exists in ±0.1% *and* moves the band toward the middle of the window.
+2. **Narrow the hysteresis.** The 267mV band was eating over half the 500mV window between the two limits. This page previously only considered *widening* it (and correctly concluded there was no room) - **narrowing buys margin on both sides at once**, and it's one resistor. Reducing R22 rather than raising R46 also halves the reference-side source impedance, which cuts the IIB term.
+
+### Error budget
+
+With TLV431B (±0.5%) fitted and ±0.1% divider resistors:
 
 | Source | On the trip point |
 | --- | --- |
-| TLV431 VREF ±1.5% (blank grade) | ±89mV |
-| R30/R31 at 1% each | ±107mV |
-| LM2903 VIO 15mV full-range ÷ 0.2163 | ±69mV |
-| IIB 500nA × (44.2k‖12.2k = 9.56k) ÷ 0.2163 | ±22mV |
-| **linear worst case** | **±287mV** |
-| **RSS** | **±157mV** |
+| **LM2903 VIO 15mV ÷ k** | **±68.6mV** |
+| TLV431B VREF ±0.5% ÷ k | ±28.3mV |
+| IIB 500nA × (35.7k‖10k = 7.81k) ÷ k | ±17.9mV |
+| IIB 500nA × (R22‖R46 = 5.07k) ÷ k | ±11.6mV |
+| R30/R31 at ±0.1% | ±5.6mV |
+| **RSS** | **±77mV** |
+| **linear worst case** | **±132mV** |
 
-So worst-case LTP could land at **5.39V (linear) / 5.52V (RSS)** against a 5.5V vSafe5V ceiling. **That is the thinnest margin in the whole design.**
+```
+LTP worst (linear)  5.640 - 0.132 = 5.508 V   ✓ above 5.5
+UTP worst (linear)  5.772 + 0.132 = 5.904 V   ✓ below 6.0
+```
 
-What actually happens if it trips early, with the source still at 5.5V: Q1 opens, Q2 closes, PD+ = 5.5V, the clean buck enables into dropout and puts ~5.3V on +5VA, the MAX40203 passes that to BS+, and the LDO still has 2V of headroom. **It degrades gracefully rather than bricking** - which is the saving grace, and why this is a "tighten it" item and not a stop-ship.
+**Both limits hold even at linear worst case**, where the old values blew through both - the UTP one being an abs-max violation, i.e. a damaged part rather than a mis-sequence. That was the real defect here, and it's closed.
 
-Cheapest fixes, in order of value per effort:
-1. **TLV431B (±0.5%) instead of blank grade** - cuts the biggest single term from ±89mV to ±30mV for about a cent.
-2. **0.5% resistors for R30/R31** - halves the ±107mV term.
-3. Widening the hysteresis (smaller R46) pushes UTP up toward the 6.5V LDO ceiling, so there isn't much room to buy margin that way - it's a squeeze between two hard limits, which is exactly why it's tight.
+**VIO is now the dominant term** - ±68.6mV of the ±77mV RSS. Tightening resistors further buys nothing (±0.1% contributes ±5.6mV), so **don't spend money on ±0.05% parts.** If this ever needs more margin it wants a lower-offset comparator, not better passives.
+
+### Parts
+
+| Ref | Value | LCSC | Stock | Note |
+| --- | --- | --- | --- | --- |
+| R30 | 35.7kΩ ±0.1% ±25ppm | `ARG02BTC3572` **C2681604** | 8,000 | |
+| R31 | 10kΩ ±0.1% ±25ppm | `ARG02BTC1002` **C2902636** | 20,585 | same family |
+| R22 | **5.1kΩ ±1%** | `0402WGF5101TCE` **C25905** | **11.0M**, **Basic** | was 10kΩ. E24 not E96 deliberately - R22 only sets the hysteresis fraction, so a ±1% part moves UTP by **1.4mV**. The E96 4.99k equivalent is Extended and would add a $3 setup fee for nothing |
+| R46 | 1MΩ | *(unchanged)* | | |
+
+Divider current at 20V is 438µA (was 355µA) and R30 dissipates 6.8mW against a 62.5mW 0402 rating - both non-issues.
+
+**U11B's trip moves too**, from 5.732V to `1.24/k = 5.667V`. It has no hysteresis and only enables the clean buck, which can't regulate below ~7-9V in anyway, so it sits in dropout either side of that number. No consequence.
 
 ### Notes / gotchas
 - **VCC = VBUS (pin 8).** Powered from a node its own outputs cannot switch off. This is the fix for [the comparator-eats-its-own-tail snag](implementation.md#snags-what-bit-me) and it's the single most important topological property on this sheet.

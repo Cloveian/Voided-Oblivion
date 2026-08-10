@@ -195,6 +195,7 @@ all of it is fixed on the board now. final state, snag by snag:
 and the cleanup items, all done:
 - **hysteresis:** R22 (10k series, +1V24ref→U11A+) + R46 (1M feedback, U11A out→U11A+); U11B taps the raw ref. ~200mV.
 - **trip retarget:** VDIV 47k→**44.2k** / 12.2k → **~5.73V** (above vSafe5V 5.5V, below the ~6V LDO ceiling — BS+ gets dragged to the trip during the 5→9V handoff).
+  - > **superseded** — **12.2kΩ is not an E-series value and cannot be bought**, and the 44.2k/12.2k split also put the margin on the wrong side (181mV on the graceful limit, 52mV on the destructive one). Re-derived to **35.7k/10k with R22 5.1k**: [power](power.md#the-margin-question-read-this-one).
 - **gate soft-start:** C44 (Q2) + C45 (Q1), 1nF each.
 - **Q3 base-emitter:** R47 **100k** (base→VBUS).
 - **mux VCC → 3V3** (off BS+, immune to the handoff spike).
