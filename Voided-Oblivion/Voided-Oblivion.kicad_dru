@@ -1,0 +1,111 @@
+(version 1)
+
+# ══ Voided Oblivion — custom DRC rules ═══════════════════════════════
+#
+# Evaluation order: for each constraint type the LAST matching rule
+# wins. General rules first, specific overrides last. Do not reorder
+# sections without re-reading that.
+#
+# Two rules below need named Rule Areas drawn on the board. Draw them
+# with every keepout checkbox UNticked (the Name is all that's used),
+# and select ALL FOUR copper layers — intersectsArea() is layer-aware,
+# so an area on one layer won't match a track on another.
+#     PD_TRUNK*       wherever the full 5A can flow: the common PD+
+#                     node between the PD input and the per-side FETs.
+#                     Downstream of each FET the connector's 4x1A caps
+#                     it at 4A, which 1.2mm already covers (24C rise).
+#     CORNER_VOID_*   over each submodule socket pad row, +2mm margin
+#
+# Everything here backs a decision recorded in docs/design-choices/.
+
+
+# ── Global ───────────────────────────────────────────────────────────
+
+# 4-layer, through-hole vias only. The Constraints checkbox is the real
+# control; the disallow catches a via placed before it was unticked.
+# A relief that resolves to one spoke is a resistance and a mechanical
+# weak point, and DRC won't otherwise mention it.
+(rule "board-wide"
+    (constraint disallow micro_via blind_via buried_via)
+    (constraint min_resolved_spokes 2))
+
+
+# ── Hand assembly ────────────────────────────────────────────────────
+
+# The submodule sockets are hand-soldered (4 per tile, 20 joints). A THT
+# pad connected solid to a GND plane on 1oz copper cannot be brought to
+# temperature with an iron. Relief, with spokes fat enough to carry the
+# corner's 300mA.
+(rule "THT pads: thermal relief for hand soldering"
+    (constraint zone_connection thermal_reliefs)
+    (constraint thermal_spoke_width (min 0.5mm))
+    (condition "A.Pad_Type == 'Through-hole'"))
+
+
+# ── Analog — 30 hall sensors, 12-bit, high source impedance ──────────
+
+# NOT expressible in the netclass table: that gives one clearance per
+# class applied uniformly to every other net. This is clearance BETWEEN
+# two named classes, which only a rule can say.
+(rule "sensor lines away from the power rails"
+    (constraint clearance (min 0.5mm))
+    (condition "A.hasNetclass('Analog') && (B.hasNetclass('Power') || B.hasNetclass('Power Delivery') || B.hasNetclass('Switching'))"))
+
+
+# ── USB — 90R differential, W=0.30 / S=0.20 on 0.2104mm prepreg ──────
+
+(rule "USB pair geometry"
+    (constraint track_width (min 0.30mm) (opt 0.30mm))
+    (constraint diff_pair_gap (min 0.18mm) (opt 0.20mm) (max 0.22mm))
+    (constraint diff_pair_uncoupled (max 5mm))
+    (condition "A.inDiffPair('*')"))
+
+# Name the aggressor instead of the world. This replaced a blunt
+# "0.5mm to every foreign net" rule that needed three exemptions -
+# connector fanout, MCU fanout, and the TPD2E2U06DRL's NC pins - none
+# of which were cases it was ever written for. Three exemptions in a
+# row was the rule saying it was the wrong shape.
+#
+# The netclass Clearance field cannot do this job: it is ONE number
+# applied to everything including the pair partner, so it can never
+# exceed the 0.20mm pair gap. Keep the USB netclass clearance at 0.2mm.
+(rule "USB pair away from switching nets"
+    (constraint clearance (min 0.5mm))
+    (condition "A.inDiffPair('*') && B.hasNetclass('Switching')"))
+
+# Reference-plane continuity beats trace geometry by a wide margin, and
+# it is the one thing DRC genuinely cannot check. This is the closest
+# proxy: the 1.6mm socket holes punch a 12.7 x 2.6mm void through L2/L3
+# at every corner. Keep the pair out of them entirely.
+(rule "USB must not cross the corner plane voids"
+    (constraint disallow track via)
+    (condition "A.inDiffPair('*') && A.intersectsArea('CORNER_VOID*')"))
+
+
+# ── PD+ — 5A @ 20V / 4A @ <=15V, physically bounded, through one tile ─
+
+# 0.5oz inner copper puts the 1.2mm netclass width at 1.11A. PD+ has no
+# business on L2/L3 at any width. (If 'inner' errors, use two rules on
+# "In1.Cu" and "In2.Cu".)
+(rule "PD+ off inner layers"
+    (layer inner)
+    (constraint disallow track)
+    (condition "A.hasNetclass('Power Delivery')"))
+
+# 1.2mm netclass = 3.68A, correct for the four parallel 1A branches.
+# The merged node after the per-side FETs carries the full 5A and needs
+# 1.83mm for a 20C rise (40C rise at 1.2mm — legal but it becomes the
+# FET's ambient, and the AO4407A thermals assumed 40C).
+(rule "PD+ trunk carries the full 5A"
+    (constraint track_width (min 1.8mm))
+    (condition "A.hasNetclass('Power Delivery') && A.intersectsArea('PD_TRUNK*')"))
+
+# connection_width catches the failure nothing else looks at: a
+# correctly-sized pour necked to 0.4mm where it meets a pad.
+# All PD+ pads are SMD (FET, edge connector) — nothing here is hand
+# soldered, so there is no reason to accept a relief's resistance at 5A.
+# Must stay BELOW the THT rule above to win on any pad that is both.
+(rule "PD+ zone connections"
+    (constraint connection_width (min 1.2mm))
+    (constraint zone_connection solid)
+    (condition "A.hasNetclass('Power Delivery')"))

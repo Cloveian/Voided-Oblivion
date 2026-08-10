@@ -444,7 +444,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector:USB_C_Receptacle"
+		(symbol "Connector:USB_C_Receptacle_USB2.0_16P"
 			(pin_names
 				(offset 1.016)
 			)
@@ -454,25 +454,23 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "J"
-				(at -10.16 29.21 0)
+				(at 0 22.225 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
-			(property "Value" "USB_C_Receptacle"
-				(at 10.16 29.21 0)
+			(property "Value" "USB_C_Receptacle_USB2.0_16P"
+				(at 0 19.685 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify right)
 				)
 			)
 			(property "Footprint" ""
@@ -497,7 +495,7 @@
 					)
 				)
 			)
-			(property "Description" "USB Full-Featured Type-C Receptacle connector"
+			(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -508,7 +506,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "usb universal serial bus type-C full-featured"
+			(property "ki_keywords" "usb universal serial bus type-C USB2.0"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -530,10 +528,10 @@
 					)
 				)
 			)
-			(symbol "USB_C_Receptacle_0_0"
+			(symbol "USB_C_Receptacle_USB2.0_16P_0_0"
 				(rectangle
-					(start -0.254 -35.56)
-					(end 0.254 -34.544)
+					(start -0.254 -17.78)
+					(end 0.254 -16.764)
 					(stroke
 						(width 0)
 						(type default)
@@ -543,41 +541,8 @@
 					)
 				)
 				(rectangle
-					(start 10.16 25.654)
-					(end 9.144 25.146)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 20.574)
-					(end 9.144 20.066)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 18.034)
-					(end 9.144 17.526)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 12.954)
-					(end 9.144 12.446)
+					(start 10.16 15.494)
+					(end 9.144 14.986)
 					(stroke
 						(width 0)
 						(type default)
@@ -609,8 +574,8 @@
 					)
 				)
 				(rectangle
-					(start 10.16 5.334)
-					(end 9.144 4.826)
+					(start 10.16 2.794)
+					(end 9.144 2.286)
 					(stroke
 						(width 0)
 						(type default)
@@ -642,8 +607,8 @@
 					)
 				)
 				(rectangle
-					(start 10.16 -7.366)
-					(end 9.144 -7.874)
+					(start 10.16 -4.826)
+					(end 9.144 -5.334)
 					(stroke
 						(width 0)
 						(type default)
@@ -653,8 +618,8 @@
 					)
 				)
 				(rectangle
-					(start 10.16 -9.906)
-					(end 9.144 -10.414)
+					(start 10.16 -12.446)
+					(end 9.144 -12.954)
 					(stroke
 						(width 0)
 						(type default)
@@ -674,66 +639,11 @@
 						(type none)
 					)
 				)
-				(rectangle
-					(start 10.16 -17.526)
-					(end 9.144 -18.034)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 -22.606)
-					(end 9.144 -23.114)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 -25.146)
-					(end 9.144 -25.654)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 -30.226)
-					(end 9.144 -30.734)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 -32.766)
-					(end 9.144 -33.274)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 			)
-			(symbol "USB_C_Receptacle_0_1"
+			(symbol "USB_C_Receptacle_USB2.0_16P_0_1"
 				(rectangle
-					(start -10.16 27.94)
-					(end 10.16 -35.56)
+					(start -10.16 17.78)
+					(end 10.16 -17.78)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -849,8 +759,6 @@
 						(type none)
 					)
 				)
-			)
-			(symbol "USB_C_Receptacle_1_1"
 				(circle
 					(center -2.54 1.143)
 					(radius 0.635)
@@ -932,8 +840,10 @@
 						(type outline)
 					)
 				)
+			)
+			(symbol "USB_C_Receptacle_USB2.0_16P_1_1"
 				(pin passive line
-					(at 0 -40.64 90)
+					(at 0 -22.86 90)
 					(length 5.08)
 					(name "GND"
 						(effects
@@ -950,44 +860,8 @@
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 15.24 -10.16 180)
-					(length 5.08)
-					(name "TX1+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 -7.62 180)
-					(length 5.08)
-					(name "TX1-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin passive line
-					(at 15.24 25.4 180)
+					(at 15.24 15.24 180)
 					(length 5.08)
 					(name "VBUS"
 						(effects
@@ -1005,7 +879,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at 15.24 20.32 180)
+					(at 15.24 10.16 180)
 					(length 5.08)
 					(name "CC1"
 						(effects
@@ -1023,7 +897,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at 15.24 7.62 180)
+					(at 15.24 -2.54 180)
 					(length 5.08)
 					(name "D+"
 						(effects
@@ -1041,7 +915,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at 15.24 12.7 180)
+					(at 15.24 2.54 180)
 					(length 5.08)
 					(name "D-"
 						(effects
@@ -1059,7 +933,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at 15.24 -30.48 180)
+					(at 15.24 -12.7 180)
 					(length 5.08)
 					(name "SBU1"
 						(effects
@@ -1077,7 +951,7 @@
 					)
 				)
 				(pin passive line
-					(at 15.24 25.4 180)
+					(at 15.24 15.24 180)
 					(length 5.08)
 					(hide yes)
 					(name "VBUS"
@@ -1095,44 +969,8 @@
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 15.24 -15.24 180)
-					(length 5.08)
-					(name "RX2-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 -17.78 180)
-					(length 5.08)
-					(name "RX2+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin passive line
-					(at 0 -40.64 90)
+					(at 0 -22.86 90)
 					(length 5.08)
 					(hide yes)
 					(name "GND"
@@ -1151,7 +989,7 @@
 					)
 				)
 				(pin passive line
-					(at 0 -40.64 90)
+					(at 0 -22.86 90)
 					(length 5.08)
 					(hide yes)
 					(name "GND"
@@ -1169,44 +1007,8 @@
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 15.24 -25.4 180)
-					(length 5.08)
-					(name "TX2+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 -22.86 180)
-					(length 5.08)
-					(name "TX2-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin passive line
-					(at 15.24 25.4 180)
+					(at 15.24 15.24 180)
 					(length 5.08)
 					(hide yes)
 					(name "VBUS"
@@ -1225,7 +1027,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at 15.24 17.78 180)
+					(at 15.24 7.62 180)
 					(length 5.08)
 					(name "CC2"
 						(effects
@@ -1243,7 +1045,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at 15.24 5.08 180)
+					(at 15.24 -5.08 180)
 					(length 5.08)
 					(name "D+"
 						(effects
@@ -1261,7 +1063,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at 15.24 10.16 180)
+					(at 15.24 0 180)
 					(length 5.08)
 					(name "D-"
 						(effects
@@ -1279,7 +1081,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at 15.24 -33.02 180)
+					(at 15.24 -15.24 180)
 					(length 5.08)
 					(name "SBU2"
 						(effects
@@ -1297,7 +1099,7 @@
 					)
 				)
 				(pin passive line
-					(at 15.24 25.4 180)
+					(at 15.24 15.24 180)
 					(length 5.08)
 					(hide yes)
 					(name "VBUS"
@@ -1315,44 +1117,8 @@
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 15.24 0 180)
-					(length 5.08)
-					(name "RX1-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 -2.54 180)
-					(length 5.08)
-					(name "RX1+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin passive line
-					(at 0 -40.64 90)
+					(at 0 -22.86 90)
 					(length 5.08)
 					(hide yes)
 					(name "GND"
@@ -1371,7 +1137,7 @@
 					)
 				)
 				(pin passive line
-					(at -7.62 -40.64 90)
+					(at -7.62 -22.86 90)
 					(length 5.08)
 					(name "SHIELD"
 						(effects
@@ -3852,7 +3618,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Reference_Voltage:TL431DBV"
+		(symbol "Reference_Voltage:TL431DBZ"
 			(pin_numbers
 				(hide yes)
 			)
@@ -3865,6 +3631,16 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U"
+				(at -2.54 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TL431DBZ"
 				(at 0 -2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3874,18 +3650,8 @@
 					)
 				)
 			)
-			(property "Value" "TL431DBV"
-				(at 0 -4.445 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
-				(at 0 -6.35 0)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 -4.826 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -3897,7 +3663,7 @@
 				)
 			)
 			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl431.pdf"
-				(at -0.508 -8.382 0)
+				(at 1.778 -9.144 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -3908,8 +3674,8 @@
 					)
 				)
 			)
-			(property "Description" "Shunt Regulator, SOT-23-5"
-				(at -0.254 -10.414 0)
+			(property "Description" "Shunt Regulator, SOT-23"
+				(at 0 -7.112 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -3930,7 +3696,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "SOT?23?5*"
+			(property "ki_fp_filters" "SOT?23*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3941,10 +3707,10 @@
 					)
 				)
 			)
-			(symbol "TL431DBV_0_1"
+			(symbol "TL431DBZ_0_1"
 				(polyline
 					(pts
-						(xy -2.54 0) (xy 0 0) (xy 2.54 0)
+						(xy -1.27 0) (xy 0 0) (xy 1.27 0)
 					)
 					(stroke
 						(width 0)
@@ -3979,22 +3745,10 @@
 					)
 				)
 			)
-			(symbol "TL431DBV_1_1"
-				(polyline
-					(pts
-						(xy 0 1.27) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
+			(symbol "TL431DBZ_1_1"
 				(pin passive line
 					(at 2.54 0 180)
-					(length 1.27)
+					(length 2.54)
 					(name "K"
 						(effects
 							(font
@@ -4002,7 +3756,7 @@
 							)
 						)
 					)
-					(number "3"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4020,7 +3774,7 @@
 							)
 						)
 					)
-					(number "4"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4030,7 +3784,7 @@
 				)
 				(pin passive line
 					(at -2.54 0 0)
-					(length 1.27)
+					(length 2.54)
 					(name "A"
 						(effects
 							(font
@@ -4038,7 +3792,7 @@
 							)
 						)
 					)
-					(number "5"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7288,6 +7042,12 @@
 		(uuid "4b883386-c360-4202-97d7-578c17ccb5d3")
 	)
 	(junction
+		(at 248.92 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4be5e85b-df98-4e1c-82e7-4eaf9cdea006")
+	)
+	(junction
 		(at 212.09 64.77)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7414,7 +7174,7 @@
 		(uuid "74c442bc-e476-4a1b-9c0d-503f76df7a02")
 	)
 	(junction
-		(at 289.56 93.98)
+		(at 289.56 121.92)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "752198c2-626b-49c8-98a0-d8c43ca6ca8f")
@@ -7442,6 +7202,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7eb156fa-0a08-448a-be1c-20115f9880ed")
+	)
+	(junction
+		(at 245.11 72.39)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7efdd0b9-2892-45c6-917c-af9da83aa213")
 	)
 	(junction
 		(at 90.17 179.07)
@@ -7532,6 +7298,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a11f0f99-72ad-4842-b8df-846aa4437cae")
+	)
+	(junction
+		(at 245.11 77.47)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a1c4a9c1-9652-4a30-8316-fe3dece50782")
 	)
 	(junction
 		(at 38.1 165.1)
@@ -7708,7 +7480,7 @@
 		(uuid "e604829b-db27-4250-a309-6f1d25708932")
 	)
 	(junction
-		(at 281.94 21.59)
+		(at 281.94 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e6b39b45-bbf9-49ad-864b-66e89bc3fd1c")
@@ -7732,7 +7504,7 @@
 		(uuid "e7e6b8f6-d596-4163-a51a-ae118fec3a08")
 	)
 	(junction
-		(at 289.56 21.59)
+		(at 289.56 49.53)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e83fb0e3-dc26-4bf5-b983-dbb412b0c4c9")
@@ -7802,68 +7574,20 @@
 		(uuid "0f959af3-82f4-45cd-8811-d617100baa74")
 	)
 	(no_connect
-		(at 266.7 121.92)
-		(uuid "19082a31-afa8-4587-b062-d6cc9d56c824")
+		(at 266.7 59.69)
+		(uuid "6114d4ad-abda-4261-a63d-ef70d7c62bf8")
 	)
 	(no_connect
 		(at 266.7 134.62)
-		(uuid "1c1f8b98-45af-468b-b50a-2c34d1e85b62")
-	)
-	(no_connect
-		(at 266.7 39.37)
-		(uuid "399073da-e0fa-4592-b6d9-c7cc84e9c31f")
-	)
-	(no_connect
-		(at 266.7 49.53)
-		(uuid "3c36f4d3-8814-4fcc-a284-3d4fd62abc91")
-	)
-	(no_connect
-		(at 266.7 64.77)
-		(uuid "478361f9-4262-4513-bb87-2bf213fd7577")
-	)
-	(no_connect
-		(at 266.7 129.54)
-		(uuid "555e8948-765b-47e0-a7b6-09236530be0c")
-	)
-	(no_connect
-		(at 266.7 41.91)
-		(uuid "5d8b84f3-57bf-45d2-af7d-5cd9944f216d")
-	)
-	(no_connect
-		(at 266.7 137.16)
-		(uuid "5f108c13-c0dd-42f3-bc89-22ce07c326af")
-	)
-	(no_connect
-		(at 266.7 57.15)
-		(uuid "75d22c31-1d40-412c-a780-a25f6d181949")
+		(uuid "83237ad0-6f9a-4285-9f75-fb4bee92a9d8")
 	)
 	(no_connect
 		(at 250.19 54.61)
 		(uuid "86a535d5-918e-4aca-b96b-2fdb60dc91b7")
 	)
 	(no_connect
-		(at 266.7 54.61)
-		(uuid "892ba4df-8f31-4b5b-8474-027bf7cb23f5")
-	)
-	(no_connect
 		(at 217.17 243.84)
 		(uuid "97b1667a-eb6d-4261-8716-7d2582305be7")
-	)
-	(no_connect
-		(at 266.7 62.23)
-		(uuid "99c7cce1-4752-4041-84b8-e16129958573")
-	)
-	(no_connect
-		(at 266.7 127)
-		(uuid "ab158f18-0d2b-41f8-b282-cf49aab45c39")
-	)
-	(no_connect
-		(at 266.7 104.14)
-		(uuid "acb80f93-636a-43fa-b690-e52e8eea2116")
-	)
-	(no_connect
-		(at 266.7 119.38)
-		(uuid "b0cdf9ff-cae1-4515-8e5c-ad203d6f194b")
 	)
 	(no_connect
 		(at 254 127)
@@ -7874,32 +7598,16 @@
 		(uuid "b96ec629-36b8-40c0-9b8d-562e729181b3")
 	)
 	(no_connect
-		(at 266.7 106.68)
-		(uuid "bdb64c10-c1a5-4754-9bcb-6ee399a79fb5")
-	)
-	(no_connect
-		(at 266.7 31.75)
-		(uuid "c0ce50bf-3e5e-4e76-ab0b-0586486042fe")
-	)
-	(no_connect
-		(at 266.7 114.3)
-		(uuid "d94cb0f7-81de-45f2-b5fd-6c3d8d9b499b")
+		(at 266.7 132.08)
+		(uuid "d07cc9a7-5d85-4543-bb39-3704ca397494")
 	)
 	(no_connect
 		(at 255.27 54.61)
 		(uuid "dab778c9-cbff-4084-8175-bbb977240674")
 	)
 	(no_connect
-		(at 266.7 34.29)
-		(uuid "f0ba3499-021a-4e73-a847-965bc93962b8")
-	)
-	(no_connect
-		(at 266.7 111.76)
-		(uuid "fdfc17f8-8548-475e-ad9d-c59e81f951f6")
-	)
-	(no_connect
-		(at 266.7 46.99)
-		(uuid "fe7e9dc7-730b-4a58-977a-1f4c5fba6b1f")
+		(at 266.7 62.23)
+		(uuid "f4efdf32-14a5-496a-b561-ac4576289df3")
 	)
 	(wire
 		(pts
@@ -7973,6 +7681,16 @@
 	)
 	(wire
 		(pts
+			(xy 238.76 154.94) (xy 223.52 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07f182d3-80b8-4ab7-a523-ce368b76adfb")
+	)
+	(wire
+		(pts
 			(xy 273.05 233.68) (xy 270.51 233.68)
 		)
 		(stroke
@@ -7993,7 +7711,7 @@
 	)
 	(wire
 		(pts
-			(xy 281.94 24.13) (xy 281.94 21.59)
+			(xy 281.94 52.07) (xy 281.94 49.53)
 		)
 		(stroke
 			(width 0)
@@ -8153,6 +7871,16 @@
 	)
 	(wire
 		(pts
+			(xy 245.11 77.47) (xy 222.25 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e63e0a2-2c6d-42be-ad55-e508097e23c0")
+	)
+	(wire
+		(pts
 			(xy 74.93 203.2) (xy 78.74 203.2)
 		)
 		(stroke
@@ -8180,6 +7908,16 @@
 			(type default)
 		)
 		(uuid "0f0dbca8-e19a-46e7-8e21-f50e3d60e22e")
+	)
+	(wire
+		(pts
+			(xy 248.92 148.59) (xy 248.92 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1092a2fb-b88b-47fc-b577-c0d6a7e7b788")
 	)
 	(wire
 		(pts
@@ -8283,7 +8021,17 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 21.59) (xy 289.56 24.13)
+			(xy 257.81 154.94) (xy 241.3 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "160b2061-51fc-4517-8729-ee99fb9dccb2")
+	)
+	(wire
+		(pts
+			(xy 289.56 49.53) (xy 289.56 52.07)
 		)
 		(stroke
 			(width 0)
@@ -8433,6 +8181,16 @@
 	)
 	(wire
 		(pts
+			(xy 248.92 144.78) (xy 248.92 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23e8b2d4-4712-447b-948e-43511ac7a09f")
+	)
+	(wire
+		(pts
 			(xy 154.94 250.19) (xy 161.29 250.19)
 		)
 		(stroke
@@ -8540,6 +8298,16 @@
 			(type default)
 		)
 		(uuid "29fedc58-05a1-418a-ae40-f637d026171a")
+	)
+	(wire
+		(pts
+			(xy 245.11 71.12) (xy 245.11 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a837bb8-ae4c-4372-bbef-4915375b0912")
 	)
 	(wire
 		(pts
@@ -8943,7 +8711,7 @@
 	)
 	(wire
 		(pts
-			(xy 250.19 72.39) (xy 220.98 72.39)
+			(xy 250.19 72.39) (xy 245.11 72.39)
 		)
 		(stroke
 			(width 0)
@@ -9120,26 +8888,6 @@
 			(type default)
 		)
 		(uuid "5084a132-f63b-4aa2-8ddc-91c1a0f8552a")
-	)
-	(wire
-		(pts
-			(xy 256.54 85.09) (xy 246.38 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50ced622-d571-4e10-94ac-556a6e944836")
-	)
-	(wire
-		(pts
-			(xy 243.84 82.55) (xy 243.84 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5134583e-a307-4d74-94bd-61b438a5b092")
 	)
 	(wire
 		(pts
@@ -9343,6 +9091,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 85.09) (xy 256.54 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67440975-e260-45d9-bbb0-65ae2e95e47a")
+	)
+	(wire
+		(pts
 			(xy 73.66 77.47) (xy 83.82 77.47)
 		)
 		(stroke
@@ -9350,6 +9108,16 @@
 			(type default)
 		)
 		(uuid "678f1aca-d6dd-47a8-b8d0-08abb3448922")
+	)
+	(wire
+		(pts
+			(xy 245.11 72.39) (xy 220.98 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67c1b5d0-4b5a-4ddf-8367-de81562e8a3a")
 	)
 	(wire
 		(pts
@@ -9453,6 +9221,16 @@
 	)
 	(wire
 		(pts
+			(xy 241.3 154.94) (xy 241.3 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ee4ef3a-ca5a-41e1-a5c7-83c28f6bb9e3")
+	)
+	(wire
+		(pts
 			(xy 260.35 177.8) (xy 262.89 177.8)
 		)
 		(stroke
@@ -9473,6 +9251,16 @@
 	)
 	(wire
 		(pts
+			(xy 236.22 157.48) (xy 223.52 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7001e7a0-a0e8-4388-b582-802620c91691")
+	)
+	(wire
+		(pts
 			(xy 90.17 93.98) (xy 106.68 93.98)
 		)
 		(stroke
@@ -9480,6 +9268,16 @@
 			(type default)
 		)
 		(uuid "7097c654-c232-4891-87df-470ce3520062")
+	)
+	(wire
+		(pts
+			(xy 248.92 149.86) (xy 236.22 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70aa603f-5fe6-4afb-99af-d3e9d0c31ded")
 	)
 	(wire
 		(pts
@@ -9553,6 +9351,16 @@
 	)
 	(wire
 		(pts
+			(xy 241.3 156.21) (xy 236.22 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76a3269d-3608-46be-8d51-444ba81c4c02")
+	)
+	(wire
+		(pts
 			(xy 208.28 101.6) (xy 208.28 104.14)
 		)
 		(stroke
@@ -9570,6 +9378,16 @@
 			(type default)
 		)
 		(uuid "775adec8-300d-4431-ab3e-0a475c714e13")
+	)
+	(wire
+		(pts
+			(xy 257.81 157.48) (xy 238.76 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77eb3a0c-618d-449f-8cd6-edf6623b94a0")
 	)
 	(wire
 		(pts
@@ -9933,7 +9751,7 @@
 	)
 	(wire
 		(pts
-			(xy 281.94 96.52) (xy 281.94 93.98)
+			(xy 281.94 124.46) (xy 281.94 121.92)
 		)
 		(stroke
 			(width 0)
@@ -10083,7 +9901,7 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 93.98) (xy 295.91 93.98)
+			(xy 289.56 121.92) (xy 295.91 121.92)
 		)
 		(stroke
 			(width 0)
@@ -10130,6 +9948,16 @@
 			(type default)
 		)
 		(uuid "94080629-9e3c-4c07-b9a5-96098f3e02f9")
+	)
+	(wire
+		(pts
+			(xy 256.54 82.55) (xy 246.38 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "94097871-639a-483a-be37-edeec30c8e49")
 	)
 	(wire
 		(pts
@@ -10403,6 +10231,16 @@
 	)
 	(wire
 		(pts
+			(xy 83.82 34.29) (xy 83.82 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6a0f238-47e7-4289-85d2-d28d9bcd87a2")
+	)
+	(wire
+		(pts
 			(xy 187.96 152.4) (xy 194.31 152.4)
 		)
 		(stroke
@@ -10613,7 +10451,7 @@
 	)
 	(wire
 		(pts
-			(xy 255.27 77.47) (xy 222.25 77.47)
+			(xy 255.27 77.47) (xy 245.11 77.47)
 		)
 		(stroke
 			(width 0)
@@ -10683,7 +10521,7 @@
 	)
 	(wire
 		(pts
-			(xy 254 149.86) (xy 236.22 149.86)
+			(xy 254 149.86) (xy 248.92 149.86)
 		)
 		(stroke
 			(width 0)
@@ -10713,7 +10551,7 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 21.59) (xy 294.64 21.59)
+			(xy 289.56 49.53) (xy 294.64 49.53)
 		)
 		(stroke
 			(width 0)
@@ -10750,6 +10588,16 @@
 			(type default)
 		)
 		(uuid "bd1d8310-e4ed-4291-8cf0-90bcaba76d11")
+	)
+	(wire
+		(pts
+			(xy 238.76 157.48) (xy 238.76 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd6d4118-8db7-41dc-a808-82873f22159f")
 	)
 	(wire
 		(pts
@@ -10910,6 +10758,16 @@
 			(type default)
 		)
 		(uuid "c6a1f168-170d-41fd-9e54-e4f6ef1ae3bd")
+	)
+	(wire
+		(pts
+			(xy 246.38 82.55) (xy 246.38 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6fab1ca-8201-4164-b423-c4751691b2a6")
 	)
 	(wire
 		(pts
@@ -11093,16 +10951,6 @@
 	)
 	(wire
 		(pts
-			(xy 223.52 157.48) (xy 257.81 157.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d2d0607f-ad01-4ef0-bee0-0e056b710999")
-	)
-	(wire
-		(pts
 			(xy 234.95 209.55) (xy 234.95 228.6)
 		)
 		(stroke
@@ -11223,7 +11071,7 @@
 	)
 	(wire
 		(pts
-			(xy 281.94 93.98) (xy 289.56 93.98)
+			(xy 281.94 121.92) (xy 289.56 121.92)
 		)
 		(stroke
 			(width 0)
@@ -11300,16 +11148,6 @@
 			(type default)
 		)
 		(uuid "dfd1e965-7088-4c17-9d65-cebfc90bb54e")
-	)
-	(wire
-		(pts
-			(xy 223.52 154.94) (xy 257.81 154.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e36d6a8b-733f-4371-b812-c8c8775d5a1c")
 	)
 	(wire
 		(pts
@@ -11443,16 +11281,6 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 82.55) (xy 243.84 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ec138bae-3847-4926-967a-b7025a3df6db")
-	)
-	(wire
-		(pts
 			(xy 83.82 31.75) (xy 83.82 34.29)
 		)
 		(stroke
@@ -11483,6 +11311,16 @@
 	)
 	(wire
 		(pts
+			(xy 236.22 156.21) (xy 236.22 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec5ce897-ea36-49a0-8204-ecd8364da28e")
+	)
+	(wire
+		(pts
 			(xy 222.25 77.47) (xy 222.25 80.01)
 		)
 		(stroke
@@ -11510,6 +11348,16 @@
 			(type default)
 		)
 		(uuid "eed938bb-9d22-424a-bbe4-c941c3a683c1")
+	)
+	(wire
+		(pts
+			(xy 245.11 76.2) (xy 245.11 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef9f928e-5a42-48b0-bedc-85d5384ed550")
 	)
 	(wire
 		(pts
@@ -11553,7 +11401,7 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 93.98) (xy 289.56 96.52)
+			(xy 289.56 121.92) (xy 289.56 124.46)
 		)
 		(stroke
 			(width 0)
@@ -11683,13 +11531,13 @@
 	)
 	(wire
 		(pts
-			(xy 246.38 85.09) (xy 246.38 119.38)
+			(xy 83.82 77.47) (xy 83.82 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fb0a223c-4316-4458-aa52-7ad4b5b35d73")
+		(uuid "fa005ff5-80be-448d-a994-10012cc3adfa")
 	)
 	(wire
 		(pts
@@ -11713,7 +11561,7 @@
 	)
 	(wire
 		(pts
-			(xy 281.94 21.59) (xy 289.56 21.59)
+			(xy 281.94 49.53) (xy 289.56 49.53)
 		)
 		(stroke
 			(width 0)
@@ -11730,6 +11578,16 @@
 			(type default)
 		)
 		(uuid "fec165cd-407f-499e-bb09-0640ba768f61")
+	)
+	(wire
+		(pts
+			(xy 243.84 85.09) (xy 243.84 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fef340c6-e477-4766-b77d-08668c4b1800")
 	)
 	(wire
 		(pts
@@ -11751,45 +11609,39 @@
 		)
 		(uuid "ffe08114-c5a7-48a2-a0df-81ce7897bf27")
 	)
-	(label "USB1 D+"
-		(at 236.22 72.39 0)
+	(label "SM BUS"
+		(at 241.3 228.6 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "6cb9e8e0-cb93-4295-81ce-87b7a2dd3e0e")
+		(uuid "f8d608be-4e9f-4f80-9f77-1575aedfd8f0")
 	)
-	(label "USB2 D+"
-		(at 238.76 144.78 0)
+	(global_label "USB1 D-"
+		(shape input)
+		(at 245.11 76.2 180)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right)
 		)
-		(uuid "82fd2624-6a45-4ba3-9d1a-6ad3a93107c9")
-	)
-	(label "USB2 D-"
-		(at 238.76 149.86 0)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(uuid "03fd1ab5-fe6a-4b9e-bde3-a49493836e70")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 233.2953 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
-			(justify left bottom)
 		)
-		(uuid "830b02e1-3ce7-4799-9119-227166f8d8af")
-	)
-	(label "USB1 D-"
-		(at 236.22 77.47 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c52c5610-9068-478d-b51b-2c18636c989e")
 	)
 	(global_label "PD EN RIGHT"
 		(shape input)
@@ -11910,6 +11762,30 @@
 			)
 		)
 	)
+	(global_label "SW NOISY"
+		(shape input)
+		(at 83.82 83.82 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "587c7ffb-009b-4d45-9d22-70c05f2a94a3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 83.82 95.9976 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "PD EN LEFT"
 		(shape input)
 		(at 161.29 241.3 90)
@@ -11930,6 +11806,30 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+	)
+	(global_label "USB2 D+"
+		(shape input)
+		(at 248.92 146.05 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "807f6263-3288-4119-b30f-e8dd68b3f66f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 237.1053 146.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -12052,6 +11952,30 @@
 			)
 		)
 	)
+	(global_label "USB1 D+"
+		(shape input)
+		(at 245.11 71.12 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "aa170be4-4424-4364-a6ae-86f5d0df80b3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 233.2953 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "+5VP EN"
 		(shape input)
 		(at 46.99 82.55 270)
@@ -12076,7 +12000,7 @@
 			)
 		)
 	)
-	(global_label "PD BOTTOM"
+	(global_label "PD+ BOTTOM"
 		(shape input)
 		(at 101.6 242.57 270)
 		(fields_autoplaced yes)
@@ -12088,7 +12012,7 @@
 		)
 		(uuid "b7f6d17c-2b75-4c65-8002-d21e5ff54f64")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 101.6 242.57 0)
+			(at 101.6 257.9528 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12096,10 +12020,11 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 	)
-	(global_label "PD TOP"
+	(global_label "PD+ TOP"
 		(shape input)
 		(at 25.4 242.57 270)
 		(fields_autoplaced yes)
@@ -12243,7 +12168,7 @@
 			)
 		)
 	)
-	(global_label "PD LEFT"
+	(global_label "PD+ LEFT"
 		(shape input)
 		(at 139.7 242.57 270)
 		(fields_autoplaced yes)
@@ -12266,7 +12191,7 @@
 			)
 		)
 	)
-	(global_label "PD RIGHT"
+	(global_label "PD+ RIGHT"
 		(shape input)
 		(at 63.5 242.57 270)
 		(fields_autoplaced yes)
@@ -12286,6 +12211,54 @@
 				(font
 					(size 1.27 1.27)
 				)
+			)
+		)
+	)
+	(global_label "USB2 D-"
+		(shape input)
+		(at 248.92 148.59 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "de02f987-c457-46e9-ba9b-b348c3462019")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 237.1053 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "SW CLEAN"
+		(shape input)
+		(at 83.82 39.37 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e3693c22-6848-4ebd-9db4-38252243ca27")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 83.82 51.8499 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 	)
@@ -12535,6 +12508,143 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "#PWR0200")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:USB_C_Receptacle_USB2.0_16P")
+		(at 281.94 147.32 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "04eba5d5-01ae-4177-aafc-f14ec8ff42f3")
+		(property "Reference" "USB2"
+			(at 294.64 146.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "USB_C_Receptacle_USB2.0_16P"
+			(at 293.37 161.29 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A"
+			(at 278.13 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+			(at 278.13 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
+			(at 281.94 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2894897"
+			(at 281.94 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "B6"
+			(uuid "6a2094a7-01db-49ae-b952-747032b3df56")
+		)
+		(pin "B12"
+			(uuid "77843b0f-af84-4fa6-99b3-834108bc6d0c")
+		)
+		(pin "B7"
+			(uuid "058df89c-d584-463b-aba3-5d16d00d38bd")
+		)
+		(pin "B8"
+			(uuid "012750f7-aeb0-44b9-aa49-bdbf5453f68a")
+		)
+		(pin "B9"
+			(uuid "2a1c97fc-f4b9-4264-9eeb-b47265c6ccb1")
+		)
+		(pin "B1"
+			(uuid "a3a6b179-c36d-4649-af1b-2900b125e2f9")
+		)
+		(pin "A7"
+			(uuid "a9962cba-5008-405f-a58a-92c2cfd01451")
+		)
+		(pin "A9"
+			(uuid "a5c735cd-aef7-4aed-a8a5-d0df40a7dd8d")
+		)
+		(pin "A8"
+			(uuid "f5ecd337-f75e-4a3e-99c1-a24561bb9945")
+		)
+		(pin "A12"
+			(uuid "8f982103-cd23-4332-9e73-8d4bd67bb4cb")
+		)
+		(pin "B4"
+			(uuid "cb0f39b0-a902-40ad-bfd4-df7c10190003")
+		)
+		(pin "B5"
+			(uuid "d3a00a48-cb0d-47dc-8aca-92258d6c86cc")
+		)
+		(pin "A6"
+			(uuid "2d457360-dec8-4a25-8007-7fc1210b0662")
+		)
+		(pin "A4"
+			(uuid "0dd754aa-3712-40e7-b01e-4803571883a8")
+		)
+		(pin "A1"
+			(uuid "c200ea4c-9ee3-4092-8e9a-f910cb1f1a74")
+		)
+		(pin "A5"
+			(uuid "d17623b0-a215-4a4e-9122-ccaedef4ae89")
+		)
+		(pin "SH"
+			(uuid "4fd6b9ea-4fc2-40da-8f9c-7f15421ef2b0")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "USB2")
 					(unit 1)
 				)
 			)
@@ -12842,6 +12952,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C52923"
+			(at 241.3 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 241.3 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 241.3 234.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "9bfc4d3f-5fc6-4bef-a0e4-bfb81186523b")
 		)
@@ -12917,6 +13060,39 @@
 			)
 		)
 		(property "Description" "0.1A Ic, 45V Vce, NPN Transistor, SOT-23"
+			(at 73.66 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C20069135"
+			(at 73.66 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BC847B"
+			(at 73.66 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
 			(at 73.66 250.19 0)
 			(hide yes)
 			(show_name no)
@@ -13011,6 +13187,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C17168"
+			(at 204.47 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF0000TCE"
+			(at 204.47 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 204.47 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "30225aa5-7c34-4b1c-98f4-712b9094ed50")
 		)
@@ -13059,7 +13268,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 94.9452 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -13240,6 +13449,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 38.1 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17168"
+			(at 38.1 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF0000TCE"
+			(at 38.1 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 38.1 170.18 0)
 			(hide yes)
 			(show_name no)
@@ -13490,6 +13732,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C2841482"
+			(at 104.14 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "AO4407A"
+			(at 104.14 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UMW(Youtai Semiconductor)"
+			(at 104.14 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "1555a08e-3e7a-4d01-94fa-322761654f36")
 		)
@@ -13659,6 +13934,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 194.31 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25900"
+			(at 194.31 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 194.31 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 194.31 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -13983,6 +14291,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 250.19 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 250.19 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 250.19 238.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4f2ab626-3530-436a-ac6c-ade29dc7e44f")
 		)
@@ -14054,6 +14395,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 106.68 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C37809"
+			(at 106.68 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402CG750J500NT"
+			(at 106.68 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FH (Guangdong Fenghua)"
 			(at 106.68 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -14145,6 +14519,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C307331"
+			(at 218.44 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 218.44 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 218.44 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "04b8e39f-98ff-48d3-aff5-d9d1ea7755c2")
 		)
@@ -14216,6 +14623,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 105.41 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 105.41 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 105.41 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 105.41 193.04 0)
 			(hide yes)
 			(show_name no)
@@ -14541,6 +14981,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 49.53 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 49.53 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 49.53 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "acba1298-21af-4bf3-8bab-f6283cf6f1c0")
 		)
@@ -14790,6 +15263,28 @@
 				)
 			)
 		)
+		(property "MPN" "AO4407A"
+			(at 83.82 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UMW(Youtai Semiconductor)"
+			(at 83.82 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "8"
 			(uuid "7b53f7c5-d46c-418e-8099-7bb92137f736")
 		)
@@ -14879,6 +15374,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 34.29 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25765"
+			(at 34.29 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF2002TCE"
+			(at 34.29 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 34.29 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -15055,6 +15583,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C2848334"
+			(at 60.96 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TLV76733DRVR"
+			(at 60.96 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 60.96 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6a171723-0058-4e34-8401-e084a378b5dc")
 		)
@@ -15145,6 +15706,39 @@
 			)
 		)
 		(property "Description" "0.1A Ic, 45V Vce, NPN Transistor, SOT-23"
+			(at 35.56 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C20069135"
+			(at 35.56 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BC847B"
+			(at 35.56 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
 			(at 35.56 250.19 0)
 			(hide yes)
 			(show_name no)
@@ -15412,6 +16006,28 @@
 				)
 			)
 		)
+		(property "MPN" "LM2903DR"
+			(at 81.28 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 81.28 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "5c833008-99cc-43c9-8aa8-a662b533d408")
 		)
@@ -15509,6 +16125,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C18199188"
+			(at 256.54 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "SS54C"
+			(at 256.54 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
+			(at 256.54 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "06eab513-9a23-4c73-b230-27596d02e5db")
 		)
@@ -15519,157 +16168,6 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "D1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:USB_C_Receptacle")
-		(at 281.94 64.77 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2fc22f1d-2e7d-41fa-9fd9-00c3960cd136")
-		(property "Reference" "USB1"
-			(at 294.005 59.6899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "USB_C_Receptacle"
-			(at 294.005 62.2299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_Molex_105450-0101"
-			(at 278.13 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
-			(at 278.13 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "USB Full-Featured Type-C Receptacle connector"
-			(at 281.94 64.77 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "B5"
-			(uuid "80654dd4-ad09-4e10-94dd-c83280e8ef33")
-		)
-		(pin "B8"
-			(uuid "dfe6d148-6013-4f5f-8960-5b474e0ceaf7")
-		)
-		(pin "A2"
-			(uuid "71703f85-a4b3-4e7a-b398-5ec7801c622b")
-		)
-		(pin "B12"
-			(uuid "2c7e53e9-5e77-472b-aff3-e327d1b99ddc")
-		)
-		(pin "A5"
-			(uuid "a3076081-eca8-4244-b9f1-b513f900461c")
-		)
-		(pin "A4"
-			(uuid "9ee55cdd-1b26-498c-ae8d-cead51f56a63")
-		)
-		(pin "A11"
-			(uuid "312e6e3c-ee1f-492c-b595-695f0f85a723")
-		)
-		(pin "A3"
-			(uuid "2daaea94-3085-48a7-a322-59d66dfdcae3")
-		)
-		(pin "A1"
-			(uuid "505c64f5-5e0f-4c27-b32f-6edd39588aea")
-		)
-		(pin "B9"
-			(uuid "3d005c70-7d78-4913-b7a2-ade5b1162d17")
-		)
-		(pin "B7"
-			(uuid "3bddaae7-d61c-493a-98da-f8f444cf4760")
-		)
-		(pin "B3"
-			(uuid "08aaf1ab-4eb7-48f4-8fe8-4ace593961a0")
-		)
-		(pin "B6"
-			(uuid "c51441a8-76b3-4cf7-b0ec-31fec336679c")
-		)
-		(pin "B11"
-			(uuid "85464a81-1450-45c8-a675-87cf0204d8df")
-		)
-		(pin "B1"
-			(uuid "02dfb0d6-545c-4c71-9aca-750c21565120")
-		)
-		(pin "A6"
-			(uuid "f38400dd-98ca-49ac-b696-30e95558a5f3")
-		)
-		(pin "SH"
-			(uuid "44a07cde-c84b-464a-9e1c-f8f67d1c6844")
-		)
-		(pin "A10"
-			(uuid "b32f0a69-7f2e-475a-94c8-affa641bdaa9")
-		)
-		(pin "B10"
-			(uuid "41c2af53-a00a-47d8-b1c0-276b9a404122")
-		)
-		(pin "A8"
-			(uuid "1becb9e0-d080-494a-9634-2be7302660f7")
-		)
-		(pin "A9"
-			(uuid "6556a860-3727-4fc7-a27c-eea4e406ed2f")
-		)
-		(pin "B2"
-			(uuid "582dc7ce-ece5-41c5-aa53-5616fc6db136")
-		)
-		(pin "B4"
-			(uuid "44636860-505a-4d51-b2a3-c85eabbaef41")
-		)
-		(pin "A7"
-			(uuid "6981cbdf-b717-4b96-ae93-b21501706d50")
-		)
-		(pin "A12"
-			(uuid "20f1aa4c-2d71-4c2f-bba0-e62b5bc7dca9")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
-					(reference "USB1")
 					(unit 1)
 				)
 			)
@@ -15820,6 +16318,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 260.35 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 260.35 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 260.35 167.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "f220c737-29f3-4872-98d5-2a4e4570d95a")
 		)
@@ -15892,6 +16423,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 190.5 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 190.5 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 190.5 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 190.5 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -15983,6 +16547,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25076"
+			(at 260.35 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1000TCE"
+			(at 260.35 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 260.35 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c5789a5d-e9b9-4ec8-9798-00f85a21f66d")
 		)
@@ -16055,6 +16652,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 33.02 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25900"
+			(at 33.02 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 33.02 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 33.02 241.3 0)
 			(hide yes)
 			(show_name no)
@@ -16224,6 +16854,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C17168"
+			(at 190.5 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF0000TCE"
+			(at 190.5 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 190.5 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "edb7d138-c042-47a2-90f2-78c2a8d2b1c6")
 		)
@@ -16296,6 +16959,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 124.46 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 124.46 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 124.46 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 124.46 133.35 0)
 			(hide yes)
 			(show_name no)
@@ -16486,6 +17182,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C20069137"
+			(at 111.76 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BC857C"
+			(at 111.76 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
+			(at 111.76 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4f0f30da-ddda-40a7-b55c-d945e2c36a21")
 		)
@@ -16559,6 +17288,39 @@
 			)
 		)
 		(property "Description" "Dual-Channel High-Speed ESD Protection, SOT-553"
+			(at 252.73 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1972959"
+			(at 252.73 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TPD2E2U06DRLR"
+			(at 252.73 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
 			(at 252.73 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -16669,6 +17431,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C132291"
+			(at 210.82 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FUSB302BMPX"
+			(at 210.82 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "onsemi"
+			(at 210.82 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "5"
 			(uuid "db059ccb-2fd6-4204-8dcf-9a485564dd48")
 		)
@@ -16725,7 +17520,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 295.91 93.98 90)
+		(at 295.91 121.92 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16735,7 +17530,7 @@
 		(dnp no)
 		(uuid "3d3fc37e-b0e9-411c-b72a-0fd91892a878")
 		(property "Reference" "#PWR035"
-			(at 302.26 93.98 0)
+			(at 302.26 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16746,7 +17541,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 299.72 93.98 0)
+			(at 299.72 121.92 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16756,7 +17551,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 295.91 93.98 0)
+			(at 295.91 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16767,7 +17562,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 295.91 93.98 0)
+			(at 295.91 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16778,7 +17573,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 295.91 93.98 0)
+			(at 295.91 121.92 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16857,6 +17652,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 52.07 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 52.07 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 52.07 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 52.07 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -17018,6 +17846,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 44.45 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17168"
+			(at 44.45 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF0000TCE"
+			(at 44.45 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 44.45 130.81 0)
 			(hide yes)
 			(show_name no)
@@ -17267,6 +18128,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 85.09 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 85.09 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 85.09 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "69f98ab9-80d3-4609-b84f-b7bf90a9ef4b")
 		)
@@ -17429,6 +18323,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 90.17 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 90.17 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 90.17 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "1af6bd7a-356c-4267-8baa-e9426b800d5c")
 		)
@@ -17500,6 +18427,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 114.3 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2974007"
+			(at 114.3 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FRC0402F1332TS"
+			(at 114.3 55.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FOJAN"
 			(at 114.3 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -17592,6 +18552,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 193.04 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 193.04 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 193.04 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "7d75c438-9745-4442-840c-e50a65659586")
 		)
@@ -17664,6 +18657,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 127 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 127 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 127 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 127 194.31 0)
 			(hide yes)
 			(show_name no)
@@ -17913,6 +18939,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 85.09 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 85.09 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 85.09 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "42ad303c-13ab-4fdd-af9a-70841d1bbdea")
 		)
@@ -18071,6 +19130,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C307331"
+			(at 77.47 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 77.47 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 77.47 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a9ad06c5-3029-4ea7-939b-c51a82c0d090")
 		)
@@ -18152,6 +19244,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C37809"
+			(at 106.68 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402CG750J500NT"
+			(at 106.68 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FH (Guangdong Fenghua)"
+			(at 106.68 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "7699c258-2b17-4f12-938f-b47050ad7cc2")
 		)
@@ -18189,8 +19314,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "12.2kΩ"
-			(at 35.56 199.39 90)
+		(property "Value" "10kΩ"
+			(at 35.56 200.66 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18224,6 +19349,17 @@
 		)
 		(property "Description" "Resistor"
 			(at 33.02 203.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2902636"
+			(at 33.02 203.2 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18282,7 +19418,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 213.0552 64.77 0)
 			(hide yes)
 			(show_name no)
@@ -18305,6 +19441,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 212.09 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C315248"
+			(at 212.09 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A106MP5NUNC"
+			(at 212.09 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 212.09 68.58 0)
 			(hide yes)
 			(show_name no)
@@ -18443,7 +19612,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 102.5652 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -18712,6 +19881,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C52923"
+			(at 35.56 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 35.56 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 35.56 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "9578a814-21f2-4bd1-bfd9-6bfed7603410")
 		)
@@ -18784,6 +19986,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 190.5 161.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25900"
+			(at 190.5 161.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 190.5 161.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 190.5 161.29 0)
 			(hide yes)
 			(show_name no)
@@ -18875,6 +20110,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C140147"
+			(at 114.3 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC-02K49R9FT"
+			(at 114.3 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FH (Guangdong Fenghua)"
+			(at 114.3 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "74fa07ee-cc34-413c-92ce-5fed4944472f")
 		)
@@ -18956,6 +20224,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 190.5 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 190.5 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 190.5 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "598fc157-6b0f-4863-99ea-2eb9867511d8")
 		)
@@ -19005,7 +20306,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 279.0952 228.6 0)
 			(hide yes)
 			(show_name no)
@@ -19028,6 +20329,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 278.13 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C315248"
+			(at 278.13 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A106MP5NUNC"
+			(at 278.13 232.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 278.13 232.41 0)
 			(hide yes)
 			(show_name no)
@@ -19120,6 +20454,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 71.12 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 71.12 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 71.12 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e5edf00c-4595-429d-8041-0b4cb30fed93")
 		)
@@ -19194,6 +20561,39 @@
 			)
 		)
 		(property "Description" "-5.3A Id, -30V Vds, P-Channel MOSFET, 50mOhm Ron, SO-8"
+			(at 27.94 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2841482"
+			(at 27.94 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "AO4407A"
+			(at 27.94 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UMW(Youtai Semiconductor)"
 			(at 27.94 237.49 0)
 			(hide yes)
 			(show_name no)
@@ -19292,6 +20692,39 @@
 			)
 		)
 		(property "Description" "Current limited power switch, single channel, SOT-23-5"
+			(at 260.35 231.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C110466"
+			(at 260.35 231.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "AP2171WG-7"
+			(at 260.35 231.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Diodes Incorporated"
 			(at 260.35 231.14 0)
 			(hide yes)
 			(show_name no)
@@ -19504,7 +20937,7 @@
 			)
 		)
 		(property "Value" "1MΩ"
-			(at 86.36 172.72 90)
+			(at 87.63 172.72 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19547,6 +20980,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C26083"
+			(at 82.55 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1004TCE"
+			(at 82.55 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 82.55 170.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "61eb003d-57e1-4178-8601-9a8646c86079")
 		)
@@ -19557,157 +21023,6 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "R46")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:USB_C_Receptacle")
-		(at 281.94 137.16 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5df0d3ea-6464-454a-a808-3cbce3b8028d")
-		(property "Reference" "USB2"
-			(at 294.005 132.0799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "USB_C_Receptacle"
-			(at 294.005 134.6199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_Molex_105450-0101"
-			(at 278.13 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
-			(at 278.13 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "USB Full-Featured Type-C Receptacle connector"
-			(at 281.94 137.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "B5"
-			(uuid "26cb1d9a-5644-4991-a932-e22a29331558")
-		)
-		(pin "B8"
-			(uuid "57ac7503-35dc-432b-a9f9-efdb49641935")
-		)
-		(pin "A2"
-			(uuid "16258ada-a605-480f-8e52-a9562aab0bb3")
-		)
-		(pin "B12"
-			(uuid "4a012dcb-0e67-466b-b1a0-e53c6a2e08f3")
-		)
-		(pin "A5"
-			(uuid "98fbc9b7-9e0b-4dff-a2da-32913cd83c62")
-		)
-		(pin "A4"
-			(uuid "65fe2233-7b7f-4af4-bd75-c1b22fe7e3db")
-		)
-		(pin "A11"
-			(uuid "2d6069a5-3bd5-4ab9-93a7-b44714435d76")
-		)
-		(pin "A3"
-			(uuid "5eb3ad8f-6511-4674-a396-930a51fbd29d")
-		)
-		(pin "A1"
-			(uuid "1921134b-2475-46f0-9cbc-61509be9ff73")
-		)
-		(pin "B9"
-			(uuid "34e1547e-5629-448f-aa58-86a51bd69c8a")
-		)
-		(pin "B7"
-			(uuid "3ad2e19e-bc06-45e5-a785-eb486c1f196c")
-		)
-		(pin "B3"
-			(uuid "458b4b78-4ff2-404f-a158-9bafca1572dc")
-		)
-		(pin "B6"
-			(uuid "1d93ce79-29b0-4297-97d2-e2a945ff3842")
-		)
-		(pin "B11"
-			(uuid "f2e08118-777b-49c5-bc29-2529626aa9ad")
-		)
-		(pin "B1"
-			(uuid "dce1705d-6373-4c4c-83fe-5667d1f046a5")
-		)
-		(pin "A6"
-			(uuid "b9fd65a9-e225-4c7a-a1df-fcfceb69bcbd")
-		)
-		(pin "SH"
-			(uuid "90902bfa-234e-40b1-95a3-9c9c14794204")
-		)
-		(pin "A10"
-			(uuid "3d676e97-f03a-4b93-96f7-cb44082a4c86")
-		)
-		(pin "B10"
-			(uuid "8fa1f311-0637-4426-bf7e-297c3cb9fd44")
-		)
-		(pin "A8"
-			(uuid "4c97c254-f3c9-455a-81d0-7ec161b4b452")
-		)
-		(pin "A9"
-			(uuid "06495158-367b-4bd3-b19d-51ee03629b22")
-		)
-		(pin "B2"
-			(uuid "26839b4e-9ec6-4260-a10a-d09811b450f9")
-		)
-		(pin "B4"
-			(uuid "815dad4c-8ee7-4ad2-aa9a-a13153a37815")
-		)
-		(pin "A7"
-			(uuid "df63f0e6-2b7b-4402-9b6a-c51c14671caa")
-		)
-		(pin "A12"
-			(uuid "8e18ad58-d8e9-428d-a742-284a01e6b403")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
-					(reference "USB2")
 					(unit 1)
 				)
 			)
@@ -19770,6 +21085,39 @@
 			)
 		)
 		(property "Description" "3.3V, 500mW, 2%, Zener diode, MiniMELF"
+			(at 262.89 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C545375"
+			(at 262.89 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BZV55B3V3"
+			(at 262.89 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "LGE"
 			(at 262.89 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -19862,6 +21210,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 190.5 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 190.5 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 190.5 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "0518fef9-6daf-4527-93e0-887a5d5da0c9")
 		)
@@ -19934,6 +21315,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 147.32 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25900"
+			(at 147.32 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 147.32 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 147.32 241.3 0)
 			(hide yes)
 			(show_name no)
@@ -20039,7 +21453,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 294.64 21.59 90)
+		(at 294.64 49.53 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -20049,7 +21463,7 @@
 		(dnp no)
 		(uuid "6a3c499f-6ab6-420d-9283-dc1663b2cc9b")
 		(property "Reference" "#PWR043"
-			(at 300.99 21.59 0)
+			(at 300.99 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20060,7 +21474,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 298.45 21.59 0)
+			(at 298.45 49.53 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20070,7 +21484,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 294.64 21.59 0)
+			(at 294.64 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20081,7 +21495,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 294.64 21.59 0)
+			(at 294.64 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20092,7 +21506,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 294.64 21.59 0)
+			(at 294.64 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20179,6 +21593,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C19077470"
+			(at 78.74 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BZX84C10"
+			(at 78.74 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
+			(at 78.74 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "b698763c-4b00-4561-aecf-ad6e782e76ca")
 		)
@@ -20229,7 +21676,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_APV_APH0630"
 			(at 88.9 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -20252,6 +21699,39 @@
 			)
 		)
 		(property "Description" "Inductor"
+			(at 88.9 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C5349698"
+			(at 88.9 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "APH0630T100M"
+			(at 88.9 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "APV"
 			(at 88.9 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -20577,6 +22057,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C307331"
+			(at 39.37 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 39.37 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 39.37 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cc7a385f-11ba-4061-a272-14e120f89a60")
 		)
@@ -20735,6 +22248,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 46.99 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 46.99 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 46.99 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c340dc74-c362-4a8e-b258-c6dd3cf5078c")
 		)
@@ -20806,6 +22352,39 @@
 		)
 		(property "Description" "Ideal Diode With Input Polarity Protection 1.5 - 5.5V  Input Voltage, 1.5A Output Current, Ron 141 mOhm, SC-70-6"
 			(at 209.55 259.334 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2832141"
+			(at 209.55 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "LM66100DCKT"
+			(at 209.55 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 209.55 241.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20909,6 +22488,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C26083"
+			(at 127 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1004TCE"
+			(at 127 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 127 187.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "e4c702c2-404c-4392-ae76-d2a446853fd8")
 		)
@@ -20993,6 +22605,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C2841482"
+			(at 142.24 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "AO4407A"
+			(at 142.24 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UMW(Youtai Semiconductor)"
+			(at 142.24 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9ec4a39d-6b19-4ce6-b76e-982fd8cfc988")
 		)
@@ -21048,7 +22693,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1µF"
+		(property "Value" "100nF"
 			(at 81.28 31.115 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21082,6 +22727,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 78.74 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 78.74 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 78.74 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 78.74 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -21285,7 +22963,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1µF"
+		(property "Value" "100nF"
 			(at 40.005 39.37 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21319,6 +22997,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 39.37 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 39.37 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 39.37 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 39.37 36.83 0)
 			(hide yes)
 			(show_name no)
@@ -21488,6 +23199,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 270.51 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 270.51 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 270.51 240.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "33d39d02-f85d-419e-8d62-a1d953df1e2c")
 		)
@@ -21560,6 +23304,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 198.12 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25900"
+			(at 198.12 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 198.12 219.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 198.12 219.71 0)
 			(hide yes)
 			(show_name no)
@@ -21651,6 +23428,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C140147"
+			(at 114.3 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "RC-02K49R9FT"
+			(at 114.3 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FH (Guangdong Fenghua)"
+			(at 114.3 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "7177b8c9-1a22-4b60-826e-efcc75013c3a")
 		)
@@ -21661,6 +23471,143 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:USB_C_Receptacle_USB2.0_16P")
+		(at 281.94 74.93 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "81cb8af9-23bb-4d00-8b77-95f4b878641b")
+		(property "Reference" "USB1"
+			(at 294.64 73.66 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "USB_C_Receptacle_USB2.0_16P"
+			(at 293.37 88.9 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector_USB:USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A"
+			(at 278.13 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
+			(at 278.13 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
+			(at 281.94 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2894897"
+			(at 281.94 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "B6"
+			(uuid "27844917-bd87-423f-821a-e99f9b6e1d81")
+		)
+		(pin "B12"
+			(uuid "0c016284-e35a-453e-8e47-7831e83a3e90")
+		)
+		(pin "B7"
+			(uuid "232b281a-291c-4b74-9008-f3c6c99f33ab")
+		)
+		(pin "B8"
+			(uuid "59159675-573b-4a32-ba08-10b5ed639271")
+		)
+		(pin "B9"
+			(uuid "37081813-af9d-4727-b3cc-e0dfc973b1ac")
+		)
+		(pin "B1"
+			(uuid "c3eaf792-a4d1-4a26-ab8c-a79428f25f2f")
+		)
+		(pin "A7"
+			(uuid "8472bb52-bb77-4b2c-bb08-b1e6960e965c")
+		)
+		(pin "A9"
+			(uuid "437b1660-fdd3-4082-8ab4-4c173a70e03b")
+		)
+		(pin "A8"
+			(uuid "45e44ca2-529d-4c6a-aac7-c2b1e07139c7")
+		)
+		(pin "A12"
+			(uuid "b4ccfa4e-ffde-47f1-b3f6-df4929149a3c")
+		)
+		(pin "B4"
+			(uuid "44888d01-ae14-4a70-a092-6478e4971aaa")
+		)
+		(pin "B5"
+			(uuid "8788f7ea-e327-48e3-82cd-bd6c96f6544c")
+		)
+		(pin "A6"
+			(uuid "eb3cd0b8-aff2-4bb0-91da-4a3587bdc6bb")
+		)
+		(pin "A4"
+			(uuid "acc10730-3537-4b1e-94c4-318fe70812d7")
+		)
+		(pin "A1"
+			(uuid "be32d656-b24b-480e-b504-350d0bc69e42")
+		)
+		(pin "A5"
+			(uuid "12af39c3-b6fd-4c1b-bc1b-f319ccd9c6e5")
+		)
+		(pin "SH"
+			(uuid "0e18637d-e961-43f7-8b91-a2da9505a660")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "USB1")
 					(unit 1)
 				)
 			)
@@ -21736,6 +23683,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C20069135"
+			(at 111.76 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BC847B"
+			(at 111.76 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
+			(at 111.76 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ea4d1539-4d13-486b-8e0c-a24a4bb11da2")
 		)
@@ -21776,7 +23756,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "5.1kΩ"
 			(at 67.31 170.18 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21810,6 +23790,17 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 69.85 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25905"
 			(at 69.85 172.72 0)
 			(hide yes)
 			(show_name no)
@@ -21980,6 +23971,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25744"
+			(at 161.29 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 161.29 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 161.29 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4604c3df-766a-44b0-a1f2-bfec7671830a")
 		)
@@ -22061,6 +24085,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25076"
+			(at 260.35 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1000TCE"
+			(at 260.35 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 260.35 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "1a2fc083-b225-497c-b4fe-2c67de644d9b")
 		)
@@ -22071,6 +24128,103 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "R49")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Reference_Voltage:TL431DBZ")
+		(at 45.72 173.99 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "875d8be4-6a08-40cb-bf7f-a0763fe1cc7f")
+		(property "Reference" "U10"
+			(at 40.64 172.72 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "TLV431BQDBZR"
+			(at 48.26 166.37 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 50.546 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl431.pdf"
+			(at 54.864 172.212 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Description" "Shunt Regulator, SOT-23"
+			(at 52.832 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C398374"
+			(at 45.72 173.99 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9af8e614-5f98-4ec7-9d84-8096b9b5ec06")
+		)
+		(pin "3"
+			(uuid "3e49c8ea-6aa4-4439-9f2a-7a0fb01a1463")
+		)
+		(pin "1"
+			(uuid "19355107-8935-45c5-a18f-dbb73ba0a2c3")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "U10")
 					(unit 1)
 				)
 			)
@@ -22098,7 +24252,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "44.2kΩ"
+		(property "Value" "35.7kΩ"
 			(at 35.56 191.77 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22132,6 +24286,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 33.02 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2681604"
+			(at 33.02 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "ARG02BTC4422"
+			(at 33.02 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Viking Tech"
 			(at 33.02 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -22224,6 +24411,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 147.32 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 147.32 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 147.32 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "224cf105-80fe-4165-a228-e6be5846a353")
 		)
@@ -22296,6 +24516,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 151.13 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 151.13 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 151.13 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 151.13 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -22464,6 +24717,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C1972959"
+			(at 251.46 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TPD2E2U06DRLR"
+			(at 251.46 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 251.46 134.62 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "649d9f34-4dd1-4d86-8d37-709d64bf44ad")
 		)
@@ -22600,7 +24886,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Inductor_SMD:L_APV_APH0630"
 			(at 88.9 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -22623,6 +24909,39 @@
 			)
 		)
 		(property "Description" "Inductor"
+			(at 88.9 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C5349698"
+			(at 88.9 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "APH0630T100M"
+			(at 88.9 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "APV"
 			(at 88.9 34.29 0)
 			(hide yes)
 			(show_name no)
@@ -22704,6 +25023,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 134.62 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C53547"
+			(at 134.62 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402CG102J500NT"
+			(at 134.62 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FH (Guangdong Fenghua)"
 			(at 134.62 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -22797,6 +25149,39 @@
 		)
 		(property "Purpose" "USB Power Delivery chip 2"
 			(at 189.865 134.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C132291"
+			(at 210.82 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FUSB302BMPX"
+			(at 210.82 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "onsemi"
+			(at 210.82 154.94 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -23007,7 +25392,29 @@
 				)
 			)
 		)
-		(property "LCSC" "C181091"
+		(property "LCSC" "C15127"
+			(at 139.7 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "AO3401A"
+			(at 139.7 190.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Alpha & Omega Semiconductor"
 			(at 139.7 190.5 0)
 			(hide yes)
 			(show_name no)
@@ -23092,6 +25499,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 111.76 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 111.76 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 111.76 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 111.76 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -23339,6 +25779,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C23733"
+			(at 81.28 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A475MP5NRNC"
+			(at 81.28 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 81.28 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "2a8008db-5cf6-42f6-9afd-d4bbfe7839e6")
 		)
@@ -23411,6 +25884,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 161.29 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 161.29 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 161.29 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 161.29 254 0)
 			(hide yes)
 			(show_name no)
@@ -23914,6 +26420,28 @@
 				)
 			)
 		)
+		(property "MPN" "LM2903DR"
+			(at 41.91 199.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 41.91 199.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "5c833008-99cc-43c9-8aa8-a662b533d409")
 		)
@@ -24022,6 +26550,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C311983"
+			(at 63.5 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TPS54302DDCR"
+			(at 63.5 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 63.5 34.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "6"
 			(uuid "c41e1845-a352-414b-94e7-0ae5c327b77f")
 		)
@@ -24104,6 +26665,39 @@
 			)
 		)
 		(property "Description" "Current limited power switch, single channel, SOT-23-5"
+			(at 209.55 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C110466"
+			(at 209.55 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "AP2171WG-7"
+			(at 209.55 212.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Diodes Incorporated"
 			(at 209.55 212.09 0)
 			(hide yes)
 			(show_name no)
@@ -24281,6 +26875,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 109.22 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 109.22 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 109.22 241.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "08284d61-7038-4559-8f9e-606b011a0047")
 		)
@@ -24352,6 +26979,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 134.62 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17168"
+			(at 134.62 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF0000TCE"
+			(at 134.62 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 134.62 139.7 0)
 			(hide yes)
 			(show_name no)
@@ -24444,6 +27104,39 @@
 		)
 		(property "Purpose" "Noisy Buck Converter"
 			(at 63.5 63.5 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C311983"
+			(at 63.5 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TPS54302DDCR"
+			(at 63.5 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 63.5 77.47 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -24886,7 +27579,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1µF"
+		(property "Value" "100nF"
 			(at 203.2 140.97 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24920,6 +27613,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 204.47 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 204.47 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 204.47 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 204.47 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -25078,6 +27804,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 114.3 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2974007"
+			(at 114.3 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FRC0402F1332TS"
+			(at 114.3 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "FOJAN"
 			(at 114.3 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -25322,6 +28081,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C52923"
+			(at 187.96 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 187.96 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 187.96 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "45e3553e-683f-4ad4-9979-8fbc1f13f133")
 		)
@@ -25393,6 +28185,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 114.3 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 114.3 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 114.3 90.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 114.3 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -25560,6 +28385,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C2832141"
+			(at 139.7 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "LM66100DCKT"
+			(at 139.7 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 139.7 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "3"
 			(uuid "6a1b7441-0e7a-44bb-8df2-34a4970829a8")
 		)
@@ -25643,6 +28501,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 153.67 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 153.67 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 153.67 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 153.67 233.68 0)
 			(hide yes)
 			(show_name no)
@@ -25781,7 +28672,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 102.5652 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -25893,6 +28784,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C18199188"
+			(at 247.65 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "SS54C"
+			(at 247.65 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
+			(at 247.65 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "0d60027b-d3ff-4d06-9ff5-661fb674c70e")
 		)
@@ -25965,6 +28889,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 46.99 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 46.99 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 46.99 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 46.99 254 0)
 			(hide yes)
 			(show_name no)
@@ -26068,7 +29025,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 281.94 21.59 90)
+		(at 281.94 49.53 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -26079,7 +29036,7 @@
 		(fields_autoplaced yes)
 		(uuid "c229eb57-fe18-4eb5-b3cb-a530af043452")
 		(property "Reference" "#FLG06"
-			(at 280.035 21.59 0)
+			(at 280.035 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26090,7 +29047,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 278.13 21.5899 90)
+			(at 278.13 49.5299 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26101,7 +29058,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 281.94 21.59 0)
+			(at 281.94 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26112,7 +29069,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 281.94 21.59 0)
+			(at 281.94 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26123,7 +29080,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 281.94 21.59 0)
+			(at 281.94 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26293,6 +29250,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 33.02 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 33.02 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 33.02 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "38e74ac2-4bb1-4559-9534-da00113fe385")
 		)
@@ -26364,6 +29354,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 261.62 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25076"
+			(at 261.62 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1000TCE"
+			(at 261.62 154.94 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 261.62 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -26533,6 +29556,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 123.19 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 123.19 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 123.19 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "079313a2-a65a-4304-9395-36081a46d80e")
 		)
@@ -26604,6 +29660,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 123.19 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 123.19 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 123.19 246.38 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 123.19 246.38 0)
 			(hide yes)
 			(show_name no)
@@ -26774,6 +29863,39 @@
 		)
 		(property "Purpose" "USB switch"
 			(at 179.705 56.515 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C73880"
+			(at 207.01 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "TS3USB30ERSWR"
+			(at 207.01 82.55 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 207.01 82.55 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26966,6 +30088,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C307331"
+			(at 115.57 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 115.57 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 115.57 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "10dcce28-4fbc-4f7e-b078-b7b8d23f8c4d")
 		)
@@ -27037,6 +30192,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 88.9 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 88.9 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 88.9 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 88.9 194.31 0)
 			(hide yes)
 			(show_name no)
@@ -27210,6 +30398,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C2841482"
+			(at 66.04 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "AO4407A"
+			(at 66.04 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UMW(Youtai Semiconductor)"
+			(at 66.04 237.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "22bafff1-8c35-4c96-b3d9-1bf8f25505fe")
 		)
@@ -27313,6 +30534,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C20069135"
+			(at 149.86 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BC847B"
+			(at 149.86 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
+			(at 149.86 250.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "33183533-c4df-4018-9b58-1cc1225cdfd0")
 		)
@@ -27388,6 +30642,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 109.22 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25741"
+			(at 109.22 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 109.22 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 109.22 233.68 0)
 			(hide yes)
 			(show_name no)
@@ -27499,6 +30786,28 @@
 				)
 			)
 		)
+		(property "MPN" "LM2903DR"
+			(at 107.95 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Texas Instruments"
+			(at 107.95 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "5c833008-99cc-43c9-8aa8-a662b533d40a")
 		)
@@ -27598,6 +30907,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25076"
+			(at 261.62 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1000TCE"
+			(at 261.62 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 261.62 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "630a1256-f606-42f3-ac6b-8882902fca70")
 		)
@@ -27635,7 +30977,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1µF"
+		(property "Value" "100nF"
 			(at 40.005 82.55 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27669,6 +31011,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 39.37 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 39.37 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 39.37 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 39.37 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -27807,7 +31182,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 227.0252 210.82 0)
 			(hide yes)
 			(show_name no)
@@ -27830,6 +31205,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 226.06 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C315248"
+			(at 226.06 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A106MP5NUNC"
+			(at 226.06 214.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 226.06 214.63 0)
 			(hide yes)
 			(show_name no)
@@ -28000,6 +31408,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C17168"
+			(at 190.5 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF0000TCE"
+			(at 190.5 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 190.5 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "6cc1ce09-2ed2-449d-a55b-9540f5f1b0a7")
 		)
@@ -28082,6 +31523,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 71.12 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 71.12 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 71.12 233.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "afcdd8e9-9bdd-4faa-b971-93df84356d3a")
 		)
@@ -28153,6 +31627,39 @@
 			)
 		)
 		(property "Description" "300mW Zener Diode, SOT-23"
+			(at 134.62 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C19077470"
+			(at 134.62 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BZX84C10"
+			(at 134.62 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "hongjiacheng"
 			(at 134.62 194.31 0)
 			(hide yes)
 			(show_name no)
@@ -28247,6 +31754,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C307331"
+			(at 49.53 199.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 49.53 199.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 49.53 199.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "74ea991c-957d-42ef-b06b-bf3aded1571c")
 		)
@@ -28295,7 +31835,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 94.9452 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -28409,6 +31949,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25741"
+			(at 114.3 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1003TCE"
+			(at 114.3 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 114.3 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "7e06fc98-2656-42a6-9180-84662c9cbee1")
 		)
@@ -28419,103 +31992,6 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "R19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Reference_Voltage:TL431DBV")
-		(at 45.72 173.99 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e72b82e3-4d3c-4a1f-bd92-a709e627c476")
-		(property "Reference" "U10"
-			(at 47.625 172.7199 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "TLV431B"
-			(at 47.625 175.2599 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 52.07 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C56765.pdf"
-			(at 54.102 174.498 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-			)
-		)
-		(property "Description" "Shunt Regulator, SOT-23"
-			(at 56.134 174.244 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Purpose" "Generate refrence voltage for the compareitor"
-			(at 38.1 191.135 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "1067493a-9175-4fc2-a236-1ef1f940ee02")
-		)
-		(pin "3"
-			(uuid "446c85ec-617b-4111-9235-ae9dd199b336")
-		)
-		(pin "5"
-			(uuid "742e3e30-b951-4e13-93cd-2833fdd4636c")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
-					(reference "U10")
 					(unit 1)
 				)
 			)
@@ -28554,7 +32030,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 32.7152 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -28624,7 +32100,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1µF"
+		(property "Value" "100nF"
 			(at 203.2 104.14 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28658,6 +32134,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 204.47 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 204.47 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 204.47 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 204.47 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -28828,6 +32337,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C307331"
+			(at 257.81 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 257.81 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 257.81 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "9469d732-a141-4b01-a570-73329030ea95")
 		)
@@ -28865,7 +32407,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1µF"
+		(property "Value" "100nF"
 			(at 81.28 74.295 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28899,6 +32441,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 78.74 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C307331"
+			(at 78.74 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05B104KB54PNC"
+			(at 78.74 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 78.74 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -29070,6 +32645,39 @@
 				)
 			)
 		)
+		(property "LCSC" "C25900"
+			(at 190.5 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 190.5 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 190.5 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ba2ef860-10cd-4eca-b470-6e6b9f193b0e")
 		)
@@ -29196,7 +32804,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 32.7152 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -29300,6 +32908,39 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 83.82 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 83.82 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1002TCE"
+			(at 83.82 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 83.82 185.42 0)
 			(hide yes)
 			(show_name no)
@@ -29463,6 +33104,39 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 194.31 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C52923"
+			(at 194.31 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CL05A105KA5NQNC"
+			(at 194.31 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 194.31 243.84 0)
 			(hide yes)
 			(show_name no)

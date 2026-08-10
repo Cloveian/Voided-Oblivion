@@ -4,4 +4,5 @@
 	(lib (name "RP2350_80QFN_minimal") (type "KiCad") (uri "${KIPRJMOD}/footprints/RP2350_80QFN_minimal.pretty") (options "") (descr ""))
 	(lib (name "SK9822-EC20") (type "KiCad") (uri "${KIPRJMOD}/footprints/SK9822-EC20.pretty") (options "") (descr ""))
 	(lib (name "Pogo-Pins") (type "KiCad") (uri "${KIPRJMOD}/footprints/pogo-pins.pretty") (options "") (descr ""))
+	(lib (name "Voided-Oblivion-misc") (type "KiCad") (uri "${KIPRJMOD}/footprints/Voided-Oblivion-misc.pretty") (options "") (descr ""))
 )

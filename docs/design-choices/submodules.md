@@ -238,7 +238,7 @@ If submodules turn out to be something people *do* swap constantly, this flips a
 - 5V / GND / Rx / Tx unchanged - the electrical contract from above is untouched
 - **Revisit trigger:** if submodules become something that gets swapped constantly, stamped Dupont wins instead
 
-Specific MPN + footprint still to pick at layout time, but the *class* is settled, which is what was blocking.
+Specific MPN + footprint still to pick at layout time, but the *class* is settled, which is what was blocking. *(Picked later - see [the socket footprint](#the-socket-footprint---sinking-the-barrel-shoulder).)*
 
 ## Revision: 5 pins, not 4 - adding a sense/ID line
 
@@ -419,5 +419,65 @@ Kept for the record, because the failure mode is instructive. The matrix below s
 ### Revised contract
 
 **Submodule connector = 5-pin `ID GND 5V Rx Tx` (clockwise), one per corner, independent UART per corner, ≤300mA/port and ≤1A total, dual-sourced from +5VP (via ideal diode) and BS+ (firmware-gated), group-switched by U16.** Works on a 5V-only source. Modules may be MCU-less; the ID resistor identifies them and works whether the corner rail is powered or not.
+
+## The socket footprint - sinking the barrel shoulder
+
+The one thing left from [Result](#result) above: *"specific MPN + footprint still to pick at layout time."* Picking it turned up a decision that isn't obvious.
+
+### The stock footprint throws away the joint
+
+A machined socket contact is a turned brass barrel with a **wider section protruding below the plastic**, necking down to a thin solder tail. The stock KiCad footprint (`PinSocket_1x05_P2.54mm_Vertical`, 1.0mm drill / 1.7mm pad) sizes the hole to the *tail*. The barrel shoulder then rests **on** the pad, and the joint is a ⌀0.5mm tail sitting in the plating.
+
+**Size the hole to the barrel instead and the whole thing gets better:**
+
+- the ⌀1.4mm barrel sits *inside* the plated hole with a small radial gap, capillary fills it, and you're soldering ~1mm of barrel wall rather than a thin tail
+- insertion force goes into the barrel in shear against the plating, instead of into the tail in bending
+- the plastic bottoms out flat on the board, so the strip self-registers square instead of teetering on five shoulders
+- it's ~1mm lower
+
+This is how Mill-Max specify their press-fit receptacles, and it's what I did on the last keyboard, where it worked fine.
+
+> **Not to be confused with sinking the *plastic* flush.** That's a different idea and it's a bad one: the body is a single moulded strip, so it needs a ~12.8 × 2.7mm **slot**, the tails end up hanging in open air with nothing to solder to but a hand-made bridge, nothing sets the height or perpendicularity, and it deletes the shroud - which is the [mechanical answer to misinsertion](#pin-order-id-gnd-5v-rx-tx-clockwise) this whole pinout leans on.
+
+### Hole size - err loose, and by more than it looks like
+
+Barrel OD is **1.4mm** on the common parts. The tempting hole is 1.5mm. It's wrong:
+
+| hole spec | worst-case tight | diametral clearance | |
+| :---: | :---: | :---: | --- |
+| 1.5mm | 1.42mm | **0.02mm** | press fit - may not seat by hand, scrapes plating |
+| 1.55mm | 1.47mm | 0.07mm | insertable |
+| **1.6mm** | 1.52mm | **0.12mm** | comfortable ✓ |
+
+**JLC is ±0.08mm on plated holes ≥0.5mm**, which eats a 0.1mm nominal clearance entirely. And the failure modes aren't symmetric: **too loose just needs more solder, which is free. Too tight and the part physically will not seat, and there is nothing to be done about it once the boards have arrived.**
+
+### Result
+
+| | | |
+| --- | :---: | --- |
+| finished hole | **⌀1.6mm** | standard drill, no fab surcharge |
+| pad | **⌀2.2mm** | 0.3mm annular ring - generous on purpose, it's fillet area for hand soldering |
+| pad-to-pad @ 2.54 pitch | 0.34mm | clear of JLC's 0.2mm minimum |
+| hole-to-hole, edge to edge | 0.94mm | plenty |
+
+**No routing between adjacent pins, on any layer:** `0.2 + w + 0.2 ≤ 0.34` leaves `w ≤ 0`. Fan the five signals out sideways. Trivial for a 5-pin corner connector as long as it isn't planned around.
+
+Needs a **custom footprint** - copy the stock one, change drill to 1.6 and pad to 2.2.
+
+Two things to check against the specific MPN's drawing before committing: **is the protruding section a plain cylinder** (a knurl, taper or flange under the insulator won't enter a straight hole, and sizing to a flange puts you back to a fillet-only joint), and **tail protrusion goes up, not down** - sunk, both barrel and tail enter the board, so it stands roughly 1mm *more* proud underneath than the stock footprint would.
+
+### Hand-soldered, and that changes two things
+
+4 sockets × 5 pins = **20 THT joints per tile**, which JLC charges per-joint for on top of a hand-solder setup fee. Keeping these off the assembly BOM is right for a board other people are meant to build cheaply.
+
+**Thermal relief on the GND pad is now load-bearing.** Four of the five pads solder fine, but GND connecting solid to a plane on 1oz copper sinks heat faster than an iron delivers it into a 1.6mm hole with a barrel in it. Covered by the `THT pads: thermal relief for hand soldering` rule in [pcb-stackup](pcb-stackup.md#custom-drc-rules) rather than left to the zone default.
+
+**And gold stops costing anything.** Off the assembly BOM there's no Extended-part fee, so it's a straight parts-cost question: **4 sockets per tile**, `C2684749` (gold) at $0.33 vs tin at $0.11 - about **$0.88 per tile**. [Select](#select) picked machined partly *for* the gold plating, and the ID contact carries an ADC reference through a pin that sits unmated for months, so it's worth spending. Stock is thinner (1,612), so: preferred, not required.
+
+### The cost this imposes elsewhere
+
+2.2mm pads plus a 0.2mm anti-pad means a **12.7 × 2.6mm void through L2/L3 at every corner**, ×4. That's a real cut in the ground plane next to where the edge connector's HV and GND return run, and it makes each corner the most congested region on the tile across all four layers.
+
+Consequences are tracked in [pcb-stackup](pcb-stackup.md): USB is kept away from those corners by a DRC rule, and **one corner should be laid out first to confirm it fits before mirroring it to the other three.**
 
 back to [index](../index.md)
