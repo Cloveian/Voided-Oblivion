@@ -100,7 +100,7 @@ Switching loss is **not published** in this datasheet, so double it as a rough a
 
 ### Notes / gotchas
 - **EN is GPIO14 push-pull with R38 100kΩ pulling down** - default off, correct. The research warned against push-pull EN, but that warning applies when a VIN-referenced UVLO divider is present and would be fought. There isn't one here, and a GPIO trivially overrides the 0.7µA internal pull-up. **Push-pull is fine as drawn.**
-- **Consequence: the big buck has no input UVLO at all.** If firmware asserts GPIO14 while PD+ is still ~5.7V, the buck runs in dropout into the LED chain. Nothing breaks, but it's a firmware sequencing responsibility - don't enable +5VP until PD reports ≥9V.
+- **!firmware-note!** **Consequence: the big buck has no input UVLO at all.** If firmware asserts GPIO14 while PD+ is still ~5.7V, the buck runs in dropout into the LED chain. Nothing breaks, but it's a firmware sequencing responsibility - don't enable +5VP until PD reports ≥9V.
 - **Overcurrent is hiccup, not a trip.** Cycle-by-cycle limiting first, then after tHIC_WAIT = 512 cycles (1.28ms at 400kHz) it shuts down and retries after 16384 cycles (41ms). A shorted submodule port therefore draws elevated current for ~1.3ms every ~41ms indefinitely. Relevant to whatever the firmware power budget thinks is happening.
 - Inductor Isat 3A is chosen against the 2.47A *operating* peak, not the IC's 6A max current limit - so a hard output short saturates the inductor before the IC's limit trips. Normal trade-off, noted for the record. (See [picking the inductors](#picking-the-inductors-l2l3) - the part actually chosen is 4.57A worst case / 5.5A typ, which narrows this a lot without closing it.)
 
@@ -718,7 +718,7 @@ Both tiles at a joint have identical parts wired identically, so both anodes lan
 
 Two things it *does* oblige:
 
-- **Firmware must turn an edge switch OFF when the neighbour disappears.** If an edge is left enabled after a tile is yanked, plugging a new tile in there is a **hard hot-insert**: the new tile's PD+ bulk charges through its own body diode with no soft-start anywhere in the path, because the sender's ramp finished long ago. The intended sequence (switches default OFF → detect neighbour on the Rx line → *then* enable with soft-start) is exactly right; this is the teardown half of it, and it's what makes the [4.7k Rx pull-down](mcu.md#rp2350-e9-and-the-neighbour-detect-pull-downs) load-bearing rather than a nicety.
+- **!firmware-note!** **Firmware must turn an edge switch OFF when the neighbour disappears.** If an edge is left enabled after a tile is yanked, plugging a new tile in there is a **hard hot-insert**: the new tile's PD+ bulk charges through its own body diode with no soft-start anywhere in the path, because the sender's ramp finished long ago. The intended sequence (switches default OFF → detect neighbour on the Rx line → *then* enable with soft-start) is exactly right; this is the teardown half of it, and it's what makes the [4.7k Rx pull-down](mcu.md#rp2350-e9-and-the-neighbour-detect-pull-downs) load-bearing rather than a nicety.
 - **The current sense has to be bidirectional.** Current through R_sense flows outbound when this tile is sourcing and **inbound through the body diode** when it's receiving. A unidirectional sense amp reads zero for half of normal operation. This is now a hard requirement on the still-unpicked amp, not a preference.
 
 ### Notes / gotchas

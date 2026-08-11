@@ -249,7 +249,7 @@ redoing it against the steps that actually exist:
 | **15V** | *at* the threshold | 0.33A/tile | safe **only when breaking ≤1 tile** (0.33A < 0.4A). 2 tiles = 0.67A → can arc |
 | **20V** | above | - | not arc-safe |
 
-so the standing plan is **firmware defaults to 9V**, and that's a stronger result than the 12V version it replaces - 12V was safe with ~3V of room, 9V has 6V, and it doesn't depend on how much is downstream. 15V turns out to be conditionally safe in a way that's nearly useless: it only holds for a single-tile break, which is exactly the case i don't care about. 20V stays behind an explicit flag with a "don't hot-unplug" warning.
+**!firmware-note!** so the standing plan is **firmware defaults to 9V**, and that's a stronger result than the 12V version it replaces - 12V was safe with ~3V of room, 9V has 6V, and it doesn't depend on how much is downstream. 15V turns out to be conditionally safe in a way that's nearly useless: it only holds for a single-tile break, which is exactly the case i don't care about. 20V stays behind an explicit flag with a "don't hot-unplug" warning.
 
 **what 9V costs:** 2A × 9V = 18W ≈ **3.6 tiles** per joint, down from 5 at 12V. the connector's 4A ceiling gives 36W ≈ 7 tiles. so at 9V the array is **current-limited rather than voltage-limited**, which is one more reason the [per-side FET](../schematic-design/power.md#hv-per-side-switches---picking-the-fet) needed to be the one with current headroom.
 

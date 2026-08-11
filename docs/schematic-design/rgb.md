@@ -48,7 +48,7 @@ The datasheet says outright: *"Based on the heat dissipation of the product, it 
 
 **That's a package thermal limit, not a power-source limit** - it applies even if the PD contract has amps to spare. So:
 
-> **Firmware must clamp the 5-bit global brightness field to ≤10, independent of the PD power budget.** This is separate from PWM duty-cycle capping and separate from the RGB brightness cap the master already sends. Getting this wrong doesn't trip a power budget, it cooks LEDs.
+> **!firmware-note!** **Firmware must clamp the 5-bit global brightness field to ≤10, independent of the PD power budget.** This is separate from PWM duty-cycle capping and separate from the RGB brightness cap the master already sends. Getting this wrong doesn't trip a power budget, it cooks LEDs.
 
 The old "540mA worst case" figure in [rgb design-choice](../design-choices/rgb.md) was based on 18mA/LED. The real ceiling under the datasheet's own guidance is **~500mA**, and the real *unrestricted* worst case is **~1.9A** - so the old number was neither the safe ceiling nor the true worst case. Rail sizing should use ~500mA as the design point and 1.9A as the fault case.
 
@@ -56,7 +56,7 @@ The old "540mA worst case" figure in [rgb design-choice](../design-choices/rgb.m
 LED1–LED30, daisy-chained SDO→SDI / CKO→CKI, all on **+5VP**, each with a local 100nF (C46–C75). Chain head is fed from U8 through R63/R64 33Ω.
 
 ### Notes / gotchas
-- **Colour order is contradicted within the datasheet.** p.7 says RBG, p.8 says GRB, same revision. The frame table's concrete field order (red, blue, green) is the more trustworthy of the two, but **this needs verifying against a physical LED before firmware ships.** Cheap to check, annoying to debug later.
+- **!firmware-note!** **Colour order is contradicted within the datasheet.** p.7 says RBG, p.8 says GRB, same revision. The frame table's concrete field order (red, blue, green) is the more trustworthy of the two, but **this needs verifying against a physical LED before firmware ships.** Cheap to check, annoying to debug later.
 - The datasheet's own abs-max VDD row is a self-referential copy-paste artifact and can't be read as a real rating. Treat 5.3V as the ceiling from the operating table.
 - Series resistors belong **once, between the controller and LED1** - the datasheet's application circuit doesn't repeat them at each inter-chip junction. As-built matches.
 
@@ -190,7 +190,7 @@ swapped on the board, **U8 = SN74LVC2T45DCUR**, VSSOP-8:
 
 the 74AHCT125 that was here is gone, and with it the back-feed exposure. TI's own numbers for the replacement: **total static current is <2µA** with VCCA=3V3/VCCB=5V, **<1µA** with VCCB at 0 (Table 8-4), and the datasheet states outright that if either VCC is at GND both ports go high-impedance (§1) with Ioff bounding leakage to **±2µA** (§5.5).
 
-one behavioural note that came out of the datasheet read and is a *firmware* requirement, not a hardware one: **the A-port inputs must never float**, even while VCCB is dead, or ICC goes up. so firmware should keep SCK and TX driven at all times rather than releasing them to inputs when RGB is off.
+**!firmware-note!** one behavioural note that came out of the datasheet read and is a *firmware* requirement, not a hardware one: **the A-port inputs must never float**, even while VCCB is dead, or ICC goes up. so firmware should keep SCK and TX driven at all times rather than releasing them to inputs when RGB is off.
 
 ### carry-forward
 - **[chips](../chips.md)** got the new BOM line - the level shifter was missing from it entirely
