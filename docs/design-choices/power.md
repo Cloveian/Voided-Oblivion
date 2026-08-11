@@ -15,7 +15,7 @@ I need to decide on how i am going to do power distribution
 
 ### Design rules
 
-**80% rule - firmware enforced:** firmware never draws more than 80% of the negotiated PD capacity from any port. This applies to the total allocated power budget across all tiles in a region. Consequences that flow from this:
+**!firmware-note!** **80% rule - firmware enforced:** firmware never draws more than 80% of the negotiated PD capacity from any port. This applies to the total allocated power budget across all tiles in a region. Consequences that flow from this:
 - A 100W port (20V @ 5A) is treated as 80W (20V @ 4A) available to spend
 - Components on the HV path (backfeed diodes, switches) are sized to the 80% current ceiling, not the port's rated max
 - RGB brightness caps, submodule power limits, and multi-port load balancing all operate against the 80% budget, not the raw negotiated wattage
@@ -418,7 +418,7 @@ ADC is the scarce one. There are **8 ADC total**; 2 go to the key muxes. Per-edg
 
 - **No shunts, no sense amps, no footprints.** Not DNP - absent.
 - **GPIO42–45 are freed**, ADC budget drops to **2/8**.
-- **Firmware owns overcurrent**, by limiting topology *before* enabling a path rather than tripping after. It already has the tile map.
+- **!firmware-note!** **Firmware owns overcurrent**, by limiting topology *before* enabling a path rather than tripping after. It already has the tile map.
 - `INA180` is worth recording as a trap: 71,901 in stock and the cheapest part in the class, and it's **SOT-23-5 with no REF pin** - unidirectional only, which [the body diode finding](../schematic-design/power.md#the-body-diode---an-open-switch-only-blocks-outbound) disqualifies outright. Current flows *inward* whenever a neighbour is sourcing, and a unidirectional amp reads that as zero.
 - **What i'm giving up:** bring-up observability. There'll be no way to read per-edge current on real hardware, which is exactly the thing i'd want when something misbehaves. Accepting that deliberately - a bench supply and a meter can do the same job on a prototype, and it doesn't have to be on every tile forever.
 

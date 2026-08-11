@@ -181,7 +181,7 @@ Nothing breaks at 80°C - FR4 Tg is 130-150°C and IPC's curves run to a 100°C 
 
 **And the vias are tighter than the copper.** A 0.4mm via with 25µm plating has ~0.031mm² of barrel - about **1.5A** at a 20°C rise. Five amps needs **four in parallel**, six if you want the rise down at 10°C. No netclass can express "four at this transition"; it's a placement rule, enforced by eye and by [the trunk rule area](#rule-areas).
 
-> **The cheap way out is firmware.** The 5A case only exists at 20V, the default is 9V, and firmware does the negotiating - with the same tile map it already uses to prevent slow faults. If a given build's copper only supports 4A, firmware declines the 100W PDO and takes 60W. **Recording that as a firmware requirement rather than leaving it implicit**, because otherwise the 1.8mm pour is load-bearing and undocumented.
+> **!firmware-note!** **The cheap way out is firmware.** The 5A case only exists at 20V, the default is 9V, and firmware does the negotiating - with the same tile map it already uses to prevent slow faults. If a given build's copper only supports 4A, firmware declines the 100W PDO and takes 60W. **Recording that as a firmware requirement rather than leaving it implicit**, because otherwise the 1.8mm pour is load-bearing and undocumented.
 
 ### Internal layers need **5.2×** the width, not 2×
 

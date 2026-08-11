@@ -51,9 +51,9 @@ See [power](design-choices/power.md) for the full flow. Three rails: **HV** (per
   - [ ] HV enable GPIO: **GPIO0–3** (one per side)
   - [x] ~~HV per-side current sense → ADC GPIO42–45~~ - **cut entirely, not even DNP footprints.** A DNP pad costs the same board area as a populated one, and area is the binding constraint. Re-decision + weighted table in [design-choices/power](design-choices/power.md#re-decision-does-this-need-per-edge-ocp-at-all)
     - **ADC budget drops 6/8 → 2/8. GPIO42–45 are free.**
-    - **FIRMWARE now owns overcurrent** - limit topology *before* enabling a path, using the tile map it already builds. Prevention, not tripping
+    - **!firmware-note!** **FIRMWARE now owns overcurrent** - limit topology *before* enabling a path, using the tile map it already builds. Prevention, not tripping
 - [ ] **Wire the switch source to PD+ and the drain to the connector**, not the reverse - that orientation points every tile's body diode inward, so two neighbours with both switches open sit diode-to-diode and the edge net floats. Flipped, every tile permanently powers its neighbours. [why](schematic-design/power.md#the-body-diode---an-open-switch-only-blocks-outbound)
-- [ ] **FIRMWARE: turn an edge switch OFF on neighbour loss.** An edge left enabled after a tile is yanked makes the next hotplug a hard hot-insert - the new tile's bulk charges through its own body diode with no soft-start in the path. This is what makes the Rx pull-down detection in §7 load-bearing
+- [ ] **!firmware-note!** **FIRMWARE: turn an edge switch OFF on neighbour loss.** An edge left enabled after a tile is yanked makes the next hotplug a hard hot-insert - the new tile's bulk charges through its own body diode with no soft-start in the path. This is what makes the Rx pull-down detection in §7 load-bearing
 - [ ] **SS54** Schottky ×(per VBUS→HV path) - backfeed protection (40V/5A)
 - [ ] Hold-up caps on bootstrap to cover the µs comparator→buck handoff
 
@@ -127,7 +127,7 @@ ID   GND  5V   Rx   Tx
 - [ ] **ID → 4× ADC-capable GPIO** (from GPIO42–47), **pull-up to +3V3** (not 5V), **series ~10kΩ** to the pin — the module is an untrusted 5V load
 - [ ] **Corner power is dual-sourced** so submodules work on a 5V-only (non-PD) source - [working](design-choices/submodules.md#corner-power-dual-sourced-so-submodules-work-without-pd)
   - [ ] **U15 LM66100DCKT**: +5VP → SM_BUS, **CE→VOUT via 0Ω** (always-on reverse blocking). No GPIO — +5VP is genuinely 0V pre-PD, so there's nothing to arbitrate
-  - [ ] **U12 AP2171WG-7**: BS+ → SM_BUS, EN = `SM BS EN`. **Firmware rule: enable only while `BS+ SRC` reads low** (clean buck not feeding BS+)
+  - [ ] **U12 AP2171WG-7**: BS+ → SM_BUS, EN = `SM BS EN`. **!firmware-note! Firmware rule: enable only while `BS+ SRC` reads low** (clean buck not feeding BS+)
   - [ ] **U16 AP2171WG-7**: SM_BUS → SM+, EN = `SM EN`. This is the independent gate — U15 has no enable, so without it the only post-PD off-switch is the big buck, which kills RGB too
   - [ ] **Both AP2171W enables: 4.7kΩ pull-down to GND** — *not* 100k, *not* 0Ω. RP2350-E9 parks a floating pad at 2.2V, above the EN threshold, so a mis-configured pin can turn the rail **on**
   - [ ] **U16 /FLG → `SM FLT` GPIO** with 100k pull-up to +3V3. **U12 /FLG and U15 ST: no-connect flags, no pull-ups** — U12 is in series with U16 at the same 1A so it reports the identical fault, and U15's ST duplicates `BS+ SRC`
