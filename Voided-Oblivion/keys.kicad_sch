@@ -2126,7 +2126,7 @@
 		)
 		(uuid "9c7263c1-5ee1-483f-8a3f-2da0c45e72f5")
 	)
-	(text "5,0"
+	(text "0,5"
 		(exclude_from_sim no)
 		(at 24.765 29.21 0)
 		(effects
@@ -2163,7 +2163,7 @@
 		)
 		(uuid "123ab2d8-401f-4296-ae54-f125c8882435")
 	)
-	(text "3,2"
+	(text "2,3"
 		(exclude_from_sim no)
 		(at 75.565 80.01 0)
 		(effects
@@ -2189,7 +2189,7 @@
 		)
 		(uuid "2594d828-6ce4-4bc0-98a7-df1a8c898465")
 	)
-	(text "2,0"
+	(text "0,2"
 		(exclude_from_sim no)
 		(at 24.765 105.41 0)
 		(effects
@@ -2202,7 +2202,7 @@
 		)
 		(uuid "304994f8-03cc-4a2c-b5ce-2aa72ef5f2a4")
 	)
-	(text "2,4"
+	(text "4,2"
 		(exclude_from_sim no)
 		(at 126.365 105.41 0)
 		(effects
@@ -2215,7 +2215,7 @@
 		)
 		(uuid "3a1b2f65-a0d6-4252-aa74-d2ca2c13245f")
 	)
-	(text "0,1"
+	(text "1,0"
 		(exclude_from_sim no)
 		(at 50.165 156.21 0)
 		(effects
@@ -2241,7 +2241,7 @@
 		)
 		(uuid "3e6def68-749b-4810-af52-dd919464e468")
 	)
-	(text "0,4"
+	(text "4,0"
 		(exclude_from_sim no)
 		(at 127 156.21 0)
 		(effects
@@ -2254,7 +2254,7 @@
 		)
 		(uuid "448be5af-9c0f-4336-ab6d-1b2884468ccc")
 	)
-	(text "4,1"
+	(text "1,4"
 		(exclude_from_sim no)
 		(at 50.165 54.61 0)
 		(effects
@@ -2267,7 +2267,7 @@
 		)
 		(uuid "520bc5fb-f84f-4619-bee4-958d3d29b63d")
 	)
-	(text "5,4"
+	(text "4,5"
 		(exclude_from_sim no)
 		(at 126.365 29.21 0)
 		(effects
@@ -2280,7 +2280,7 @@
 		)
 		(uuid "6076f21f-ceab-4d87-8b50-947d621db8ae")
 	)
-	(text "3,1"
+	(text "1,3"
 		(exclude_from_sim no)
 		(at 50.165 80.01 0)
 		(effects
@@ -2293,7 +2293,7 @@
 		)
 		(uuid "6ac40b6e-7513-4348-bdf3-32311ee1b1da")
 	)
-	(text "1,0"
+	(text "0,1"
 		(exclude_from_sim no)
 		(at 24.765 130.81 0)
 		(effects
@@ -2306,7 +2306,7 @@
 		)
 		(uuid "6c130327-bc96-4aa1-a3f3-be8aba706bf8")
 	)
-	(text "4,3"
+	(text "3,4"
 		(exclude_from_sim no)
 		(at 100.965 54.61 0)
 		(effects
@@ -2319,7 +2319,7 @@
 		)
 		(uuid "6cf815e9-5f4b-4545-9c83-bf2b7b5af40c")
 	)
-	(text "3,4"
+	(text "4,3"
 		(exclude_from_sim no)
 		(at 126.365 80.01 0)
 		(effects
@@ -2332,7 +2332,7 @@
 		)
 		(uuid "7105804c-1f56-434c-8eda-7a8fa83b1259")
 	)
-	(text "1,3"
+	(text "3,1"
 		(exclude_from_sim no)
 		(at 100.965 130.81 0)
 		(effects
@@ -2345,7 +2345,7 @@
 		)
 		(uuid "72d3fe76-f114-4ab8-b049-8d3719f645af")
 	)
-	(text "4,0"
+	(text "0,4"
 		(exclude_from_sim no)
 		(at 24.765 54.61 0)
 		(effects
@@ -2369,7 +2369,7 @@
 		)
 		(uuid "7b1af9ba-1d07-42f1-8cf6-a06dd3a51150")
 	)
-	(text "3,0"
+	(text "0,3"
 		(exclude_from_sim no)
 		(at 24.765 80.01 0)
 		(effects
@@ -2382,7 +2382,7 @@
 		)
 		(uuid "7c4c1e75-38c3-43f9-8118-8d8665ccde83")
 	)
-	(text "5,1"
+	(text "1,5"
 		(exclude_from_sim no)
 		(at 50.165 29.21 0)
 		(effects
@@ -2406,7 +2406,7 @@
 		)
 		(uuid "7f9b2b86-523f-48a6-bfc3-a631426f267a")
 	)
-	(text "1,4"
+	(text "4,1"
 		(exclude_from_sim no)
 		(at 126.365 130.81 0)
 		(effects
@@ -2430,7 +2430,7 @@
 		)
 		(uuid "a1343fd7-6908-4399-a7be-8a1097826c37")
 	)
-	(text "0,2\n"
+	(text "2,0"
 		(exclude_from_sim no)
 		(at 75.565 156.21 0)
 		(effects
@@ -2443,7 +2443,7 @@
 		)
 		(uuid "b91676de-29aa-4c01-8152-4e13915c46dd")
 	)
-	(text "1,2"
+	(text "2,1"
 		(exclude_from_sim no)
 		(at 75.565 130.81 0)
 		(effects
@@ -2493,7 +2493,7 @@
 		)
 		(uuid "c8de584b-129a-4ecb-a5ff-b1b57efa3047")
 	)
-	(text "2,3"
+	(text "3,2"
 		(exclude_from_sim no)
 		(at 100.965 105.41 0)
 		(effects
@@ -2506,7 +2506,7 @@
 		)
 		(uuid "cc08bc96-c900-4069-9b03-3e5fe70d464e")
 	)
-	(text "4,2"
+	(text "2,4"
 		(exclude_from_sim no)
 		(at 75.565 54.61 0)
 		(effects
@@ -2519,7 +2519,7 @@
 		)
 		(uuid "cc1f43d5-edb8-4a9d-aeae-0338b524e5fd")
 	)
-	(text "2,1"
+	(text "1,2"
 		(exclude_from_sim no)
 		(at 50.165 105.41 0)
 		(effects
@@ -2532,7 +2532,7 @@
 		)
 		(uuid "d31f5830-b275-4c53-a5e0-fcff18c150ac")
 	)
-	(text "5,2"
+	(text "2,5"
 		(exclude_from_sim no)
 		(at 75.565 29.21 0)
 		(effects
@@ -2545,7 +2545,7 @@
 		)
 		(uuid "d6067adc-7ecb-49fe-af56-3ad67fb79317")
 	)
-	(text "5,3"
+	(text "3,5"
 		(exclude_from_sim no)
 		(at 100.965 29.21 0)
 		(effects
@@ -2569,7 +2569,7 @@
 		)
 		(uuid "fa5f980b-ada5-4bfa-8645-3d4c20a463db")
 	)
-	(text "0,3"
+	(text "3,0"
 		(exclude_from_sim no)
 		(at 100.965 156.21 0)
 		(effects
@@ -3496,7 +3496,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 35.56) (xy 83.82 38.1)
+			(xy 134.62 86.36) (xy 134.62 88.9)
 		)
 		(stroke
 			(width 0)
@@ -3946,7 +3946,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 35.56) (xy 134.62 38.1)
+			(xy 109.22 111.76) (xy 109.22 114.3)
 		)
 		(stroke
 			(width 0)
@@ -4196,7 +4196,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 35.56) (xy 109.22 38.1)
+			(xy 134.62 162.56) (xy 134.62 165.1)
 		)
 		(stroke
 			(width 0)
@@ -4416,7 +4416,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 111.76) (xy 132.08 111.76)
+			(xy 83.82 35.56) (xy 81.28 35.56)
 		)
 		(stroke
 			(width 0)
@@ -4776,7 +4776,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 86.36) (xy 132.08 86.36)
+			(xy 109.22 162.56) (xy 106.68 162.56)
 		)
 		(stroke
 			(width 0)
@@ -4816,7 +4816,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 60.96) (xy 106.68 60.96)
+			(xy 134.62 137.16) (xy 132.08 137.16)
 		)
 		(stroke
 			(width 0)
@@ -4926,7 +4926,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 86.36) (xy 109.22 88.9)
+			(xy 134.62 111.76) (xy 134.62 114.3)
 		)
 		(stroke
 			(width 0)
@@ -4986,7 +4986,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 35.56) (xy 81.28 35.56)
+			(xy 134.62 86.36) (xy 132.08 86.36)
 		)
 		(stroke
 			(width 0)
@@ -5306,7 +5306,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 60.96) (xy 109.22 63.5)
+			(xy 134.62 137.16) (xy 134.62 139.7)
 		)
 		(stroke
 			(width 0)
@@ -5436,7 +5436,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 60.96) (xy 132.08 60.96)
+			(xy 109.22 137.16) (xy 106.68 137.16)
 		)
 		(stroke
 			(width 0)
@@ -5576,7 +5576,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 60.96) (xy 81.28 60.96)
+			(xy 134.62 60.96) (xy 132.08 60.96)
 		)
 		(stroke
 			(width 0)
@@ -5646,7 +5646,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 111.76) (xy 106.68 111.76)
+			(xy 109.22 86.36) (xy 106.68 86.36)
 		)
 		(stroke
 			(width 0)
@@ -5776,7 +5776,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 35.56) (xy 106.68 35.56)
+			(xy 134.62 162.56) (xy 132.08 162.56)
 		)
 		(stroke
 			(width 0)
@@ -5786,7 +5786,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 162.56) (xy 132.08 162.56)
+			(xy 109.22 60.96) (xy 106.68 60.96)
 		)
 		(stroke
 			(width 0)
@@ -5866,7 +5866,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 162.56) (xy 109.22 165.1)
+			(xy 83.82 60.96) (xy 83.82 63.5)
 		)
 		(stroke
 			(width 0)
@@ -5896,7 +5896,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 60.96) (xy 83.82 63.5)
+			(xy 134.62 60.96) (xy 134.62 63.5)
 		)
 		(stroke
 			(width 0)
@@ -6106,7 +6106,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 35.56) (xy 132.08 35.56)
+			(xy 109.22 111.76) (xy 106.68 111.76)
 		)
 		(stroke
 			(width 0)
@@ -6116,7 +6116,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 60.96) (xy 134.62 63.5)
+			(xy 109.22 137.16) (xy 109.22 139.7)
 		)
 		(stroke
 			(width 0)
@@ -6176,7 +6176,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 111.76) (xy 109.22 114.3)
+			(xy 109.22 86.36) (xy 109.22 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6196,7 +6196,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 137.16) (xy 106.68 137.16)
+			(xy 83.82 86.36) (xy 81.28 86.36)
 		)
 		(stroke
 			(width 0)
@@ -6256,7 +6256,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 111.76) (xy 134.62 114.3)
+			(xy 83.82 35.56) (xy 83.82 38.1)
 		)
 		(stroke
 			(width 0)
@@ -6546,7 +6546,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 137.16) (xy 109.22 139.7)
+			(xy 83.82 86.36) (xy 83.82 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6816,7 +6816,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 162.56) (xy 106.68 162.56)
+			(xy 83.82 60.96) (xy 81.28 60.96)
 		)
 		(stroke
 			(width 0)
@@ -7016,7 +7016,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 86.36) (xy 134.62 88.9)
+			(xy 109.22 162.56) (xy 109.22 165.1)
 		)
 		(stroke
 			(width 0)
@@ -7026,7 +7026,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 86.36) (xy 106.68 86.36)
+			(xy 134.62 111.76) (xy 132.08 111.76)
 		)
 		(stroke
 			(width 0)
@@ -7426,7 +7426,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 86.36) (xy 83.82 88.9)
+			(xy 134.62 35.56) (xy 134.62 38.1)
 		)
 		(stroke
 			(width 0)
@@ -8036,7 +8036,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 137.16) (xy 134.62 139.7)
+			(xy 109.22 35.56) (xy 109.22 38.1)
 		)
 		(stroke
 			(width 0)
@@ -8176,7 +8176,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 86.36) (xy 81.28 86.36)
+			(xy 134.62 35.56) (xy 132.08 35.56)
 		)
 		(stroke
 			(width 0)
@@ -8516,7 +8516,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 162.56) (xy 134.62 165.1)
+			(xy 109.22 60.96) (xy 109.22 63.5)
 		)
 		(stroke
 			(width 0)
@@ -9016,7 +9016,7 @@
 	)
 	(wire
 		(pts
-			(xy 134.62 137.16) (xy 132.08 137.16)
+			(xy 109.22 35.56) (xy 106.68 35.56)
 		)
 		(stroke
 			(width 0)
@@ -9232,7 +9232,7 @@
 	)
 	(global_label "AM1:12"
 		(shape input)
-		(at 109.22 88.9 270)
+		(at 134.62 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9242,7 +9242,7 @@
 		)
 		(uuid "277e0238-0acd-49ba-ace7-dd3e9236c5e7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 98.6585 90)
+			(at 134.62 124.0585 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9304,7 +9304,7 @@
 	)
 	(global_label "AM1:14"
 		(shape input)
-		(at 109.22 38.1 270)
+		(at 134.62 165.1 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9314,7 +9314,7 @@
 		)
 		(uuid "3132d8c5-0c01-48d5-8617-315ee36f58d4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 47.8585 90)
+			(at 134.62 174.8585 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9496,7 +9496,7 @@
 	)
 	(global_label "AM1:3"
 		(shape input)
-		(at 134.62 165.1 270)
+		(at 109.22 63.5 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9506,7 +9506,7 @@
 		)
 		(uuid "42e25b94-3743-4ab2-8768-b7ca77edb7ca")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 173.649 90)
+			(at 109.22 72.049 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9520,7 +9520,7 @@
 	)
 	(global_label "AM1:4"
 		(shape input)
-		(at 134.62 139.7 270)
+		(at 109.22 38.1 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9530,7 +9530,7 @@
 		)
 		(uuid "43295880-4eba-4cba-9b0a-59fee6d073f8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 148.249 90)
+			(at 109.22 46.649 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9688,7 +9688,7 @@
 	)
 	(global_label "AM1:11"
 		(shape input)
-		(at 83.82 38.1 270)
+		(at 134.62 88.9 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9698,7 +9698,7 @@
 		)
 		(uuid "4e611de4-ca8b-4b7d-86b8-b715fe679ac9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 83.82 47.8585 90)
+			(at 134.62 98.6585 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9736,7 +9736,7 @@
 	)
 	(global_label "AM1:1"
 		(shape input)
-		(at 134.62 63.5 270)
+		(at 109.22 139.7 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9746,7 +9746,7 @@
 		)
 		(uuid "52874063-aab6-4152-862a-3b01da1c4b91")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 72.049 90)
+			(at 109.22 148.249 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9832,7 +9832,7 @@
 	)
 	(global_label "AM1:5"
 		(shape input)
-		(at 134.62 114.3 270)
+		(at 83.82 38.1 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9842,7 +9842,7 @@
 		)
 		(uuid "5bb61513-0d89-4d8a-a5cb-f35d23e5a946")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 122.849 90)
+			(at 83.82 46.649 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9928,7 +9928,7 @@
 	)
 	(global_label "AM1:9"
 		(shape input)
-		(at 83.82 88.9 270)
+		(at 134.62 38.1 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9938,7 +9938,7 @@
 		)
 		(uuid "5ff1e06f-c02f-46a1-be60-20b9b15643c9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 83.82 97.449 90)
+			(at 134.62 46.649 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10024,7 +10024,7 @@
 	)
 	(global_label "AM1:0"
 		(shape input)
-		(at 134.62 38.1 270)
+		(at 109.22 114.3 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10034,7 +10034,7 @@
 		)
 		(uuid "6c02c432-72d8-47cc-b2bb-1971c814baa7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 46.649 90)
+			(at 109.22 122.849 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10048,7 +10048,7 @@
 	)
 	(global_label "AM1:7"
 		(shape input)
-		(at 109.22 139.7 270)
+		(at 83.82 88.9 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10058,7 +10058,7 @@
 		)
 		(uuid "6fe45c86-3b0a-445f-bcc2-f64bb5bbcca7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 148.249 90)
+			(at 83.82 97.449 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10168,7 +10168,7 @@
 	)
 	(global_label "AM1:2"
 		(shape input)
-		(at 134.62 88.9 270)
+		(at 109.22 165.1 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10178,7 +10178,7 @@
 		)
 		(uuid "88313b66-355d-426e-ad9e-b2cf12190862")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 97.449 90)
+			(at 109.22 173.649 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10576,7 +10576,7 @@
 	)
 	(global_label "AM1:13"
 		(shape input)
-		(at 109.22 63.5 270)
+		(at 134.62 139.7 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10586,7 +10586,7 @@
 		)
 		(uuid "c438b7a1-3889-45d9-8a2d-463c23b592d7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 73.2585 90)
+			(at 134.62 149.4585 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10648,7 +10648,7 @@
 	)
 	(global_label "AM1:6"
 		(shape input)
-		(at 109.22 165.1 270)
+		(at 83.82 63.5 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10658,7 +10658,7 @@
 		)
 		(uuid "d399b9ff-cc72-4329-a19b-b4218e279819")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 173.649 90)
+			(at 83.82 72.049 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10720,7 +10720,7 @@
 	)
 	(global_label "AM1:10"
 		(shape input)
-		(at 83.82 63.5 270)
+		(at 134.62 63.5 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10730,7 +10730,7 @@
 		)
 		(uuid "dd46814f-53ba-43be-8b01-33c291126657")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 83.82 73.2585 90)
+			(at 134.62 73.2585 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10768,7 +10768,7 @@
 	)
 	(global_label "AM1:8"
 		(shape input)
-		(at 109.22 114.3 270)
+		(at 109.22 88.9 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -10778,7 +10778,7 @@
 		)
 		(uuid "eef73037-723a-4c74-90a5-e91a47ad29bf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.22 122.849 90)
+			(at 109.22 97.449 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11686,7 +11686,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 101.6 60.96 0)
+		(at 127 137.16 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11696,7 +11696,7 @@
 		(dnp no)
 		(uuid "05f849dd-c5a5-4e11-9133-04513d1c812c")
 		(property "Reference" "H1:13"
-			(at 96.52 58.42 90)
+			(at 121.92 134.62 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11707,7 +11707,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 97.0788 62.103 0)
+			(at 122.4788 138.303 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11719,7 +11719,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 100.33 54.61 0)
+			(at 125.73 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11730,7 +11730,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 101.6 60.96 0)
+			(at 127 137.16 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11741,7 +11741,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 60.96 0)
+			(at 127 137.16 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11751,7 +11751,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 110.49 67.31 0)
+			(at 135.89 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11762,7 +11762,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 110.49 64.77 0)
+			(at 135.89 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11773,7 +11773,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 119.38 69.85 0)
+			(at 144.78 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11784,7 +11784,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 101.6 60.96 0)
+			(at 127 137.16 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12077,7 +12077,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "07d04562-7e4c-4337-9729-fa5166a12156")
-		(property "Reference" "AM1:8"
+		(property "Reference" "AM1:0"
 			(at 250.952 66.802 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12146,7 +12146,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:8")
+					(reference "AM1:0")
 					(unit 1)
 				)
 			)
@@ -13293,7 +13293,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 101.6 162.56 0)
+		(at 76.2 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -13303,7 +13303,7 @@
 		(dnp no)
 		(uuid "0fa0032f-2164-405b-8b9e-f3387da07152")
 		(property "Reference" "H1:6"
-			(at 96.52 160.02 90)
+			(at 71.12 58.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13314,7 +13314,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 97.0788 163.703 0)
+			(at 71.6788 62.103 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13326,7 +13326,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 100.33 156.21 0)
+			(at 74.93 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13337,7 +13337,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 101.6 162.56 0)
+			(at 76.2 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13348,7 +13348,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 162.56 0)
+			(at 76.2 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13358,7 +13358,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 110.49 168.91 0)
+			(at 85.09 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13369,7 +13369,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 110.49 166.37 0)
+			(at 85.09 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13380,7 +13380,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 119.38 171.45 0)
+			(at 93.98 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13391,7 +13391,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 101.6 162.56 0)
+			(at 76.2 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14672,7 +14672,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 127 35.56 0)
+		(at 101.6 111.76 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -14682,7 +14682,7 @@
 		(dnp no)
 		(uuid "1ab707c1-a930-49b5-950c-8e090b40c968")
 		(property "Reference" "H1:0"
-			(at 121.92 33.02 90)
+			(at 96.52 109.22 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14693,7 +14693,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 122.4788 36.703 0)
+			(at 97.0788 112.903 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14705,7 +14705,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 125.73 29.21 0)
+			(at 100.33 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14716,7 +14716,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 35.56 0)
+			(at 101.6 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14727,7 +14727,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 127 35.56 0)
+			(at 101.6 111.76 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -14737,7 +14737,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 135.89 41.91 0)
+			(at 110.49 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14748,7 +14748,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 135.89 39.37 0)
+			(at 110.49 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14759,7 +14759,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 144.78 44.45 0)
+			(at 119.38 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -14770,7 +14770,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 127 35.56 0)
+			(at 101.6 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16214,7 +16214,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 101.6 35.56 0)
+		(at 127 162.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16224,7 +16224,7 @@
 		(dnp no)
 		(uuid "275e20bc-925b-4b69-8a43-96df2d07cc69")
 		(property "Reference" "H1:14"
-			(at 96.52 33.02 90)
+			(at 121.92 160.02 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16235,7 +16235,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 97.0788 36.703 0)
+			(at 122.4788 163.703 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16247,7 +16247,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 100.33 29.21 0)
+			(at 125.73 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16258,7 +16258,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 101.6 35.56 0)
+			(at 127 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16269,7 +16269,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 35.56 0)
+			(at 127 162.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16279,7 +16279,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 110.49 41.91 0)
+			(at 135.89 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16290,7 +16290,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 110.49 39.37 0)
+			(at 135.89 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16301,7 +16301,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 119.38 44.45 0)
+			(at 144.78 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16312,7 +16312,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 101.6 35.56 0)
+			(at 127 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16647,7 +16647,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 76.2 60.96 0)
+		(at 127 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16657,7 +16657,7 @@
 		(dnp no)
 		(uuid "2cc99283-0343-4e7e-bb7c-6d1357a7c184")
 		(property "Reference" "H1:10"
-			(at 71.12 58.42 90)
+			(at 121.92 58.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16668,7 +16668,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 71.6788 62.103 0)
+			(at 122.4788 62.103 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16680,7 +16680,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 74.93 54.61 0)
+			(at 125.73 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16691,7 +16691,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 60.96 0)
+			(at 127 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16702,7 +16702,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 76.2 60.96 0)
+			(at 127 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -16712,7 +16712,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 85.09 67.31 0)
+			(at 135.89 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16723,7 +16723,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 85.09 64.77 0)
+			(at 135.89 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16734,7 +16734,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 93.98 69.85 0)
+			(at 144.78 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16745,7 +16745,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 76.2 60.96 0)
+			(at 127 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17881,7 +17881,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "359ccb81-a275-4d47-92e5-114a9fd3079d")
-		(property "Reference" "AM1:1"
+		(property "Reference" "AM1:10"
 			(at 263.652 41.402 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17950,7 +17950,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:1")
+					(reference "AM1:10")
 					(unit 1)
 				)
 			)
@@ -18275,7 +18275,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 127 60.96 0)
+		(at 101.6 137.16 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -18285,7 +18285,7 @@
 		(dnp no)
 		(uuid "3af59e08-1af7-491e-aa2b-ce901c70fd13")
 		(property "Reference" "H1:1"
-			(at 121.92 58.42 90)
+			(at 96.52 134.62 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18296,7 +18296,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 122.4788 62.103 0)
+			(at 97.0788 138.303 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18308,7 +18308,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 125.73 54.61 0)
+			(at 100.33 130.81 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18319,7 +18319,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 60.96 0)
+			(at 101.6 137.16 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18330,7 +18330,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 127 60.96 0)
+			(at 101.6 137.16 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18340,7 +18340,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 135.89 67.31 0)
+			(at 110.49 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18351,7 +18351,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 135.89 64.77 0)
+			(at 110.49 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18362,7 +18362,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 144.78 69.85 0)
+			(at 119.38 146.05 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18373,7 +18373,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 127 60.96 0)
+			(at 101.6 137.16 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19257,7 +19257,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 127 162.56 0)
+		(at 101.6 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19267,7 +19267,7 @@
 		(dnp no)
 		(uuid "456e845b-d624-479f-887a-0f146aa3a6e7")
 		(property "Reference" "H1:3"
-			(at 121.92 160.02 90)
+			(at 96.52 58.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19278,7 +19278,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 122.4788 163.703 0)
+			(at 97.0788 62.103 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19290,7 +19290,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 125.73 156.21 0)
+			(at 100.33 54.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19301,7 +19301,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 162.56 0)
+			(at 101.6 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19312,7 +19312,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 127 162.56 0)
+			(at 101.6 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19322,7 +19322,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 135.89 168.91 0)
+			(at 110.49 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19333,7 +19333,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 135.89 166.37 0)
+			(at 110.49 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19344,7 +19344,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 144.78 171.45 0)
+			(at 119.38 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19355,7 +19355,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 127 162.56 0)
+			(at 101.6 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19395,7 +19395,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4633e42c-6e93-426e-af73-01629b11ab29")
-		(property "Reference" "AM1:14"
+		(property "Reference" "AM1:8"
 			(at 250.952 54.102 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19464,7 +19464,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:14")
+					(reference "AM1:8")
 					(unit 1)
 				)
 			)
@@ -19482,7 +19482,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "46f87244-c0bc-4bac-8dff-e4b5c18d5c74")
-		(property "Reference" "AM1:4"
+		(property "Reference" "AM1:13"
 			(at 263.652 79.502 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19551,7 +19551,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:4")
+					(reference "AM1:13")
 					(unit 1)
 				)
 			)
@@ -19836,7 +19836,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 127 86.36 0)
+		(at 101.6 162.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -19846,7 +19846,7 @@
 		(dnp no)
 		(uuid "496da3ee-7c8c-4b86-8707-3e2a1dd1b82c")
 		(property "Reference" "H1:2"
-			(at 121.92 83.82 90)
+			(at 96.52 160.02 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19857,7 +19857,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 122.4788 87.503 0)
+			(at 97.0788 163.703 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19869,7 +19869,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 125.73 80.01 0)
+			(at 100.33 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19880,7 +19880,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 86.36 0)
+			(at 101.6 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19891,7 +19891,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 127 86.36 0)
+			(at 101.6 162.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19901,7 +19901,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 135.89 92.71 0)
+			(at 110.49 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19912,7 +19912,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 135.89 90.17 0)
+			(at 110.49 166.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19923,7 +19923,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 144.78 95.25 0)
+			(at 119.38 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19934,7 +19934,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 127 86.36 0)
+			(at 101.6 162.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21523,7 +21523,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 127 137.16 0)
+		(at 101.6 35.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -21533,7 +21533,7 @@
 		(dnp no)
 		(uuid "593ff19d-7de4-4090-8640-14792ede8061")
 		(property "Reference" "H1:4"
-			(at 121.92 134.62 90)
+			(at 96.52 33.02 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -21544,7 +21544,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 122.4788 138.303 0)
+			(at 97.0788 36.703 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21556,7 +21556,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 125.73 130.81 0)
+			(at 100.33 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21567,7 +21567,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 137.16 0)
+			(at 101.6 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21578,7 +21578,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 127 137.16 0)
+			(at 101.6 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -21588,7 +21588,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 135.89 143.51 0)
+			(at 110.49 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21599,7 +21599,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 135.89 140.97 0)
+			(at 110.49 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21610,7 +21610,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 144.78 146.05 0)
+			(at 119.38 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21621,7 +21621,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 127 137.16 0)
+			(at 101.6 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24344,7 +24344,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 101.6 137.16 0)
+		(at 76.2 86.36 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -24354,7 +24354,7 @@
 		(dnp no)
 		(uuid "73a749b9-3e7c-4788-ac0f-858c176d2e56")
 		(property "Reference" "H1:7"
-			(at 96.52 134.62 90)
+			(at 71.12 83.82 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -24365,7 +24365,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 97.0788 138.303 0)
+			(at 71.6788 87.503 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24377,7 +24377,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 100.33 130.81 0)
+			(at 74.93 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24388,7 +24388,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 101.6 137.16 0)
+			(at 76.2 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24399,7 +24399,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 137.16 0)
+			(at 76.2 86.36 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -24409,7 +24409,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 110.49 143.51 0)
+			(at 85.09 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24420,7 +24420,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 110.49 140.97 0)
+			(at 85.09 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24431,7 +24431,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 119.38 146.05 0)
+			(at 93.98 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24442,7 +24442,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 101.6 137.16 0)
+			(at 76.2 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24596,7 +24596,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7578e6eb-04fc-4fa5-bc04-7bad47a8275f")
-		(property "Reference" "AM1:6"
+		(property "Reference" "AM1:2"
 			(at 250.952 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24665,7 +24665,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:6")
+					(reference "AM1:2")
 					(unit 1)
 				)
 			)
@@ -25271,7 +25271,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 76.2 35.56 0)
+		(at 127 86.36 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -25281,7 +25281,7 @@
 		(dnp no)
 		(uuid "7bdb110f-1830-400b-bd77-6231f0456a3f")
 		(property "Reference" "H1:11"
-			(at 71.12 33.02 90)
+			(at 121.92 83.82 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -25292,7 +25292,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 71.6788 36.703 0)
+			(at 122.4788 87.503 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25304,7 +25304,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 74.93 29.21 0)
+			(at 125.73 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25315,7 +25315,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 35.56 0)
+			(at 127 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25326,7 +25326,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 76.2 35.56 0)
+			(at 127 86.36 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -25336,7 +25336,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 85.09 41.91 0)
+			(at 135.89 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25347,7 +25347,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 85.09 39.37 0)
+			(at 135.89 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25358,7 +25358,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 93.98 44.45 0)
+			(at 144.78 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25369,7 +25369,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 76.2 35.56 0)
+			(at 127 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25523,7 +25523,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7cbefddf-bde9-4e3b-931e-d1f34106fa0f")
-		(property "Reference" "AM1:9"
+		(property "Reference" "AM1:7"
 			(at 238.252 54.102 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25592,7 +25592,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:9")
+					(reference "AM1:7")
 					(unit 1)
 				)
 			)
@@ -26191,7 +26191,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "832828c0-6009-4791-8d93-84e9a61231bd")
-		(property "Reference" "AM1:12"
+		(property "Reference" "AM1:4"
 			(at 250.952 28.702 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26260,7 +26260,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:12")
+					(reference "AM1:4")
 					(unit 1)
 				)
 			)
@@ -26278,7 +26278,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "83863cb3-c59a-4f26-8fac-69c06b244af0")
-		(property "Reference" "AM1:11"
+		(property "Reference" "AM1:5"
 			(at 238.252 28.702 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26347,7 +26347,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:11")
+					(reference "AM1:5")
 					(unit 1)
 				)
 			)
@@ -26469,7 +26469,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 101.6 86.36 0)
+		(at 127 111.76 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -26479,7 +26479,7 @@
 		(dnp no)
 		(uuid "84015a6f-12a3-441a-bb3a-1c38edb7da9b")
 		(property "Reference" "H1:12"
-			(at 96.52 83.82 90)
+			(at 121.92 109.22 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26490,7 +26490,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 97.0788 87.503 0)
+			(at 122.4788 112.903 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26502,7 +26502,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 100.33 80.01 0)
+			(at 125.73 105.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26513,7 +26513,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 101.6 86.36 0)
+			(at 127 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26524,7 +26524,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 86.36 0)
+			(at 127 111.76 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26534,7 +26534,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 110.49 92.71 0)
+			(at 135.89 118.11 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26545,7 +26545,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 110.49 90.17 0)
+			(at 135.89 115.57 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26556,7 +26556,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 119.38 95.25 0)
+			(at 144.78 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26567,7 +26567,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 101.6 86.36 0)
+			(at 127 111.76 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27478,7 +27478,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8b67cc47-12db-4334-94ce-1eb16e14e749")
-		(property "Reference" "AM1:0"
+		(property "Reference" "AM1:9"
 			(at 263.652 28.702 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27547,7 +27547,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:0")
+					(reference "AM1:9")
 					(unit 1)
 				)
 			)
@@ -27565,7 +27565,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "8e4c4e21-5f47-4a14-9b1a-0a25d07b7c7d")
-		(property "Reference" "AM1:7"
+		(property "Reference" "AM1:1"
 			(at 250.952 79.502 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27634,7 +27634,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:7")
+					(reference "AM1:1")
 					(unit 1)
 				)
 			)
@@ -27911,7 +27911,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 76.2 86.36 0)
+		(at 127 35.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -27921,7 +27921,7 @@
 		(dnp no)
 		(uuid "94d77cb9-550c-4807-9bed-9e35c6db27fe")
 		(property "Reference" "H1:9"
-			(at 71.12 83.82 90)
+			(at 121.92 33.02 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -27932,7 +27932,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 71.6788 87.503 0)
+			(at 122.4788 36.703 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27944,7 +27944,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 74.93 80.01 0)
+			(at 125.73 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27955,7 +27955,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 76.2 86.36 0)
+			(at 127 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27966,7 +27966,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 76.2 86.36 0)
+			(at 127 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -27976,7 +27976,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 85.09 92.71 0)
+			(at 135.89 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27987,7 +27987,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 85.09 90.17 0)
+			(at 135.89 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27998,7 +27998,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 93.98 95.25 0)
+			(at 144.78 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28009,7 +28009,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 76.2 86.36 0)
+			(at 127 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29140,7 +29140,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "a49052af-f916-44fb-ac2c-fa45994941cf")
-		(property "Reference" "AM1:13"
+		(property "Reference" "AM1:3"
 			(at 250.952 41.402 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29209,7 +29209,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:13")
+					(reference "AM1:3")
 					(unit 1)
 				)
 			)
@@ -30017,7 +30017,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "abe26810-8103-4a0a-a776-d372f067e2a0")
-		(property "Reference" "AM1:5"
+		(property "Reference" "AM1:14"
 			(at 263.652 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30086,7 +30086,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:5")
+					(reference "AM1:14")
 					(unit 1)
 				)
 			)
@@ -30381,7 +30381,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "aeda9d60-e982-4c0b-9dab-6c7e064ec7e5")
-		(property "Reference" "AM1:3"
+		(property "Reference" "AM1:12"
 			(at 263.652 66.802 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30450,7 +30450,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:3")
+					(reference "AM1:12")
 					(unit 1)
 				)
 			)
@@ -32390,7 +32390,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 101.6 111.76 0)
+		(at 101.6 86.36 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -32400,7 +32400,7 @@
 		(dnp no)
 		(uuid "c9ce9114-8315-4fee-a906-06b21fe87dca")
 		(property "Reference" "H1:8"
-			(at 96.52 109.22 90)
+			(at 96.52 83.82 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -32411,7 +32411,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 97.0788 112.903 0)
+			(at 97.0788 87.503 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32423,7 +32423,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 100.33 105.41 0)
+			(at 100.33 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32434,7 +32434,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 101.6 111.76 0)
+			(at 101.6 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32445,7 +32445,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 101.6 111.76 0)
+			(at 101.6 86.36 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -32455,7 +32455,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 110.49 118.11 0)
+			(at 110.49 92.71 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32466,7 +32466,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 110.49 115.57 0)
+			(at 110.49 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32477,7 +32477,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 119.38 120.65 0)
+			(at 119.38 95.25 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32488,7 +32488,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 101.6 111.76 0)
+			(at 101.6 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33037,7 +33037,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d28a927c-1137-430c-814e-154250c3ae3b")
-		(property "Reference" "AM1:10"
+		(property "Reference" "AM1:6"
 			(at 238.252 41.402 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33106,7 +33106,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:10")
+					(reference "AM1:6")
 					(unit 1)
 				)
 			)
@@ -33281,7 +33281,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "d6799d46-a050-41d1-ae57-ba33f5d5dca4")
-		(property "Reference" "AM1:2"
+		(property "Reference" "AM1:11"
 			(at 263.652 54.102 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33350,7 +33350,7 @@
 		(instances
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/0fbd65cb-4bfc-4182-afc0-1809be9bac58"
-					(reference "AM1:2")
+					(reference "AM1:11")
 					(unit 1)
 				)
 			)
@@ -34171,7 +34171,7 @@
 	)
 	(symbol
 		(lib_id "49e:GH39FKSW")
-		(at 127 111.76 0)
+		(at 76.2 35.56 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -34181,7 +34181,7 @@
 		(dnp no)
 		(uuid "df691498-a631-4e34-9705-5303da3cc430")
 		(property "Reference" "H1:5"
-			(at 121.92 109.22 90)
+			(at 71.12 33.02 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -34192,7 +34192,7 @@
 			)
 		)
 		(property "Value" "GH39FKSW"
-			(at 122.4788 112.903 0)
+			(at 71.6788 36.703 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34204,7 +34204,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 125.73 105.41 0)
+			(at 74.93 29.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34215,7 +34215,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 111.76 0)
+			(at 76.2 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34226,7 +34226,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 127 111.76 0)
+			(at 76.2 35.56 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -34236,7 +34236,7 @@
 			)
 		)
 		(property "LCSC" "C266230"
-			(at 135.89 118.11 0)
+			(at 85.09 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34247,7 +34247,7 @@
 			)
 		)
 		(property "MPN" "GH39FKSW"
-			(at 135.89 115.57 0)
+			(at 85.09 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34258,7 +34258,7 @@
 			)
 		)
 		(property "Notes" "Alternate part: OH49E-S (C85573)"
-			(at 144.78 120.65 0)
+			(at 93.98 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34269,7 +34269,7 @@
 			)
 		)
 		(property "Manufacturer" "GoChip Elec Tech (Shanghai)"
-			(at 127 111.76 0)
+			(at 76.2 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

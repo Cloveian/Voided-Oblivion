@@ -11897,6 +11897,30 @@
 			)
 		)
 	)
+	(global_label "VBUS2"
+		(shape input)
+		(at 265.43 162.56 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "251b06da-cb69-43f0-9ed6-b57d6d663320")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 265.43 171.6533 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "SM+ EN"
 		(shape input)
 		(at 245.11 234.95 270)
@@ -11910,6 +11934,30 @@
 		(uuid "25b6a0f0-253d-4e0d-8386-e74a5063d51c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 245.11 245.6156 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "VBUS1"
+		(shape input)
+		(at 265.43 90.17 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "37d7e1b0-2490-49df-aab2-52d6d1921a47")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 265.43 99.2633 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

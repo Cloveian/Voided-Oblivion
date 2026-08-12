@@ -21,7 +21,8 @@ Per-section skeleton: **Goal → Datasheet refs → Math → Result → Notes/go
 - [Q2/Q3/D4 - VBUS→PD+ switch (AO4407A + BC857 + BZX84C10)](#q2q3d4---vbuspd-switch-ao4407a--bc857--bzx84c10)
 - [HV per-side switches - picking the FET](#hv-per-side-switches---picking-the-fet)
   - [The body diode - an open switch only blocks *outbound*](#the-body-diode---an-open-switch-only-blocks-outbound)
-- [Backfeed diodes - SS54 (D1/D2)](#backfeed-diodes---ss54-d1d2)
+- [Backfeed diodes - LM74700-Q1 (D1/D2)](#backfeed-diodes---lm74700-q1-d1d2)
+  - [Re-select: SS54 → LM74700-Q1](#re-select-ss54--lm74700-q1)
 - [Bulk caps and the footprint defect](#bulk-caps-and-the-footprint-defect)
 
 ---
@@ -795,10 +796,12 @@ Two things it *does* oblige:
 - **Still open: the current-sense amplifier.** The research specifies R_sense feeding *"an external high-side current-sense amplifier (**not specified here**)"* - and nothing has ever been picked, or even scored. It's 4× of a part class that isn't in the BOM at all. This can't just be dropped either: the [discrete-over-eFuse decision](../design-choices/power.md#hv-per-side-switches-4-per-tile) was made explicitly accepting *"no automatic hardware OCP; firmware OCP via ADC instead"* - kill the sense path and that decision loses the argument it won on. **This is the last unpicked part in the whole per-side switch block.**
 - **D scored second, and that's worth sitting with.** TPS1663 beat the status quo by 107 points. The eFuse was right about the things it was right about - it just costs 15× more than a part that gets most of the way there for 26 cents.
 
-## Backfeed diodes - SS54 (D1/D2)
+## Backfeed diodes - LM74700-Q1 (D1/D2)
 
 ### Goal
-One per port on the VBUS→PD+ path, so two ports at different negotiated voltages can't backfeed each other.
+One per port, OR'ing each port's raw VBUS onto the shared internal `VBUS` node, so two ports at different negotiated voltages can't backfeed each other.
+
+**The old goal line said "on the VBUS→PD+ path" and that was vague enough to mislead me.** As-built they sit *upstream* of that path: `VBUS1 →D1→ VBUS ←D2← VBUS2`, and Q2 then takes the merged `VBUS` node to PD+. Checked against the netlist, not the schematic sheet. It matters because `VBUS` is also **U11's VCC, R21's TLV431 bias and Q1's source** - so these parts are in circuit from the instant a cable is plugged in at vSafe5V, not just post-negotiation. Anything replacing them has to work at 5V, and that turned out to be the constraint that eliminated the obvious candidate.
 
 ### Math - thermal, as a function of tile count
 VF max at 5A is **0.70V**. Dissipation scales with how much of the array one cable is feeding:
@@ -809,14 +812,103 @@ VF max at 5A is **0.70V**. Dissipation scales with how much of the array one cab
 | 4 | 28W | 1.4A | ~0.55V | 0.77W | fine in SMC |
 | 8 | 56W | 2.8A | ~0.62V | 1.7W | getting warm |
 | max (80% of 5A) | 80W | 4.0A | ~0.65V | **2.6W** | too much |
+| **hardware bound** | 100W | **5.0A** | ~0.64V | **3.2W** | **Tj ≈ 190°C - dead** |
 
 **Footprint as-built is `D_SMC`, not SMA.** [chips](../chips.md) says SMA - the board is better than the doc, and this is one to fix in the doc rather than the board. SMC has meaningfully lower θJA, which is what makes the 4-to-8-tile range workable at all.
 
-**Where it stops working:** at the full 4A ceiling, 2.6W in an SMC is past what the package can shed on realistic copper. So the practical statement is **"one cable can comfortably feed about 4 tiles, is warm at 8, and cannot feed the full 80W budget through a single SS54."** If the 80W-through-one-port case is real, this needs either paralleled diodes or an ideal-diode controller instead. That's a real architectural constraint on the multi-port power-sharing scheme and it should feed back into [power design-choice](../design-choices/power.md).
+### Re-select: SS54 → LM74700-Q1
+
+**The design policy is what re-opened this, not a new measurement.** Firmware limits the estimated budget to 80W; **hardware is designed to withstand 5A**, matching [the 5A bound](../design-choices/pcb-stackup.md#the-5a-bound-is-the-number-that-matters) that already sizes the copper. That's the right split - firmware owns the budget, hardware owns the ceiling - but it converts the bottom row of that table from a caveat into a hard fail. 3.2W in an SMC at 45°C/W in a 45°C tile lands past 190°C. **Destroyed, not derated.**
+
+#### Hard gates
+
+Applied before scoring, so most of the market doesn't get a row:
+
+- **5A continuous, not 5A survivable.** The policy says withstand, and a dead short downstream is bounded by the source at 5A for as long as the fault persists.
+- **Operates at 4.5-20V.** From the topology note above - these conduct at vSafe5V.
+- **Rated ≥24V.** [The HV-path rule](../design-choices/power.md#hv-per-side-switches-4-per-tile): 20V + ~20%. A hot-unpluggable rail with an inductive cable on it.
+
+#### Brainstorm
+
+| | option | 5A? | ≥24V? | $/tile | notes |
+| --- | --- | :---: | :---: | --- | --- |
+| A | 2× SS54 paralleled per port | marginal | ✓ (40V) | ~$0.20 | same total heat, 2× area, 2× leakage |
+| B | TPS2120 power MUX | ✓ (2 in parallel) | **✗ 22V** | $2.46-4.92 | gate-eliminated |
+| C | **LM74700-Q1 + N-FET, ×2** | ✓ | ✓ (65V) | ~$3.26 | |
+| D | keep SS54, firmware cap only | ✗ | ✓ | $0.10 | gate-eliminated by the policy |
+
+**B is the one worth writing down, because i had it half-right.** TPS2120 is genuinely the right *class* of part and it has two inputs, so one chip replaces both D1 and D2 as a mux rather than needing one per port. Paralleling it is also fine in a way paralleling Schottkys isn't - Rds(on) has a positive tempco, so parallel FET paths self-balance. It dies on **22V against the ≥24V rule**, which is my own rule, and on putting DSBGA-20 chip-scale back into a BOM that [deliberately escaped it](#re-select-max40203--lm66100).
+
+#### The paralleling folklore is right here, but not for the usual reason
+
+Worth recording because the received wisdom ("never parallel Schottkys, they hog") is only half true and i nearly rejected A for the wrong reason. Hogging runs away when:
+
+```
+r_d  <  |dVf/dT| · θ · Vf
+```
+
+For SS54 at ~2.5A each: `r_d ≈ 55mΩ`, `dVf/dT ≈ -1.3mV/°C`, `Vf ≈ 0.6V`.
+
+| θ per package | threshold | vs r_d = 55mΩ |
+| --- | --- | --- |
+| 45°C/W (generous pour) | 35mΩ | stable, 1.6× |
+| 55°C/W (realistic) | 43mΩ | stable, 1.3× |
+| 70°C/W (edge copper, crowded) | 55mΩ | **at the boundary** |
+
+**So it converges - it just converges with 1.3× of margin, in exactly the crowded-copper condition you'd be adding the second diode for.** And the thing that actually saves it is thermal coupling: both on one shared pour so a hot one heats its neighbour, which drops the differential loop gain well below the numbers above. That's a placement requirement, not a nicety.
+
+A loses anyway on the three things that don't depend on that math: **it doesn't remove the heat, it splits it** (3.2W is still 3.2W in a closed tile next to 30 ratiometric sensors), it doubles the area on a board where [area is the binding constraint](../design-choices/power.md#the-constraint-that-actually-decides-it), and it **doubles the reverse leakage** - which is the specific thing flagged in the gotcha below.
+
+#### Result
+
+**D1/D2 = LM74700QDDFRQ1 (SOT-23-THIN-6) + one N-channel FET each.**
+
+| | SS54 (was) | **LM74700-Q1 + N-FET** |
+| --- | --- | --- |
+| Range | 40V PIV | **3.2-65V** |
+| Drop at 5A | 0.64V | **~65mV** (13mΩ) |
+| Dissipation at 5A | **3.2W** | **0.33W** |
+| Reverse leakage | up to 50mA @100°C | **FET Idss, µA** |
+| Package | SMC | **SOT-23-THIN-6, leaded** |
+| $/tile (×2 ports) | ~$0.10 | **~$3.26** |
+
+65V on a 20V rail is 3.25× - it doesn't just clear the ≥24V rule, it makes transient headroom a non-question. `DDF` is leaded, so this doesn't reopen the chip-scale problem the [LM66100 swap](#re-select-max40203--lm66100) was partly done to close. Same reasoning, one part over.
+
+**It also closes the leakage gotcha below**, which has been open since the diode was picked. An off N-FET leaks microamps, so "pin the SS54 part number for its reverse leakage" stops being a live item.
+
+**This is LM74700, not the `LM74800Q` this page listed at the [LM66100 alternatives](#accepted-risk-595v-on-a-60v-part).** LM74800 adds OV/UV protection that duplicates what U11 already does. The job here is pure reverse blocking.
+
+#### What i'm giving up
+
+- **~$3.26/tile, up from $0.10.** Between the discrete switches (~$1) and the [TPS1663 eFuse i rejected at $6](../design-choices/power.md#hv-per-side-switches-4-per-tile). On a 6-tile board that's ~$20 of a $250 budget, spent to remove a documented thermal failure.
+- **Two new BOM lines** - controller plus an N-channel FET. There is no N-FET on this board today; AO3401A and AO4407A are both P-channel, and LM74700 drives N-channel off an internal charge pump. **No new footprint though:** a 30V N-FET in SOP-8 reuses the land pattern already placed 5× at Q2/Q4-Q7.
+- **~+18mm² of land** across both ports vs the two SMCs, but 0.33W instead of 3.2W means it needs essentially no thermal pour and the SS54s need a lot. Net area is a win in practice.
+
+#### Single source, and the fallback is a different topology
+
+**1,530 in stock at $1.53 @10+. At 2 per tile that's 765 tiles** - the same shape as [the APH0624 flag](#what-06mm-costs) and [the pogo connectors](../chips.md). Third one, and the thread they share is that this isn't only being built by me.
+
+Taking it anyway, because **it is the best-stocked ideal diode that clears the gates.** That's the useful part of the finding: if 1.5k is the ceiling for the whole class, the second source can't be another ideal-diode controller - it has to be a different topology, i.e. back to a Schottky with the current capped.
+
+> **!firmware-note!** Which means **the 80W firmware cap is also the supply-risk escape hatch.** If LM74700 evaporates, the fallback build is SS54 + a firmware cap low enough that the SS54 thermals hold (~2A, the 4-tile row above). Recording that so the cap is understood as load-bearing in two directions, not just one.
+
+**Cheapest mitigation to check first:** `LM74700QDBVRQ1` is the same die in standard SOT-23-6 rather than SOT-23-THIN. Both are 2.9 × 1.6mm on 0.95mm pitch and differ mainly in body height, so the land patterns should be interchangeable - which would make it a **stuffing-level second source**, exactly like APH0630/APH0624. Confirm against both package drawings before relying on it.
+
+### To do
+- [ ] **D1/D2 = LM74700QDDFRQ1** - replaces SS54, symbol + footprint + Value + LCSC all move together (the BOM pulls Value - same trap as the MAX40203 rename in the LM66100 section)
+- [ ] **Pick the N-FET** - ≥30V, ~10mΩ @ Vgs=10V, SOP-8, LCSC-stocked. ~0.25W at 5A
+- [ ] **Pull the LM74700 datasheet** and derive the support passives - VCAP cap, EN/UVLO treatment, any gate slew components. Not guessing these
+- [ ] Confirm `LM74700QDBVRQ1` land pattern matches DDF, and check its stock - free second source if it holds
+- [ ] **`VBUS*` needs a netclass.** It is currently on `Default` and therefore invisible to *every* custom rule in `Voided-Oblivion.kicad_dru`, including `sensor lines away from the power rails` - see the gotcha below
+- [ ] [chips](../chips.md) - SS54 line out, two lines in. The stale `SMA` note goes with it
+- [ ] [power design-choice](../design-choices/power.md#still-open-parts--details) - "backfeed/OR'ing protection on each PD input" can be closed
 
 ### Notes / gotchas
-- **Confirm which SS54 actually ships.** [chips](../chips.md) specifies C7420369 for 50µA reverse leakage over C22452 at 1mA. The datasheet the research fetched (MDD, C22452) specs reverse leakage up to **50mA at 100°C**. Two diodes back-to-back between independently-negotiated ports is exactly where leakage matters, so the part number needs to be pinned, not left as "an SS54".
-- The file `Refrences/datasheets/SS54-schottky.pdf` **is not an SS54 datasheet** - it's a 1N5817-1N5819 (1A axial). A correct one was fetched as `ss54-schottky-actual-mdd.pdf`. Don't size anything off the old file.
+- ~~**Confirm which SS54 actually ships.** [chips](../chips.md) specifies C7420369 for 50µA reverse leakage over C22452 at 1mA. The datasheet the research fetched (MDD, C22452) specs reverse leakage up to **50mA at 100°C**.~~ **Closed by the re-select** - an off N-FET leaks µA, so the part-number pinning no longer has anything riding on it.
+- **`VBUS` is electrically continuous with PD+ through Q2's 13mΩ**, so it carries both bucks' input ripple return current - ~0.87A RMS at 400kHz from U6 alone at 2A/20V. It is **not** a quiet DC input and should be treated as PD+ for keepout purposes. How noisy it actually gets is set by the PD+ input caps, which are [the same parts the footprint defect is about](#bulk-caps-and-the-footprint-defect) - fix those and VBUS gets quieter.
+- **VBUS is also the *measured* quantity for the whole handoff** (R30/R31 divider, R21's TLV431 bias, U11's VCC) against a [±77mV error budget](#error-budget) and a 132mV hysteresis band. The reassuring part is structural: at the 5.7V trip, U6 is firmware-gated off and U5 has barely started, so the noisy phase and the sensitive phase don't overlap. **The one thing to scope:** U11B enables U5 at 5.667V, *inside* U11A's 5.640/5.772V band - U5's soft-start and inrush into 44µF land right in the window where U11A is deciding.
+- **Both ports plugged in at once is a safety case, not a throughput case.** Each FUSB302 negotiates independently, the higher-voltage port wins the OR, the other is reverse-blocked. Only one controller ever conducts - but both still need full 5A rating, because either could be the one that's plugged in. Sub-case worth knowing: both plugged in and *neither* negotiated puts both ports at vSafe5V and both diodes conduct, paralleling the two ports at 5V. Benign, and identical to what the Schottkys did.
+- The file `Refrences/datasheets/SS54-schottky.pdf` **is not an SS54 datasheet** - it's a 1N5817-1N5819 (1A axial). A correct one was fetched as `ss54-schottky-actual-mdd.pdf`. Both are now historical.
 
 ## Bulk caps and the footprint defect
 
