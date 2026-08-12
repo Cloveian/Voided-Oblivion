@@ -224,6 +224,8 @@ mirror check, contact `i` meets the neighbor's contact `13−i`:
 
 **GND stays outboard**, exactly like the original `GND HV BOOT Tx Rx BOOT HV GND` sketch had it - i just doubled each pair rather than reordering. that ordering is worth keeping deliberately: the outermost contacts are the ones most exposed to debris, misalignment and a partially-inserted tile, and those should be **ground, not a 20V rail**. HV sits inboard behind them, and the comms pair sits dead centre where it's most protected.
 
+> ⚠ **superseded.** putting GND at the extremes necessarily puts Tx/Rx furthest from any ground return - measured, **10.0mm** - which caps the link well below the PIO's ~18.75 Mbaud. reordered to `GND HV HV BS Tx GND` in [the revisit below](#revisit-gnd-outboard-was-the-wrong-principle---it-should-be-gnd-flanking). same counts, same palindrome, GND still on 1 and 12.
+
 > **footprint rule, and it's the one that breaks everything if you get it wrong:** both bodies must be placed **symmetric about the edge midline**. the contacts don't need uniform 2.5mm spacing *across* the male/female boundary - the two bodies will have their own end margins, so that gap will be wider than 2.5mm - they only need to mirror. identical bodies butted symmetrically about center gives that automatically. an asymmetric placement silently maps HV onto Tx.
 
 ### what this does to the rest of the design
@@ -267,5 +269,99 @@ redoing it against the steps that actually exist:
 - confirm 5.5mm clears the case wall on the real cross-section
 - magnet size for retention (unchanged from above)
 - draw the two footprints (short 5un / long 6un edge) with the symmetric-about-midline rule baked in
+
+## Revisit: GND outboard was the wrong principle - it should be GND *flanking*
+
+### what prompted it
+
+comms is spec'd at **≥4 Mbaud** and the PIO can theoretically do **~18.75 Mbaud** (8 cycles/bit at 150MHz). i wanted to know what stops me taking it. the answer isn't the PCB - it's this connector, and it's a consequence of the ordering i chose two sections up for a completely different reason.
+
+measured off the as-drawn footprint:
+
+```
+J1 male:  GND  GND  HV   HV   BS   Tx        pitch 2.5mm
+                                   ^
+          Tx pad -> nearest GND pad:  10.00 mm
+```
+
+**Tx and Rx are the two contacts furthest from a ground return in the whole connector.** that fell straight out of "GND outboard" - putting ground at the extremes necessarily puts the comms pair at the other end from it.
+
+### why 10mm matters at 18.75 Mbaud and not at 4
+
+the return current for Tx has to travel 10mm laterally through the connector body before it finds a ground pin. that's a loop, and a loop is an inductor:
+
+```
+L ~ (u0/pi) * l * ln(d/r)      l = 5.5mm connector height, r ~ 0.5mm pin
+   d = 10.0mm  ->  6.6 nH
+   d =  2.5mm  ->  3.5 nH        (logarithmic, so 4x closer is only ~2x better)
+
+bounce = L * di/dt,  3.3V into ~50R in ~2ns  ->  di/dt ~ 3.3e7 A/s
+   6.6 nH  ->  0.22 V
+   3.5 nH  ->  0.12 V
+```
+
+**at 4 Mbaud this is invisible** - a 250ns bit sampled mid-bit doesn't care about 220mV of ringing that settles in nanoseconds. at 18.75 Mbaud the bit is **53ns**, and 0.22V is ~7% of the swing injected at the seam, on a signal that then has to survive the neighbouring tile's identical version of it.
+
+### the new pinout
+
+```
+contact:  1    2    3    4    5    6   |   7    8    9    10   11   12
+net:      GND  HV   HV   BS   Tx  GND  |   GND  Rx   BS   HV   HV   GND
+body:     <-------- 6P male -------->  |  <------- 6P female ------->
+```
+
+mirror check, contact `i` meets contact `13−i`:
+
+| pair | nets | |
+| --- | --- | --- |
+| 1 ↔ 12 | GND ↔ GND | ✓ |
+| 2 ↔ 11 | HV ↔ HV | ✓ |
+| 3 ↔ 10 | HV ↔ HV | ✓ |
+| 4 ↔ 9 | BS ↔ BS | ✓ |
+| 5 ↔ 8 | **Tx ↔ Rx** | ✓ |
+| 6 ↔ 7 | GND ↔ GND | ✓ |
+
+**still a palindrome, and the counts are identical: 4× GND, 4× HV, 2× BS, Tx, Rx.** nothing is traded away in current capacity - this is pure reordering.
+
+### the version i nearly settled for, and why this one is better
+
+the obvious move was `GND HV HV BS GND Tx` - just slide one ground next to Tx. that fixes the return path and passes the palindrome. but it leaves **Tx at 6 and Rx at 7, directly adjacent across the seam with nothing between them**, which is full-duplex near-end crosstalk between the two signals i care most about.
+
+putting the ground *inboard* of the signal instead gets both:
+
+| | Tx → nearest GND | Tx ↔ Rx |
+| --- | --- | --- |
+| as drawn (GND outboard) | 10.0mm | adjacent |
+| `…BS GND Tx` | 2.5mm | **adjacent** |
+| **`…BS Tx GND`** ✅ | **2.5mm** | **7.5mm, two grounds between** |
+
+and it means the two bodies meet **GND-to-GND at the seam**, which is the widest gap in the whole run.
+
+### what this costs, said plainly
+
+**"GND outboard" is dead as a principle.** the [original reasoning](#the-pinout-now-12-contacts) was that the outermost contacts see debris, misalignment and partial insertion, so they should be ground rather than a 20V rail. that's still true, and **positions 1 and 12 are still GND** - the single most exposed contact on each end is unchanged.
+
+what changes is that **HV moves from position 3 to position 2**, so the 20V rail is now 2.5mm from the exposed end instead of 5mm. that's a real reduction in the exposure margin and i'm taking it deliberately.
+
+the replacement principle is stronger, not weaker: **GND outermost *and* flanking the signals.** it satisfies the original safety argument at the extremes and adds a return path where the original had none.
+
+### this alone doesn't get me to 18.75 Mbaud
+
+the pinout halves the bounce. the other half is **`R84`–`R87`, which are currently 0Ω placeholders** - populating them at **22–33Ω** makes them proper source-series termination, damping the reflection at the driver *and* slowing di/dt:
+
+| | bounce | Tx↔Rx |
+| --- | --- | --- |
+| today | 0.22 V | adjacent |
+| new pinout only | 0.12 V | 7.5mm, shielded |
+| **new pinout + 33Ω series** | **~0.05 V** | **7.5mm, shielded** |
+
+**neither alone is enough; both together are.** and the 33Ω is worth doing regardless of whether i ever chase 18.75 Mbaud - it's free, it's already a placeholder, and it helps the crosstalk-into-analog problem that every fast digital net on this board has.
+
+### carry-forward
+
+- **8 connector instances** (J1–J8) need the new pin assignment in the schematic - and the [gender rule](#the-gender-rule-clockwise-male-first) has to survive it unchanged, since it's rotational and independent of net order
+- **[chips](../chips.md)** quotes the old `GND GND HV HV BS Tx | Rx BS HV HV GND GND` string
+- **R84–R87 → 22–33Ω**, and they stop being placeholders
+- if i take 18.75 Mbaud, the inter-tile UARTs move from Tier C to Tier A in [the layout checklist](../layout-checklist.md#appendix---every-net-ranked) and probably want adding to the `Switching` netclass so the 0.5mm analog-separation rule covers them
 
 if reading by stream of consciousness go back to [index](../index.md)
