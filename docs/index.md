@@ -67,3 +67,7 @@ Design choices are settled; now wiring up one tile.
 - [Schematic checklist](schematic-checklist.md) - what to wire, per block, with the pin assignment
 - [Schematic-design calcs](schematic-design/index.md) - datasheet math behind the component values
 - [Build log](schematic-design/log.md) - dated, pick-up-where-I-left-off notes
+
+## Laying out the board
+- [Layout checklist](layout-checklist.md) - what's left to place and route, in order. **164 of 425 parts still off-board, 169 of 242 nets unrouted**
+- [Recommended layouts](../Refrences/recommended-layouts/recommended-layouts.pdf) - datasheet layout pages for every chip, stitched, titled with the ref designator and what it does here
