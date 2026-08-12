@@ -217,8 +217,73 @@ L2 needs Isat ≥ 1A against a 0.77A peak, so almost anything works. Two ways to
 
 The escape hatch if placement gets tight: drop L2 to the SWPA4030S. It's a different footprint so it's a layout change, not a stuffing change - decide it before routing, not after.
 
+### Revisit: flat beats wide, and that only changes one number
+
+**Nothing about the analysis above is wrong. One weight was.** Height was scored at 6 because [form factor](../design-choices/form-factor.md) calls low profile a *nice to have*. It isn't - on a keyboard, z is the dimension the case has to swallow, and there is no version of this where 2.8mm and 1.8mm are the same to me. **Height goes to 9. Board area drops 6 → 3**, because area turned out to be the thing i had backwards:
+
+> **i argued the inductor was too wide to fit, and that was nonsense.** The claim was that nothing over ~5.07mm fits outside a switch body, which is true and irrelevant - **U1 is a 10×10 QFN that overlaps switch bodies by 39.1mm², 32% of its own courtyard.** Everything on this board sits partly under a switch; that's the design. Area is a budget here, not a wall, and i'd promoted it to a wall.
+
+So: same five candidates, same scores, two weights moved.
+
+| Criteria | Weight | A `0630` | B | C | D | E |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Worst-case loss / heat on a shared pour | 9 | 6 | 3 | 9 | 9 | 10 |
+| **Height** | **9** | 9 | 9 | 4 | 6 | 2 |
+| Sourcing (stock at LCSC) | 7 | 10 | 9 | 7 | 7 | 3 |
+| Isat headroom | 5 | 5 | 8 | 10 | 9 | 10 |
+| Cost | 5 | 10 | 9 | 6 | 7 | 1 |
+| **Board area** | **3** | 9 | 9 | 6 | 3 | 10 |
+| Footprint already in KiCad | 3 | 10 | 3 | 3 | 10 | 10 |
+| **Weighted Total** | | **337** | 292 | 273 | 303 | 244 |
+
+**A still wins - 337/410 = 82%, the identical total it scored before.** That's a coincidence of the arithmetic, not a deep truth, but the useful result is real: re-weighting the axis i said i'd underrated **did not flip the answer**, because A was already joint-best on height.
+
+Two things did move. **The runner-up changes from B to D** (303, up from 294) - D is the 8.5×8mm low-DCR part, and it gains because punishing height properly hurts it less than it hurts C. And **the margin narrows from 43 points to 34.** C, the low-DCR part i'd originally been drawn to, falls further to 273.
+
+#### so the decision moves inside the family, not between candidates
+
+The [land-pattern property](#the-one-thing-a-is-worse-at-said-plainly) is what actually pays off here. Seven heights, one 2.35 × 3.50mm footprint. Applying the **existing gates** (Isat ≥ 3A, Irms ≥ 2.5A) to the whole family:
+
+| part | H | DCR | Isat | Irms | passes gates? |
+| --- | :---: | ---: | ---: | ---: | :---: |
+| APH0615 | 1.3mm | 175mΩ | 2.70A | 1.80A | ✗ both |
+| APH0618 | 1.6mm | 155mΩ | 3.32A | 2.00A | ✗ Irms |
+| APH0620 | 1.8mm | 145mΩ | 3.34A | **2.31A** | ✗ Irms |
+| **APH0624** | **2.2mm** | **101mΩ** | **3.32A** | **2.51A** | **✓** |
+| APH0630 *(as-built)* | 2.8mm | 68mΩ | 4.57A | 3.91A | ✓ |
+
+**The gates do the work. APH0624 is the only part flatter than as-built that survives them** - 0.6mm off, one stuffing change, zero layout change.
+
+**And i'm not relaxing the Irms gate to reach APH0620 at 1.8mm.** The true RMS load is ~1.7A, so 2.31A would be 1.36× and "fine" - but the gate came out of the research derivation, and [the last time i scored a requirement instead of gating on it](../design-choices/submodules.md#identify---and-the-mistake) i picked an option that didn't satisfy it. If 1.8mm turns out to be worth reopening, that's a deliberate re-derivation of the gate, not a nudge.
+
+#### what 0.6mm costs
+
+| | APH0630 | APH0624 | |
+| --- | ---: | ---: | --- |
+| height | 2.8mm | **2.2mm** | −21% |
+| DCR | 68mΩ | 101mΩ | |
+| loss at the 2.02A worst case | 0.277W | **0.412W** | **+0.135W onto the buck's pour** |
+| Isat margin vs the 2.47A peak | 1.85× | **1.34×** | |
+| Irms margin vs ~1.7A actual | 2.3× | 1.48× | |
+| LCSC stock | 59,200 | **1,500** | **the real cost** |
+
+**Stock is what makes this a genuine trade and not a free win.** 1,500 pieces at 2 per tile is 750 tiles - fine for me, thin for something other people are meant to build, and it's the same single-source shape already flagged on [the pogo connectors](../chips.md). The 0.135W is the honest engineering cost; the 1.5k is the one that would actually stop a build.
+
+**Isat still isn't a regression against what's written down.** The [gotcha above](#big-buck---tps54302-u6) was authored assuming a **3A** part; 3.32A is still better than that. It just gives back most of the improvement A had over it.
+
+#### result
+
+**Both L2 and L3 → APH0624T100M, LCSC C19634013.** Same land pattern, so [the one-part-for-both reasoning](#the-l2-question---one-part-or-two) is untouched - still one BOM line, one setup fee, and L2 is still absurdly over-specced at 3.32A Isat against a 0.77A peak. Nothing about the layout changes.
+
+Keep the **4.8mm z-clearance** anyway. It costs nothing and it's what makes APH0630 a stuffing-level fallback if the 1.5k stock evaporates - which, given the numbers above, is the escape hatch i actually expect to need.
+
+**Still open:** the original brainstorm filtered 34 candidates with height weighted 6. With it at 9 the *catalogue* search deserves redoing - there may be a flat-and-wide part outside the APV family that beats this, since flat-and-high-current means bigger core area, and area is now cheap. That's a sourcing pass, not a blocker.
+
 ### To do
-- [x] **L2 = L3 = APH0630T100M**, LCSC **C5349698**, footprint **`Inductor_SMD:L_APV_APH0630`** - set on both, ERC still 0/0/0
+- [ ] **L2 = L3 = APH0624T100M**, LCSC **C19634013** - stuffing change from C5349698, same footprint `Inductor_SMD:L_APV_APH0630`
+- [x] ~~L2 = L3 = APH0630T100M, LCSC C5349698~~ - superseded by the height re-weight above; footprint unchanged
+- [ ] Re-run the catalogue search with height weighted 9, looking for flat-and-wide outside APV
+- [ ] Second-source APH0624 or accept APH0630 as the stuffing fallback (1.5k stock)
 - [x] LCSC / MPN / Manufacturer fields set to match the rest of the BOM - **the parts-without-sourcing count is now 41**, and what's left is the deliberate exclusions plus R30/R31
 - [x] APH0630 datasheet pulled into `Refrences/datasheets/APH0630-10uH-inductor.pdf`
 - [ ] Confirm at layout that both land patterns clear the buck's copper pour rather than eating it - the pour *is* the heatsink on this package

@@ -136,8 +136,37 @@ x 30 channels             = 116 us
 
 **The ADC conversion, not the mux, is the floor.** At 2µs per conversion, 30 channels can't go faster than 60µs no matter what the analog front end does. If the scan rate ever needs to go up, the lever is the ADC clock, not RON or capacitance.
 
+### What the RP2350 side contributes - and it is not what i assumed
+
+The budget above treats the ADC as a 2µs black box. Pinning down what it does to the *analog* side turns out to matter more than the timing:
+
+> **"The ADC input is capacitive. When sampling, the ADC places about 1pF across the input… the effective impedance, even when sampling at 500 kS/s, is over 100 kΩ. DC measurements have no need to buffer."** — RP2350 datasheet §12.4.3
+
+Three things fall out.
+
+**1. The ADC is not the load; the mux is.** 1pF against C_COM's 50pF is 2%. This is *not* the usual SAR that dumps a big sampling cap onto the pin - there is no charge-redistribution kick to settle. Every settling number above is set by C_COM alone, and adding a cap at the ADC pin (the trick that made the [32-level submodule ID divider](../design-choices/submodules.md#the-5th-pin-id) work) would **make settling worse here, not better** - it's more C for the sensor to charge through R_ON.
+
+**2. There's a DC gain error nobody had counted.** >100kΩ effective impedance against a real source impedance is a divider:
+
+| R_source (sensor Zout + R_ON) | gain error | at 12 bits |
+| ---: | ---: | ---: |
+| 260Ω | 0.26% | ~11 LSB |
+| 500Ω | 0.50% | ~20 LSB |
+| 1500Ω | 1.48% | ~61 LSB |
+
+Common to all 30 channels and constant, so **per-key calibration removes it** - which this design does anyway for magnet tolerance. The part that *doesn't* calibrate out: TI's Figure 14-1 shows **R_ON varies with input signal voltage**, so this divider varies across the sensor's swing. That's a small INL term rather than an offset - a few LSB, below the noise floor i'd expect, but it's a real mechanism and it's the only one here that calibration can't flatten.
+
+**3. Off-channel feedthrough is 0.44 LSB.** −75dB on a 2.3V swing is **356µV** against an 806µV LSB. Under half a count, from all 15 unselected channels combined. Not a concern, and worth writing down so nobody re-derives it.
+
+#### the 64mm sensor traces don't enter this at all
+Worth stating because it's counter-intuitive: the long analog runs are on the mux's **input** side, where each channel's trace is held statically at its sensor's voltage. Only the **COM node** has to slew when the address changes. Trace length on the sensor side is a **noise-pickup question, not a settling one** - which is why the [analog-on-L1 rule](../design-choices/pcb-stackup.md#the-rule-that-does-the-real-work) is the thing protecting it, not the scan budget.
+
+> **This closes the settling half of the ADC path, not the noise half.** The "[not characterised end-to-end](power.md#clean-buck---tps54302-u5)" flag is about the *supply* chain - DCM ripple → LDO with no output-noise spec → 3V3 → sensors - and none of the above touches it. Same for [review F6](../schematic-review-2026-08-08.md) on ADC_AVDD. Impedance and timing are now known; supply noise still isn't.
+
 ### Notes / gotchas
 - The RP2350 datasheet's line *"switching AINSEL requires no settling time"* refers to the **RP2350's internal ADC input selection**, not to an external mux. It does not apply to the CD74HC4067, which genuinely needs the settle above. Easy line to misread into a much rosier budget.
+- **R_ON is not specified at 3.3V.** TI's table gives it at 4.5V (160Ω max, 225Ω over temperature) and 6V only - the mux runs on +3V3, where HC-family R_ON is roughly 2× the 4.5V figure. The 400Ω used in the math above is that extrapolation, not a datasheet number. It doesn't change the conclusion (the margin absorbs it), but it is an assumption, not a spec.
+- **The GH39F never states an output impedance.** All its parameters are "No load", and the only related figure is a note to measure with a >10kΩ instrument - that's a *load* requirement, not a source impedance. The 65µA sink figure above comes from the sensor side and is the number the whole slew case rests on; it deserves a bench measurement on the first board.
 - Scan order is free to choose, and choosing it to minimise large falling steps between consecutive channels would cut the slew term - but with 8.6× margin there's no reason to bother.
 - Charge injection on channel switch is **not specified by either vendor at any voltage**. With 8.6× timing margin there's room to absorb it, but if per-key readings show a dependence on *which key was scanned previously*, this is the mechanism.
 

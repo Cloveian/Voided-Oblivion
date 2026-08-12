@@ -63,8 +63,8 @@
           "min_clearance": 0.0,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
-          "pad_connection": 1,
-          "remove_islands": 0,
+          "pad_connection": 2,
+          "remove_islands": 1,
           "thermal_relief_gap": 0.5,
           "thermal_relief_spoke_width": 0.5
         }
@@ -159,7 +159,7 @@
         "min_text_height": 0.8,
         "min_text_thickness": 0.15,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.2,
+        "min_track_width": 0.15,
         "min_via_annular_width": 0.15,
         "min_via_diameter": 0.6,
         "solder_mask_to_copper_clearance": 0.0,
@@ -211,7 +211,9 @@
       ],
       "track_widths": [
         0.0,
-        0.2
+        0.15,
+        0.2,
+        0.3
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -686,6 +688,14 @@
       {
         "netclass": "Switching",
         "pattern": "SW NOISY"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "USB D+"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "USB D-"
       }
     ]
   },
@@ -878,7 +888,7 @@
         "uuid": "d39297fe-343b-4cf0-9c31-a16e101c76da"
       }
     ],
-    "used_designators": "#FLG1-10,H1-11,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-225,Y2,Q1-11,R5,R12,R14-51,R62-100,U2,U4-17,D1-6,C1,C5,C23-45,C76-77,C114,C116-125,P1,L2-3,PD2,USB2-3,J1-3,J5-20",
+    "used_designators": "#FLG1-10,H1-15,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-225,Y2,Q1-11,R5,R12,R14-51,R62-100,U2,U4-17,D1-6,C1,C5,C23-45,C76-77,C114,C116-125,P1,L2-3,PD2,USB2-3,J1-3,J5-20",
     "variants": []
   },
   "sheets": [
