@@ -861,18 +861,22 @@ A loses anyway on the three things that don't depend on that math: **it doesn't 
 
 #### Result
 
-**D1/D2 = LM74700QDDFRQ1 (SOT-23-THIN-6) + one N-channel FET each.**
+**D1/D2 = LM74700-Q1 + one N-channel FET each.**
+
+> **Package is a commitment, not a preference - see [the second-source correction](#single-source-and-the-fallback-is-a-different-topology).** `DDF` is SOT-23-THIN-**8**, `DBV` is SOT-23-**6**. Different pin count, different pitch, different pinout. Pick one at layout time.
 
 | | SS54 (was) | **LM74700-Q1 + N-FET** |
 | --- | --- | --- |
-| Range | 40V PIV | **3.2-65V** |
-| Drop at 5A | 0.64V | **~65mV** (13mΩ) |
+| Range | 40V PIV | **4-60V** guaranteed (65V abs max) |
+| Drop at 5A | 0.64V | **~65mV** (13mΩ, provisional - FET not picked) |
 | Dissipation at 5A | **3.2W** | **0.33W** |
 | Reverse leakage | up to 50mA @100°C | **FET Idss, µA** |
-| Package | SMC | **SOT-23-THIN-6, leaded** |
+| Package | SMC | **SOT-23-6 or -THIN-8, leaded** |
 | $/tile (×2 ports) | ~$0.10 | **~$3.26** |
 
-65V on a 20V rail is 3.25× - it doesn't just clear the ≥24V rule, it makes transient headroom a non-question. `DDF` is leaded, so this doesn't reopen the chip-scale problem the [LM66100 swap](#re-select-max40203--lm66100) was partly done to close. Same reasoning, one part over.
+**Correction - the "3.2V to 65V" i wrote first is the front-page number, not the spec.** §6.5 guarantees `V(ANODE)` **4V min to 60V max**. 65V is absolute max; 3.2V is an automotive cold-crank ride-through figure backed by exactly one EC row (charge pump still makes ≥8V at 3.2V in), and POR *rising* is up to 3.9V so it will not start down there. Doesn't change the decision - 4.5V vSafe5V clears the 4V floor and 20V is deep inside 60V - but 60V is the number to quote, and the low end has less room than the headline implies (see the gotchas).
+
+It's leaded either way, so this doesn't reopen the chip-scale problem the [LM66100 swap](#re-select-max40203--lm66100) was partly done to close. Same reasoning, one part over.
 
 **It also closes the leakage gotcha below**, which has been open since the diode was picked. An off N-FET leaks microamps, so "pin the SS54 part number for its reverse leakage" stops being a live item.
 
@@ -892,14 +896,149 @@ Taking it anyway, because **it is the best-stocked ideal diode that clears the g
 
 > **!firmware-note!** Which means **the 80W firmware cap is also the supply-risk escape hatch.** If LM74700 evaporates, the fallback build is SS54 + a firmware cap low enough that the SS54 thermals hold (~2A, the 4-tile row above). Recording that so the cap is understood as load-bearing in two directions, not just one.
 
-**Cheapest mitigation to check first:** `LM74700QDBVRQ1` is the same die in standard SOT-23-6 rather than SOT-23-THIN. Both are 2.9 × 1.6mm on 0.95mm pitch and differ mainly in body height, so the land patterns should be interchangeable - which would make it a **stuffing-level second source**, exactly like APH0630/APH0624. Confirm against both package drawings before relying on it.
+> **Correction - i claimed `LM74700QDBVRQ1` was a free second source. It is not.** i assumed DDF was a thin 6-pin variant of DBV. It isn't: **DDF is SOT-23-THIN-8**, added in datasheet Rev G (Dec 2020). Checked against both mechanical drawings and both Example Board Layouts:
+>
+> | | **DBV0006A** | **DDF0008A** |
+> | --- | --- | --- |
+> | Pins | 6 | **8** |
+> | Lead pitch | **0.95mm** | **0.65mm** |
+> | Land pads | 6× 1.1 × 0.6 | 8× 1.05 × 0.45 |
+> | Column spacing | 2.6mm | 2.6mm |
+> | Max height | 1.45mm | **1.1mm** |
+> | MSL | 2 | **1** |
+> | Pinout | — | **different** (2× N.C, left column reversed) |
+>
+> Only the 2.6mm column spacing matches. **They are not footprint-compatible in either direction, and not pin-compatible either** - so there is no stuffing-level fallback here, unlike APH0630/APH0624. The package choice is locked at layout.
+
+**So the single-source exposure is real and unmitigated.** Which sharpens the point above rather than softening it: the fallback genuinely is a different topology, not a different orderable.
+
+**DBV is probably the better pick** despite being the older package: 0.95mm pitch is a much easier JLC assembly target than 0.65mm, it's the longer-established part number, and its stock should be checked separately - the 1,530 figure was for DDF. DDF's only wins are 0.35mm of height and MSL-1. On a board where [z is the dimension the case has to swallow](#revisit-flat-beats-wide-and-that-only-changes-one-number) that isn't nothing, but 0.35mm on a 1.1mm part is not the inductor problem.
+
+### Datasheet refs
+
+TI **ZHCSHV4G** Rev G (Oct 2017, rev. Dec 2020), `Refrences/datasheets/lm74700-q1.pdf`. Rev G is the one that added the DDF package and "relaxed VCAP specs" - don't size off an older copy.
+
+| | value | ref |
+| --- | --- | --- |
+| `V(ANODE)` operating | **4V min, 60V max** | §6.5 |
+| Abs max ANODE-GND | ±65V | §6.1 |
+| Abs max **CATHODE to ANODE** | **+75V / -5V** | §6.1 |
+| Abs max GATE, VCAP to ANODE | -0.3 to **15V** | §6.1 |
+| POR rising / falling | ≤3.9V / 2.2-3.1V | §6.5 |
+| I(Q) / I(EN) / I(SHDN) | 80µA typ, 130µA max / 3µA / 0.9µA | §6.5 |
+| Charge pump band, VCAP-ANODE | hunts **12.1-13V**, UVLO release 6.6V | §6.5, §9.3.2 |
+| Charge pump at V(ANODE)=3.2V | ≥8V | §6.5 |
+| `V(AK REG)` regulation point | **20mV** (13-29) | §6.5 |
+| Full-conduction threshold | 50mV (34-57) | §6.5 |
+| Reverse blocking threshold | **-11mV typ, -2mV worst** | §6.5 |
+| Reverse turn-off delay | **0.45µs typ, 0.75µs max** | §6.6 |
+| Gate drive source / sink | **11mA / 2.37A** | §6.5 |
+| `T(DRV_EN)` = 75µs + C(VCAP)·6.6V/300µA | **≈2.3ms** at 0.1µF | §9.3.2 Eq.1 |
+
+RθJA is 189.8°C/W (DBV) / 133.8°C/W (DDF) per §6.4 and **doesn't matter** - the controller burns 130µA × 20V ≈ 2.6mW. All the heat is in the FET.
+
+**ORing is a supported configuration, not an off-label use.** §10.2 and Fig. 10-18 show exactly this topology - two controllers, two N-FETs, cathodes tied to a common output - with measured switchover waveforms at 12V vs 15V (Fig. 10-12 to 10-17). See the gotchas for what it does *not* cover.
+
+### Result / parts (to draw)
+
+Per channel, ×2:
+
+| pin | net | note |
+| --- | --- | --- |
+| ANODE | `VBUS1` / `VBUS2` | **FET source.** Also the supply pin |
+| CATHODE | `VBUS` | **FET drain** |
+| GATE | FET gate | short, fat trace - §12.1 |
+| VCAP | **C to ANODE, 0.1µF** | §10.1.1.2.3. **Not to GND** - see gotchas |
+| EN | **ANODE** | Table 5-1 always-ON. No divider, no pull-up in any app circuit |
+| GND | GND | |
+| N.C (DDF only) | — | pins 3 and 7 |
+
+| passive | value | ref |
+| --- | --- | --- |
+| C(VCAP), VCAP→ANODE | **0.1µF**, and ≥10 × C(ISS) of the FET | §10.1.1.2.3, §6.3 |
+| C(IN), ANODE→GND | **22nF** min; §11 wants more when the supply is far away - a USB-C cable is metres, so go bigger | §6.3, §11 |
+| C(OUT) | 100nF min - already covered by PD+ bulk on the shared node | §10.1.1.2.3 |
+| gate resistor | **none.** §12.1 actively discourages added gate impedance | §12.1 |
+
+Three passives and a FET per channel. No soft-start network exists on this part - **not specified** anywhere in the datasheet.
+
+#### Picking the N-FET - three gates, and Rds(on) is the last one
+
+The datasheet is prescriptive here and two of the three gates would have eliminated my first instinct:
+
+1. **Vgs rating ≥ 15V.** §6.3 has an explicit Recommended Operating Conditions row for it, because the charge pump drives 12-13V regardless of input. **This is the binding constraint** and it kills a lot of small logic-level N-FETs. Alternative is a gate zener (§10.1.1.2.2), which is the same crutch [the AO3401A positions](#hv-per-side-switches---picking-the-fet) were criticised for needing.
+2. **Vth(max) ≤ 2.5V.** §10.1.1.2.2, and it's a **loop-stability** requirement, not efficiency - in regulated conduction the part servos Vgs to hold 20mV across the FET, and a high-Vth FET forces that loop to operate where gm is poor.
+3. **`20mV / I(nom) ≤ Rds(on) ≤ 50mV / I(nom)`** (§10.1.1.2.2) - **and lower is explicitly not better**:
+
+> "selecting a MOSFET based on low R_DS(ON) may not be beneficial always. Higher R_DS(ON) will provide increased voltage information to LM74700-Q1's reverse comparator at a lower reverse current."
+
+**That third gate is in tension with the 5A bound and the tension is worth writing down:**
+
+| sized against | window | at 5A |
+| --- | --- | --- |
+| 5A hardware bound | 4-10mΩ | 0.1-0.25W |
+| ~1.4A nominal (the 4-tile row) | **14-36mΩ** | 0.35-0.9W |
+
+**They don't overlap.** Size to the bound and the reverse comparator sees ~11mV at nominal load, so with the -2mV worst-case threshold the trip point wanders over a wide band of reverse current. Size to nominal and you spend a few hundred mW at a 5A ceiling that firmware is capping anyway.
+
+**Sizing to nominal is the right call** - the 5A case is bounded, brief and already thermally trivial in SOP-8, whereas reverse detection is the function the part exists for and it operates continuously. Target the mid-teens in mΩ, not the lowest Rds(on) on LCSC.
+
+#### Brainstorm - the field is much thinner than the catalogue suggests
+
+105 N-channel parts in SOP-8/SOIC-8 at ≥30V on LCSC. Almost all of them fail on something that **is not in LCSC's description field**, which is where the gates actually bite. Everything below is from the datasheets in `Refrences/datasheets/`:
+
+| | part | LCSC | Vds | Vgs max | **Vth max** | Rds@10V typ/max | Id | stock | $ | |
+| --- | --- | --- | --- | :---: | :---: | --- | --- | --- | --- | --- |
+| **A** | **NCE4009S** | **C189610** | **40V** | ±20 | **2.0V** | 12.9 / 16mΩ | 9A, **6.4A @Tc=100°C** | 10.9k | 0.141 | ✓ |
+| **B** | AO4406A | C2944312 | 30V | ±20 | 2.5V | 10 / 13mΩ | 12A, 8A @70°C | 53.9k | 0.104 | ✓ |
+| C | WSP4882 | C377862 | 30V | ±20 | 2.5V | 20 / 26mΩ | 8A | 69.4k | 0.112 | **dual** |
+| D | AP3010 | C353073 | 30V | ±20 | **3.0V** | 8 / 12mΩ | 10A | 40.6k | 0.077 | ✗ Vth |
+| E | WSP4606 | C86361 | 30V | ±20 | 2.5V | 18 / 28mΩ | 7A | 42.2k | 0.142 | ✗ N+P |
+| F | AO4606 | C2944311 | 30V | ±20 | 2.5V | 15 / 22mΩ | 7A | 20.3k | 0.113 | ✗ N+P |
+
+Three things fell out of building that table:
+
+1. **I shortlisted AP3010 on LCSC's `1.6V` and the datasheet says `3V max`.** That field carries the *typical*. This is [the exact trap the inductor pass documented](#brainstorm-survivors) - *"a great way to design in a part with half the saturation current you thought"* - and i walked into it one section later.
+2. **Everything in the 15-25mΩ sweet spot is either complementary or dual.** E and F are N+P pairs; C is a dual-N sync-buck part. The singles cluster at 8-13mΩ because the market optimises for the opposite of what this part wants.
+3. **Every candidate passed the Vgs ≥15V gate at ±20V.** The gate i was most worried about turned out not to bind at all in SOP-8 - it's a SOT-23 problem, not a SOP-8 one.
+
+**C is the interesting near-miss.** Two packages, one half of each, is only ~$0.22/tile and its 20mΩ gives the best gate overdrive of the lot. It loses on **pinout**: dual-N SOP-8 is `1=S1, 2=G1, 3=S2, 4=G2, 5/6=D2, 7/8=D1` against the single's `1,2,3=S / 4=G / 5-8=D`. Same land, incompatible assignment - so committing to C turns A and B from stuffing-change fallbacks into a respin. It also gives the conducting half **1 source pin and 2 drain pins** instead of 3 and 4, which is why it's rated 8A where B is 12A in the same package.
+
+#### The number that decided it - the handoff window, not steady state
+
+I first argued this on "loop instability puts noise on VBUS and VBUS is U11's input." **That argument is wrong at steady state and i should correct it:** post-PD, U11A holds until VBUS falls below 5.640V, and at 20V operation that is a **14V** excursion. Nothing the FET does can reach it.
+
+The window that *does* matter is the handoff itself - VBUS ~5.7V, load is MCU + comms only, roughly **150mA**. Holding the 20mV regulation point at 150mA needs ~133mΩ of effective Rds, so the loop has to back the FET a long way off:
+
+| | Rds typ | ratio to 133mΩ | overdrive | Vgs sits at | worst-case Vth part |
+| --- | --- | :---: | --- | --- | --- |
+| B AO4406A | 10mΩ | 13× | 0.86V | ~2.4V | **below its own 2.5V Vth max** |
+| **A NCE4009S** | 12.9mΩ | 10× | **1.15V** | ~2.7V | **0.7V of overdrive left** |
+| C WSP4882 | 20mΩ | 6.7× | 1.7V | ~3.5V | 1.5V |
+
+**A wins because its two advantages point the same way** - Vth ceiling 0.5V lower *and* Rds 29% higher both raise the overdrive at the one operating point that matters.
+
+**And this is also why C doesn't earn the respin.** A hunting loop is bounded: it can only swing between 0mV (reverse trip) and 50mV (full conduction), so worst case it puts **~50mV of jitter on VBUS**. Against U11A's **132mV hysteresis band** that cannot cause chatter, and RSS'd with the [±77mV static budget](#error-budget) it's 92mV, still inside the 140mV margin to vSafe5V. So this is **margin erosion, not a functional break** - not worth trading away a drop-in second source for.
+
+#### Result
+
+**D1/D2 FET = NCE4009S (C189610)**, ~$0.141, SOP-8.
+
+**Fallback = AO4406A (C2944312)** - pinouts verified identical off both datasheets (`1,2,3=S / 4=G / 5-8=D`), so it is a **stuffing change**. It trades the overdrive margin back for better thermals (RθJA 50 vs 62.5°C/W, PD 4.5 vs 2W), 5× the stock and 4 cents. Take it if the bench says the light-load loop is clean.
+
+Both are Extended, so it is one setup fee either way, and **neither needs a new footprint** - `Package_SO:SOP-8_3.76x4.96mm_P1.27mm` is already placed 5× at Q2/Q4-Q7.
+
+Thermals at the 5A bound, for the record: 16mΩ max × 25A² = **0.4W**, ×62.5°C/W = **25°C rise**. The 40V rating is 2× the rail where the rest of the board runs 30V parts - free margin, not a requirement.
 
 ### To do
-- [ ] **D1/D2 = LM74700QDDFRQ1** - replaces SS54, symbol + footprint + Value + LCSC all move together (the BOM pulls Value - same trap as the MAX40203 rename in the LM66100 section)
-- [ ] **Pick the N-FET** - ≥30V, ~10mΩ @ Vgs=10V, SOP-8, LCSC-stocked. ~0.25W at 5A
-- [ ] **Pull the LM74700 datasheet** and derive the support passives - VCAP cap, EN/UVLO treatment, any gate slew components. Not guessing these
-- [ ] Confirm `LM74700QDBVRQ1` land pattern matches DDF, and check its stock - free second source if it holds
+- [ ] **Commit to DBV (SOT-23-6) or DDF (SOT-23-THIN-8).** Not interchangeable. Leaning DBV on 0.95mm pitch; check *its* stock, the 1,530 was DDF
+- [ ] **D1/D2 = LM74700-Q1** - replaces SS54, symbol + footprint + Value + LCSC all move together (the BOM pulls Value - same trap as the MAX40203 rename in the LM66100 section)
+- [x] ~~Pick the N-FET~~ - **NCE4009S (C189610)**, fallback **AO4406A (C2944312)**, footprint `Package_SO:SOP-8_3.76x4.96mm_P1.27mm` (already on the board)
+- [ ] **N-FET symbol** - need a single N-channel with the SOP-8 `1,2,3=S / 4=G / 5-8=D` pinout. Nothing on the board is N-channel yet
+- [ ] Set MPN / LCSC / Manufacturer on both new parts - the [parts-without-sourcing count](#carry-forward) moves again
 - [ ] **`VBUS*` needs a netclass.** It is currently on `Default` and therefore invisible to *every* custom rule in `Voided-Oblivion.kicad_dru`, including `sensor lines away from the power rails` - see the gotcha below
+- [ ] **[layout-checklist](../layout-checklist.md) needs a Kelvin-sense entry** for ANODE/CATHODE - see gotchas. 4mΩ of shared trace is a full regulation setpoint at 5A
+- [ ] **Bench-test both ports at the same voltage** (both 5V, then both 20V). TI characterises ORing only at *unequal* voltages
 - [ ] [chips](../chips.md) - SS54 line out, two lines in. The stale `SMA` note goes with it
 - [ ] [power design-choice](../design-choices/power.md#still-open-parts--details) - "backfeed/OR'ing protection on each PD input" can be closed
 
@@ -907,7 +1046,16 @@ Taking it anyway, because **it is the best-stocked ideal diode that clears the g
 - ~~**Confirm which SS54 actually ships.** [chips](../chips.md) specifies C7420369 for 50µA reverse leakage over C22452 at 1mA. The datasheet the research fetched (MDD, C22452) specs reverse leakage up to **50mA at 100°C**.~~ **Closed by the re-select** - an off N-FET leaks µA, so the part-number pinning no longer has anything riding on it.
 - **`VBUS` is electrically continuous with PD+ through Q2's 13mΩ**, so it carries both bucks' input ripple return current - ~0.87A RMS at 400kHz from U6 alone at 2A/20V. It is **not** a quiet DC input and should be treated as PD+ for keepout purposes. How noisy it actually gets is set by the PD+ input caps, which are [the same parts the footprint defect is about](#bulk-caps-and-the-footprint-defect) - fix those and VBUS gets quieter.
 - **VBUS is also the *measured* quantity for the whole handoff** (R30/R31 divider, R21's TLV431 bias, U11's VCC) against a [±77mV error budget](#error-budget) and a 132mV hysteresis band. The reassuring part is structural: at the 5.7V trip, U6 is firmware-gated off and U5 has barely started, so the noisy phase and the sensitive phase don't overlap. **The one thing to scope:** U11B enables U5 at 5.667V, *inside* U11A's 5.640/5.772V band - U5's soft-start and inrush into 44µF land right in the window where U11A is deciding.
-- **Both ports plugged in at once is a safety case, not a throughput case.** Each FUSB302 negotiates independently, the higher-voltage port wins the OR, the other is reverse-blocked. Only one controller ever conducts - but both still need full 5A rating, because either could be the one that's plugged in. Sub-case worth knowing: both plugged in and *neither* negotiated puts both ports at vSafe5V and both diodes conduct, paralleling the two ports at 5V. Benign, and identical to what the Schottkys did.
+- **The silent failure mode is the FET's body-diode orientation, and the datasheet never flags it.** i went looking for an LM66100 CE→VOUT-shaped trap and the EN pin isn't it - EN floating is *safe*, the internal 3µA sink disables the part, forward current falls back to the body diode and **reverse blocking still works** (§9.3.4, §9.4.1). You'd notice it instantly as ~3W of drop at 5A. The real trap is source/drain swapped on the FET: forward conduction works perfectly, regulation looks correct, every waveform is right - but the body diode now points cathode→anode and **conducts reverse current freely**. Reverse blocking is completely defeated while the board looks fine on a single port. In a two-port ORing design that is the one failure that matters. **Annotate it on the schematic and check it in the netlist.** Correct connection is ANODE→source, CATHODE→drain (Table 5-1).
+- **C(VCAP) references ANODE, not GND** (§10.1.1.2.3). Grounding it is a real error, not a style choice: VCAP-to-ANODE abs max is **15V** (§6.1), so a GND-referenced cap blows through it the moment PD negotiates past 15V - and the part won't work at any voltage anyway.
+- **Kelvin-sense ANODE and CATHODE to the FET pads.** The comparator thresholds are 20mV forward and -11mV reverse (worst case **-2mV**). At 5A, **4mΩ of shared trace is 20mV** - a whole regulation setpoint of error injected by layout. §12.1 says to keep these pins close to the FET's source/drain; on a crowded board that reads as a preference and it isn't. This is the layout mistake most likely to give a board that bench-tests fine and misbehaves loaded.
+- **Both ports plugged in at once is a safety case, not a throughput case.** Each FUSB302 negotiates independently, the higher-voltage port wins the OR, the other is reverse-blocked. Only one controller conducts - but both still need full 5A rating, because either could be the one that's plugged in. **TI documents and measures this at 12V vs 15V** (§10.2, Fig. 10-12 to 10-17).
+- ⚠ **The equal-voltage case is *not* characterised, and i previously wrote it off as benign.** Both ports plugged in and neither negotiated puts them within tens of mV of each other - the same order as the 20mV regulation point and the -11mV (worst case -2mV) reverse threshold. Both controllers may sit in regulated conduction at once, sharing in an undefined ratio, either liable to trip on noise. §10.2 covers only *unequal* sources and the failure case; there is **no guidance on matched sources, current sharing, or loop interaction**. Probably chatter rather than backfeed - each channel still blocks true reverse current independently - but it is unvalidated. **Bench-test it.**
+- **No internal short-circuit protection, and §11 makes the upstream supply responsible:** *"it is necessary to use a power supply having over load and short circuit protection."* This is an ideal-diode controller, not an eFuse - no current limit, no timer, no SOA management. Satisfied here by the USB-C source's own OCP, which is the same argument [the per-edge OCP re-decision](../design-choices/power.md#re-decision-does-this-need-per-edge-ocp-at-all) already leans on.
+- **Live-connector insertion is not validated by this datasheet.** The transient coverage is ISO 7637-2 / ISO 16750-2 automotive pulses (§10.1.1.3) - load dump, jump start, -150V pulse 1 - none of which is a USB-C hot-plug. Nothing here says the part is qualified for repeated live insertion, which is its primary duty on this board. Not a reason to reject it, but it's an untested axis and the automotive TVS work in §10.1.1.4 does **not** transfer.
+- **Two abs-max corners the application actually touches.** CATHODE-to-ANODE is **+75V but only -5V** (§6.1). Hot-plugging a 20V source onto a discharged `VBUS` puts ANODE ~20V above CATHODE, past that rating - clamped in practice by the FET body diode conducting at ~0.7V, so the excursion is brief, but the margin comes from the body diode rather than the spec. Same situation whenever one port is live at 20V and the other is plugged in cold.
+- **All inrush goes through the body diode.** `T(DRV_EN)` is 75µs + C(VCAP)·6.6V/300µA ≈ **2.3ms** at 0.1µF (§9.3.2 Eq.1), during which the FET is off. Check the chosen FET's repetitive pulsed body-diode rating against worst-case inrush into the shared node.
+- **The 4V EC floor has less room than it looks.** vSafe5V is spec'd down to 4.5V at the port, and IR drop through cable, connector and the FET at 5A eats into that before it reaches the ANODE pin. §6.5 guarantees operation from 4V. Worth checking the VBUS budget **at the pin**, not at the connector.
 - The file `Refrences/datasheets/SS54-schottky.pdf` **is not an SS54 datasheet** - it's a 1N5817-1N5819 (1A axial). A correct one was fetched as `ss54-schottky-actual-mdd.pdf`. Both are now historical.
 
 ## Bulk caps and the footprint defect
