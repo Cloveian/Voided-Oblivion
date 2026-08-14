@@ -2,14 +2,14 @@
 	(version 20251024)
 	(generator "kicad_symbol_editor")
 	(generator_version "10.0")
-	(symbol "LM74700"
+	(symbol "LM74700QDDF"
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(duplicate_pin_numbers_are_jumpers no)
 		(property "Reference" "U17"
-			(at 11.43 1.2701 0)
+			(at -6.096 5.334 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20,7 +20,7 @@
 			)
 		)
 		(property "Value" "LM74700QDDF"
-			(at 11.43 -1.2699 0)
+			(at -7.366 -0.508 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -85,7 +85,7 @@
 				)
 			)
 		)
-		(symbol "LM74700_0_1"
+		(symbol "LM74700QDDF_0_1"
 			(rectangle
 				(start -10.16 7.62)
 				(end 10.16 -7.62)
@@ -98,7 +98,7 @@
 				)
 			)
 		)
-		(symbol "LM74700_1_1"
+		(symbol "LM74700QDDF_1_1"
 			(pin input line
 				(at -12.7 -5.08 0)
 				(length 2.54)
@@ -128,6 +128,24 @@
 					)
 				)
 				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 12.7 -2.54 180)
+				(length 2.54)
+				(name "NC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -182,6 +200,24 @@
 					)
 				)
 				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 12.7 -5.08 180)
+				(length 2.54)
+				(name "NC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "7"
 					(effects
 						(font
 							(size 1.27 1.27)
