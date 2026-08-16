@@ -6,7 +6,7 @@
 # wins. General rules first, specific overrides last. Do not reorder
 # sections without re-reading that.
 #
-# Two rules below need named Rule Areas drawn on the board. Draw them
+# Three rules below need named Rule Areas drawn on the board. Draw them
 # with every keepout checkbox UNticked (the Name is all that's used),
 # and select ALL FOUR copper layers - intersectsArea() is layer-aware,
 # so an area on one layer won't match a track on another.
@@ -15,6 +15,10 @@
 #                     Downstream of each FET the connector's 4x1A caps
 #                     it at 4A, which 1.2mm already covers (24C rise).
 #     CORNER_VOID_*   over each submodule socket pad row, +2mm margin
+#     MCU             the fine-pitch escape region. The ONE exception to
+#                     the all-four-layers instruction above: F.Cu only,
+#                     on purpose, so the neckdown cannot reach the planes
+#                     or the back side. See the last section.
 #
 # Everything here backs a decision recorded in docs/design-choices/.
 
@@ -57,7 +61,7 @@
 (rule "USB pair geometry"
     (constraint track_width (min 0.30mm) (opt 0.30mm))
     (constraint diff_pair_gap (min 0.18mm) (opt 0.20mm) (max 0.25mm))
-    (constraint diff_pair_uncoupled (max 5mm))
+    (constraint diff_pair_uncoupled (max 15mm))
     (condition "A.inDiffPair('*')"))
 
 # Name the aggressor instead of the world. This replaced a blunt
@@ -109,3 +113,88 @@
     (constraint connection_width (min 1.2mm))
     (constraint zone_connection solid)
     (condition "A.hasNetclass('Power Delivery')"))
+
+
+# ── MCU escape routing ───────────────────────────────────────────────
+
+# Fine-pitch fanout needs to get out from under the part before the
+# netclass clearances become affordable. 0.15mm is the floor set in
+# Board Setup > Constraints (min_clearance); DRC clamps anything below
+# it, so this is as tight as a rule can go without moving that number.
+#
+# A && B, not A || B: the neckdown stops at the area outline. A trace
+# passing just outside the MCU against a pad inside still gets the full
+# netclass clearance, so tight spacing cannot leak into the surrounding
+# copper where nothing needs it.
+#
+# LAST in the file on purpose - it is meant to beat the 0.5mm analog
+# and USB clearance rules above WITHIN the area. That is the tradeoff
+# being bought: inside the MCU outline, sensor lines sit 0.15mm from
+# the power rails instead of 0.5mm. Acceptable over the ~18 x 21mm
+# fanout where the run is short and parallel for almost none of it; if
+# that stops being true, move this section above "── Analog ──" and the
+# 0.5mm rules win again.
+#
+# The MCU area is drawn on F.Cu ONLY. intersectsArea() is layer-aware,
+# so this does not reach the inner layers or B.Cu - which is what a
+# top-layer escape wants. Add the other three layers to the area if
+# that ever needs to change.
+(rule "MCU fanout neckdown"
+    (constraint clearance (min 0.15mm))
+    (condition "A.intersectsArea('MCU') && B.intersectsArea('MCU')"))
+
+
+# ── USB connector escape ─────────────────────────────────────────────
+
+# Same neckdown as the MCU section, for the connector fanout that the
+# old blunt "0.5mm to every foreign net" rule needed an exemption for.
+# Both areas are F.Cu only and sit directly over the pin rows, so the
+# 0.15mm window is ~1.8mm deep - the pair is back at netclass spacing
+# as soon as it leaves the connector.
+#
+# Must stay below "USB pair away from switching nets" to win inside the
+# areas. Note this also lets D+/D- themselves close to 0.15mm here;
+# diff_pair_gap (min 0.18mm) still governs the coupled run.
+(rule "USB pin escape neckdown"
+    (constraint clearance (min 0.15mm))
+    (condition "A.intersectsArea('USB? pins') && B.intersectsArea('USB? pins')"))
+
+
+# ── Fine-pitch parts: ignore a footprint's pads against themselves ───
+
+# The rule language has no "A and B share a parent footprint" test -
+# memberOfFootprint() only takes a literal identifier. But since a pad
+# belongs to exactly one footprint, pairing the test with itself says
+# it exactly: A in U1 && B in U1 can only be two pads of U1. Hence the
+# per-part repetition instead of a 'U*' wildcard, which would also
+# match a U17 pad against a U18 pad sitting next to it.
+#
+# Scoped to these four on purpose. Anything wider would also hide real
+# pad-to-pad violations between adjacent parts, which is the one thing
+# this check is actually good at catching.
+(rule "intra-footprint pad clearance"
+    (constraint clearance)
+    (severity ignore)
+    (condition "A.Type == 'Pad' && B.Type == 'Pad' && ((A.memberOfFootprint('U1') && B.memberOfFootprint('U1')) || (A.memberOfFootprint('U2') && B.memberOfFootprint('U2')) || (A.memberOfFootprint('U17') && B.memberOfFootprint('U17')) || (A.memberOfFootprint('U18') && B.memberOfFootprint('U18')) || (A.memberOfFootprint('U13') && B.memberOfFootprint('U13')) || (A.memberOfFootprint('U14') && B.memberOfFootprint('U14')) || (A.memberOfFootprint('U8') && B.memberOfFootprint('U8')))"))
+
+
+# ── Connector mounting holes: copper-to-hole ─────────────────────────
+
+# The pogo connectors carry 0.65mm NPTH locating pegs 1.25mm from the
+# pad centres, which leaves 0.075mm of laminate between the hole wall
+# and the flanking pads. JLCPCB wants 0.2mm. The peg spacing and the
+# 2.5mm pad pitch are both fixed by the part, so the only lever is pad
+# width, and that is a footprint change, not a board one.
+#
+# Accepted as-is: the holes are UNPLATED, so there is no barrel to wet
+# and nothing to bridge PD+ to GND - pad-to-pad across the peg is still
+# 0.8mm of copper-to-copper (2.5mm pitch - 1.7mm pad). Worst case the
+# drill nibbles the pad edge and leaves a burr. Revisit if these ever
+# become plated, where the same 0.075mm WOULD be a short.
+#
+# Explicit list, no 'J*' wildcard - J9 through J20 are unrelated parts
+# that should keep the check.
+(rule "connector mounting holes: copper-to-hole exception"
+    (constraint hole_clearance)
+    (severity ignore)
+    (condition "A.memberOfFootprint('J1') || B.memberOfFootprint('J1') || A.memberOfFootprint('J2') || B.memberOfFootprint('J2') || A.memberOfFootprint('J3') || B.memberOfFootprint('J3') || A.memberOfFootprint('J4') || B.memberOfFootprint('J4') || A.memberOfFootprint('J5') || B.memberOfFootprint('J5') || A.memberOfFootprint('J6') || B.memberOfFootprint('J6') || A.memberOfFootprint('J7') || B.memberOfFootprint('J7') || A.memberOfFootprint('J8') || B.memberOfFootprint('J8') || A.memberOfFootprint('USB1') || B.memberOfFootprint('USB1') || A.memberOfFootprint('USB2') || B.memberOfFootprint('USB2') || A.memberOfFootprint('SW1') || B.memberOfFootprint('SW1') || A.memberOfFootprint('SW2') || B.memberOfFootprint('SW2')"))

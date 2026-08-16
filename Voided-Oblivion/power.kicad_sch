@@ -7326,7 +7326,7 @@
 		)
 		(uuid "ea0edc95-e18b-470d-b8a3-2e8f6bcf2052")
 	)
-	(text "BS+: Bootstrap rail(5V)\nPD+: Power Delivery rail (9-20V)\n+5VA: 5V Analog/clean 5V\n+5VP: 5V Power/Noisy 5V (for rgb)\nSM+: Sub-Module power (5V)"
+	(text "BS+: Bootstrap rail(5V)\nPD+: Power Delivery rail (9-20V)\n+5VA: 5V Analog/clean 5V\n+5VP: 5V Power/Noisy 5V (for rgb)\nSM+: Sub-Module power (5V)\nVBUS: Combined power from both USB-C ports (after ideal diodes)"
 		(exclude_from_sim no)
 		(at 16.51 274.32 0)
 		(effects
