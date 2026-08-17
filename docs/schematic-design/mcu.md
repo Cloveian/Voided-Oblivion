@@ -34,7 +34,7 @@ Per-section skeleton: **Goal → Datasheet refs → Math → Result → Notes/go
 10 × 100nF against 8 IOVDD pins and 4 × 100nF against 3 DVDD pins is a sane one-per-pin-plus-margin scheme.
 
 ### Notes / gotchas
-- **ADC_AVDD is tied straight to +3V3 with no dedicated filter.** On a board whose entire premise is 12-bit analog key sensing, that's the one rail I'd expect to see an RC or ferrite on, separated from the digital 3V3. Worth deciding deliberately rather than by default - especially given the [3V3 rail's own noise story is unevidenced](power.md#3v3-ldo---xc6220b331mr-u7) and the [ratiometric assumption](keys.md#the-ratiometric-assumption) may or may not be cancelling supply noise for us.
+- **ADC_AVDD is tied straight to +3V3 with no dedicated filter.** On a board whose entire premise is 12-bit analog key sensing, that's the one rail I'd expect to see an RC or ferrite on, separated from the digital 3V3. Worth deciding deliberately rather than by default - especially given the [3V3 rail's own noise story is unevidenced](power.md#3v3-ldo---tlv76733drvr-u7) and the [ratiometric assumption](keys.md#the-ratiometric-assumption) may or may not be cancelling supply noise for us.
 - R3 33Ω + C9 4.7µF on VREG_AVDD is the analog supply for the internal core regulator - that one *does* have its filter.
 
 ## Core regulator

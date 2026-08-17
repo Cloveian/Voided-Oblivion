@@ -12,7 +12,7 @@ Per-section skeleton: **Goal → Datasheet refs → Math → Result → Notes/go
 - [Clean buck - TPS54302 (U5)](#clean-buck---tps54302-u5)
 - [Big buck - TPS54302 (U6)](#big-buck---tps54302-u6)
 - [Picking the inductors (L2/L3)](#picking-the-inductors-l2l3)
-- [3V3 LDO - XC6220B331MR (U7)](#3v3-ldo---xc6220b331mr-u7)
+- [3V3 LDO - XC6220B331MR (U7)](#3v3-ldo---tlv76733drvr-u7)
 - [Ideal diode - LM66100 (U9)](#ideal-diode---lm66100-u9)
   - [Accepted risk: 5.95V on a 6.0V part](#accepted-risk-595v-on-a-60v-part)
 - [Reference - TLV431 (U10)](#reference---tlv431-u10)
@@ -75,6 +75,8 @@ The research derived **100µH** to get 30% ripple in CCM at 300mA, and it's righ
 - **EN comes from U11B, not a divider.** `+5VA EN` is U11B's open-collector output pulled to +3V3 by R34. High (enabled) above the trip. EN sees 3.3V - inside the 5.5V recommended max and well under the 7V abs max. This is the [enable-from-trigger trick](implementation.md#the-enable-from-trigger-thing-the-good-bit) and it's better than the research's suggested VIN divider, because it enables off the *same comparison* that connects PD+ rather than off the rail being started.
 - **The buck is enabled at ~5.95V but can't actually regulate 5V until ~7–9V in.** Between those it sits in dropout, output ≈ VIN − (RDS(on) x I) ≈ 5.8V. That's harmless (BS+ just sits a bit low, the LDO still has >2V of headroom) and it only lasts as long as the PD ramp, which is milliseconds. Worth knowing it's a real operating state, not an error.
 - **The rail called "clean" is the one running DCM.** Variable-frequency pulse-skip ripple → MAX40203 → BS+ → LDO → 3V3 → hall sensors and the ADC. The LDO's PSRR is a single 50dB @ 1kHz point and **it has no output-noise spec at all** (see LDO section). So the ADC noise path is not actually characterised end-to-end anywhere. Not a blocker, but if key readings turn out noisy, this chain is the first suspect, and the fix is more Cout / a bigger L, not a different sensor.
+
+> ⚠ **Superseded.** This rests on the LDO having no noise spec - true of the XC6220, but [the as-built part is a TLV76733](#revisit-the-part-is-a-tlv76733-not-an-xc6220---and-it-changes-three-conclusions), which publishes **60 µVRMS** output noise and **70 dB @ 1 kHz / 46 dB @ 1 MHz** PSRR. That is 0.07 LSB. The chain *is* characterised; only ADC_AVDD (review F6) is still open.
 - No PG pin - "did the big buck come up" has to be inferred some other way if that ever matters.
 
 ## Big buck - TPS54302 (U6)
@@ -307,7 +309,9 @@ The datasheet's answer is *"closed magnetic circuit design reduces leakage flux"
 - The [big buck gotcha](#big-buck---tps54302-u6) about Isat vs the IC current limit is updated above but the numbers in that bullet (3A) are now stale in a good way
 - **The 43-parts-without-sourcing count drops to 41.** The rest are the deliberate exclusions (VoidSwitch, DNP, mechanical)
 
-## 3V3 LDO - XC6220B331MR (U7)
+## 3V3 LDO - TLV76733DRVR (U7)
+
+> **Header corrected.** Written as XC6220B331MR; the as-built part is a TLV76733DRVR. The math below is the *old* part's - see [the revisit](#revisit-the-part-is-a-tlv76733-not-an-xc6220---and-it-changes-three-conclusions) at the end of this section for what actually changed.
 
 ### Goal
 3.3V for MCU + hall sensors + mux, from **BS+** so it exists pre-PD.
@@ -340,6 +344,73 @@ VIN = BS+; **CE tied to VIN via R12 0Ω** (VCEH 1.2–6.0V, and CE must never fl
 - **Bank-gating the hall sensors is load-bearing, not an optimisation.** 30 sensors at 9mA worst case is 270mA on its own, before the MCU. That alone lands in the red row above. Cross-check against [keys](keys.md#sensor-bank-power-gating), where the other half of the problem is that the sensor's power-on settling time isn't specified.
 - **No output noise specification exists in this datasheet.** Not a missing number I failed to find - there is no such row and no noise-density graph. The original [LDO selection](../design-choices/power.md#33v-ldo) scored "output noise" at weight 10, the heaviest row in that table. That row was scored against something unpublished. Doesn't change the pick, but the low-noise claim is currently unevidenced and the ADC chain is downstream of it.
 - ~~C41 at 100µF is fine electrically but see [the footprint defect](#bulk-caps-and-the-footprint-defect).~~ **C41 is now 1µF on `+5VA` (U9's C_IN)** - it left BS+ entirely, which fixed the attach inrush *and* removed it from the footprint defect list.
+
+### Revisit: the part is a TLV76733, not an XC6220 - and it changes three conclusions
+
+**Everything above this line was written about the wrong chip.** [Review F14](../schematic-review-2026-08-08.md) caught it and it sat unfixed. As-built:
+
+| | documented | **as-built** |
+| --- | --- | --- |
+| part | XC6220B331MR (Torex) | **TLV76733DRVR** (TI) |
+| LCSC | - | **C2848334** |
+| package | SOT-25, 5-pin, no pad | **WSON-6 2×2mm, exposed pad + thermal vias** |
+| enable | CE, 6.0V ceiling | **EN, 16V ceiling** |
+
+The swap is an improvement on every axis that matters here, but three things written above are now wrong.
+
+#### 1. Thermal - the constraint mostly goes away
+
+`RθJA` **166.67 → 77.7 °C/W** (TI's DRV figure; the exposed pad is doing the work). Same `Pd = 1.7 × Iout`:
+
+| Iout | Pd | TJ @ 25°C | TJ @ 40°C | *(was, XC6220 @25°C)* |
+| --- | --- | --- | --- | --- |
+| 250mA | 0.425W | 58°C | 73°C | *96°C* |
+| **400mA** | 0.68W | **78°C** | **93°C** | *138°C ✗* |
+| 500mA | 0.85W | 91°C | 106°C | - |
+| 640mA | 1.09W | 110°C | **125°C** ← ceiling | - |
+
+**The 400mA load-budget figure now lands at 78°C instead of 138°C.** The ceiling moves from ~250mA to **~640mA at 40°C ambient**, so the real load sits at 1.6× margin instead of 1.6× *over*.
+
+⚠ **This means [bank-gating the hall sensors is no longer survival](keys.md#sensor-bank-power-gating).** That section says *"Gating was survival, not optimisation"* - it was, against the XC6220. Against the TLV767, 30 sensors at 270mA is 35°C of rise and entirely fine. **Gating is now a power optimisation**, which is a much weaker reason to carry its complexity. That decision deserves re-opening on its own terms.
+
+#### 2. The output-noise gap is closed - this is the big one
+
+The note above says *"No output noise specification exists in this datasheet… the low-noise claim is currently unevidenced and the ADC chain is downstream of it."* TI publishes both:
+
+- **Output noise: 60 µVRMS**
+- **PSRR: 70 dB @ 1 kHz, 46 dB @ 1 MHz**, with curves vs IOUT, VIN and CFF
+
+60 µVRMS against an **806 µV LSB** is **0.07 LSB**. And at the clean buck's 400kHz, PSRR is ~50 dB, so even 20mVpp of buck ripple arrives as ~60µV.
+
+> **This retires the "[not characterised end-to-end](#clean-buck---tps54302-u5)" flag.** That claim rested on the LDO having a single 50dB PSRR point and no noise spec. The part actually fitted has both, and the numbers are two orders of magnitude below one LSB. Combined with [the settling analysis](keys.md#what-the-rp2350-side-contributes---and-it-is-not-what-i-assumed), the ADC path is now characterised on both halves - impedance/timing *and* supply noise. **[Review F6](../schematic-review-2026-08-08.md) on ADC_AVDD is still open** and is now the only unquantified thing left in that chain.
+
+#### 3. Dropout is much worse than claimed, and still fine
+
+"110mV worst-case dropout at 1A → ~15× margin" was the Torex number. TI's is **0.9V typ / 1.4V max at 1A** in the DRV package - **13× worse.**
+
+It still isn't the constraint, but the margin is nothing like 15×:
+
+```
+worst case: VBUS 4.75V min - Q1 Rds(on) ~75mV  ->  BS+ ~4.68V
+            4.68 - 3.3 = 1.38V available
+            dropout at the real 400mA load ~0.56V max (scaled from the 1A figure)
+            -> ~2.5x margin, not 15x
+```
+
+Worth restating because at the full 1A rating the margin would be 1.38V against 1.4V max - **gone**. The part is fine *because the load is 400mA*, not because the headroom is generous.
+
+#### and two things that quietly got better
+
+**The cap worry evaporates.** The note above flags that as-built `C24 = 1µF / C23 = 4.7µF` isn't "the pairing Torex characterises". It isn't a Torex part. TI wants **CIN ≥ 1µF** and **COUT 1-220µF, ESR 2-500mΩ** - as-built is correct as drawn, no change needed.
+
+**EN has real margin now.** `R12` 0Ω ties EN→BS+. TLV767 VEN tolerates **16V** (abs max 18V) against BS+'s 5.95V worst case. The XC6220's CE ceiling was 6.0V - the *same* number as the [accepted 5.95V risk](#accepted-risk-595v-on-a-60v-part) on the ideal diode. That coincidence is gone; only U9 still sits against 6.0V.
+
+#### carry-forward
+- **[chips](../chips.md)** still lists XC6220B331MR with the SOT-25/CE description
+- **[schematic-checklist](../schematic-checklist.md)** says "5-pin SOT-25 with a CE pin"
+- **[keys](keys.md#sensor-bank-power-gating)** - the gating rationale needs re-deriving, per above
+- **[design-choices/power](../design-choices/power.md#33v-ldo)** selected the XC6220B33**2**MR (300mA, SOT-23-3) - a *third* part, and that matrix scored "output noise" at weight 10 against an unpublished number
+- The datasheet is in `Refrences/datasheets/TLV76733-ldo.pdf`
 
 ## Ideal diode - LM66100 (U9)
 
