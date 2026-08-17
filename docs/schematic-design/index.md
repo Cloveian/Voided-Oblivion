@@ -27,7 +27,7 @@ Every section uses the same skeleton: **Goal → Datasheet refs → Math → Res
 - **U16's EN is tied to GND through a 0Ω (R23)** - AP2171W is active-high, so the submodule rail can never turn on as drawn. Needs 4.7kΩ + a `SM EN` GPIO
 - **Unverified: does AP2171W's OCP latch or auto-retry?** Diodes bot-blocks the datasheet. If it latches, U16's EN is the only way to clear a submodule fault - [submodules](../design-choices/submodules.md#why-u16-does-need-firmware-control)
 - **Capacitor footprints are wrong on 4 parts** (~~5~~ - the 100µF **C41 is now 1µF**, which fixes one). Remaining: **4× 22µF in 0402** (C28/C29/C34/C35), which doesn't exist. Plus C26/C31 10µF 0402 on the 20V PD+ rail, unbuyable at that voltage - [implementation](implementation.md#capacitor-footprints)
-- **Doc/board mismatch on the LDO input cap:** power.md claimed **C24 = 10µF** *"exactly the pairing Torex characterises"*; the board has **1µF**. Confirm 1µF is acceptable for the XC6220 or change one of them - [power](power.md#3v3-ldo---xc6220b331mr-u7)
+- **Doc/board mismatch on the LDO input cap:** power.md claimed **C24 = 10µF** *"exactly the pairing Torex characterises"*; the board has **1µF**. Confirm 1µF is acceptable for the XC6220 or change one of them - [power](power.md#3v3-ldo---tlv76733drvr-u7)
 
 ---
 Back to [main index](../index.md) · build log at [log](log.md)

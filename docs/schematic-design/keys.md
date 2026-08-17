@@ -63,7 +63,7 @@ The sensor's characteristics are given at 5V. The board runs it at 3.3V. The onl
 Why it matters more than it looks:
 
 - **If ratiometric holds**, noise on 3V3 partially cancels in the ADC reading, because the sensor's transfer function and the ADC's own reference (ADC_AVDD, also 3.3V) move together. That's a big free win for a noisy rail.
-- **If it doesn't hold**, 3V3 noise appears directly in every keypress measurement with no cancellation - which puts a much stiffer requirement on the LDO and its decoupling than currently exists, especially given the LDO has [no output-noise specification at all](power.md#3v3-ldo---xc6220b331mr-u7) and the clean buck feeding it [runs in DCM](power.md#clean-buck---tps54302-u5).
+- **If it doesn't hold**, 3V3 noise appears directly in every keypress measurement with no cancellation - which puts a much stiffer requirement on the LDO and its decoupling than currently exists, especially given the LDO has [no output-noise specification at all](power.md#3v3-ldo---tlv76733drvr-u7) and the clean buck feeding it [runs in DCM](power.md#clean-buck---tps54302-u5).
 
 **This is a bench measurement, not a datasheet question.** Scaled sensitivity at 3.3V would be ~1.19 mV/Gs (1.8 × 3.3/5) if the assumption holds. Worth measuring on real parts before trusting the ADC budget - and it's cheap to measure: sweep VCC, watch quiescent output and a fixed-magnet reading.
 
@@ -196,7 +196,7 @@ Cost is one P-FET + one GPIO per bank, plus firmware sequencing.
 #### What changed since this was first proposed
 When [hall-effect-sensors](../design-choices/hall-effect-sensors.md) first said "strong argument for bank-powering", the reason was the LDO: the XC6220 in SOT-25 can't dissipate 5V→3.3V at 400mA (TJ ≈ 138°C at room ambient, past its own 125°C design point). **Gating was survival, not optimisation.**
 
-Then [swapping to a TLV767 in WSON-6](power.md#3v3-ldo---xc6220b331mr-u7) dropped θJA from 166.7 to 77.7°C/W - **TJ ≈ 78°C at the same 400mA**. The thermal argument evaporated. So this is now a genuine open choice rather than a forced move, which is why it deserves an actual decision instead of a to-do.
+Then [swapping to a TLV767 in WSON-6](power.md#3v3-ldo---tlv76733drvr-u7) dropped θJA from 166.7 to 77.7°C/W - **TJ ≈ 78°C at the same 400mA**. The thermal argument evaporated. So this is now a genuine open choice rather than a forced move, which is why it deserves an actual decision instead of a to-do.
 
 ### The 1000Hz arithmetic (this is what decides it)
 
