@@ -172,3 +172,50 @@ All of the 08-16 list re-confirmed on fresh runs: KO-001 (MCU rule area isn't a 
 5. Correct AGENTS.md §6 (CC not crossed) + the accepted-risk log extensions; save the two fetched datasheets.
 6. Hygiene sweep: duplicated vias, dangling vias/stubs, PD+ island, stitching pass, mux/PD2 local caps, sym-lib-table, silk, drill decision.
 7. Export gerbers → gerber analysis → order.
+
+---
+
+# Re-review addendum — same day, after `d71a73c "small changes"`
+
+**Scope:** delta re-review of `d71a73c` (PCB 181k-line diff, power.kicad_sch, symbol lib, sym-lib-table). Fresh analyzer run `analysis/2026-08-18_1139/`, fresh DRC/ERC. Same evidence labels.
+
+## Verdict: still not fab-ready — but for a *narrower* reason
+
+Two of the four electrical blockers were fixed **at schematic level**, and the fixes are correct. The new gate: **the PCB was not updated from the schematic**, so the E1 fix isn't in copper yet — and E3/E4 weren't touched at all.
+
+## What d71a73c fixed (verified)
+
+- **E1 → schematic-fixed, copper-pending.** R37's sense moved from VBUS2 to **VBUS1** *[RAW: R37 pins now `VBUS1`/`USB SEL`]* — the one-net option. Truth-table check: VBUS1 present → S=H → D2=USB1 ✓; absent → D1=USB2 ✓ — every single-cable case now routes correctly. Both-plugged priority flips to **port 1 wins**; [comms.md#sel-detect---which-port-wins] still documents port-2-priority and needs updating. **But the board still has R37 pad 1 on the VBUS2 net/copper** *[RAW pcb pad_nets]* — see "the sync gap" below.
+- **E2 → core fixed, sourcing tail remains.** R30 MPN → `ARG02BTC3572` ✓, R31 → `ARG02BTC1002` ✓ *[RAW]* — the destructive 6.9 V trip path is closed. U10's new LCSC `C398374` **verified = TLV431BQDBZR, ±0.5 %, SOT-23-3, 12k stock** (jlcsearch lookup). Still MPN/LCSC-empty: **R22, C26/C31 (the ≥25 V PD+ caps), C28/C29/C34/C35, U17/U18, Q13/Q14** *[RAW `missing_mpn`, 32 refs incl. the intentional off-catalogue connectors]*. F8 note: no Tolerance fields were added — the ±0.1 % intent now lives in the ARG02 MPNs themselves, which is acceptable.
+- **TLV431 symbol pin-swap (should-fix 1) → fixed.** New `Voided-Oblivion-misc:TL431BQDBZ` symbol has the correct TI DBZ map (1=REF, 2=K, 3=A) *[RAW symbol + analyzer pins]*, and the R27/R28 topology is now the textbook adjustable form (REF–R27–cathode node, R28 DNP to GND) — the divider provision is no longer booby-trapped. PCB pads still carry the old mapping (benign while R27 = 0 Ω; the pad-1/2 traces at U10 swap on the next sync).
+- **Q1 slew race (should-fix 2) → fixed.** R36 10 k → **1 kΩ** (`0402WGF1001TCE`) *[RAW]* — turn-off ~10× faster, bounding the BS+ excursion to <100 mV even at PD-spec-max slew, and Q1's off-state Vgs improves as a side effect. PCB value field still says 10 kΩ (see sync gap).
+- **Hygiene:** `sym-lib-table` gained `Voided-Oblivion-misc` (ERC now exactly 1 error = the intentional `SM BUS` OR ✓); all 4 duplicated-via pairs (`holes_co_located`) gone; starved thermals gone; DRC warnings 587 → **370** (new no-silkscreen-text 0402 footprints account for much of the drop); dangling tracks 11 → 9. The PG-6P male footprint edit is cosmetic geometry only (courtyard/silk line nudges, no pad changes) *[RAW diff]*.
+
+## Still open (unchanged from the main review)
+
+- **E3 — R79–R82 still 100 k**: all four `PD EN` nets remain E9-exposed; every edge HV switch still turns on during an MCU-float window with PD+ live. Fix unchanged: **→ 2.2 k** (BJT base, not the CMOS 8.2 k number).
+- **E4 — R38 still 100 k** on `+5VP EN`: uncommanded big-buck enable during MCU float. Fix unchanged: **→ 4.7 k**.
+- **B4** — the same 11 `track_width` errors on `/MCU D±` *[DRC]*; the rule carve-out still isn't in `.kicad_dru`.
+- **B5** — `PD_TRUNK*` / `CORNER_VOID_*` rule areas still don't exist *[RAW]*; two custom rules still inert.
+- PD+ In2 isolated island (67.4, 98.1), 22 dangling vias, stitching pass, silk-edge 50, the doc corrections (AGENTS.md §6 **CC-not-crossed** — re-verified straight on this revision *[RAW]* — and the accepted-risk log extensions), and saving the fetched LM66100/AP2171 PDFs into `Refrences/datasheets/`.
+
+## New since the main review: the schematic↔PCB sync gap
+
+`d71a73c` edited the schematic but never ran **Update PCB from Schematic**, so the board now *disagrees* with the schematic exactly where the fixes are:
+
+| Ref | Schematic (truth) | PCB (as-routed) | Consequence |
+|---|---|---|---|
+| R37 pad 1 | **VBUS1** | **VBUS2** net *and copper* | **E1 is not fixed on the board.** The mux still mis-selects until this pad is re-netted and rerouted to VBUS1 copper |
+| U10 pads 1/2 | 1=REF node, 2=+1V24ref | 1=+1V24ref, 2=REF node | Electrically identical while R27 = 0 Ω; traces at pads 1/2 must swap on sync for the R28 provision to be real |
+| R36 value | 1 kΩ | 10 kΩ | Cosmetic if the BOM exports from the schematic; fix on sync |
+
+*[RAW: `analysis/2026-08-18_1139/pcb.json` pad_nets vs schematic nets]*. Cross-analysis' XV checks didn't flag these (they compare net-name presence, not per-pad assignment) — worth knowing that this gap class is invisible to both DRC and the analyzer's sync summary.
+
+## Remaining order of work
+
+1. Fix **E3/E4** in the schematic (R79–R82 → 2.2 k, R38 → 4.7 k) — do it *before* the sync so there's one sync, not two.
+2. **Update PCB from Schematic** → reroute R37 pad 1 to VBUS1 copper, swap the two short traces at U10 → refill → DRC.
+3. **B4** rule carve-out + **B5** rule areas → refill → DRC clean (expect real findings from the newly-live trunk rule).
+4. Finish the sourcing tail: R22, C26/C31 (≥25 V, derating-aware), C28/C29/C34/C35, U17/U18, Q13/Q14.
+5. Doc pass: comms.md SEL priority (now port 1), AGENTS.md §6 CC contract, accepted-risk extensions, save the two datasheets.
+6. Hygiene sweep (island, dangling vias, stitching, silk) → gerbers → gerber analysis → order.
