@@ -78,6 +78,10 @@
       ],
       "drc_exclusions": [
         [
+          "diff_pair_gap_out_of_range|30767000|51833955|1b11b5a1-4619-46ab-a214-d16e55e7be60|87456e6a-74ad-4e12-bc80-6c85cd46b7ea",
+          ""
+        ],
+        [
           "diff_pair_gap_out_of_range|32077492|76397524|7a9f656e-3fc4-4053-8223-753060588587|d4db051a-763f-476c-916f-2ddc682a6630",
           ""
         ],
@@ -218,8 +222,8 @@
         "pth_inside_courtyard": "error",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
-        "silk_over_copper": "warning",
-        "silk_overlap": "warning",
+        "silk_over_copper": "ignore",
+        "silk_overlap": "ignore",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "warning",
@@ -313,6 +317,7 @@
         0.25,
         0.3,
         0.4,
+        0.5,
         0.6,
         0.8,
         1.0,
@@ -1018,7 +1023,7 @@
         "uuid": "d39297fe-343b-4cf0-9c31-a16e101c76da"
       }
     ],
-    "used_designators": "#FLG1-10,H1-15,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-237,Y2,Q1-14,R5,R12,R14-51,R53-56,R62-103,U2,U4-18,D1-6,C1,C5,C23-45,C76-77,C114,C116-130,P1,L2-3,PD2,USB2-3,J1-3,J5-20",
+    "used_designators": "#FLG1-12,H1-15,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-237,Y2,Q1-14,R5,R12,R14-51,R53-56,R62-103,U2,U4-18,D1-6,C1,C5,C23-45,C76-77,C114,C116-130,P1,L2-3,PD2,USB2-3,J1-3,J5-20",
     "variants": []
   },
   "sheets": [

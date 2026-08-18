@@ -7348,6 +7348,12 @@
 		(uuid "f9701b84-1c67-4d04-af9f-21339bdae0aa")
 	)
 	(junction
+		(at 372.11 157.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "00ca4896-40cc-475d-add7-1f95b95417da")
+	)
+	(junction
 		(at 83.82 77.47)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7424,6 +7430,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "140953da-0596-41e7-8323-7fe1c42abcf1")
+	)
+	(junction
+		(at 251.46 162.56)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "142a9e6b-a5d6-40b2-8a1d-06c02297cec9")
 	)
 	(junction
 		(at 88.9 179.07)
@@ -31295,6 +31307,85 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 372.11 157.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c87a5029-b7ff-4bbf-8b20-1479bf6065ed")
+		(property "Reference" "#FLG012"
+			(at 374.015 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 375.92 157.4799 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 372.11 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 372.11 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 372.11 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "db523054-d326-413a-818a-3f4ccbf1aecb")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "#FLG012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 123.19 246.38 180)
 		(unit 1)
@@ -31560,6 +31651,85 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "#PWR0234")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 251.46 162.56 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cf57fc5e-2235-410c-9da5-d8350ef91d87")
+		(property "Reference" "#FLG011"
+			(at 249.555 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 247.65 162.5599 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 251.46 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 251.46 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 251.46 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "76cb86f0-eb40-407a-aacf-b02178273a2e")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "#FLG011")
 					(unit 1)
 				)
 			)
