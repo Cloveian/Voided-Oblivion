@@ -226,7 +226,7 @@
         "silk_overlap": "ignore",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
-        "starved_thermal": "warning",
+        "starved_thermal": "ignore",
         "text_height": "warning",
         "text_on_edge_cuts": "error",
         "text_thickness": "warning",
@@ -248,8 +248,8 @@
       "rules": {
         "max_error": 0.005,
         "min_clearance": 0.1,
-        "min_connection": 0.2,
-        "min_copper_edge_clearance": 0.5,
+        "min_connection": 0.15,
+        "min_copper_edge_clearance": 0.2,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
@@ -879,7 +879,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Value",
           "name": "Value",
           "show": true
@@ -903,7 +903,7 @@
           "show": true
         },
         {
-          "group_by": false,
+          "group_by": true,
           "label": "Footprint",
           "name": "Footprint",
           "show": true
@@ -1023,7 +1023,7 @@
         "uuid": "d39297fe-343b-4cf0-9c31-a16e101c76da"
       }
     ],
-    "used_designators": "#FLG1-12,H1-15,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-237,Y2,Q1-14,R5,R12,R14-51,R53-56,R62-103,U2,U4-18,D1-6,C1,C5,C23-45,C76-77,C114,C116-130,P1,L2-3,PD2,USB2-3,J1-3,J5-20",
+    "used_designators": "#FLG1-12,H1-15,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-237,Y2,Q1-14,R5,R9,R12,R14-51,R53-56,R62-103,U2,U4-18,D1-6,C1,C5,C23-45,C76-77,C114,C116-130,P1,L2-3,J1-3,J5-20,USB2-3,PD2",
     "variants": []
   },
   "sheets": [

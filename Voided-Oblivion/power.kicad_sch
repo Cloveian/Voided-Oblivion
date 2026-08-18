@@ -3575,191 +3575,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Reference_Voltage:TL431DBZ"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at -2.54 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "TL431DBZ"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at 0 -4.826 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl431.pdf"
-				(at 1.778 -9.144 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-				)
-			)
-			(property "Description" "Shunt Regulator, SOT-23"
-				(at 0 -7.112 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "diode device shunt regulator"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "SOT?23*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TL431DBZ_0_1"
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 0 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.762 -0.762) (xy -0.762 0.762) (xy 0.762 0) (xy -0.762 -0.762)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.254 -0.762) (xy 0.762 -0.762) (xy 0.762 0.762) (xy 0.762 0.762)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "TL431DBZ_1_1"
-				(pin passive line
-					(at 2.54 0 180)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 2.54 270)
-					(length 2.54)
-					(name "REF"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 0 0)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Regulator_Linear:TLV76733DRVx"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -6195,6 +6010,204 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Voided-Oblivion-misc:TL431BQDBZ"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U10"
+				(at 1.27 5.08 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify right)
+				)
+			)
+			(property "Value" "TLV431BQDBZR"
+				(at 7.62 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify right)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 -4.826 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl431.pdf"
+				(at 1.778 -9.144 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+				)
+			)
+			(property "Description" "Shunt Regulator, SOT-23"
+				(at 0 -7.112 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC" "C398374"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "diode device shunt regulator"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TL431BQDBZ_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 0 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.762 -0.762) (xy -0.762 0.762) (xy 0.762 0) (xy -0.762 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 -0.762) (xy 0.762 -0.762) (xy 0.762 0.762) (xy 0.762 0.762)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TL431BQDBZ_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.54)
+					(name "REF"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+1V35"
 			(power global)
 			(pin_numbers
@@ -7318,7 +7331,7 @@
 	)
 	(text "don't fry the SEL \npin on the usb mux"
 		(exclude_from_sim no)
-		(at 285.75 184.404 0)
+		(at 284.48 112.014 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7504,6 +7517,12 @@
 		(uuid "23c2b058-83aa-4647-a76f-06506fdcd23e")
 	)
 	(junction
+		(at 265.43 90.17)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "25d998bd-4067-4eab-9f33-5604584ebb59")
+	)
+	(junction
 		(at 265.43 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7666,7 +7685,7 @@
 		(uuid "49616dfb-e31b-485c-9c25-d7b93b9d4d2e")
 	)
 	(junction
-		(at 273.05 173.99)
+		(at 271.78 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4b883386-c360-4202-97d7-578c17ccb5d3")
@@ -7834,12 +7853,6 @@
 		(uuid "7b5b931d-47cb-46f0-9367-3d67c8428f07")
 	)
 	(junction
-		(at 262.89 90.17)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7eb156fa-0a08-448a-be1c-20115f9880ed")
-	)
-	(junction
 		(at 90.17 179.07)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7892,6 +7905,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8f5a4f77-bf5a-487a-90ba-a6a02399658f")
+	)
+	(junction
+		(at 260.35 90.17)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "96465b1d-4ca8-4478-953a-c4654d0912fe")
 	)
 	(junction
 		(at 105.41 198.12)
@@ -7978,7 +7997,7 @@
 		(uuid "af64f92e-6845-4ae3-96e4-284302bbe49e")
 	)
 	(junction
-		(at 280.67 173.99)
+		(at 279.4 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b057fd32-318a-4cfe-ad25-b104d000138e")
@@ -8038,16 +8057,10 @@
 		(uuid "c967a1f4-7255-45a9-953f-cb6c987c89e1")
 	)
 	(junction
-		(at 269.24 173.99)
+		(at 267.97 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cb52a701-3d7e-4577-80fc-9791afc474e2")
-	)
-	(junction
-		(at 266.7 162.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "cdccf7de-9f7f-43ee-a2f0-4472e5ef7831")
 	)
 	(junction
 		(at 361.95 82.55)
@@ -8275,7 +8288,7 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 109.22) (xy 262.89 109.22)
+			(xy 232.41 109.22) (xy 260.35 109.22)
 		)
 		(stroke
 			(width 0)
@@ -8505,6 +8518,16 @@
 	)
 	(wire
 		(pts
+			(xy 265.43 90.17) (xy 266.7 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e062121-9563-4c10-a7f5-a501b5b2d082")
+	)
+	(wire
+		(pts
 			(xy 29.21 31.75) (xy 31.75 31.75)
 		)
 		(stroke
@@ -8535,7 +8558,7 @@
 	)
 	(wire
 		(pts
-			(xy 266.7 162.56) (xy 266.7 166.37)
+			(xy 265.43 90.17) (xy 265.43 93.98)
 		)
 		(stroke
 			(width 0)
@@ -9185,7 +9208,7 @@
 	)
 	(wire
 		(pts
-			(xy 273.05 176.53) (xy 273.05 173.99)
+			(xy 271.78 104.14) (xy 271.78 101.6)
 		)
 		(stroke
 			(width 0)
@@ -9365,7 +9388,7 @@
 	)
 	(wire
 		(pts
-			(xy 280.67 173.99) (xy 281.94 173.99)
+			(xy 279.4 101.6) (xy 280.67 101.6)
 		)
 		(stroke
 			(width 0)
@@ -9945,7 +9968,7 @@
 	)
 	(wire
 		(pts
-			(xy 280.67 176.53) (xy 280.67 173.99)
+			(xy 279.4 104.14) (xy 279.4 101.6)
 		)
 		(stroke
 			(width 0)
@@ -10005,16 +10028,6 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 90.17) (xy 266.7 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6eab61de-83d0-4986-ba63-0720864cb7c3")
-	)
-	(wire
-		(pts
 			(xy 241.3 154.94) (xy 241.3 156.21)
 		)
 		(stroke
@@ -10025,7 +10038,7 @@
 	)
 	(wire
 		(pts
-			(xy 273.05 173.99) (xy 273.05 171.45)
+			(xy 271.78 101.6) (xy 271.78 99.06)
 		)
 		(stroke
 			(width 0)
@@ -10555,7 +10568,7 @@
 	)
 	(wire
 		(pts
-			(xy 262.89 109.22) (xy 262.89 90.17)
+			(xy 260.35 109.22) (xy 260.35 90.17)
 		)
 		(stroke
 			(width 0)
@@ -10695,7 +10708,7 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 176.53) (xy 269.24 173.99)
+			(xy 267.97 104.14) (xy 267.97 101.6)
 		)
 		(stroke
 			(width 0)
@@ -10845,7 +10858,7 @@
 	)
 	(wire
 		(pts
-			(xy 280.67 173.99) (xy 280.67 171.45)
+			(xy 279.4 101.6) (xy 279.4 99.06)
 		)
 		(stroke
 			(width 0)
@@ -10935,7 +10948,7 @@
 	)
 	(wire
 		(pts
-			(xy 260.35 90.17) (xy 262.89 90.17)
+			(xy 260.35 90.17) (xy 265.43 90.17)
 		)
 		(stroke
 			(width 0)
@@ -11835,7 +11848,7 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 173.99) (xy 273.05 173.99)
+			(xy 267.97 101.6) (xy 271.78 101.6)
 		)
 		(stroke
 			(width 0)
@@ -12475,7 +12488,7 @@
 	)
 	(wire
 		(pts
-			(xy 266.7 173.99) (xy 269.24 173.99)
+			(xy 265.43 101.6) (xy 267.97 101.6)
 		)
 		(stroke
 			(width 0)
@@ -12688,7 +12701,7 @@
 	)
 	(global_label "VBUS1"
 		(shape input)
-		(at 265.43 90.17 270)
+		(at 260.35 97.79 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12698,7 +12711,7 @@
 		)
 		(uuid "37d7e1b0-2490-49df-aab2-52d6d1921a47")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 265.43 99.2633 90)
+			(at 251.2567 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12736,7 +12749,7 @@
 	)
 	(global_label "USB SEL"
 		(shape input)
-		(at 269.24 176.53 270)
+		(at 267.97 104.14 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -12746,7 +12759,7 @@
 		)
 		(uuid "56dde62e-01ce-4319-bac7-76cd9bc8ea97")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 269.24 187.6794 90)
+			(at 267.97 115.2894 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13860,7 +13873,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 240.3348 245.11 0)
 			(hide yes)
 			(show_name no)
@@ -14095,7 +14108,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 204.47 254.762 90)
 			(hide yes)
 			(show_name no)
@@ -14446,7 +14459,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 39.878 170.18 90)
 			(hide yes)
 			(show_name no)
@@ -14931,7 +14944,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 196.088 147.32 90)
 			(hide yes)
 			(show_name no)
@@ -15278,7 +15291,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 248.412 245.11 90)
 			(hide yes)
 			(show_name no)
@@ -15392,7 +15405,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 107.6452 93.98 0)
 			(hide yes)
 			(show_name no)
@@ -15506,7 +15519,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 219.4052 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -15620,7 +15633,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 107.188 193.04 90)
 			(hide yes)
 			(show_name no)
@@ -15968,7 +15981,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 47.752 41.91 90)
 			(hide yes)
 			(show_name no)
@@ -16371,7 +16384,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 34.29 163.322 90)
 			(hide yes)
 			(show_name no)
@@ -17162,7 +17175,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 266.7 170.18 0)
+		(at 265.43 97.79 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17172,7 +17185,7 @@
 		(dnp no)
 		(uuid "3168543e-2ed7-4910-9c23-a683a4a7fb4e")
 		(property "Reference" "R37"
-			(at 266.7 172.085 90)
+			(at 265.43 99.695 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17183,7 +17196,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 264.16 172.72 90)
+			(at 262.89 100.33 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17193,8 +17206,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 264.922 170.18 90)
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
+			(at 263.652 97.79 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17205,7 +17218,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 266.7 170.18 0)
+			(at 265.43 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17216,7 +17229,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 266.7 170.18 0)
+			(at 265.43 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17227,7 +17240,7 @@
 			)
 		)
 		(property "LCSC" "C25744"
-			(at 266.7 170.18 0)
+			(at 265.43 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17238,7 +17251,7 @@
 			)
 		)
 		(property "MPN" "0402WGF1002TCE"
-			(at 266.7 170.18 0)
+			(at 265.43 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17249,7 +17262,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 266.7 170.18 0)
+			(at 265.43 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17308,7 +17321,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 190.5 94.488 90)
 			(hide yes)
 			(show_name no)
@@ -17422,7 +17435,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 260.35 80.772 90)
 			(hide yes)
 			(show_name no)
@@ -17537,7 +17550,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 34.798 241.3 90)
 			(hide yes)
 			(show_name no)
@@ -17729,7 +17742,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 190.5 85.852 90)
 			(hide yes)
 			(show_name no)
@@ -17844,7 +17857,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 123.4948 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -18537,7 +18550,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 53.848 86.36 90)
 			(hide yes)
 			(show_name no)
@@ -18651,7 +18664,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 44.45 129.032 90)
 			(hide yes)
 			(show_name no)
@@ -18923,7 +18936,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 86.868 246.38 90)
 			(hide yes)
 			(show_name no)
@@ -19118,7 +19131,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 91.948 182.88 90)
 			(hide yes)
 			(show_name no)
@@ -19232,7 +19245,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 116.078 55.88 90)
 			(hide yes)
 			(show_name no)
@@ -19427,7 +19440,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 194.818 109.22 90)
 			(hide yes)
 			(show_name no)
@@ -19503,121 +19516,6 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "R43")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 127 194.31 90)
-		(mirror x)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "47b1de1e-d5ec-450b-bf41-6395f68e5f40")
-		(property "Reference" "R36"
-			(at 128.905 194.31 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10kΩ"
-			(at 129.54 191.77 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 127 192.532 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 127 194.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 127 194.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C25744"
-			(at 127 194.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "0402WGF1002TCE"
-			(at 127 194.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 127 194.31 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "40eaeb37-3014-43c4-b359-26918b919283")
-		)
-		(pin "2"
-			(uuid "e10c9a2f-f189-45c7-bc20-1acdce9638a6")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
-					(reference "R36")
 					(unit 1)
 				)
 			)
@@ -19735,7 +19633,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 354.6348 127 0)
 			(hide yes)
 			(show_name no)
@@ -19928,7 +19826,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 86.868 254 90)
 			(hide yes)
 			(show_name no)
@@ -20119,7 +20017,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 78.435 229.87 0)
 			(hide yes)
 			(show_name no)
@@ -20233,7 +20131,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 107.6452 52.07 0)
 			(hide yes)
 			(show_name no)
@@ -20347,7 +20245,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 34.798 203.2 90)
 			(hide yes)
 			(show_name no)
@@ -20381,6 +20279,17 @@
 			)
 		)
 		(property "LCSC" "C2902636"
+			(at 33.02 203.2 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "ARG02BTC1002"
 			(at 33.02 203.2 90)
 			(hide yes)
 			(show_name no)
@@ -20837,6 +20746,117 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 127 194.31 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4e9a384a-ed43-408b-b268-809d9c9c3e94")
+		(property "Reference" "R36"
+			(at 127 194.31 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1kΩ"
+			(at 127 191.3636 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
+			(at 127 192.532 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 127 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 127 194.31 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C11702"
+			(at 127 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF1001TCE"
+			(at 127 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 127 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "47d5b0fb-ebb1-4638-8c8c-3f5e434ffead")
+		)
+		(pin "2"
+			(uuid "d95ac8f0-77db-4b0c-a2a9-d445ebb26b55")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "R36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 35.56 137.16 0)
 		(mirror y)
@@ -20870,7 +20890,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 34.5948 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -20985,7 +21005,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 192.278 161.29 90)
 			(hide yes)
 			(show_name no)
@@ -21099,7 +21119,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 116.078 38.1 90)
 			(hide yes)
 			(show_name no)
@@ -21213,7 +21233,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 188.722 147.32 90)
 			(hide yes)
 			(show_name no)
@@ -21443,7 +21463,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 72.898 241.3 90)
 			(hide yes)
 			(show_name no)
@@ -21969,7 +21989,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 82.55 168.402 90)
 			(hide yes)
 			(show_name no)
@@ -22052,7 +22072,7 @@
 	)
 	(symbol
 		(lib_id "Diode:BZV55B3V3")
-		(at 276.86 171.45 0)
+		(at 275.59 99.06 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -22062,7 +22082,7 @@
 		(dnp no)
 		(uuid "61361f20-d241-4546-b7c0-4e81bed9aad2")
 		(property "Reference" "D3"
-			(at 275.5899 168.91 0)
+			(at 274.3199 96.52 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22073,7 +22093,7 @@
 			)
 		)
 		(property "Value" "BZV55B3V3"
-			(at 278.1299 168.91 0)
+			(at 276.8599 96.52 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -22084,7 +22104,7 @@
 			)
 		)
 		(property "Footprint" "Diode_SMD:D_MiniMELF"
-			(at 276.86 175.895 0)
+			(at 275.59 103.505 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22095,7 +22115,7 @@
 			)
 		)
 		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/BZV55_SER.pdf"
-			(at 276.86 171.45 0)
+			(at 275.59 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22106,7 +22126,7 @@
 			)
 		)
 		(property "Description" "3.3V, 500mW, 2%, Zener diode, MiniMELF"
-			(at 276.86 171.45 0)
+			(at 275.59 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22117,7 +22137,7 @@
 			)
 		)
 		(property "LCSC" "C545375"
-			(at 276.86 171.45 0)
+			(at 275.59 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22128,7 +22148,7 @@
 			)
 		)
 		(property "MPN" "BZV55B3V3"
-			(at 276.86 171.45 0)
+			(at 275.59 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22139,7 +22159,7 @@
 			)
 		)
 		(property "Manufacturer" "LGE"
-			(at 276.86 171.45 0)
+			(at 275.59 99.06 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -22198,7 +22218,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 192.278 123.19 90)
 			(hide yes)
 			(show_name no)
@@ -22313,7 +22333,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 149.098 241.3 90)
 			(hide yes)
 			(show_name no)
@@ -23122,7 +23142,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 40.335 229.87 0)
 			(hide yes)
 			(show_name no)
@@ -23505,7 +23525,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 48.768 246.38 90)
 			(hide yes)
 			(show_name no)
@@ -23745,7 +23765,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 127 186.182 90)
 			(hide yes)
 			(show_name no)
@@ -24104,7 +24124,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 82.55 30.7848 0)
 			(hide yes)
 			(show_name no)
@@ -24374,7 +24394,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 40.3352 40.64 0)
 			(hide yes)
 			(show_name no)
@@ -24566,7 +24586,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 268.732 246.38 90)
 			(hide yes)
 			(show_name no)
@@ -24681,7 +24701,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 196.342 226.06 90)
 			(hide yes)
 			(show_name no)
@@ -24795,7 +24815,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 116.078 81.28 90)
 			(hide yes)
 			(show_name no)
@@ -25245,7 +25265,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 69.85 170.942 90)
 			(hide yes)
 			(show_name no)
@@ -25416,7 +25436,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 163.068 246.38 90)
 			(hide yes)
 			(show_name no)
@@ -25530,7 +25550,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 260.35 86.868 90)
 			(hide yes)
 			(show_name no)
@@ -25612,7 +25632,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Reference_Voltage:TL431DBZ")
+		(lib_id "Voided-Oblivion-misc:TL431BQDBZ")
 		(at 45.72 173.99 90)
 		(unit 1)
 		(body_style 1)
@@ -25741,7 +25761,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 34.798 195.58 90)
 			(hide yes)
 			(show_name no)
@@ -25785,7 +25805,7 @@
 				)
 			)
 		)
-		(property "MPN" "ARG02BTC4422"
+		(property "MPN" "ARG02BTC3572"
 			(at 33.02 195.58 0)
 			(hide yes)
 			(show_name no)
@@ -25856,7 +25876,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 149.098 233.68 90)
 			(hide yes)
 			(show_name no)
@@ -25971,7 +25991,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 152.908 138.43 90)
 			(hide yes)
 			(show_name no)
@@ -26478,7 +26498,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 133.6548 181.61 0)
 			(hide yes)
 			(show_name no)
@@ -27176,7 +27196,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 113.538 185.42 90)
 			(hide yes)
 			(show_name no)
@@ -27445,7 +27465,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 354.6348 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -27560,7 +27580,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 82.2452 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -27675,7 +27695,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 163.068 254 90)
 			(hide yes)
 			(show_name no)
@@ -28656,7 +28676,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 110.998 241.3 90)
 			(hide yes)
 			(show_name no)
@@ -28770,7 +28790,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 134.62 137.922 90)
 			(hide yes)
 			(show_name no)
@@ -29404,7 +29424,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 208.28 137.4648 0)
 			(hide yes)
 			(show_name no)
@@ -29595,7 +29615,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 116.078 97.79 90)
 			(hide yes)
 			(show_name no)
@@ -29862,7 +29882,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 186.9948 226.06 0)
 			(hide yes)
 			(show_name no)
@@ -29976,7 +29996,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 116.078 90.17 90)
 			(hide yes)
 			(show_name no)
@@ -30292,7 +30312,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 154.635 229.87 0)
 			(hide yes)
 			(show_name no)
@@ -30568,7 +30588,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 48.768 254 90)
 			(hide yes)
 			(show_name no)
@@ -30837,7 +30857,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 39.878 177.8 90)
 			(hide yes)
 			(show_name no)
@@ -30919,7 +30939,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 34.798 233.68 90)
 			(hide yes)
 			(show_name no)
@@ -31033,7 +31053,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 261.62 153.162 90)
 			(hide yes)
 			(show_name no)
@@ -31225,7 +31245,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 124.968 254 90)
 			(hide yes)
 			(show_name no)
@@ -31418,7 +31438,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 124.968 246.38 90)
 			(hide yes)
 			(show_name no)
@@ -31737,7 +31757,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 281.94 173.99 90)
+		(at 280.67 101.6 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -31748,7 +31768,7 @@
 		(fields_autoplaced yes)
 		(uuid "d0ce863e-654a-453c-913a-fe718cac3885")
 		(property "Reference" "#PWR099"
-			(at 288.29 173.99 0)
+			(at 287.02 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31759,7 +31779,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 285.75 173.9899 90)
+			(at 284.48 101.5999 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -31770,7 +31790,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 281.94 173.99 0)
+			(at 280.67 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31781,7 +31801,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 281.94 173.99 0)
+			(at 280.67 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31792,7 +31812,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 281.94 173.99 0)
+			(at 280.67 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -32074,7 +32094,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 116.535 229.87 0)
 			(hide yes)
 			(show_name no)
@@ -32188,7 +32208,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 92.71 193.3448 0)
 			(hide yes)
 			(show_name no)
@@ -32638,7 +32658,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 110.998 233.68 90)
 			(hide yes)
 			(show_name no)
@@ -32752,7 +32772,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 349.25 86.0552 0)
 			(hide yes)
 			(show_name no)
@@ -33007,7 +33027,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 261.62 159.258 90)
 			(hide yes)
 			(show_name no)
@@ -33121,7 +33141,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 40.3352 83.82 0)
 			(hide yes)
 			(show_name no)
@@ -33507,7 +33527,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 349.25 80.772 90)
 			(hide yes)
 			(show_name no)
@@ -33622,7 +33642,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 72.898 233.68 90)
 			(hide yes)
 			(show_name no)
@@ -33853,7 +33873,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 50.4952 203.2 0)
 			(hide yes)
 			(show_name no)
@@ -34048,7 +34068,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 116.078 48.26 90)
 			(hide yes)
 			(show_name no)
@@ -34243,7 +34263,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 208.28 100.6348 0)
 			(hide yes)
 			(show_name no)
@@ -34436,7 +34456,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 349.25 132.842 90)
 			(hide yes)
 			(show_name no)
@@ -34519,7 +34539,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 276.86 176.53 270)
+		(at 275.59 104.14 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -34529,7 +34549,7 @@
 		(dnp no)
 		(uuid "efd6ece1-7f45-4d91-be46-4c404d708515")
 		(property "Reference" "C39"
-			(at 279.4 177.165 0)
+			(at 278.13 104.775 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -34540,7 +34560,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 274.32 177.165 0)
+			(at 273.05 104.775 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -34550,8 +34570,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 273.05 177.4952 0)
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
+			(at 271.78 105.1052 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34562,7 +34582,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 276.86 176.53 0)
+			(at 275.59 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34573,7 +34593,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 276.86 176.53 0)
+			(at 275.59 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34584,7 +34604,7 @@
 			)
 		)
 		(property "LCSC" "C307331"
-			(at 276.86 176.53 0)
+			(at 275.59 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34595,7 +34615,7 @@
 			)
 		)
 		(property "MPN" "CL05B104KB54PNC"
-			(at 276.86 176.53 0)
+			(at 275.59 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34606,7 +34626,7 @@
 			)
 		)
 		(property "Manufacturer" "Samsung Electro-Mechanics"
-			(at 276.86 176.53 0)
+			(at 275.59 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34664,7 +34684,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 82.55 73.9648 0)
 			(hide yes)
 			(show_name no)
@@ -34858,7 +34878,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 188.722 109.22 90)
 			(hide yes)
 			(show_name no)
@@ -35131,7 +35151,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
 			(at 85.598 185.42 90)
 			(hide yes)
 			(show_name no)
@@ -35245,7 +35265,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 349.25 138.1252 0)
 			(hide yes)
 			(show_name no)
@@ -35359,7 +35379,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 59.3852 177.8 0)
 			(hide yes)
 			(show_name no)
@@ -35441,7 +35461,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 193.3448 254 0)
 			(hide yes)
 			(show_name no)
