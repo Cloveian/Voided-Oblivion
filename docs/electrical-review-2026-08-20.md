@@ -162,3 +162,40 @@ Per the designer: the four rules were deleted deliberately — the triggering lo
 ## Bench list for first power-up (unchanged + one addition)
 
 GH39F ratiometricity at 3.3 V (mixed population); +5VP vs SK9822 5.3 V max — scope at first power-up; LDO TJ at full load; AP2171 OCP cycling under a real short; SK9822 color order vs a physical LED; **edge-switch Vgs at 9 V and 20 V** (one-time confirmation of the reworked drive, trivial with a probe on any Q4–Q7 gate).
+
+---
+
+# Blind-review cross-check — same day, verdict RESCINDED
+
+A doc-blind review (KiCad files + datasheets + a requirements brief only — no docs, no prior reviews, no accepted-risk list; report in the blind workspace's `DESIGN-REVIEW.md`) was run against this same revision as a deliberate anchoring-break experiment. Its findings were adversarially re-verified here with full doc context. Deep-review gate: 6 verified / 0 quarantined.
+
+## The verdict above is withdrawn: **NOT fab-ready. C1 is real.**
+
+**C1 — the 5 V→PD handover collapses BS+ and latches the clean buck off; no PD contract above the trip is completable.** Independently re-verified end-to-end *[RAW netlist + DS + CALC]*:
+
+- At the trip (~5.77 V rising) Q1 opens and BS+'s only remaining source is +5VA — which requires Q2's ~1–3 ms gate soft-start **plus the TPS54302's fixed 5 ms internal soft-start** [DS SLVSDG6C §6.3.9: "internal soft start time is set to 5ms (typical)"]. Gap ≥ 6 ms.
+- BS+ holdup is C24 + C76 = **2 µF** *[RAW]*; at the ~0.3 A LDO draw, BS+ crosses dropout in ~15 µs and +3V3 (~25 µF) hits RP2350 brownout ~50 µs later — **~65 µs of holdup against a ≥6 ms gap**. MCU and both PD PHYs die mid-negotiation, every time, at any source slew.
+- **The latch:** R34 pulls U5's EN to **+3V3** *[RAW: `+5VA EN` = {U5.EN, U11.7, R34.2}, R34.1 = +3V3]* — the rail that just died. The EN pin's internal pull-up is only ~0.7–1.55 µA [DS Table: I(EN_HYS) 1.55 µA], which against R34's 100 k into the discharged rail parks EN at ~0.1–0.2 V vs the 1.23 V threshold. The buck can never start, even with PD+ carrying 9–20 V. Recovery is source hard-reset → vSafe5V → boot loop; or, if FUSB302 AUTO_CRC completed the contract during the brownout, a tile latched dead at 9–20 V until unplug. As built, the board is a 5 V/500 mA-only keyboard: PD+, +5VP, RGB and edge HV export are unreachable.
+- One correction to the blind report: TPS54302 **EN abs-max is 5.5 V** [DS §5.1], not 6.5 V — the fix divider must respect that.
+
+**Why four sighted reviews missed it:** [power.md]'s handoff-dip figure (3.1 µs, "harmless") models the *steady-state* source swap with the buck already running; the **first** handoff — where the buck's VIN did not exist until the trip itself — was never walked, and this review verified the EN network statically (levels vs thresholds) inside that inherited framing. The blind reviewer had no anchor and walked bring-up fresh. This is a fifth instance of the project's own cold-start-latch class, and the strongest possible validation of the blind-review method.
+
+**Fix direction (minimal, one resistor + firmware notes):** re-reference the EN pull-up as a VBUS-derived divider (e.g. ~330 k/110 k → EN = 0.25 × VBUS: 1.44 V at the trip, 5.0 V at 20 V, inside the 5.5 V abs-max; U11B's open-collector still holds it low below the trip). That unlatches the buck (~6 ms autonomous recovery) at the cost of **one brownout-reboot per negotiation** — acceptable at attach if firmware (a) enables FUSB302 AUTO_CRC before requesting >5 V so the contract completes while the MCU reboots, and (b) renegotiates only at attach, since BS+ is array-shared and a mid-operation renegotiation reboots every tile. A no-reboot handover needs a respin-class bridging supply for BS+; mF-class bulk on BS+ is impractical and violates the attach-inrush ceiling.
+
+## Blind findings triage (vs the sighted series)
+
+| Bucket | Findings |
+|---|---|
+| **Genuinely new, verified here** | **C1** (above) · **M2/M11-core: both buck SW nodes run ~29 mm / 9 vias through all four layers incl. the In1 GND reference** *[RAW net_lengths: SW CLEAN 28.9 mm, SW NOISY 28.3 mm]* — the 08-16 review checked hot-loop *caps*, never the SW net itself; reroute as short single-layer links · **M10: board stackup table says 0.1 mm prepreg while `.kicad_dru` assumes 0.2104 mm** *[RAW]* — reconcile before impedance matters (JLC's standard 4-layer is ~0.21 mm, so the stackup table is probably the wrong half) · **M5: Q1 carries the whole array's BS+ load in 5 V-only operation** (~2–3 A worst across tiles into a SOT-23) *[INFER, plausible]* — new firmware-note: cap 5 V-only array draw per Q1's thermals, not just per the source's Rp · H4's sharpened argument: a mating-scrape or one-position misalign lands **BS+ (5 V) or HV (20 V) on a direct-to-GPIO pogo contact** — extends the F9 no-ESD acceptance beyond what it originally argued; series R is cheap |
+| **Acceptance re-argued, acceptance holds** | H2 (BS+ 5.95 V ceiling — structural LTP≥5.68 argument unchanged; the R36 1 k fix already bounds the slew adder; their 5.6 V-TVS suggestion fails the 50 mV-discrimination problem the acceptance already documents) · H3 (body-diode import — accepted, cooperative partitioning) · M4 (shared corner switch — accepted A2 decision) · M7 (ungated sensors — bank-gating rejection stands; the USB-suspend-noncompliance framing is worth a doc line) |
+| **Re-discovered / self-triaged noise** | Their §7 list converged on the same false positives this series carries (CC Rd, PS-002/KO-001 families, PP-001, VM-001, RS-001, PU-001, DS-002) — and their Rev.2 withdrew the U13.5 artifact after checking native ERC. Independent convergence on the triage list is itself useful confirmation |
+| **Small real hygiene, new** | M3: order with the 127 LED via-in-pads tented/plugged (fab option) · pogo male/female datasheet PDFs are duplicates — confirm the male MPN before ordering · doc errata: J9 is SWD, corners are J10–J12/J16–J20 (AGENTS.md §"12 sockets J9–J20" is wrong and propagated into the blind brief) · M9 ENOB framing (firmware oversampling note) |
+| **Firmware-obligation diff** | Their independently-derived 20-item list covers every documented `!firmware-note!` **plus new ones to adopt**: AUTO_CRC/PD-policy timing (now load-bearing via C1's fix), master-election must infer the active port from FUSB302 status (no `USB SEL` readback), mux settling ≥10–15 µs per select change, `adc_gpio_init()` on GPIO40–45 (E9), renegotiate-only-at-attach (C1) |
+
+## Updated order of work
+
+1. **C1**: EN pull-up → VBUS divider (respect 5.5 V abs-max); add the two firmware notes; re-walk the handover on the bench with a PD analyzer before fab.
+2. Reroute both SW nodes to short top-layer runs; refill; DRC.
+3. Reconcile the stackup table vs `.kicad_dru` prepreg assumption.
+4. The carried hygiene list from the addendum above (B4 carve-out, doc contracts, datasheet saves, stitching, silk), plus: series R on edge UARTs (H4), tented/plugged LED vias at order time, confirm the pogo male MPN, fix the J9/corner-socket doc errata.
+5. Gerbers → gerber analysis → order.
