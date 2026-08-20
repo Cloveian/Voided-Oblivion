@@ -125,3 +125,40 @@ The standing list holds: PP-001 (U16.IN fed by the U12∥U15 OR), VM-001 (BS+ SR
 5. Doc pass: comms.md port-1 priority, AGENTS.md §6 CC-straight, save the two datasheets.
 6. Hygiene: PD+ island, 3 GND stubs, stitching pass, local caps, silk.
 7. Export gerbers → gerber analysis → order.
+
+---
+
+# Re-review addendum — same day, after `d12a8aa "BOMB update … and some library linking"`
+
+**Scope:** delta re-review of `d12a8aa` (BOM/sourcing pass + library relinking; PCB 17.8k-line diff, power/root/keys schematics, RP2350 footprint, sym-lib-table). Fresh analyzer run `analysis/2026-08-20_0312/`, fresh DRC/ERC, full-BOM MPN decode sweep (value + package size + voltage rating). Same evidence labels. Deep-review gate: 5 verified / 0 quarantined.
+
+## Verdict: **electrically fab-ready.** N1 and N2 are closed and verified; every remaining open item is process, documentation, or cheap-insurance tier — none is an electrical defect in the design as it stands.
+
+## What d12a8aa fixed (verified)
+
+- **N1 → closed.** R75–R78 10 k → **4.7 k**, in the schematic *and* in copper *[RAW both]*. Re-running the drive calc (`analysis/helpers/edge_switch_on_drive.py`): Thevenin base drive is now **1.05 V / 1.5 k** → ~270 µA of available base current against the ~1 µA needed — Q8–Q11 saturate hard at every Vbe corner and temperature, including the unspecified-Vbe fitted part. The E9 off-state is untouched (0.26 V at the base). The edge-switch ON path now has real margin at both ends.
+- **N2 → closed.** `missing_mpn` (non-connector) is **empty** *[RAW]*. R79–R82 = C25879 (verified 2.2 k 0402 *[jlcsearch]*). The respin caps: **C26/C31 = CL31B106KBHNNNE, 1206 X7R 50 V** (C89632) — comfortably past the ≥25 V + derating requirement on the 20 V rail; **C28/C29/C34/C35 = CL31A226KAHNNNE, 1206 X5R 25 V** (C12891, JLC **Basic**). Q13/Q14, U17/U18, U10, R22, SW1/SW2, and both USB receptacles (HC-TYPE-C-16P-01A) all gained MPNs matching their LCSC numbers.
+- **Three latent bugs no review had caught, fixed as a side effect:** C19, C40, C77, C121 previously carried 0805/0402-coded MPNs on their 1206 footprints (assembly would have failed), and the old part was **6.3 V-rated** — C77 sits on `SM BUS` and C121 on `SM+`, whose documented worst case is ~5.95 V, i.e. 94 % of rating with near-total X5R bias derating. All four are now the 50 V 1206 part. (Reviewer's note: the earlier "MPN decode sweep" checked value↔MPN only; this pass added package-size and voltage-rating decode, which is what surfaced these as *already fixed*. The sweep gap is closed going forward.)
+- **Hygiene, all verified on fresh runs:** the 3 dangling GND stubs — gone; the **PD+ In2 isolated island (carried since 08-16) — gone**; both `lib_footprint_mismatch` warnings — gone (the RP2350 footprint diff is a format-only re-save: **pad geometry is semantically identical**, 102 pads unchanged *[RAW parse]*); `49e` symbol library registered; ERC severities *raised* (`pin_not_connected` ignore → warning) with NC markers added on the four spare-GPIO stubs and LED30's chain outputs — ERC still exactly **1 intentional error**. DRC: **11 errors / 14 warnings / 0 unconnected** — the 11 are B4's known rule-shape errors, the 14 are the benign short diff-pair-gap segments.
+- **Corner-void intent verified manually** *[CALC]*: with `CORNER_VOID_*` areas still undrawn (rule inert), a geometric sweep of every USB-pair segment against generous ±8 × 3.5 mm envelopes around all 12 corner-socket bodies finds **zero incursions** — the copper satisfies the rule the DRC can't currently check.
+
+## Reclassification: the deleted DRC rules (from N3)
+
+Per the designer: the four rules were deleted deliberately — the triggering locations were judged individually and were false positives for the rules' intent (e.g. 0.3 mm VBUS *sense* lines tripping power-width rules because sense nets share the `Power Delivery` netclass). Reclassified from process-blocker to **accepted-by-designer, recorded here**. Standing recommendation, not a gate: the misfires were a netclass-granularity problem — moving sense nets to their own netclass would let the power-copper guards return without the noise. The board as-is passes every deleted rule's intent on manual check (PD+ tracks F/B-only; trunk 3.0/1.2 mm; main GND zone thermal-relieved).
+
+## Still open — none electrical, none fab-gating
+
+| Item | Tier |
+|---|---|
+| **B4**: 11 `/MCU D±` track_width errors vs the "USB pair geometry" rule — the copper is right, the rule still needs the MCU-area carve-out or these mask future real errors | DRC hygiene |
+| `CORNER_VOID_*` areas undrawn — rule inert (intent verified manually this pass; a redraw would keep it checked automatically) | DRC hygiene |
+| Doc contracts: [comms.md](schematic-design/comms.md) still says port-2-priority (board is port-1); [AGENTS.md §6] still says CC crossed (they're straight) | docs — fix before firmware |
+| LM66100 / AP2171 datasheets still not saved into `Refrences/datasheets/` | docs |
+| Stitching pass: EMC DP-003 ×6 USB layer transitions; Q2-cluster antipad void | cheap insurance (FS USB) |
+| Local decoupling one-cap items: AM0/AM1 VCC, PD2 100 nF distance, FUSB302 1 µF; U15 ST float | cheap insurance |
+| Silk pass | deferred by author |
+| Gerber analysis | run after export, **before ordering** |
+
+## Bench list for first power-up (unchanged + one addition)
+
+GH39F ratiometricity at 3.3 V (mixed population); +5VP vs SK9822 5.3 V max — scope at first power-up; LDO TJ at full load; AP2171 OCP cycling under a real short; SK9822 color order vs a physical LED; **edge-switch Vgs at 9 V and 20 V** (one-time confirmation of the reworked drive, trivial with a probe on any Q4–Q7 gate).
