@@ -5,4 +5,5 @@
 	(lib (name "TVL1805") (type "KiCad") (uri "${KIPRJMOD}/symbols/TVL1805.kicad_sym") (options "") (descr ""))
 	(lib (name "sk9822-ec20") (type "KiCad") (uri "${KIPRJMOD}/symbols/sk9822-ec20.kicad_sym") (options "") (descr ""))
 	(lib (name "Voided-Oblivion-misc") (type "KiCad") (uri "${KIPRJMOD}/symbols/Voided-Oblivion-misc.kicad_sym") (options "") (descr ""))
+	(lib (name "49e") (type "KiCad") (uri "${KIPRJMOD}/symbols/49e.kicad_sym") (options "") (descr ""))
 )

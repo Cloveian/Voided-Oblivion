@@ -5873,6 +5873,22 @@
 		(color 0 0 0 0)
 		(uuid "ff10f9d7-7872-444c-b791-eb8194d25989")
 	)
+	(no_connect
+		(at 232.41 223.52)
+		(uuid "1426dec4-5335-4b42-a201-2f76c514a00b")
+	)
+	(no_connect
+		(at 232.41 248.92)
+		(uuid "795d193c-544b-4c26-acdb-d320b9c3e518")
+	)
+	(no_connect
+		(at 232.41 246.38)
+		(uuid "c5f7861c-4a12-4ce6-81a5-3e1715f8a29f")
+	)
+	(no_connect
+		(at 232.41 226.06)
+		(uuid "f7781169-a955-4130-84cb-9372454e72c9")
+	)
 	(wire
 		(pts
 			(xy 217.17 74.93) (xy 217.17 76.2)
@@ -15013,7 +15029,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C95841"
+		(property "LCSC" "C89632"
 			(at 259.08 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -15024,7 +15040,7 @@
 				)
 			)
 		)
-		(property "MPN" "CL21B106KOQNNNE"
+		(property "MPN" "CL31B106KBHNNNE"
 			(at 259.08 138.43 0)
 			(hide yes)
 			(show_name no)
@@ -18685,6 +18701,28 @@
 		)
 		(property "LCSC" "C110293"
 			(at 130.81 180.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "ALPSALPINE"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "SKRTLAE010"
+			(at 0 0 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27055,6 +27093,28 @@
 		)
 		(property "LCSC" "C110293"
 			(at 127 146.05 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "ALPSALPINE"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "SKRTLAE010"
+			(at 0 0 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
