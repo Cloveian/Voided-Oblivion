@@ -7367,22 +7367,28 @@
 		(uuid "00ca4896-40cc-475d-add7-1f95b95417da")
 	)
 	(junction
+		(at 123.19 250.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "03cddf4a-6979-4f1e-8cde-a65e701f573e")
+	)
+	(junction
 		(at 83.82 77.47)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "04e23a3a-a451-419d-98fc-6d1228bc1799")
 	)
 	(junction
-		(at 85.09 250.19)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "05d0bcf2-26cf-4ff6-a9f8-e4ad4b68f47a")
-	)
-	(junction
 		(at 101.6 228.6)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "07736274-e382-4f9f-96af-20ff399650bd")
+	)
+	(junction
+		(at 85.09 250.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "08daafac-0d38-4d6e-baf7-3026984e2b7f")
 	)
 	(junction
 		(at 278.13 234.95)
@@ -7991,12 +7997,6 @@
 		(uuid "ad55ba27-88e2-48b7-b6e8-e7b852a85909")
 	)
 	(junction
-		(at 161.29 250.19)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "af64f92e-6845-4ae3-96e4-284302bbe49e")
-	)
-	(junction
 		(at 279.4 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8031,12 +8031,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c237dd22-42de-4e2c-b51a-c54be44d1dbf")
-	)
-	(junction
-		(at 123.19 250.19)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c56fb648-b80b-40b0-8753-39aef4050a2d")
 	)
 	(junction
 		(at 83.82 194.31)
@@ -8229,6 +8223,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "faeb7e14-d368-41aa-976c-29a82f02f4e7")
+	)
+	(junction
+		(at 161.29 250.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff18a1b5-6b39-4e47-91ad-1dd8371f3358")
 	)
 	(no_connect
 		(at 219.71 220.98)
@@ -16680,6 +16680,121 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 161.29 254 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "26d92126-1b0f-4b3e-93be-a91296f276e3")
+		(property "Reference" "R82"
+			(at 161.29 255.905 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2kΩ"
+			(at 163.83 257.175 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
+			(at 163.068 254 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 161.29 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 161.29 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 161.29 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
+			(at 161.29 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 161.29 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "28969b76-30be-45de-b806-74a64d1b6e07")
+		)
+		(pin "2"
+			(uuid "e3612665-b907-428b-b9a8-b063bb26ade5")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "R82")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Transistor_BJT:BC847")
 		(at 35.56 250.19 0)
 		(mirror y)
@@ -18518,121 +18633,6 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 52.07 86.36 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "3ea41fe4-1862-4796-9796-86117cf54019")
-		(property "Reference" "R38"
-			(at 52.07 88.265 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100kΩ"
-			(at 54.61 89.535 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
-			(at 53.848 86.36 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 52.07 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 52.07 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C25741"
-			(at 52.07 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "0402WGF1003TCE"
-			(at 52.07 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 52.07 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b5ec96b2-2499-40d3-8667-b088ee2db804")
-		)
-		(pin "2"
-			(uuid "a8839c66-105b-4448-b2ec-c7384bd93d28")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
-					(reference "R38")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
 		(at 44.45 130.81 270)
 		(unit 1)
 		(body_style 1)
@@ -19787,121 +19787,6 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "#PWR095")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 85.09 254 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "48f24f51-b3b2-4969-acb4-da825f846a7a")
-		(property "Reference" "R80"
-			(at 85.09 255.905 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100kΩ"
-			(at 87.63 257.175 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
-			(at 86.868 254 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 85.09 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C25741"
-			(at 85.09 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "0402WGF1003TCE"
-			(at 85.09 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 85.09 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "42ad303c-13ab-4fdd-af9a-70841d1bbdea")
-		)
-		(pin "2"
-			(uuid "c56ceb8d-fb4f-4e1d-ad62-f57221a56093")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
-					(reference "R80")
 					(unit 1)
 				)
 			)
@@ -22071,6 +21956,121 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 85.09 254 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "60173faa-e2e5-4dad-a596-5410e843de21")
+		(property "Reference" "R80"
+			(at 85.09 255.905 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2kΩ"
+			(at 87.63 257.175 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
+			(at 86.868 254 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 85.09 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 85.09 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
+			(at 85.09 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 85.09 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ebd434d7-c5c2-4319-b899-c76f04a773df")
+		)
+		(pin "2"
+			(uuid "809dab6e-0ac2-4a98-97da-2d94b5e85e53")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "R80")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Diode:BZV55B3V3")
 		(at 275.59 99.06 0)
 		(unit 1)
@@ -22179,6 +22179,121 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 123.19 254 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "639bcfb4-4d36-450a-a1ab-fd4d2f110c30")
+		(property "Reference" "R81"
+			(at 123.19 255.905 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2.2kΩ"
+			(at 125.73 257.175 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
+			(at 124.968 254 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 123.19 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 123.19 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" ""
+			(at 123.19 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" ""
+			(at 123.19 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 123.19 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8bf06268-c683-4f90-b463-2155cdeead50")
+		)
+		(pin "2"
+			(uuid "7c28a212-a03b-4ac5-acfa-adcf4c1a6dd8")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "R81")
 					(unit 1)
 				)
 			)
@@ -27662,121 +27777,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 161.29 254 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "97d56c7d-93d7-4fb7-b5e9-367e7475d172")
-		(property "Reference" "R82"
-			(at 161.29 255.905 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100kΩ"
-			(at 163.83 257.175 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
-			(at 163.068 254 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 161.29 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 161.29 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C25741"
-			(at 161.29 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "0402WGF1003TCE"
-			(at 161.29 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 161.29 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "14f16996-33ae-451d-ae95-7015a6995b39")
-		)
-		(pin "2"
-			(uuid "8598def3-04df-46e5-990d-8e31bf067a03")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
-					(reference "R82")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_name "VBUS_1")
 		(lib_id "power:VBUS")
 		(at 104.14 198.12 90)
@@ -29849,6 +29849,121 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 52.07 86.36 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b771b699-f1bd-40d0-94a3-7944dc5ef1a9")
+		(property "Reference" "R38"
+			(at 52.07 88.265 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7kΩ"
+			(at 54.61 89.535 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
+			(at 53.848 86.36 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 52.07 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 52.07 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25900"
+			(at 52.07 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0402WGF4701TCE"
+			(at 52.07 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 52.07 86.36 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "627e3eca-94ef-44f4-833d-ca1e6e320dff")
+		)
+		(pin "2"
+			(uuid "faf746ce-f6a5-44cc-a843-b0e2bf11794f")
+		)
+		(instances
+			(project "Voided-Oblivion"
+				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
+					(reference "R38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 187.96 222.25 0)
 		(mirror y)
@@ -30577,7 +30692,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100kΩ"
+		(property "Value" "2.2kΩ"
 			(at 49.53 257.175 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30621,7 +30736,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25741"
+		(property "LCSC" ""
 			(at 46.99 254 0)
 			(hide yes)
 			(show_name no)
@@ -30632,7 +30747,7 @@
 				)
 			)
 		)
-		(property "MPN" "0402WGF1003TCE"
+		(property "MPN" ""
 			(at 46.99 254 0)
 			(hide yes)
 			(show_name no)
@@ -30643,7 +30758,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer" ""
 			(at 46.99 254 0)
 			(hide yes)
 			(show_name no)
@@ -31206,121 +31321,6 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
 					(reference "#PWR072")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 123.19 254 0)
-		(mirror y)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c7fb943f-3334-424c-bd94-7e792f687e02")
-		(property "Reference" "R81"
-			(at 123.19 255.905 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100kΩ"
-			(at 125.73 257.175 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Voided-Oblivion-misc:R_0402_1005Metric-no-silkscreen-text"
-			(at 124.968 254 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 123.19 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 123.19 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C25741"
-			(at 123.19 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "0402WGF1003TCE"
-			(at 123.19 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 123.19 254 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "079313a2-a65a-4304-9395-36081a46d80e")
-		)
-		(pin "2"
-			(uuid "df7ed4a1-d0ea-4fdb-a60d-71d76e9e5736")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da/889be6bb-77c0-4884-a2da-d27e1f17090a"
-					(reference "R81")
 					(unit 1)
 				)
 			)
