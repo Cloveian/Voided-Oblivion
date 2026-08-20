@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project": "Voided-Oblivion.kicad_pro",
-  "current": "2026-08-16_1510",
+  "current": "2026-08-20_0147",
   "runs": {
     "2026-08-08_2107": {
       "source_hashes": {
@@ -38,18 +38,112 @@
     },
     "2026-08-16_1510": {
       "source_hashes": {
-        "Voided-Oblivion.kicad_pcb": "sha256:2d664676e79e9b698a245f91a6b39c475ae4e2fefea1bb2589119924f4ee0bd3"
+        "Voided-Oblivion.kicad_pcb": "sha256:1455e1a7050d0beef2854777e804952870aa9f75c10fc3b57347e28d85fe6b0e",
+        "Voided-Oblivion.kicad_sch": "sha256:3841ea197d6a7f21d647d97c266a9e6b38146b56a82092e9a7e9d77c2a5be681"
       },
       "outputs": {
         "schematic": "schematic.json",
         "pcb": "pcb.json",
         "cross_analysis": "cross_analysis.json",
-        "thermal": "thermal.json"
+        "thermal": "thermal.json",
+        "emc": "emc.json",
+        "spice": "spice.json"
       },
       "scripts": {
         "pcb": "analyze_pcb.py Voided-Oblivion.kicad_pcb"
       },
-      "generated": "2026-08-16T15:10:20-06:00",
+      "generated": "2026-08-18T08:22:20-06:00",
+      "pinned": false
+    },
+    "2026-08-18_1139": {
+      "source_hashes": {
+        "Voided-Oblivion.kicad_sch": "sha256:3208539ed5f9a9892532363d842e81091d5ebdd1c1bf79b16b8eac604b1f33a8"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "cross_analysis": "cross_analysis.json",
+        "thermal": "thermal.json",
+        "emc": "emc.json",
+        "spice": "spice.json"
+      },
+      "scripts": {
+        "schematic": "analyze_schematic.py Voided-Oblivion.kicad_sch"
+      },
+      "generated": "2026-08-18T11:39:47-06:00",
+      "pinned": false
+    },
+    "2026-08-18_1141": {
+      "source_hashes": {
+        "Voided-Oblivion.kicad_pcb": "sha256:cc5cff21fcf01380bb36d409aacd16df7e524a54e516d3f4d8044c3e966c4641"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "cross_analysis": "cross_analysis.json",
+        "thermal": "thermal.json",
+        "emc": "emc.json",
+        "spice": "spice.json"
+      },
+      "scripts": {
+        "pcb": "analyze_pcb.py Voided-Oblivion.kicad_pcb"
+      },
+      "generated": "2026-08-18T11:41:52-06:00",
+      "pinned": false
+    },
+    "2026-08-20_0144": {
+      "source_hashes": {
+        "Voided-Oblivion.kicad_sch": "sha256:3208539ed5f9a9892532363d842e81091d5ebdd1c1bf79b16b8eac604b1f33a8"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "cross_analysis": "cross_analysis.json",
+        "thermal": "thermal.json",
+        "emc": "emc.json",
+        "spice": "spice.json"
+      },
+      "scripts": {
+        "schematic": "analyze_schematic.py Voided-Oblivion.kicad_sch"
+      },
+      "generated": "2026-08-20T01:44:04-06:00",
+      "pinned": false
+    },
+    "2026-08-20_0146": {
+      "source_hashes": {
+        "Voided-Oblivion.kicad_pcb": "sha256:357b746b0a29bc48ce498c8b995d00b06f6149545e53bcadbc65a55324019559"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "cross_analysis": "cross_analysis.json",
+        "thermal": "thermal.json",
+        "emc": "emc.json",
+        "spice": "spice.json"
+      },
+      "scripts": {
+        "pcb": "analyze_pcb.py Voided-Oblivion.kicad_pcb"
+      },
+      "generated": "2026-08-20T01:47:14-06:00",
+      "pinned": false
+    },
+    "2026-08-20_0147": {
+      "source_hashes": {
+        "schematic.json": "sha256:2038d38b0b4bfcbecc2437f3785b8c1afc9e4fb6c11ec6e6af4845531a4d9fe2",
+        "pcb.json": "sha256:d106052304fa283e130dd7462d9723b3a378e81b1c510c63c37a9fc7449daf44"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "cross_analysis": "cross_analysis.json",
+        "thermal": "thermal.json",
+        "emc": "emc.json",
+        "spice": "spice.json"
+      },
+      "scripts": {
+        "emc": "analyze_emc.py"
+      },
+      "generated": "2026-08-20T01:47:14-06:00",
       "pinned": false
     }
   }
