@@ -175,7 +175,7 @@ not a feel preference).
 | Sensors | **GH39F**, 2 × **74HC4067** mux | `design-choices/hall-effect-sensors.md` |
 | RGB | **SK9822-EC20** (clocked, hardware global brightness, 0 PIO SMs) | `design-choices/rgb.md` |
 | PD | **2 × FUSB302BMPX**, one per port, CC wired **direct** (passive Rd at each connector) | `design-choices/comms.md#revisit-pdcc-architecture-the-cc-mux-doesnt-survive-cold-start` |
-| USB data | **TS3USB30E** 2:1 D± mux, VCC on 3V3, port-2-priority hardware arbiter | `schematic-design/comms.md` |
+| USB data | **TS3USB30E** 2:1 D± mux, VCC on 3V3, **port-1**-priority hardware arbiter (flipped 2026-08-18 fixing the select bug) | `schematic-design/comms.md#sel-detect---which-port-wins` |
 | Bucks | **TPS54302 ×2** (one clean/always-on, one big/gated) | `schematic-design/power.md` |
 | Ideal diode | **LM66100DCKT ×2** (U9 bootstrap OR, U15 submodule branch), **CE→VOUT** | `schematic-design/power.md#ideal-diode---lm66100-u9` |
 | HV side switches | **AO4407A ×4** + BC847B level shift, gate 100k/4.7k/100nF | `schematic-design/power.md#hv-per-side-switches---picking-the-fet` |
@@ -208,8 +208,9 @@ push a permanent obligation onto firmware. The load-bearing ones:
   builds. There is no hardware per-edge OCP.
 - **Cap the PDO request to what the build's copper supports** (the 5 A case only exists at 20 V).
 - **Never enable the FUSB302 VCONN switch** (sink-only; VCONN pins are tied to +3V3).
-- **CC1/CC2 are crossed** on both ports — the orientation bit firmware reads is inverted from
-  physical reality; never use it for anything physical.
+- **CC1/CC2 are wired straight** on both ports. An earlier version of this note claimed they
+  were crossed and told firmware to invert the orientation bit — **that was wrong** (verified at
+  the netlist on two separate revisions, 2026-08-18 and -20). The orientation bit means what it says.
 - **Keep the level shifter's A-port inputs driven at all times**, even when RGB is off.
 - Verify SK9822 **colour order against a physical LED** — the datasheet contradicts itself
   (p.7 RBG vs p.8 GRB).
@@ -263,6 +264,7 @@ the disagreement is already understood.
 
 | Trap | Reality |
 |---|---|
+| **Clean-buck VIN (the C1 handoff latch)** | Decided 2026-08-20, **not yet applied in KiCad**: U5's VIN moves **PD+ → VBUS**, EN floats (R34 deleted, U11B's output disconnected), C26 10µF → **2× 4.7µF** (C51205). Until it's applied, the board **cannot complete any PD contract above the ~5.77V trip** — the first handoff kills BS+ for ≥6ms against ~65µs of holdup and R34's dead-rail pull-up latches the buck off. Found by the doc-blind review after four sighted reviews missed it. Full working: `schematic-design/power.md#revisit-2026-08-20---the-first-handoff-kills-bs-and-the-fix-is-moving-vin-to-vbus` |
 | **The 3V3 LDO** | `chips.md` and `schematic-design/power.md` document **XC6220B331MR**. As-built U7 is **TLV76733** (WSON-6) — verified against TI SLVSE84D in the review, and `keys.md` already reasons from it. The swap is good (it dissolved the thermal ceiling that made bank gating look mandatory); **the docs are stale, not the board.** |
 | **Backfeed diodes D1/D2** | `chips.md`, `schematic-checklist.md` and `layout-checklist.md` say **SS54**. `schematic-design/power.md` re-selected to **LM74700-Q1 + NCE4009S N-FET** (SS54 dissipates 3.2 W at the 5 A hardware bound → dead part). Not yet applied to the board. |
 | **Comparator divider** | Docs re-derived to **R30 35.7k / R31 10k / R22 5.1k**. The schematic still has **44.2k / 12.2k**, and **12.2 kΩ does not exist on LCSC at any package or tolerance.** Must be applied. |
