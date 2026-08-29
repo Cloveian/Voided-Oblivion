@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project": "Voided-Oblivion.kicad_pro",
-  "current": "2026-08-20_0312",
+  "current": "2026-08-20_0658",
   "runs": {
     "2026-08-08_2107": {
       "source_hashes": {
@@ -182,6 +182,42 @@
         "pcb": "analyze_pcb.py Voided-Oblivion.kicad_pcb"
       },
       "generated": "2026-08-20T03:13:04-06:00",
+      "pinned": false
+    },
+    "2026-08-20_0653": {
+      "source_hashes": {
+        "Voided-Oblivion.kicad_sch": "sha256:73eed8940cbc0dc5f2796df917bd0a9796b7fd3c418d70703e34d95849ff1d0f"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "cross_analysis": "cross_analysis.json",
+        "thermal": "thermal.json",
+        "emc": "emc.json",
+        "spice": "spice.json"
+      },
+      "scripts": {
+        "schematic": "analyze_schematic.py Voided-Oblivion.kicad_sch"
+      },
+      "generated": "2026-08-20T06:53:51-06:00",
+      "pinned": false
+    },
+    "2026-08-20_0658": {
+      "source_hashes": {
+        "Voided-Oblivion.kicad_pcb": "sha256:8fe81bf9aea8d5ddd9d2c862b1d0700b020398510e1c72c413e9881c3bf956b5"
+      },
+      "outputs": {
+        "schematic": "schematic.json",
+        "pcb": "pcb.json",
+        "cross_analysis": "cross_analysis.json",
+        "thermal": "thermal.json",
+        "emc": "emc.json",
+        "spice": "spice.json"
+      },
+      "scripts": {
+        "pcb": "analyze_pcb.py Voided-Oblivion.kicad_pcb"
+      },
+      "generated": "2026-08-20T06:58:32-06:00",
       "pinned": false
     }
   }

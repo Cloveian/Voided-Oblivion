@@ -134,15 +134,18 @@ Pick which receptacle's D± reaches the MCU, in hardware, with no firmware invol
 
 ### Result / as-built
 ```
-USB2 raw VBUS --R37 10k--> USB SEL --R14 0R--> U2 pin 10 (S)
+USB1 raw VBUS --R37 10k--> USB SEL --R14 0R--> U2 pin 10 (S)
                               |
-                        D3 BZV55B5V1 (5.1V zener) to GND
+                        D3 BZV55B3V3 (3.3V zener) to GND
                         C39 100nF to GND
                         R39 100k pull-down
 ```
-S low = port 1, S high = port 2. So **port 2 wins when both are plugged in**, and port 1 is the default with nothing attached.
+S low = port 2, S high = port 1. So **port 1 wins when both are plugged in**, and port 2 is the default with nothing attached.
+
+> ⚠ **Corrected 2026-08-20.** This section used to say "USB2 raw VBUS → R37" and "port 2 wins" - and the board was wired that way, which was **backwards**. The mux's channels are physically D1± = USB2, D2± = USB1, and the truth table is S=L → D1, S=H → D2 - so sensing VBUS2 selected whichever port *didn't* have the cable in every single-cable case. The keyboard could never enumerate on one cable. The 08-08 review verified the S-network levels, called it "a clean hardware port arbiter", and never checked the channel map; the 08-18 review caught it. Fix was one net - R37's sense moved to **VBUS1** - and the cost is the priority flip: **port 1 wins when both are plugged.** If both-plugged behaviour ever surprises anyone, this is why. Firmware note: there is no readback on `USB SEL`, so master election infers the active port from FUSB302 status, not from the mux.
 
 ### Notes / gotchas
+- ✅ **Fixed on the board** - D3 is a BZV55B**3V3** now (verified in the 08-18 review), exactly the cheap fix below. Old text kept for the record:
 - ⚠ **The clamp voltage is wrong for the rail the mux runs on.** D3 clamps `USB SEL` at ~5.1V. That's safely under the 7V absolute max — but the mux's VCC is 3.3V, and the datasheet's recommended VIH range is **1.3V to VCC**. Driving S to 5.1V puts it ~1.8V above VCC, forward-biasing the input's clamp structure into the supply. And the latch-up guarantee **explicitly excludes S and OE**, so this is precisely the pin where exceeding VCC isn't covered by anything.
   - **Fix (cheap): change D3 to a ~3.0–3.3V zener** (e.g. BZX84C3V3), so the clamp lands inside the recommended input range instead of above it. R37's 10kΩ already limits the current, so nothing else changes.
   - The intent behind the 5.1V part is sound - the comment on the sheet says "don't fry the SEL pin on the usb mux", and it does prevent the 20V case. It just doesn't go far enough: the target isn't "under 7V", it's "at or below VCC".

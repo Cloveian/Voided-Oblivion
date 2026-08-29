@@ -74,10 +74,34 @@ The research derived **100µH** to get 30% ripple in CCM at 300mA, and it's righ
 ### Notes / gotchas
 - **EN comes from U11B, not a divider.** `+5VA EN` is U11B's open-collector output pulled to +3V3 by R34. High (enabled) above the trip. EN sees 3.3V - inside the 5.5V recommended max and well under the 7V abs max. This is the [enable-from-trigger trick](implementation.md#the-enable-from-trigger-thing-the-good-bit) and it's better than the research's suggested VIN divider, because it enables off the *same comparison* that connects PD+ rather than off the rail being started.
 - **The buck is enabled at ~5.95V but can't actually regulate 5V until ~7–9V in.** Between those it sits in dropout, output ≈ VIN − (RDS(on) x I) ≈ 5.8V. That's harmless (BS+ just sits a bit low, the LDO still has >2V of headroom) and it only lasts as long as the PD ramp, which is milliseconds. Worth knowing it's a real operating state, not an error.
+
+> ⚠ **Both bullets above superseded (2026-08-20).** The "~7–9V" regulation floor is wrong — the part is designed for 100% duty (§6.3.10) and holds 5.08V from **~5.13V in** at this rail's load. And the enable-from-trigger arrangement turned out to be the load-bearing half of the fifth cold-start latch. Both replaced by [the revisit below](#revisit-2026-08-20---the-first-handoff-kills-bs-and-the-fix-is-moving-vin-to-vbus).
 - **The rail called "clean" is the one running DCM.** Variable-frequency pulse-skip ripple → MAX40203 → BS+ → LDO → 3V3 → hall sensors and the ADC. The LDO's PSRR is a single 50dB @ 1kHz point and **it has no output-noise spec at all** (see LDO section). So the ADC noise path is not actually characterised end-to-end anywhere. Not a blocker, but if key readings turn out noisy, this chain is the first suspect, and the fix is more Cout / a bigger L, not a different sensor.
 
 > ⚠ **Superseded.** This rests on the LDO having no noise spec - true of the XC6220, but [the as-built part is a TLV76733](#revisit-the-part-is-a-tlv76733-not-an-xc6220---and-it-changes-three-conclusions), which publishes **60 µVRMS** output noise and **70 dB @ 1 kHz / 46 dB @ 1 MHz** PSRR. That is 0.07 LSB. The chain *is* characterised; only ADC_AVDD (review F6) is still open.
 - No PG pin - "did the big buck come up" has to be inferred some other way if that ever matters.
+
+### Revisit (2026-08-20) - the first handoff kills BS+, and the fix is moving VIN to VBUS
+
+A blind review round (KiCad files + datasheets + a one-page requirements brief, **no docs, no prior reviews**) found the fifth cold-start latch, and it's the big one: **the handoff itself**. Four sighted review passes missed it, and the reason they missed it is on this page.
+
+**The mechanism.** At the trip Q1 opens and BS+'s only remaining source is +5VA. But at the *first* handoff +5VA doesn't exist: U5's VIN is PD+, which only comes alive through Q2's ~1-3ms gate soft-start, and then the TPS54302 runs its **fixed 5ms internal soft-start** (§6.3.9 - no pin, not adjustable). That's a **≥6ms gap**. BS+ holds C24+C76 = 2µF: ~15µs to LDO dropout at ~0.3A, and 3V3's ~25µF buys ~50µs more. **~65µs of holdup against ≥6ms.** The MCU and both PD PHYs brown out mid-negotiation, at any source slew rate.
+
+**Then it latches.** R34 pulls `+5VA EN` up to +3V3 - the rail that just died. The EN pin's own pull-up is 0.7-1.55µA, which against 100k into a discharged rail parks EN at ~0.15V vs the 1.23V threshold. The buck can never start, even with PD+ sitting at 9-20V. Recovery is the source hard-resetting back to vSafe5V, where Q1 recloses and the whole thing loops. **As built, this is a 5V-only keyboard** - PD+, +5VP, RGB and edge HV export are all unreachable.
+
+**Why every review missed it: this page told them it was fine.** The [handoff dip bullet](#ideal-diode---lm66100-u9) computes 3.1µs *assuming +5VA is already at 5.08V* - true for a steady-state renegotiation dipping back through the trip, never true at the first handoff, which is the only one that matters. The scope note at the bottom of this page even says U5's soft-start and inrush "land right in the window where U11A is deciding" - i was staring at the collision and filed it as an oscillation question instead of a sequencing one. Every sighted review inherited the 3.1µs number and checked the EN network statically. The blind reviewer had no number to inherit, so it walked the bring-up order - the lesson this project has now written down **three** times.
+
+**The fix: U5's VIN moves from PD+ to VBUS, and the buck becomes always-on.**
+
+- VBUS never disappears during a negotiation - it just changes value, and the TPS54302 rides 4.5-28V. With the buck already running when Q1 opens, U9 catches BS+ within µs and **there is no gap at all**. No brownout, no reboot, no latch. The 3.1µs dip analysis becomes *true as written* in this topology.
+- **EN floats** (internal pull-up = default-on, the datasheet's own always-on config). **R34 is deleted and U11B's output is disconnected** (inputs stay biased, output NC). The [enable-from-trigger trick](implementation.md#the-enable-from-trigger-thing-the-good-bit) is superseded - its stated reason ("don't enable off the rail being started") confused the buck's *input* with its *output*. An EN referenced to VIN was never a chicken-and-egg; PD+ isn't something the clean buck produces.
+- **Cin: C26 10µF → 2× 4.7µF** (`CL31B475KBHNNNE` **C51205**, same CL31B 50V X7R family as the new 10µFs). The input caps move to VBUS with the pin, and VBUS is the rail with the **10µF attach ceiling**: 2×4.7 + C25's 0.1 + the ~0.3 already there = **9.8µF, under the ceiling** where a single 10µF would land at 10.4. At 20V bias the pair is ~6-7µF effective, a little under TI's ">10µF" - accepted, because input ripple current is smallest exactly where the derating is worst (at 5V in, duty is ~100% and input current is nearly DC; at 20V the duty is short).
+- Pre-PD the buck idles in dropout at ≈VIN behind U9 while Q1 carries the load - the OR just works, sub-mA of overhead against the 500mA budget. Known costs: possibly a whisper of Eco-mode coil whine in the seconds before negotiation (molded inductor, unlikely audible), and the input hot loop now lives on a port-facing net - **route it tight** when the corner gets re-done.
+- **Alternatives rejected.** Re-referencing R34 to a VBUS divider kills the latch but keeps the reboot - and the FUSB302s are on 3V3 too, so they lose their AUTO_CRC config mid-brownout and contract completion becomes a race against the source's PS_RDY timing; patchable with a PHY keep-alive island (schottky + ~47µF), but that's managing the failure instead of removing it. A dedicated bridging regulator for BS+ also removes it, but adds a part the moved buck provides for free.
+
+**Status: decided, not yet applied in KiCad.** Schematic: U5 VIN + C25/C26 re-netted to VBUS, R34 deleted, U11B output NC'd, C26 revalued, one new 4.7µF placed. PCB: re-route the input corner from the PD+ pour to VBUS copper.
+
+**Erratum, and it's probably how VIN ended up on PD+ in the first place:** session 2 logged *"TPS54302 can't make 5V below ~9V in"* and this page repeated it as "~7-9V". **Both wrong.** The part does 100% duty in dropout: full 5.08V regulation from **~5.13V in at 0.3A** (dropout = I × (85mΩ HS FET + 68mΩ DCR)), ~5.3V at 1.3A, ~5.5V at 2.6A. The 9V figure was only ever true as a *PD-menu* fact - nothing is offered between 5V and 9V - not a silicon fact. If you believe the buck is useless at 5V, there's no reason to feed it VBUS. Kill the belief and the better topology falls out.
 
 ## Big buck - TPS54302 (U6)
 
@@ -509,6 +533,8 @@ UTP > LTP        (that's what hysteresis means)
 ### Notes / gotchas
 - **Reverse blocking turns off at ~26mV of reverse bias** with sub-µA leakage at 125°C - the behaviour the whole hotplug-safe OR-ing scheme depends on, and well characterised.
 - **The handoff dip is real and bounded.** `VON = -80mV` worst case means U9 only conducts once VOUT falls 80mV below VIN. At the trip BS+ is ~5.93V and +5VA is 5.08V, so U9 stays off until Q1 opens and BS+ droops to ~5.00V. With C24's **1µF** (as-built, not the 10µF this page used to claim) and ~300mA of LDO load that takes **~3.1µs**, and the LDO has ~1.6V of headroom - nothing notices. This is the number behind [checklist §3](../schematic-checklist.md)'s "hold-up caps on bootstrap to cover the µs comparator→buck handoff."
+
+> ⚠ **Corrected (2026-08-20) - this bullet anchored four reviews into missing the fifth cold-start latch.** The 3.1µs only holds when +5VA is *already up*, i.e. a steady-state renegotiation. At the **first** handoff +5VA is 0V - the buck's VIN was PD+, born at the same instant Q1 opens - and the real gap is **≥6ms against ~65µs**. Full story and the fix (U5's VIN moves to VBUS, after which this bullet becomes true as written): [clean-buck revisit](#revisit-2026-08-20---the-first-handoff-kills-bs-and-the-fix-is-moving-vin-to-vbus).
 - **No chatter.** Steady-state drop once conducting is `I × RON` = **33mV at 300mA**, and VOFF's window is 0-80mV *positive*, so the operating point sits inside the hysteresis band.
 - The old symbol was `Analog_Switch:MAX40200ANS` with a `MAX40203` Value. **The BOM pulls Value**, so symbol, footprint, Value and LCSC all have to move together.
 
@@ -620,7 +646,7 @@ UTP worst (linear)  5.772 + 0.132 = 5.904 V   ✓ below 6.0
 
 Divider current at 20V is 438µA (was 355µA) and R30 dissipates 6.8mW against a 62.5mW 0402 rating - both non-issues.
 
-**U11B's trip moves too**, from 5.732V to `1.24/k = 5.667V`. It has no hysteresis and only enables the clean buck, which can't regulate below ~7-9V in anyway, so it sits in dropout either side of that number. No consequence.
+**U11B's trip moves too**, from 5.732V to `1.24/k = 5.667V`. It has no hysteresis and only enables the clean buck, which can't regulate below ~7-9V in anyway, so it sits in dropout either side of that number. No consequence. *(The 7-9V figure is wrong - regulation actually starts ~5.2V, see [the erratum](#revisit-2026-08-20---the-first-handoff-kills-bs-and-the-fix-is-moving-vin-to-vbus) - and once that revisit is applied U11B no longer drives the buck at all, so this paragraph goes moot with it.)*
 
 ### Notes / gotchas
 - **VCC = VBUS (pin 8).** Powered from a node its own outputs cannot switch off. This is the fix for [the comparator-eats-its-own-tail snag](implementation.md#snags-what-bit-me) and it's the single most important topological property on this sheet.
