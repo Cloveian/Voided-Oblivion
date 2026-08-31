@@ -2,3 +2,5 @@
 .obsidian
 .claudian
 *.edtz
+/.venv/
+/site/

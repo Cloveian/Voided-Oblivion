@@ -1,0 +1,319 @@
+[
+  [
+    {
+      "c": "#cfe0f7",
+      "a": 7
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    {
+      "c": "#f7e0cf"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    {
+      "c": "#cff7e0"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro"
+  ],
+  [
+    {
+      "c": "#cfe0f7"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    {
+      "c": "#f7e0cf"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    {
+      "c": "#cff7e0"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro"
+  ],
+  [
+    {
+      "c": "#cfe0f7"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    {
+      "c": "#f7e0cf"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    {
+      "c": "#cff7e0"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro"
+  ],
+  [
+    {
+      "c": "#cfe0f7"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    {
+      "c": "#f7e0cf"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    {
+      "c": "#cff7e0"
+    },
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro",
+    "Macro"
+  ],
+  [
+    {
+      "c": "#cfe0f7"
+    },
+    "Esc",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    {
+      "c": "#f7e0cf"
+    },
+    "F6",
+    "F7",
+    "F8",
+    "F9",
+    "F10",
+    "F11",
+    {
+      "c": "#cff7e0"
+    },
+    "F12",
+    "Insert",
+    "Del",
+    "Macro",
+    "Macro",
+    "Macro"
+  ],
+  [
+    {
+      "c": "#e5d5f7",
+      "a": 5
+    },
+    "~\n`",
+    "!\n1",
+    "@\n2",
+    "#\n3",
+    "$\n4",
+    "%\n5",
+    {
+      "c": "#f7cfd9"
+    },
+    "^\n6",
+    "&\n7",
+    "*\n8",
+    "(\n9",
+    ")\n0",
+    "_\n-",
+    {
+      "c": "#f7f3cf"
+    },
+    "+\n=",
+    {
+      "a": 7
+    },
+    "Back Space",
+    "Back Space",
+    "/",
+    "*",
+    "-"
+  ],
+  [
+    {
+      "c": "#e5d5f7"
+    },
+    "Tab",
+    "Q",
+    "W",
+    "E",
+    "R",
+    "T",
+    {
+      "c": "#f7cfd9"
+    },
+    "Y",
+    "U",
+    "I",
+    "O",
+    "P",
+    {
+      "a": 5
+    },
+    "{\n[",
+    {
+      "c": "#f7f3cf"
+    },
+    "}\n]",
+    "|\n\\",
+    {
+      "a": 7
+    },
+    "Pg Up",
+    "7",
+    "8",
+    "9"
+  ],
+  [
+    {
+      "c": "#e5d5f7",
+      "a": 5,
+      "f": 2
+    },
+    "Macro\nor Caps (blegh)",
+    {
+      "a": 7,
+      "f": 3
+    },
+    "A",
+    "S",
+    "D",
+    "F",
+    "G",
+    {
+      "c": "#f7cfd9"
+    },
+    "H",
+    "J",
+    "K",
+    "L",
+    {
+      "a": 5
+    },
+    ":\n;",
+    "\"\n'",
+    {
+      "c": "#f7f3cf",
+      "a": 7
+    },
+    "Enter",
+    "Enter",
+    "Pg Down",
+    "4",
+    "5",
+    "6"
+  ],
+  [
+    {
+      "c": "#e5d5f7"
+    },
+    "Shift",
+    "Z",
+    "X",
+    "C",
+    "V",
+    "B",
+    {
+      "c": "#f7cfd9"
+    },
+    "N",
+    "M",
+    {
+      "a": 5
+    },
+    "<\n,",
+    ">\n.",
+    "?\n/",
+    {
+      "a": 7
+    },
+    "Shift",
+    {
+      "c": "#f7f3cf"
+    },
+    "Home",
+    "↑",
+    "End",
+    "1",
+    "2",
+    "3"
+  ],
+  [
+    {
+      "c": "#e5d5f7"
+    },
+    "Ctrl",
+    "Super",
+    "Alt",
+    "Mod",
+    "Mod",
+    "Space",
+    {
+      "c": "#f7cfd9"
+    },
+    "Space",
+    "Mod",
+    "Mod",
+    "Alt",
+    "Super",
+    "Ctrl",
+    {
+      "c": "#f7f3cf"
+    },
+    "←",
+    "↓",
+    "→",
+    "0",
+    ".",
+    "Enter"
+  ]
+]

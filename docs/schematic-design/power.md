@@ -4,7 +4,7 @@ Datasheet math and component derivations for the power block. Parts come from [c
 
 Rails: **PD+** (HV, 5.7–20V), **BS+** (bootstrap 5V, always-on), **+5VA** (clean buck out), **+5VP** (gated buck out, RGB/submodules), **+3V3** (clean), **GND**.
 
-**How to read this page.** Values here are **as-built from the schematic**, with the derivation that justifies them. Where the independent [datasheet research](../research/) proposed something different, both are shown and the disagreement is resolved explicitly - sometimes the research is right and it's a to-do, sometimes the board is right because the research only saw one chip and not the whole system. Those are the interesting rows.
+**How to read this page.** Values here are **as-built from the schematic**, with the derivation that justifies them. Where the independent [datasheet research](../research/README.md) proposed something different, both are shown and the disagreement is resolved explicitly - sometimes the research is right and it's a to-do, sometimes the board is right because the research only saw one chip and not the whole system. Those are the interesting rows.
 
 Per-section skeleton: **Goal → Datasheet refs → Math → Result → Notes/gotchas.**
 
@@ -335,10 +335,18 @@ The datasheet's answer is *"closed magnetic circuit design reduces leakage flux"
 
 ## 3V3 LDO - TLV76733DRVR (U7)
 
-> **Header corrected.** Written as XC6220B331MR; the as-built part is a TLV76733DRVR. The math below is the *old* part's - see [the revisit](#revisit-the-part-is-a-tlv76733-not-an-xc6220---and-it-changes-three-conclusions) at the end of this section for what actually changed.
+!!! correction "Header corrected - the part below is the wrong chip"
+    Written as XC6220B331MR; the as-built part is a **TLV76733DRVR**. The datasheet
+    refs and both Math sections below are the *old* part's - see
+    [the revisit](#revisit-the-part-is-a-tlv76733-not-an-xc6220---and-it-changes-three-conclusions)
+    at the end of this section for what actually changed.
 
 ### Goal
 3.3V for MCU + hall sensors + mux, from **BS+** so it exists pre-PD.
+
+<div class="superseded" markdown>
+
+Written about the XC6220B331MR. → [As-built: TLV76733DRVR](#revisit-the-part-is-a-tlv76733-not-an-xc6220---and-it-changes-three-conclusions)
 
 ### Datasheet refs
 Torex XC6220. Output **factory-fixed** by the `331` code - no FB pin, nothing to tune. VIN abs max **6.5V**; VCE abs max 6.5V, VCEH 1.2–6.0V. Dropout 110mV max @ 1A. Current limit 1005mA min. PSRR 50dB @ 1kHz. **θJA = 166.67°C/W** (derived from the p.26 Pd-vs-Ta curve, self-consistent at both endpoints). Datasheet design ceiling TJ = 125°C, thermal shutdown 150°C typ.
@@ -368,6 +376,8 @@ VIN = BS+; **CE tied to VIN via R12 0Ω** (VCEH 1.2–6.0V, and CE must never fl
 - **Bank-gating the hall sensors is load-bearing, not an optimisation.** 30 sensors at 9mA worst case is 270mA on its own, before the MCU. That alone lands in the red row above. Cross-check against [keys](keys.md#sensor-bank-power-gating), where the other half of the problem is that the sensor's power-on settling time isn't specified.
 - **No output noise specification exists in this datasheet.** Not a missing number I failed to find - there is no such row and no noise-density graph. The original [LDO selection](../design-choices/power.md#33v-ldo) scored "output noise" at weight 10, the heaviest row in that table. That row was scored against something unpublished. Doesn't change the pick, but the low-noise claim is currently unevidenced and the ADC chain is downstream of it.
 - ~~C41 at 100µF is fine electrically but see [the footprint defect](#bulk-caps-and-the-footprint-defect).~~ **C41 is now 1µF on `+5VA` (U9's C_IN)** - it left BS+ entirely, which fixed the attach inrush *and* removed it from the footprint defect list.
+
+</div>
 
 ### Revisit: the part is a TLV76733, not an XC6220 - and it changes three conclusions
 
@@ -1181,5 +1191,5 @@ This is bigger than the "cap voltage-derating pass" that's been sitting open in 
 Everything at 100nF and below is fine in 0402 as long as the parts on PD+ are rated ≥25V.
 
 ---
-Back to [schematic-design index](index.md) · [checklist](../schematic-checklist.md) · [research](../research/)
+Back to [schematic-design index](index.md) · [checklist](../schematic-checklist.md) · [research](../research/README.md)
 CLEAR_PAUSE 

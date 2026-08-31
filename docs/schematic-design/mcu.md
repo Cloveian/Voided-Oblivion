@@ -200,4 +200,4 @@ Two more details from the full text worth having:
 - QSPI pads, the USB PHY and (effectively) SWD are unaffected. Only Bank 0 GPIO 0–47.
 
 ---
-Back to [schematic-design index](index.md) · [checklist](../schematic-checklist.md) · [research](../research/)
+Back to [schematic-design index](index.md) · [checklist](../schematic-checklist.md) · [research](../research/README.md)
