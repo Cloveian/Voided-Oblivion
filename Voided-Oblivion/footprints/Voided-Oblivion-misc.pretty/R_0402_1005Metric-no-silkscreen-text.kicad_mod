@@ -5,11 +5,11 @@
 	(layer "F.Cu")
 	(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 	(tags "resistor")
-	(property "Reference" "REF**"
+	(property "Reference" "R71"
 		(at 0 -1.17 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "cc73b337-41ac-4630-85a3-f9302758126c")
+		(uuid "cb3f4477-362a-447e-8756-9a1374b8ab17")
 		(effects
 			(font
 				(size 1 1)
@@ -17,10 +17,10 @@
 			)
 		)
 	)
-	(property "Value" "R_0402_1005Metric-no-silkscreen-text"
+	(property "Value" "4.7kΩ"
 		(at 0 1.17 0)
 		(layer "F.Fab")
-		(uuid "5da93047-7747-4dff-ab42-a598957c658c")
+		(uuid "74128d25-1233-4650-9d9d-ee83e8fd0367")
 		(effects
 			(font
 				(size 1 1)
@@ -32,18 +32,18 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "0db5f941-5fb7-4103-9a46-39404f47ad7d")
+		(uuid "e6652f9a-5853-40fe-bd7a-d56ddc7be9b7")
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 	)
-	(property "Description" ""
+	(property "Description" "Resistor"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "530989c7-7b8a-4bb5-86b3-fb6bf95a0c32")
+		(uuid "4416c54e-d8ff-4353-b602-ff492f4f6c13")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -54,7 +54,7 @@
 		(at 0 0 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "10e12071-b03f-43cf-a33f-554e1c29db3c")
+		(uuid "9f1441bc-8210-4118-ab55-698d001071d7")
 		(effects
 			(font
 				(size 1 1)
@@ -62,27 +62,69 @@
 			)
 		)
 	)
+	(property "LCSC" "C25900"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "352be486-a8b0-41e1-bbee-12bb2fc8a877")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "MPN" "0402WGF4701TCE"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9b63bf55-6761-46c9-9174-9fa55f87cdb3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c6d99bdd-ade2-4c52-b334-3a16c31c1a10")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property ki_fp_filters "R_*")
+	(sheetname "/power/")
+	(sheetfile "power.kicad_sch")
 	(attr smd)
 	(duplicate_pad_numbers_are_jumpers no)
 	(fp_line
-		(start -0.153641 -0.38)
-		(end 0.153641 -0.38)
+		(start -0.153641 -0.254)
+		(end 0.153641 -0.254)
 		(stroke
 			(width 0.12)
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "15659c2d-926b-44b8-86fe-427524ebf5de")
+		(uuid "0fa3c226-59c1-433e-892e-f4e36b2d9def")
 	)
 	(fp_line
-		(start -0.153641 0.38)
-		(end 0.153641 0.38)
+		(start -0.153641 0.254)
+		(end 0.153641 0.254)
 		(stroke
 			(width 0.12)
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "f1c341bf-1014-405a-9129-f37193e280d0")
+		(uuid "d4dc2aec-7a00-4d1c-b10e-c93d3e93914d")
 	)
 	(fp_rect
 		(start -0.93 -0.47)
@@ -93,7 +135,7 @@
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "c36013ff-c6be-4b34-b4e8-551079db7acd")
+		(uuid "dab1f3ff-90f2-4b3a-a728-a5f12d47ea42")
 	)
 	(fp_rect
 		(start -0.525 -0.27)
@@ -104,12 +146,12 @@
 		)
 		(fill no)
 		(layer "F.Fab")
-		(uuid "bd7a3b62-1760-47af-a0e0-edad80996ff3")
+		(uuid "dfe2915d-7090-4ef7-820d-6bc405a6d28b")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 0 0)
 		(layer "F.Fab")
-		(uuid "84a24dbe-8dc1-4e40-aff3-b901cc17338f")
+		(uuid "8d315a9c-3632-4818-97c5-7c02f4ff518c")
 		(effects
 			(font
 				(size 0.26 0.26)
@@ -122,14 +164,36 @@
 		(size 0.54 0.64)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
-		(uuid "665bdb93-f544-420c-b5d8-f243a6c99956")
+		(teardrops
+			(best_length_ratio 0.5)
+			(max_length 1)
+			(best_width_ratio 1)
+			(max_width 2)
+			(curved_edges no)
+			(filter_ratio 0.9)
+			(enabled yes)
+			(allow_two_segments yes)
+			(prefer_zone_connections yes)
+		)
+		(uuid "c15c25a8-75d7-40d6-a02d-3cfd57a605cf")
 	)
 	(pad "2" smd roundrect
 		(at 0.51 0)
 		(size 0.54 0.64)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.25)
-		(uuid "7b202b50-ee6c-40c0-9961-5204691ec4e7")
+		(teardrops
+			(best_length_ratio 0.5)
+			(max_length 1)
+			(best_width_ratio 1)
+			(max_width 2)
+			(curved_edges no)
+			(filter_ratio 0.9)
+			(enabled yes)
+			(allow_two_segments yes)
+			(prefer_zone_connections yes)
+		)
+		(uuid "2728126a-efad-4b88-a5ad-21351d7af0ee")
 	)
 	(embedded_fonts no)
 	(model "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0402_1005Metric.step"

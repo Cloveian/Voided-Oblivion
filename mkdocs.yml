@@ -1,0 +1,124 @@
+site_name: Voided Oblivion
+site_description: Modular analog hall-effect ortholinear keyboard - design notes
+site_author: Cloveian
+
+repo_name: Cloveian/Voided-Oblivion
+repo_url: https://github.com/Cloveian/Voided-Oblivion/
+
+theme:
+  name: material
+  font: false
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.tilde
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  # GitHub-compatible slugs. Every cross-link in these docs was written
+  # against GitHub/Obsidian anchors (where "## Clean buck - TPS54302 (U5)"
+  # becomes #clean-buck---tps54302-u5). Default Python-Markdown slugify
+  # collapses that to a single dash and breaks ~40 links. Don't remove this.
+  - toc:
+      permalink: true
+      toc_depth: 4
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {kwds: {case: lower}}
+
+# NOTE: pymdownx.arithmatex is deliberately NOT enabled.
+# The sourcing/BOM pages are full of dollar prices ($0.59, $39.70) and math
+# mode would swallow them into garbage equations. There is no real math in
+# these docs - the only LaTeX was a handful of $^{2}$ superscripts.
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+
+exclude_docs: |
+  *.edtz
+  *.canvas
+
+nav:
+  - Home:
+      - index.md
+      - Goals & constraints: goals.md
+      - Overview: overview.md
+      - Chip list: chips.md
+  - Design choices:
+      - design-choices/index.md
+      - Form factor: design-choices/form-factor.md
+      - Switches: design-choices/switches.md
+      - Feature decisions: design-choices/feature-decisions.md
+      - Controller (MCU): design-choices/controller.md
+      - Key sensors & MUX: design-choices/hall-effect-sensors.md
+      - RGB: design-choices/rgb.md
+      - Submodules: design-choices/submodules.md
+      - Power: design-choices/power.md
+      - Communications: design-choices/comms.md
+      - Pin budget: design-choices/pin-budget.md
+      - Module connectors: design-choices/module-connectors.md
+      - PCB stackup & net rules: design-choices/pcb-stackup.md
+  - Building it:
+      - Schematic checklist: schematic-checklist.md
+      - Schematic-design calcs: schematic-design/index.md
+      - Keys & sensing: schematic-design/keys.md
+      - MCU & flash: schematic-design/mcu.md
+      - Power: schematic-design/power.md
+      - RGB: schematic-design/rgb.md
+      - Comms & USB: schematic-design/comms.md
+      - Implementation log: schematic-design/implementation.md
+      - Build log: schematic-design/log.md
+      - Layout checklist: layout-checklist.md
+  - Research:
+      - research/README.md
+      - BOM sourcing: research/bom-sourcing.md
+      - FUSB302: research/fusb302.md
+      - TPS54302 buck: research/tps54302-buck.md
+      - LDO & ideal diode: research/ldo-and-ideal-diode.md
+      - Comparator & reference: research/comparator-and-reference.md
+      - FET switching & gate drive: research/fet-switching-and-gate-drive.md
+      - GH39F hall sensor: research/gh39f-hall-sensor.md
+      - HC4067 analog mux: research/hc4067-analog-mux.md
+      - SK9822 & level shifter: research/sk9822-and-level-shifter.md
+      - W25Q128JV QSPI flash: research/w25q128jv-qspi-flash.md
+      - USB-C receptacle: research/usb-c-receptacle.md
+      - USB mux & ESD: research/usb-mux-and-esd.md
+  - Reviews:
+      - Schematic review 2026-08-08: schematic-review-2026-08-08.md
+      - Sourcing pass 2026-08-09: sourcing-pass-2026-08-09.md
+      - PCB review 2026-08-16: pcb-review-2026-08-16.md
+      - Electrical review 2026-08-18: electrical-review-2026-08-18.md
+      - Electrical review 2026-08-20: electrical-review-2026-08-20.md
+      - Blind-review brief: blind-review-brief.md
+  - Time log: time-log.md

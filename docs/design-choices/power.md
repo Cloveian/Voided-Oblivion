@@ -46,7 +46,6 @@ What it requires:
 - buck converter for 5V from the high voltage line
 - a high voltage line running across the whole keyboard
 
-![power-flow](power-flow.canvas)
 
 **Idea #2:** uhhh, no PD, just deal with the lack of power and limit the LEDs.
 

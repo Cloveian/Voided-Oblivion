@@ -2,7 +2,7 @@
 
 Hall sensor + mux + ADC math. Parts from [chips](../chips.md); decisions from [hall-effect-sensors](../design-choices/hall-effect-sensors.md).
 
-Values are **as-built**, with the derivation. Where the independent [datasheet research](../research/) disagrees or found a gap, it's called out.
+Values are **as-built**, with the derivation. Where the independent [datasheet research](../research/README.md) disagrees or found a gap, it's called out.
 
 Per-section skeleton: **Goal → Datasheet refs → Math → Result → Notes/gotchas.**
 
@@ -336,4 +336,4 @@ Cost of carrying it: 2 SOT-23 + 4× 0402 footprints, 2 GPIO (8 spare), and the s
 - The E pins are hard-tied low through 0Ω jumpers. Leaving as-is: with no bank switching there's nothing to blank the muxes *for*, and the jumpers mean a GPIO can be wired in later if that changes.
 
 ---
-Back to [schematic-design index](index.md) · [checklist](../schematic-checklist.md) · [research](../research/)
+Back to [schematic-design index](index.md) · [checklist](../schematic-checklist.md) · [research](../research/README.md)

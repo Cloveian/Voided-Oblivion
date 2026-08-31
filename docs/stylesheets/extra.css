@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Voided Oblivion - supersession system
+
+   These docs are a design journal, not a manual. Reasoning that turned out
+   to be wrong is kept, not deleted, because the *why* is the useful part.
+   The styles below make "this was wrong" visible at a glance instead of
+   300 lines later.
+
+   Three tiers:
+     1. <div class="superseded" markdown>  - dim a stale block in place
+     2. ??? superseded "..."               - collapse a long stale block
+     3. .status-* badges                   - page-level state
+   ========================================================================== */
+
+:root {
+  --vo-superseded: #d68910;
+  --vo-correction: #e05252;
+  --vo-asbuilt:    #3fa675;
+}
+
+/* --------------------------------------------------------------------------
+   1. Dimmed in-place block
+   Wrap stale prose in:
+
+     <div class="superseded" markdown>
+     **Superseded** - reason. -> [link to the correction](#anchor)
+
+     ...original text, untouched...
+     </div>
+
+   Desaturated and slightly faded so it reads as background, but fully
+   restored on hover/focus so it stays genuinely readable when you want it.
+   -------------------------------------------------------------------------- */
+
+.md-typeset .superseded {
+  position: relative;
+  margin: 1.4em 0;
+  padding: 2.2em 1em 0.4em 1.1em;
+  border-left: 3px solid var(--vo-superseded);
+  border-radius: 0 .2rem .2rem 0;
+  background-color: rgba(214, 137, 16, 0.05);
+  filter: grayscale(0.55);
+  opacity: 0.72;
+  transition: opacity .2s ease, filter .2s ease;
+}
+
+.md-typeset .superseded:hover,
+.md-typeset .superseded:focus-within {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* the corner ribbon */
+.md-typeset .superseded::before {
+  content: "SUPERSEDED";
+  position: absolute;
+  top: .55em;
+  left: 1.1em;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .11em;
+  color: var(--vo-superseded);
+}
+
+/* the pointer to the correction always stays legible */
+.md-typeset .superseded > p:first-of-type {
+  filter: grayscale(0);
+  opacity: 1;
+  font-size: .78rem;
+  margin-top: 0;
+  color: var(--md-default-fg-color--light);
+}
+
+/* variant: still true, but no longer the reason it's true */
+.md-typeset .superseded.partial {
+  border-left-color: var(--md-default-fg-color--lighter);
+  background-color: transparent;
+}
+.md-typeset .superseded.partial::before {
+  content: "PARTLY SUPERSEDED";
+  color: var(--md-default-fg-color--light);
+}
+
+/* --------------------------------------------------------------------------
+   2. Custom admonition types
+   Usage:  !!! superseded "..."   /   ??? superseded "..."  (collapsed)
+           !!! correction "..."
+           !!! asbuilt "..."
+   -------------------------------------------------------------------------- */
+
+:root {
+  --md-admonition-icon--superseded: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.5,8H12V13L16.28,15.54L17,14.33L13.5,12.25V8M13,3A9,9 0 0,0 4,12H1L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.51,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3"/></svg>');
+  --md-admonition-icon--correction: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>');
+  --md-admonition-icon--asbuilt: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/></svg>');
+}
+
+.md-typeset .admonition.superseded,
+.md-typeset details.superseded { border-color: var(--vo-superseded); }
+.md-typeset .superseded > .admonition-title,
+.md-typeset .superseded > summary { background-color: rgba(214, 137, 16, .1); }
+.md-typeset .superseded > .admonition-title::before,
+.md-typeset .superseded > summary::before {
+  background-color: var(--vo-superseded);
+  -webkit-mask-image: var(--md-admonition-icon--superseded);
+          mask-image: var(--md-admonition-icon--superseded);
+}
+
+.md-typeset .admonition.correction,
+.md-typeset details.correction { border-color: var(--vo-correction); }
+.md-typeset .correction > .admonition-title,
+.md-typeset .correction > summary { background-color: rgba(224, 82, 82, .1); }
+.md-typeset .correction > .admonition-title::before,
+.md-typeset .correction > summary::before {
+  background-color: var(--vo-correction);
+  -webkit-mask-image: var(--md-admonition-icon--correction);
+          mask-image: var(--md-admonition-icon--correction);
+}
+
+.md-typeset .admonition.asbuilt,
+.md-typeset details.asbuilt { border-color: var(--vo-asbuilt); }
+.md-typeset .asbuilt > .admonition-title,
+.md-typeset .asbuilt > summary { background-color: rgba(63, 166, 117, .1); }
+.md-typeset .asbuilt > .admonition-title::before,
+.md-typeset .asbuilt > summary::before {
+  background-color: var(--vo-asbuilt);
+  -webkit-mask-image: var(--md-admonition-icon--asbuilt);
+          mask-image: var(--md-admonition-icon--asbuilt);
+}
+
+/* the details/superseded variant must not inherit the dimming from tier 1 */
+.md-typeset details.superseded {
+  filter: none;
+  opacity: 1;
+  padding: 0;
+  background-color: transparent;
+  border-left-width: .05rem;
+}
+.md-typeset details.superseded::before { content: none; }
+
+/* --------------------------------------------------------------------------
+   3. Page status badges
+   Put directly under the H1:  `Settled`{.status .settled}
+   -------------------------------------------------------------------------- */
+
+.md-typeset .status {
+  display: inline-block;
+  padding: .12em .6em;
+  border-radius: 1em;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.md-typeset .status.settled    { background: rgba(63, 166, 117, .16); color: var(--vo-asbuilt); }
+.md-typeset .status.revisited  { background: rgba(214, 137, 16, .16); color: var(--vo-superseded); }
+.md-typeset .status.superseded { background: rgba(224, 82, 82, .16);  color: var(--vo-correction); }
+
+/* strikethrough is used a lot for dead ideas - make it read as dead */
+.md-typeset del {
+  color: var(--md-default-fg-color--light);
+  text-decoration-color: var(--vo-correction);
+}

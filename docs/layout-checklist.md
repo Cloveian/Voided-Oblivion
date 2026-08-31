@@ -1,8 +1,21 @@
 # Layout checklist - finishing placement and routing
 
+`Complete`{.status .settled}
+
 Where the board actually is, and the order to finish it in. Companion to [routing order](design-choices/pcb-stackup.md#routing-order), which has the *why*; this has the *what's left*.
 
+!!! asbuilt "Done as of 2026-08-30 - the board is going to fab"
+    everything below is finished: placement, routing, zones and silk. the phases are
+    kept because the *order* turned out to be the useful part, not the state. if you're
+    reading this to find out what's left, the answer is nothing.
+
+<div class="superseded" markdown>
+
+Counts from when this page was written, kept so the phase ordering below still makes sense.
+
 **State as of writing:** 261 of 425 footprints placed, 530 segments, 86 vias, 32 zones. 242 multi-part nets excluding GND - **73 have tracks, 169 don't.**
+
+</div>
 
 ---
 

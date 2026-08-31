@@ -2,7 +2,7 @@
 
 Datasheet math for the USB front-end and the inter-tile / submodule links. Parts from [chips](../chips.md); behaviour from [comms design-choice](../design-choices/comms.md); the PD/CC re-decision is in [comms revisit](../design-choices/comms.md#revisit-pdcc-architecture-the-cc-mux-doesnt-survive-cold-start).
 
-Values here are **as-built**, with the derivation. Where the independent [datasheet research](../research/) disagrees, both are shown and resolved.
+Values here are **as-built**, with the derivation. Where the independent [datasheet research](../research/README.md) disagrees, both are shown and resolved.
 
 Per-section skeleton: **Goal → Datasheet refs → Math → Result → Notes/gotchas.**
 
@@ -211,4 +211,4 @@ either way the two sides that carry real traffic get the two hardware UARTs, and
 - Nothing here constrains the electrical design further until the physical connector is picked - the 4-signal contract is fixed either way.
 
 ---
-Back to [schematic-design index](index.md) · [checklist](../schematic-checklist.md) · [research](../research/)
+Back to [schematic-design index](index.md) · [checklist](../schematic-checklist.md) · [research](../research/README.md)
