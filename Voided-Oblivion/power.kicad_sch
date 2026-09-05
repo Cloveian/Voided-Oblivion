@@ -30985,7 +30985,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files no)
 		(dnp yes)
@@ -31001,7 +31001,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "DNP"
+		(property "Value" ""
 			(at 35.56 175.895 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -35299,7 +35299,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "f8acbf7c-0d8e-44f5-813d-cc7caf72a6a4")
 		(property "Reference" "C37"

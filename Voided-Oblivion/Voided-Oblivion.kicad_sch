@@ -4129,7 +4129,10 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Voided-Oblivion-misc:SW_Push_Shielded"
+		(symbol "Switch:SW_Push"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -4139,29 +4142,28 @@
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "SW1"
-				(at 1.778 7.112 90)
+			(property "Reference" "SW"
+				(at 1.27 2.54 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify right)
+					(justify left)
 				)
 			)
-			(property "Value" "boot"
-				(at -2.032 7.366 90)
+			(property "Value" "SW_Push"
+				(at 0 -1.524 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify right)
 				)
 			)
-			(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010"
+			(property "Footprint" ""
 				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4183,28 +4185,7 @@
 					)
 				)
 			)
-			(property "Description" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "LCSC" "C110293"
-				(at 0 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "switch normally-open pushbutton momentary"
+			(property "Description" "Push button switch, generic, two pins"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -4215,7 +4196,18 @@
 					)
 				)
 			)
-			(symbol "SW_Push_Shielded_0_1"
+			(property "ki_keywords" "switch normally-open pushbutton push-button"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "SW_Push_0_1"
 				(circle
 					(center -2.032 0)
 					(radius 0.508)
@@ -4233,30 +4225,6 @@
 					)
 					(stroke
 						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 2.54) (xy 3.048 2.54) (xy 3.048 -1.143) (xy -3.048 -1.143) (xy -3.048 2.54) (xy -0.508 2.54)
-					)
-					(stroke
-						(width -0.0254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.508 2.54) (xy 3.048 2.54) (xy 3.048 -1.143) (xy -3.048 -1.143) (xy -3.048 2.54) (xy -0.508 2.54)
-					)
-					(stroke
-						(width 0.254)
 						(type default)
 					)
 					(fill
@@ -4315,37 +4283,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "SW_Push_Shielded_1_1"
-				(rectangle
-					(start -3.048 2.54)
-					(end 3.048 -1.27)
-					(stroke
-						(width -0.0254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "MP"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -13672,9 +13609,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "00000000-0000-0000-0000-00005edac067")
 		(property "Reference" "R1"
@@ -13723,6 +13660,17 @@
 		)
 		(property "Description" ""
 			(at 50.8 129.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 50.8 129.54 90)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15611,9 +15559,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "02cbe2d4-0509-4226-845a-ed75dfe020e1")
 		(property "Reference" "C22"
@@ -18853,7 +18801,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Voided-Oblivion-misc:SW_Push_Shielded")
+		(lib_id "Switch:SW_Push")
 		(at 130.81 180.34 0)
 		(unit 1)
 		(body_style 1)
@@ -18874,7 +18822,7 @@
 				)
 			)
 		)
-		(property "Value" "reset"
+		(property "Value" ""
 			(at 130.81 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -18884,7 +18832,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010"
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_EVQP7C"
 			(at 130.81 175.26 0)
 			(hide yes)
 			(show_name no)
@@ -18906,8 +18854,8 @@
 				)
 			)
 		)
-		(property "Description" ""
-			(at 130.81 180.34 0)
+		(property "Description" "reset"
+			(at 130.81 175.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -18916,7 +18864,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C110293"
+		(property "LCSC" "C388883"
 			(at 130.81 180.34 0)
 			(hide yes)
 			(show_name no)
@@ -18927,7 +18875,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "ALPSALPINE"
+		(property "Manufacturer" "Panasonic"
 			(at 0 0 0)
 			(hide yes)
 			(show_name no)
@@ -18938,7 +18886,7 @@
 				)
 			)
 		)
-		(property "MPN" "SKRTLAE010"
+		(property "MPN" "EVQ-P7C01P"
 			(at 0 0 0)
 			(hide yes)
 			(show_name no)
@@ -18954,9 +18902,6 @@
 		)
 		(pin "2"
 			(uuid "60bc8042-9019-4595-8e44-d914b37edcf2")
-		)
-		(pin "MP"
-			(uuid "f7e99d36-2525-4e59-aeb1-8f58de01905c")
 		)
 		(instances
 			(project "Voided-Oblivion"
@@ -20924,6 +20869,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C17168"
+			(at 35.56 195.58 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "c09e97cc-dace-4298-8f49-8e9aae57d478")
 		)
@@ -21580,7 +21536,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C3221749"
+		(property "LCSC" "C42411119"
 			(at 132.08 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -21591,7 +21547,7 @@
 				)
 			)
 		)
-		(property "MPN" "VLS201610CX-3R3M-1"
+		(property "MPN" "AOTA-B201610S3R3-101-T"
 			(at 132.08 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -21602,7 +21558,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "TDK"
+		(property "Manufacturer" "Abracon LLC"
 			(at 132.08 123.19 0)
 			(hide yes)
 			(show_name no)
@@ -24319,9 +24275,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "7731ba7e-8a6d-4656-bb4e-51b7fbf8d187")
@@ -24486,82 +24442,6 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da"
 					(reference "TP23")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 130.81 184.15 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "79876df2-69f4-4890-a415-b735e4897d5d")
-		(property "Reference" "#PWR0227"
-			(at 130.81 190.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 130.937 188.5442 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 130.81 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 130.81 184.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 130.81 184.15 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8b948357-70b2-4436-aaf7-c5a894df280a")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da"
-					(reference "#PWR0227")
 					(unit 1)
 				)
 			)
@@ -25286,82 +25166,6 @@
 			(project "Voided-Oblivion"
 				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da"
 					(reference "C7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 130.81 146.05 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "840b0d74-727b-4742-adde-0019a173f77c")
-		(property "Reference" "#PWR0226"
-			(at 137.16 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 135.2042 145.923 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 130.81 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 130.81 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 130.81 146.05 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7ca38f6b-e20b-49df-b44d-5fd65401feb4")
-		)
-		(instances
-			(project "Voided-Oblivion"
-				(path "/d39297fe-343b-4cf0-9c31-a16e101c76da"
-					(reference "#PWR0226")
 					(unit 1)
 				)
 			)
@@ -27797,7 +27601,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Voided-Oblivion-misc:SW_Push_Shielded")
+		(lib_id "Switch:SW_Push")
 		(at 127 146.05 90)
 		(unit 1)
 		(body_style 1)
@@ -27806,9 +27610,10 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "bc559360-5dcd-43ea-8676-fb240b85ecc4")
 		(property "Reference" "SW1"
-			(at 119.888 144.272 90)
+			(at 128.27 144.7799 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -27818,8 +27623,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "boot"
-			(at 119.634 148.082 90)
+		(property "Value" ""
+			(at 128.27 147.3199 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -27829,7 +27634,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010"
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_EVQP7C"
 			(at 121.92 146.05 0)
 			(hide yes)
 			(show_name no)
@@ -27851,17 +27656,18 @@
 				)
 			)
 		)
-		(property "Description" ""
-			(at 127 146.05 0)
+		(property "Description" "boot"
+			(at 128.27 147.3199 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "LCSC" "C110293"
+		(property "LCSC" "C388883"
 			(at 127 146.05 90)
 			(hide yes)
 			(show_name no)
@@ -27872,7 +27678,7 @@
 				)
 			)
 		)
-		(property "Manufacturer" "ALPSALPINE"
+		(property "Manufacturer" "Panasonic"
 			(at 0 0 0)
 			(hide yes)
 			(show_name no)
@@ -27883,7 +27689,7 @@
 				)
 			)
 		)
-		(property "MPN" "SKRTLAE010"
+		(property "MPN" "EVQ-P7C01P"
 			(at 0 0 0)
 			(hide yes)
 			(show_name no)
@@ -27899,9 +27705,6 @@
 		)
 		(pin "2"
 			(uuid "1c83d932-fb4e-4271-8f55-c2476e14a081")
-		)
-		(pin "MP"
-			(uuid "be2b32a5-dfbe-442e-bc24-900c2ebbe3ec")
 		)
 		(instances
 			(project "Voided-Oblivion"
@@ -28523,7 +28326,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "RP2350_80QFN_minimal:C_0402_1005Metric_small_pads"
+		(property "Footprint" "Voided-Oblivion-misc:C_0402_1005Metric-no-silkscreen-text"
 			(at 130.5052 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -29732,9 +29535,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "cd4b5b1c-2a73-4b45-836f-b177f5a8c60e")
 		(property "Reference" "R13"
@@ -29783,6 +29586,17 @@
 		)
 		(property "Description" ""
 			(at 52.07 187.96 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25744"
+			(at 52.07 187.96 90)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
