@@ -75,6 +75,7 @@ nav:
       - Goals & constraints: goals.md
       - Overview: overview.md
       - Chip list: chips.md
+      - Datasheets: datasheets.md
   - Design choices:
       - design-choices/index.md
       - Form factor: design-choices/form-factor.md
