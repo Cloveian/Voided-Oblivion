@@ -70,4 +70,4 @@ Design choices are settled; now wiring up one tile.
 
 ## Laying out the board
 - [Layout checklist](layout-checklist.md) - what was left to place and route, in order. **Done** - everything placed and routed, zones filled, silk finished
-- [Recommended layouts](https://github.com/Cloveian/Voided-Oblivion/blob/main/Refrences/recommended-layouts/recommended-layouts.pdf) - datasheet layout pages for every chip, stitched, titled with the ref designator and what it does here
+- Recommended layouts - datasheet layout pages for every chip, stitched, titled with the ref designator and what it does here. not in the repo (manufacturer content); see [datasheets](datasheets.md) for where each one comes from

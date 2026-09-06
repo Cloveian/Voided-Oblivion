@@ -5263,6 +5263,16 @@
 		)
 		(uuid "34865ac1-ac6c-4982-a392-9a0c521729d0")
 	)
+	(text "not nessisary for \nthis spisific flash"
+		(exclude_from_sim no)
+		(at 35.56 187.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "59673d55-d239-459d-b6ed-af8f0b407c01")
+	)
 	(text "Secondary Flash/PSRAM"
 		(exclude_from_sim no)
 		(at 27.94 171.45 0)
@@ -5284,6 +5294,16 @@
 			(justify left bottom)
 		)
 		(uuid "6ee3e143-579d-478a-9f82-3911a298a2b1")
+	)
+	(text "not nessisary for \nthis spisific flash"
+		(exclude_from_sim no)
+		(at 34.29 129.54 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "708be708-751d-4f2f-9375-923dd578e77e")
 	)
 	(text "JST Debug Connector"
 		(exclude_from_sim no)
@@ -7196,6 +7216,16 @@
 		)
 		(uuid "4f052597-0ad2-41e9-a8a9-aac428269db1")
 	)
+	(polyline
+		(pts
+			(xy 46.99 186.69) (xy 48.26 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f12e41d-834c-45eb-9491-f83d2ecc168c")
+	)
 	(wire
 		(pts
 			(xy 379.73 111.76) (xy 383.54 111.76)
@@ -7445,6 +7475,16 @@
 			(type default)
 		)
 		(uuid "60c69a65-6992-48b5-9d36-a7ef2c3d6484")
+	)
+	(polyline
+		(pts
+			(xy 43.18 129.54) (xy 46.99 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60d8ae48-3f70-47c1-844b-7f913f8730a5")
 	)
 	(wire
 		(pts
@@ -7855,6 +7895,16 @@
 			(type default)
 		)
 		(uuid "7742c304-310c-437e-8cde-ad8f1f78edd0")
+	)
+	(polyline
+		(pts
+			(xy 45.72 128.27) (xy 46.99 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78046373-4277-4ecd-93af-36346a1ad611")
 	)
 	(wire
 		(pts
@@ -8345,6 +8395,16 @@
 			(type default)
 		)
 		(uuid "93e45568-d221-4408-95a8-44ecc920f290")
+	)
+	(polyline
+		(pts
+			(xy 48.26 187.96) (xy 46.99 189.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93e7ce2e-2886-4b9c-ae65-31f152c1b43a")
 	)
 	(wire
 		(pts
@@ -9086,6 +9146,16 @@
 		)
 		(uuid "c025dfd4-20fc-4113-9d7c-b086a6c31e09")
 	)
+	(polyline
+		(pts
+			(xy 46.99 129.54) (xy 45.72 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c02c5bfa-f558-4971-a0fb-1611e7401b99")
+	)
 	(wire
 		(pts
 			(xy 337.82 132.08) (xy 337.82 130.81)
@@ -9525,6 +9595,16 @@
 			(type default)
 		)
 		(uuid "d78b5f2d-6cc4-493a-98ab-0b4d406f649f")
+	)
+	(polyline
+		(pts
+			(xy 44.45 187.96) (xy 48.26 187.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8d6df8c-4213-496e-b143-495d53c57b0a")
 	)
 	(wire
 		(pts
@@ -15559,10 +15639,10 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
-		(in_pos_files no)
-		(dnp yes)
+		(in_pos_files yes)
+		(dnp no)
 		(uuid "02cbe2d4-0509-4226-845a-ed75dfe020e1")
 		(property "Reference" "C22"
 			(at 75.311 182.9816 0)
@@ -20813,7 +20893,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "48df845a-9555-4805-b534-ab90c100c0ee")
 		(property "Reference" "R11"
 			(at 37.465 195.58 90)
@@ -24275,10 +24355,10 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
-		(in_pos_files no)
-		(dnp yes)
+		(in_pos_files yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7731ba7e-8a6d-4656-bb4e-51b7fbf8d187")
 		(property "Reference" "U4"
@@ -24327,6 +24407,17 @@
 		)
 		(property "Description" "128Mbit / 16MiB Serial Flash Memory, Standard/Dual/Quad SPI, 2.7-3.6V, SOIC-8"
 			(at 66.04 175.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C97521"
+			(at 66.04 203.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29535,7 +29626,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files no)
 		(dnp yes)

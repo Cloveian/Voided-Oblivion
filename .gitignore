@@ -4,3 +4,13 @@
 *.edtz
 /.venv/
 /site/
+
+# large / third-party / regenerable - kept locally, out of git
+/Refrences/datasheets/
+/Refrences/recommended-layouts/
+/analysis/
+/old/
+Voided-Oblivion/Voided-Oblivion-backups/
+.schematic-backups/
+fp-info-cache
+_restore_backup_*

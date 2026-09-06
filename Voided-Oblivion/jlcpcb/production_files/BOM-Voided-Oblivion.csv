@@ -1,7 +1,7 @@
 Comment,Designator,Footprint,LCSC,Quantity
-0Ω,"R10,R102,R103,R12,R14,R15,R16,R27,R52,R53,R54,R55,R56,R61,R62,R65,R66,R84,R85,R86,R87",R_0402_1005Metric-no-silkscreen-text,C17168,21
+0Ω,"R10,R102,R103,R11,R12,R14,R15,R16,R27,R52,R53,R54,R55,R56,R61,R62,R65,R66,R84,R85,R86,R87",R_0402_1005Metric-no-silkscreen-text,C17168,22
 100kΩ,"R19,R25,R32,R39,R47,R67,R68,R69,R70,R83,R96",R_0402_1005Metric-no-silkscreen-text,C25741,11
-100nF,"C100,C101,C102,C103,C104,C105,C106,C107,C108,C109,C11,C110,C111,C112,C113,C115,C116,C117,C118,C119,C12,C122,C123,C124,C125,C126,C127,C128,C129,C13,C130,C14,C15,C16,C17,C18,C2,C20,C21,C25,C27,C32,C33,C38,C39,C42,C43,C44,C46,C47,C48,C49,C50,C51,C52,C53,C54,C55,C56,C57,C58,C59,C60,C61,C62,C63,C64,C65,C66,C67,C68,C69,C70,C71,C72,C73,C74,C75,C78,C79,C8,C80,C81,C82,C83,C84,C85,C86,C87,C88,C89,C90,C91,C92,C93,C94,C95,C96,C97,C98,C99",C_0402_1005Metric-no-silkscreen-text,C307331,101
+100nF,"C100,C101,C102,C103,C104,C105,C106,C107,C108,C109,C11,C110,C111,C112,C113,C115,C116,C117,C118,C119,C12,C122,C123,C124,C125,C126,C127,C128,C129,C13,C130,C14,C15,C16,C17,C18,C2,C20,C21,C22,C25,C27,C32,C33,C38,C39,C42,C43,C44,C46,C47,C48,C49,C50,C51,C52,C53,C54,C55,C56,C57,C58,C59,C60,C61,C62,C63,C64,C65,C66,C67,C68,C69,C70,C71,C72,C73,C74,C75,C78,C79,C8,C80,C81,C82,C83,C84,C85,C86,C87,C88,C89,C90,C91,C92,C93,C94,C95,C96,C97,C98,C99",C_0402_1005Metric-no-silkscreen-text,C307331,102
 100Ω,"R48,R49,R50,R51",R_0402_1005Metric-no-silkscreen-text,C25076,4
 10kΩ,"R100,R101,R29,R33,R37,R93,R94,R97",R_0402_1005Metric-no-silkscreen-text,C25744,8
 10kΩ,R31,R_0402_1005Metric-no-silkscreen-text,C2902636,1
@@ -53,3 +53,56 @@ USB_C_Receptacle_USB2.0_16P,"USB1,USB2",USB_C_Receptacle_HCTL_HC-TYPE-C-16P-01A,
 W25Q128JVS,U3,SOIC-8_5.3x5.3mm_P1.27mm,C97521,1
 ~,"LED1,LED10,LED11,LED12,LED13,LED14,LED15,LED16,LED17,LED18,LED19,LED2,LED20,LED21,LED22,LED23,LED24,LED25,LED26,LED27,LED28,LED29,LED3,LED30,LED4,LED5,LED6,LED7,LED8,LED9",SK9822-EC20,C2909059,30
 ~,"SW1,SW2",SW_SPST_EVQP7C,C388883,2
+Sub-Module RB,J19,5-pin-machined-female-pin-headers-sunk,,1
+Sub-Module TL,J10,5-pin-machined-female-pin-headers-sunk,,1
+Sub-Module LB,J17,5-pin-machined-female-pin-headers-sunk,,1
+Bottom female,J8,PG-6P-2.5-5.5H-SM-RA-Female,,1
+W25Q128JVS,U4,SOIC-8_5.3x5.3mm_P1.27mm,,1
+Sub-Module RT,J20,5-pin-machined-female-pin-headers-sunk,,1
+Right male,J3,PG-6P-2.5-5.5H-SM-RA-Male,,1
+Sub-Module BL,J16,5-pin-machined-female-pin-headers-sunk,,1
+Top male,J1,PG-6P-2.5-5.5H-SM-RA-Male,,1
+Left male,J5,PG-6P-2.5-5.5H-SM-RA-Male,,1
+Right female,J4,PG-6P-2.5-5.5H-SM-RA-Female,,1
+Sub-Module BR,J18,5-pin-machined-female-pin-headers-sunk,,1
+Sub-Module TR,J12,5-pin-machined-female-pin-headers-sunk,,1
+Bottom male,J7,PG-6P-2.5-5.5H-SM-RA-Male,,1
+Top female,J2,PG-6P-2.5-5.5H-SM-RA-Female,,1
+Left female,J6,PG-6P-2.5-5.5H-SM-RA-Female,,1
+Sub-Module LT,J11,5-pin-machined-female-pin-headers-sunk,,1
+BOOT,TP36,TestPoint_Pad_D1.0mm,,1
+PD1 INT,TP16,TestPoint_Pad_D1.0mm,,1
+GND,TP11,TestPoint_Pad_D1.0mm,,1
+RUN,TP35,TestPoint_Pad_D1.0mm,,1
+PD L,TP25,TestPoint_Pad_D1.0mm,,1
+AS3,TP32,TestPoint_Pad_D1.0mm,,1
+SM+ EN,TP27,TestPoint_Pad_D1.0mm,,1
++3V3,TP6,TestPoint_Pad_D1.0mm,,1
++1V1,TP7,TestPoint_Pad_D1.0mm,,1
+SM+,TP8,TestPoint_Pad_D1.0mm,,1
+PD2 INT,TP19,TestPoint_Pad_D1.0mm,,1
+BS+,TP2,TestPoint_Pad_D1.0mm,,1
+AS0,TP29,TestPoint_Pad_D1.0mm,,1
+GND,TP12,TestPoint_Pad_D1.0mm,,1
+AS2,TP31,TestPoint_Pad_D1.0mm,,1
+GND,TP10,TestPoint_Pad_D1.0mm,,1
+VBUS,TP9,TestPoint_Pad_D1.0mm,,1
+AS1,TP30,TestPoint_Pad_D1.0mm,,1
+BS+ SRC,TP3,TestPoint_Pad_D1.0mm,,1
+PD T,TP22,TestPoint_Pad_D1.0mm,,1
+USB SEL,TP28,TestPoint_Pad_D1.0mm,,1
+PD+,TP1,TestPoint_Pad_D1.0mm,,1
+PD1 SCL,TP15,TestPoint_Pad_D1.0mm,,1
++5VP,TP5,TestPoint_Pad_D1.0mm,,1
+LED TX,TP34,TestPoint_Pad_D1.0mm,,1
+SM BS EN,TP26,TestPoint_Pad_D1.0mm,,1
+PD2 SDA,TP17,TestPoint_Pad_D1.0mm,,1
+SM BUS,TP37,TestPoint_Pad_D1.0mm,,1
++5VA,TP4,TestPoint_Pad_D1.0mm,,1
+PD R,TP23,TestPoint_Pad_D1.0mm,,1
+GND,TP13,TestPoint_Pad_D1.0mm,,1
+LED SCK,TP33,TestPoint_Pad_D1.0mm,,1
+PD1 SDA,TP14,TestPoint_Pad_D1.0mm,,1
+5VP EN,TP21,TestPoint_Pad_D1.0mm,,1
+PD B,TP24,TestPoint_Pad_D1.0mm,,1
+PD2 SCL,TP18,TestPoint_Pad_D1.0mm,,1

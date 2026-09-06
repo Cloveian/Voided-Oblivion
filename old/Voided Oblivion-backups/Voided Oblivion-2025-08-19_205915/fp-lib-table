@@ -1,8 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "rp2350")(type "KiCad")(uri "${KIPRJMOD}/footprints/rp2350")(options "")(descr ""))
-  (lib (name "VoidSwich")(type "KiCad")(uri "${KIPRJMOD}/footprints/VoidSwich")(options "")(descr ""))
-  (lib (name "Package_DFN_QFN_Extra")(type "KiCad")(uri "${KIPRJMOD}/footprints/Package_DFN_QFN_Extra.pretty")(options "")(descr ""))
-  (lib (name "Symbols_Extra")(type "KiCad")(uri "${KIPRJMOD}/footprints/Symbols_Extra.pretty")(options "")(descr ""))
-  (lib (name "Waveshare Core2350B")(type "KiCad")(uri "${KIPRJMOD}/Waveshare Core2350B.pretty")(options "")(descr ""))
-)
