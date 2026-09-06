@@ -61,10 +61,11 @@ machines. The interesting thing is that PIO uart is faster than hardware uart.
 | [`docs/`](docs/) | the design documentation, written while designing. an MkDocs site, but readable as plain markdown on GitHub |
 | [`layouts/`](layouts/) | keymaps in [keyboard-layout-editor](http://www.keyboard-layout-editor.com/) JSON, from 60% up to the silly ones |
 | [`scripts/`](scripts/) | tooling for the layouts and docs - deriving one arrangement from another, image-to-keymap, etc |
-| [`Refrences/`](Refrences/) | datasheets, the RP2350B minimal-board reference archive, and stitched recommended-layout pages |
-| [`analysis/`](analysis/) | dated analyzer output from the review passes |
 | [`graphics/`](graphics/) | silkscreen art |
-| `old/` | the first attempt, kept for reference |
+
+Datasheets aren't in the repo - they're manufacturer PDFs i don't own, and it was 129MB of them.
+[`docs/datasheets.md`](docs/datasheets.md) indexes every part and where to get its datasheet.
+`old/` (the first attempt) is out of the working tree but still in git history.
 
 ## Reading the docs
 
@@ -100,3 +101,27 @@ The carve-outs, in full in [LICENSE.md](LICENSE.md):
 - **The inter-tile connector interface is public domain** - pinout, pitch, gender rule, protocol.
   Submodules and accessories that mate with a tile are entirely yours to sell, commercially,
   without asking.
+
+## On LLM use
+
+i used LLMs while working on this, and i'd rather say so than have someone guess.
+
+**what they did:** the [datasheet research pages](docs/research/README.md) were written by agents
+that were handed a datasheet and the role a chip had to play, and *deliberately not shown my
+schematic*, so their conclusions could be diffed against what i'd actually drawn. same idea for
+the [review passes](docs/electrical-review-2026-08-20.md) - a second set of eyes that doesn't get
+tired. they also helped with editing the docs, and wrote some of the tooling in `scripts/`.
+
+**what they didn't do:** every idea, every design decision, the whole modular architecture, the
+trade studies, the schematic, and the layout are mine. every value in
+[schematic-design](docs/schematic-design/index.md) is one i derived and can defend. when the
+research disagreed with the board, i checked which one was wrong - sometimes it was me, and
+sometimes the [research was backwards](docs/chips.md) and would have meant a switch that never
+turns on. deciding which is which is the actual work, and it isn't something you can hand off.
+
+worth saying plainly: the blind review pass was maybe 60% noise. it also caught a bug that made
+the board 5V-only, which four sighted passes had missed. knowing which 40% to keep is the part
+that took a year of learning this stuff.
+
+also, and i say this as someone who has spent 100 hours in the same room as them: LLMs could not
+have done this. they really, really suck at it. trust me, i would know.
