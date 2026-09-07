@@ -51,5 +51,6 @@ permanently enabled and tied to VBUS instead of the PD rail (not always powered,
 
 - **What got designed:** [chip list](chips.md) · [schematic calcs](schematic-design/index.md) · [layout checklist](layout-checklist.md)
 - **Why the chosen features:**  [design decisions](design-choices/index.md) · [goals and constraints](goals.md)
+- **What runs on it:** [firmware](firmware/index.md) · [pin map](firmware/pin-map.md) · [truth table](firmware/truth-table.md)
 
 ---

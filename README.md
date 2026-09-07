@@ -123,5 +123,5 @@ worth saying plainly: the blind review pass was maybe 60% noise. it also caught 
 the board 5V-only, which four sighted passes had missed. knowing which 40% to keep is the part
 that took a year of learning this stuff.
 
-also, and i say this as someone who has spent 100 hours in the same room as them: LLMs could not
+also, and i say this as someone who has spent 100 hours on this project: LLMs could not
 have done this. they really, really suck at it. trust me, i would know.

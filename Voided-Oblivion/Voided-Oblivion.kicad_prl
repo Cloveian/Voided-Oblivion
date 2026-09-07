@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 13,
+    "active_layer": 5,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -50,8 +50,8 @@
       "shapes",
       "board_outline_area"
     ],
-    "visible_layers": "ffffffff_ffffffff_ffffffff_ffffffff",
-    "zone_display_mode": 0
+    "visible_layers": "ffffffff_ffffffff_ffffffff_ffff7f23",
+    "zone_display_mode": 1
   },
   "git": {
     "integration_disabled": false,
@@ -113,16 +113,16 @@
   "schematic": {
     "hierarchy_collapsed": [],
     "selection_filter": {
-      "graphics": true,
-      "images": true,
-      "labels": true,
+      "graphics": false,
+      "images": false,
+      "labels": false,
       "lockedItems": false,
-      "otherItems": true,
-      "pins": true,
-      "ruleAreas": true,
-      "symbols": true,
+      "otherItems": false,
+      "pins": false,
+      "ruleAreas": false,
+      "symbols": false,
       "text": true,
-      "wires": true
+      "wires": false
     }
   }
 }

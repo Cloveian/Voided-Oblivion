@@ -2126,32 +2126,6 @@
 		)
 		(uuid "9c7263c1-5ee1-483f-8a3f-2da0c45e72f5")
 	)
-	(text "0,5"
-		(exclude_from_sim no)
-		(at 24.765 29.21 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "0ed2be38-c29c-4c99-9f61-991dd5af761d")
-	)
-	(text "2,2"
-		(exclude_from_sim no)
-		(at 75.565 105.41 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "11b9f213-c5f6-4500-8232-df6243ac7964")
-	)
 	(text "Alignment Footprints"
 		(exclude_from_sim no)
 		(at 227.33 16.51 0)
@@ -2163,9 +2137,9 @@
 		)
 		(uuid "123ab2d8-401f-4296-ae54-f125c8882435")
 	)
-	(text "2,3"
+	(text "Row 2"
 		(exclude_from_sim no)
-		(at 75.565 80.01 0)
+		(at 17.78 91.44 90)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2174,11 +2148,11 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "16669894-dd26-4184-8ca2-01630e041c63")
+		(uuid "1f9b2644-6d7c-4247-8856-7bcf1030c115")
 	)
-	(text "4,4"
+	(text "Col 1"
 		(exclude_from_sim no)
-		(at 126.365 54.61 0)
+		(at 50.8 27.94 0)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2187,63 +2161,11 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "2594d828-6ce4-4bc0-98a7-df1a8c898465")
+		(uuid "2d2f6a8f-cc6e-4b9c-ba0c-b101fc1e694f")
 	)
-	(text "0,2"
+	(text "Col 0"
 		(exclude_from_sim no)
-		(at 24.765 105.41 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "304994f8-03cc-4a2c-b5ce-2aa72ef5f2a4")
-	)
-	(text "4,2"
-		(exclude_from_sim no)
-		(at 126.365 105.41 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "3a1b2f65-a0d6-4252-aa74-d2ca2c13245f")
-	)
-	(text "1,0"
-		(exclude_from_sim no)
-		(at 50.165 156.21 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "3d7614aa-81d3-4c3f-89be-f37e61f9cdf2")
-	)
-	(text "3,3"
-		(exclude_from_sim no)
-		(at 100.965 80.01 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "3e6def68-749b-4810-af52-dd919464e468")
-	)
-	(text "4,0"
-		(exclude_from_sim no)
-		(at 127 156.21 0)
+		(at 25.4 27.94 0)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2254,9 +2176,9 @@
 		)
 		(uuid "448be5af-9c0f-4336-ab6d-1b2884468ccc")
 	)
-	(text "1,4"
+	(text "Col 2"
 		(exclude_from_sim no)
-		(at 50.165 54.61 0)
+		(at 76.2 27.94 0)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2265,11 +2187,11 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "520bc5fb-f84f-4619-bee4-958d3d29b63d")
+		(uuid "678991c1-201a-4a49-9575-ff83ce1e021e")
 	)
-	(text "4,5"
+	(text "Row 4"
 		(exclude_from_sim no)
-		(at 126.365 29.21 0)
+		(at 17.78 142.24 90)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2278,85 +2200,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6076f21f-ceab-4d87-8b50-947d621db8ae")
-	)
-	(text "1,3"
-		(exclude_from_sim no)
-		(at 50.165 80.01 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "6ac40b6e-7513-4348-bdf3-32311ee1b1da")
-	)
-	(text "0,1"
-		(exclude_from_sim no)
-		(at 24.765 130.81 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "6c130327-bc96-4aa1-a3f3-be8aba706bf8")
-	)
-	(text "3,4"
-		(exclude_from_sim no)
-		(at 100.965 54.61 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "6cf815e9-5f4b-4545-9c83-bf2b7b5af40c")
-	)
-	(text "4,3"
-		(exclude_from_sim no)
-		(at 126.365 80.01 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "7105804c-1f56-434c-8eda-7a8fa83b1259")
-	)
-	(text "3,1"
-		(exclude_from_sim no)
-		(at 100.965 130.81 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "72d3fe76-f114-4ab8-b049-8d3719f645af")
-	)
-	(text "0,4"
-		(exclude_from_sim no)
-		(at 24.765 54.61 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "765c0775-71ae-43ef-b2d9-c176968c7ba3")
+		(uuid "716b6a94-f733-4ff8-8dcc-b290b3c97566")
 	)
 	(text "RGB LEDs"
 		(exclude_from_sim no)
@@ -2369,32 +2213,6 @@
 		)
 		(uuid "7b1af9ba-1d07-42f1-8cf6-a06dd3a51150")
 	)
-	(text "0,3"
-		(exclude_from_sim no)
-		(at 24.765 80.01 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "7c4c1e75-38c3-43f9-8118-8d8665ccde83")
-	)
-	(text "1,5"
-		(exclude_from_sim no)
-		(at 50.165 29.21 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "7c931a70-91f4-4e7f-8305-394b3bd97741")
-	)
 	(text "Analog Mux"
 		(exclude_from_sim no)
 		(at 154.94 17.78 0)
@@ -2406,9 +2224,9 @@
 		)
 		(uuid "7f9b2b86-523f-48a6-bfc3-a631426f267a")
 	)
-	(text "4,1"
+	(text "Row 3"
 		(exclude_from_sim no)
-		(at 126.365 130.81 0)
+		(at 17.78 116.84 90)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2417,7 +2235,20 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "91bcd9dd-78dc-4041-bd09-772446a2f24b")
+		(uuid "83f76a7b-264e-480d-93a9-315e4bf38d14")
+	)
+	(text "Row 1"
+		(exclude_from_sim no)
+		(at 17.78 66.04 90)
+		(effects
+			(font
+				(size 2.0066 2.0066)
+				(thickness 0.4013)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+		(uuid "90bf6108-5982-4311-b834-427dd12bae72")
 	)
 	(text "Hall Effect Sensors"
 		(exclude_from_sim no)
@@ -2430,9 +2261,9 @@
 		)
 		(uuid "a1343fd7-6908-4399-a7be-8a1097826c37")
 	)
-	(text "2,0"
+	(text "Col 4"
 		(exclude_from_sim no)
-		(at 75.565 156.21 0)
+		(at 127 27.94 0)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2441,11 +2272,11 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b91676de-29aa-4c01-8152-4e13915c46dd")
+		(uuid "a1bc1a67-bdf3-4b15-91ce-7ba150b95cfa")
 	)
-	(text "2,1"
+	(text "Row 5"
 		(exclude_from_sim no)
-		(at 75.565 130.81 0)
+		(at 17.78 167.64 90)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2454,11 +2285,11 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b91889e6-dfec-4455-8484-550be9e88e5c")
+		(uuid "b8615374-860c-4c60-ab62-d1231117569d")
 	)
-	(text "0,0"
+	(text "Row 0"
 		(exclude_from_sim no)
-		(at 24.765 156.21 0)
+		(at 17.78 40.64 90)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2480,9 +2311,9 @@
 		)
 		(uuid "c5c2b249-a8cb-4294-bd81-c020c928ad41")
 	)
-	(text "1,1"
+	(text "Col 3"
 		(exclude_from_sim no)
-		(at 50.165 130.81 0)
+		(at 101.6 27.94 0)
 		(effects
 			(font
 				(size 2.0066 2.0066)
@@ -2491,72 +2322,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c8de584b-129a-4ecb-a5ff-b1b57efa3047")
-	)
-	(text "3,2"
-		(exclude_from_sim no)
-		(at 100.965 105.41 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "cc08bc96-c900-4069-9b03-3e5fe70d464e")
-	)
-	(text "2,4"
-		(exclude_from_sim no)
-		(at 75.565 54.61 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "cc1f43d5-edb8-4a9d-aeae-0338b524e5fd")
-	)
-	(text "1,2"
-		(exclude_from_sim no)
-		(at 50.165 105.41 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "d31f5830-b275-4c53-a5e0-fcff18c150ac")
-	)
-	(text "2,5"
-		(exclude_from_sim no)
-		(at 75.565 29.21 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "d6067adc-7ecb-49fe-af56-3ad67fb79317")
-	)
-	(text "3,5"
-		(exclude_from_sim no)
-		(at 100.965 29.21 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "d84fe62c-f714-4d66-9741-af040a75c8a0")
+		(uuid "c806a5bd-ccdb-4d66-a65d-283553f16f92")
 	)
 	(text "Put 1 of these next to each sensor between pin 1 and 3"
 		(exclude_from_sim no)
@@ -2568,19 +2334,6 @@
 			(justify left bottom)
 		)
 		(uuid "fa5f980b-ada5-4bfa-8645-3d4c20a463db")
-	)
-	(text "3,0"
-		(exclude_from_sim no)
-		(at 100.965 156.21 0)
-		(effects
-			(font
-				(size 2.0066 2.0066)
-				(thickness 0.4013)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-		(uuid "fbe29498-46a0-4e7a-9bf1-4e185125fb60")
 	)
 	(junction
 		(at 38.1 215.9)

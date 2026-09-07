@@ -101,6 +101,13 @@ nav:
       - Implementation log: schematic-design/implementation.md
       - Build log: schematic-design/log.md
       - Layout checklist: layout-checklist.md
+  - Firmware:
+      - firmware/index.md
+      - Pin map: firmware/pin-map.md
+      - Truth table: firmware/truth-table.md
+      - Naming: firmware/naming.md
+      - Platform: firmware/platform.md
+      - Firmware log: firmware/log.md
   - Research:
       - research/README.md
       - BOM sourcing: research/bom-sourcing.md

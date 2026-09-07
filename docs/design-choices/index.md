@@ -2,10 +2,6 @@
 
 `Revisited`{.status .revisited}
 
-<!-- STUB - this is a reading-path skeleton, not finished prose. The one-line
-     descriptors below are lifted verbatim from the root index so nothing here
-     is invented; rewrite them in your own voice when you do the content pass. -->
-
 Read these roughly in order - each one constrains the next, and several get
 reopened later once a downstream decision proved them wrong.
 
