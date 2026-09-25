@@ -1,8 +1,6 @@
 # Pin map
 
-Every GPIO on the RP2350B, what it's wired to, and what firmware needs to know about it. The same pins grouped by what they *do*, with the state meanings, are in the [truth table](truth-table.md).
-
-**44/48 GPIO, 6/8 ADC, 12/12 PIO state machines.**
+RP2350B GPIO connections and some info (see [truth table](truth-table.md) for what states mean what)
 
 | GPIO | Net            | Peripheral | What firmware needs to know                                                                                                                       |
 | :--: | -------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,7 +53,6 @@ Every GPIO on the RP2350B, what it's wired to, and what firmware needs to know a
 |  46  | *spare*        | (ADC6)     | Still ADC-capable                                                                                                                                 |
 |  47  | *spare*        | (ADC7)     | Still ADC-capable                                                                                                                                 |
 
-**TL / TR / BR / BL** are the four submodule corners, matching the [truth table](truth-table.md#uart). `SM` marks them as corner (submodule) signals - not to be confused with the edge signals `Tx TOP` / `Rx TOP`, which are inter-*tile*.
 
 ---
 Back to [firmware index](index.md) · [truth table](truth-table.md)

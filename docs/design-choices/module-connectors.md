@@ -306,7 +306,7 @@ bounce = L * di/dt,  3.3V into ~50R in ~2ns  ->  di/dt ~ 3.3e7 A/s
 
 ```
 contact:  1    2    3    4    5    6   |   7    8    9    10   11   12
-net:      GND  HV   HV   BS   Tx  GND  |   GND  Rx   BS   HV   HV   GND
+net:      GND  PD   PD   BS   Tx  GND  |   GND  Rx   BS   PD   PD   GND
 body:     <-------- 6P male -------->  |  <------- 6P female ------->
 ```
 

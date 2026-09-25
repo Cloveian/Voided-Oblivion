@@ -1,6 +1,6 @@
 # Chip List
 
-Tracking the "smartish" components - ICs and active parts only, no passives. Grouped by function. Where a part is still TBD, the current frontrunner or the shortlist is listed.
+the "smartish" component list (ICs and active parts)
 
 ---
 
