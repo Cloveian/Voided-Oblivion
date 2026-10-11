@@ -23,7 +23,7 @@ RP2350B GPIO connections and some info (see [truth table](truth-table.md) for wh
 |  16  | `Tx LEFT`      | PIO        |                                                                                                                                                   |
 |  17  | `Rx LEFT`      | PIO        |                                                                                                                                                   |
 |  18  | `PD2 INT`      | in         | PD chip #2                                                                                                                                        |
-|  19  | `FLASH CS1n`   | QMI        |                                                                                                                                                   |
+|  19  | `FLASH CS1n`   | QMI        | Needs pulled high                                                                                                                                 |
 |  20  | `PD1 SDA`      | I2C0       |                                                                                                                                                   |
 |  21  | `PD1 SCL`      | I2C0       |                                                                                                                                                   |
 |  22  | `SM Tx TL`     | PIO        |                                                                                                                                                   |

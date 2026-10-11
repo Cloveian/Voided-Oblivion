@@ -1,17 +1,16 @@
 # Voided Oblivion
 
-**An infinitely\* tileable analog hall-effect keyboard.** 5×6 ortholinear tiles that snap together edge to edge in any\*\* arrangement, two tiles for a 60%, three for an 80%, four for
-full size. Each tile is a complete unit with its own RP2350B, dual USB-C PD ports, and power
-system.
+**An infinitely\* tileable analog hall-effect keyboard.** 5×6 ortholinear tiles that snap together edge to edge in any\*\* arrangement, two tiles for a 60%, three for an 80%, four for full size. Each tile is a complete unit with its own RP2350B, dual USB-C PD ports, and power system.
 
 Designed by **Clover**
 
-![Voided Oblivion, top](docs/images/rev-1-top.png)
-![Voided Oblivion, bottom](docs/images/rev-1-bottom.png)
+![Voided Oblivion, top](docs/media/rev-1-top.png)
+![Voided Oblivion, bottom](docs/media/rev-1-bottom.png)
 
-**Status: design complete, ordering boards.**
+**Status: design complete, 2 boards assembled, case/chassis in design, firmware in progress.**
 
 <sub>* not actually infinite but like way more than reasonable.</sub>
+
 <sub>** in a grid, and not 6x5 to 5x6, individual tiles need to be the same orientation (portrait or landscape; they can be rotated 180° tho)</sub>
 
 ---
@@ -21,7 +20,7 @@ Designed by **Clover**
 |                 |                                                                                                   |
 | --------------- | ------------------------------------------------------------------------------------------------- |
 | **Board**       | 4-layer, ~425 components, 242 nets                                                                |
-| **MCU**         | **RP2350** (used like 44/48 GPIO, i dont think i used enough 𐔌˙.)                                |
+| **MCU**         | **RP2350B** (used like 44/48 GPIO, i dont think i used enough 𐔌˙.)                               |
 | **Dual USB**    | 2 USB-C ports for ease of use when rotating the module(s) 90°                                     |
 | **Power**       | FUSB302 PD port(s), TPS54302 bucks, comparator-based VBUS→PD/BS handoff                           |
 | **Sensing**     | Analog hall effect, 74HC4067 muxes into the ADC, 30 keys/tile                                     |
@@ -51,10 +50,8 @@ Designed by **Clover**
 | [`layouts/`](layouts/)                 | (proposed) keymaps made with [keyboard-layout-editor](http://www.keyboard-layout-editor.com/) |
 | [`graphics/`](graphics/)               | silkscreen art                                                                                |
 
-I removed the Datasheets from repo cuz they're manufacturer IP, and i would like to not make any enemies
-[`docs/datasheets.md`](docs/datasheets.md) indexes every part and where to get its datasheet.
-`old/` (the first attempt) is out of the working tree but still in git history.
-
+I removed the Datasheets from repo cuz they're manufacturer IP, and i would like to avoid making enemies.
+[`docs/datasheets.md`](docs/datasheets.md) indexes the parts list
 ## Reading the docs
 
 These are working engineering documents, they were written during the design process (how it should be), and i keep incorrect reasoning/assumptions to remember *why* something changed
@@ -65,7 +62,7 @@ These are working engineering documents, they were written during the design pro
 - **features n' stuff**
 	- [design decisions](docs/design-choices/index.md)
 	- [goals and constraints](docs/goals.md)
-- **sanity check(s)** (check if my sanity was still intack after reading so much (not quite) 'ai slop' ꩜ ᨓ𖦹)
+- **sanity check(s)** (check if my sanity was still intact after reading so much (not quite) 'ai slop' ꩜ ᨓ𖦹)
 	- [design reviews](docs/schematic-review-2026-08-08.md)
 	- [datasheet research](docs/research/README.md)
 
@@ -89,5 +86,4 @@ i used LLMs while working on this, ima just say how they were used.
 
 also a lot of the reviews were mostly useless/irrelevant 'fluff' (immediately dismissable with 0.8ms of thought with context (￢ \_￢ ) ) but did actually catch real stuff that needed fixing
 
-also, and i say this as someone who has spent over 100 hours on this project: LLMs could *not*
-have done this. they really, really suck at it. trust me, i would know.
+also, and i say this as someone who has spent over 100 hours on this project: LLMs could *not* have done this. they really, really suck at it. trust me, i would know.

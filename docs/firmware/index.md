@@ -8,6 +8,8 @@ The hardware is done and ordered, now i need to think about firmware topology
 | [truth table](truth-table.md) | what each electrical state actually means. Start with these two - they should mean not having to read forty pages of power design to write correct firmware |
 | [naming](naming.md)           | naming conventions                                                                                                                                          |
 | [platform](platform.md)       | language, SDK, USB and PD stacks.                                                                                                                           |
+| [main topology](main-topology.md) | roles, cores, flash, USB, power - everything that isn't inter-tile                                                                                      |
+| [intertile comms](intertile-comms.md) | tile-to-tile links, scheduling, baud                                                                                                                |
 | [log](log.md)                 | dated, newest-on-top, same as the [schematic build log](../schematic-design/log.md)                                                                         |
 
 

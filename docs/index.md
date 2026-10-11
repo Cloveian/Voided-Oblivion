@@ -7,8 +7,8 @@ and power system.
 
 Designed by **Clover**
 
-![Voided Oblivion, top](images/rev-1-top.png)
-![Voided Oblivion, bottom](images/rev-1-bottom.png)
+![Voided Oblivion, top](media/rev-1-top.png)
+![Voided Oblivion, bottom](media/rev-1-bottom.png)
 
 
 `Design complete - ordering boards`{.status .settled}

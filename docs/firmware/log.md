@@ -4,6 +4,19 @@ Dated, newest-on-top. Same job as the [schematic build log](../schematic-design/
 
 ---
 
+## 2026-09-28 - platform picked: Rust
+
+- **[Rust (embassy-rp)](platform.md#decision)**, after writing test firmware in both.
+- **Language preference was never a gate.** The last entry called it "gate 6"; it's the tiebreak.
+- **Re-weighted the table** (secure boot and 'from scratch' down to 2): A 286 / B 248 / C 190 of 310.
+- **SK9822 colour order: BGR**, verified on the board.
+- **LED SPI at 800 kHz** makes every loop >1 ms (~1.3 ms per frame). EC20 is good to 15 MHz.
+- **R13 (FLASH2_SS pull-up) left DNP** while U4/R11/C22 got populated. Cold boot is fine, but a warm reset after firmware drives GPIO19 would select U4 during boot. Hand-fit a 10k.
+
+**Next:** PIO UART loopback at 9.375 M in Rust on one tile.
+
+---
+
 ## 2026-09-06 - section created, nothing written yet
 
 Skeletoned the firmware section out before writing any code, on the theory that the board already dictates most of this and it's cheaper to collect it now than to find it one brownout at a time.

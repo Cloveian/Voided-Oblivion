@@ -421,7 +421,7 @@ ADC is the scarce one. There are **8 ADC total**; 2 go to the key muxes. Per-edg
 - `INA180` is worth recording as a trap: 71,901 in stock and the cheapest part in the class, and it's **SOT-23-5 with no REF pin** - unidirectional only, which [the body diode finding](../schematic-design/power.md#the-body-diode---an-open-switch-only-blocks-outbound) disqualifies outright. Current flows *inward* whenever a neighbour is sourcing, and a unidirectional amp reads that as zero.
 - **What i'm giving up:** bring-up observability. There'll be no way to read per-edge current on real hardware, which is exactly the thing i'd want when something misbehaves. Accepting that deliberately - a bench supply and a meter can do the same job on a prototype, and it doesn't have to be on every tile forever.
 
-## Budget fallback
+### Budget fallback
 
 If the full design BOM comes in way over budget, there's a coherent cheaper version: ditch the per-side HV switches and the bootstrap rail entirely. HV routes directly to each tile's buck converter (TPS54302 handles 4.5–28V, so it runs straight from 5V VBUS before PD even negotiates). No bootstrap needed because the buck IS the bootstrap, every tile self-powers the moment any port gets VBUS.
 

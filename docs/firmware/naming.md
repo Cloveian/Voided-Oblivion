@@ -1,40 +1,65 @@
 # Naming
 
-Firmware nameing conventions
+Firmware naming conventions
 
-Actual key mapping lives in the [Key/LED/Mux table](truth-table.md#keyledmux-table)
+## Vocab
+- Central
+	What i have been calling the 'master' tile before now
+- Peripheral
+	The non-Central tiles
+- Submodule
+	Extra add on boards that come later (ex. rotary encoder, screen, etc.)
+- Discovery
+	new central tile (first 'boot')
+- Rediscovery
+	same central tile, plugging tiles (active 'boot')
 
-## The namespaces
 
-| Name               |        Range        | Fixed by                                           | Used for                               |
-| ------------------ | :-----------------: | -------------------------------------------------- | -------------------------------------- |
-| **Local key**      |        0–29         | this page (`row × 5 + col`)                        | storage, wire format, calibration      |
-| **Row / Col**      |      0–5, 0–4       | physical position on the tile                      | keymaps, RGB effects, anything spatial |
-| **Mux + Channel**  |      0–1, 0–14      | **copper** - routing convenience, *not* grid order | the scan loop only                     |
-| **LED**            |        0–29         | **copper** - it's the SPI chain position           | the RGB frame only                     |
-| **Tile Row / Col** | assigned at runtime | master, BFS from (0,0) after discovery             | where a tile sits in the array         |
+## Names
 
-Mux/channel and LED aren't choices - the first is which ADC pin plus which select address, the second is a shift-register position, so frame slot *N* is physically LED *N*.
+There are 3 types of 'names' 
+- Local
+	never changes, defined by hardware designs
+- Regional
+	things that only the local tile uses but has to be told 
+- Global
+	mapped on top of local based on location and orientation of the tiles.
 
-## Rules
+### Local
+local mappings in [Key-LED-Mux mapping](truth-table.md#Key-LED-Mux%20table)
 
-1. Top is the side with a USB that doesnt have the boot/reset buttons on it (rest can be infured)
-2. **0-based everywhere in firmware.** ~~The exception is the LEDs cuz i was dumb and missed that the LEDs started at 1 not 0, and its too late to change the silkscreen~~ idk why but no references got put on the silkscreen so that no longer applies.
-3. **Origin is top-left.** Row 0 is the row against the top, Col 0 is left
+| Name              |       Range       | Fixed by                                                | Used for                 |
+| ----------------- | :---------------: | ------------------------------------------------------- | ------------------------ |
+| **Local key**     |       0–29        | me. L to R, T to B starting at 0                        | anything looking at keys |
+| **Mux + Channel** |     0–1, 0–14     | Hardware design (prioritized analog trace lengths)      | scan loop                |
+| **LED**           |       0–29        | same number as key it is next to                        | RGB                      |
+| **LED chain**     |       0–29        | Hardware design (SPI chain position)                    | static mapping to 'LED'  |
+| **Edge**          |   N / E / S / W   | net names -> local mapping                              | links, PD switches       |
+| **Corner**        | NW / NE / SE / SW | net names -> local mapping                              | submodules               |
+| (USB) **Port**    |        0-1        | Hardware: Port0 = USB1/PD1 (N) and Port1 = USB2/PD2 (W) | PD, Orientation          |
 
-## Local key is grid order
+I was a little un-smart when naming the edge/corner nets and didn't think much about orientation, but in firmware i am going to use N/E/S/W for anything that rotates
 
-`local_key = row × 5 + col`, so key 0 is top-left and key 29 is bottom-right.
+### Regional
 
-## Effects
+| Name             |            Range            | Set by                                                        | Used for                        |
+| ---------------- | :-------------------------: | ------------------------------------------------------------- | ------------------------------- |
+| **Flipped**      |   0-1 (normal or flipped)   | neighbour's (with central upstream) Flipped + edge pair       | mapping global arrays and stuff |
+| **Side**         | Top / Right / Bottom / Left | Edge + (Orientation + Flipped)                                | PD sectors, links               |
+| **Submodule ID** |             0-3             | Corner + (Orientation + Flipped) (tack onto end of Tile Slot) | submodule position              |
 
-Calibration follows `local_key`, not array position
 
-Per-key min/max belongs to a specific switch, magnet and sensor - so it's a property of local tile - key 17, not of "the key at position (2,3)". (this avoids problems when 'master layout array' comes into play)
+### Global
 
-### Row-Col or Col-Row
+| Name                |                          Range                           | Set by                                                       | Used for                       | Change on rediscovery                  |
+| ------------------- | :------------------------------------------------------: | ------------------------------------------------------------ | ------------------------------ | -------------------------------------- |
+| **Orientation**     |               0-1 (portrait or landscape)                | Central's host port (and more inferring later)               | mapping like everything        | No (maybe with future inference logic) |
+| **Tile Position**   |         \[-128,127\],\[-128,127\] (16bit total)          | Central=0,0. Peripheral=Relative to Central                  | where a tile sits in the array | No                                     |
+| (key) **Row / Col** |                 R\[0,1535\],C\[0,1535\]                  | (Minimum)Tile Position + (Orientation + Flipped) + local key | keymaps, RGB effects           | Yes                                    |
+| (Tile) **Slot**     | 0-65535(16bits, massively degraded with that many tiles) | Central created data-flow tree                               | frame schedule, wire format    | Yes                                    |
 
-`R2C3` or `row 2, col 3` not `(2,3)` - cuz i keep swaping around row,col/col,row
+
+
 
 
 

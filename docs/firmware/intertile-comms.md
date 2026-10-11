@@ -3,20 +3,35 @@
 ## Identify
 The modules need to communicate with each other, but how?
 
-### Info That Needs to Be Sent out from Master
+### Main (99% of the time) setup
+Most of the time, for people that would actually use this, it would probably be in these layouts:
+
+80% 3 tiles (portrait)
+![](../media/layouts/80-percent.png)
+
+100% 4 tiles (portrait)
+![](../media/layouts/100-percent.png)
+
+less common but still pretty common (in my estimate)
+60% 2 tiles (landscape)
+![](../media/layouts/60-percent.png)
+
+So i would like to keep 1000Hz polling+good latency for setups with less than 5 tiles.
+
+
+### Info That Needs to Be Sent out from Central
 - Keypress actuation point
 - RGB instructions
 - Firmware updates
 - PD gates
 - Tile coordinate/slot assignment
 - Frame sync
-- RGB
 - "release your keys" / reset
 
-### Data That Needs to Be Sent to Master
+### Data That Needs to Be Sent to Central
 - Key presses
 - Where/how many tiles there are
-- PD negotiation from non master tiles
+- PD negotiation from peripherals
 - Submodules what and where
 - Errors/Faults
 - PD Edge switch states
@@ -54,7 +69,7 @@ The modules need to communicate with each other, but how?
 
 Originally (in [comms](../design-choices/comms.md#the-latency-problem)) i estimated latency with per-hop wire time times number of hops: *"0.12ms/hop × 4 hops = 0.48ms"* now that the hardware is finalized it is no longer accurate.
 
-The thing is that it all depends on the tile layout. by design, a tile (specifically master) can receive data from all 4 (only 3 if master because of the usb) at the same time, so for larger arrays this can be taken advantage of via the master creating a 'data-flow map' on enumeration. it should avoid merges unless absolutely necessary as that has costs. 
+The thing is that it all depends on the tile layout. by design, a tile (specifically central) can receive data from all 4 (only 3 if central because of the usb) at the same time, so for larger arrays this can be taken advantage of via the central creating a 'data-flow map' on discovery. it should avoid merges unless absolutely necessary as that has costs. 
 
 But, most of that doesn't matter because like 99% of the time, layouts will be 1 row so there is no fancy path to make, and no merges
 
@@ -68,12 +83,12 @@ i can think harder about that later
 
 |                | how it works                                                      | why not                                   |
 | -------------- | ----------------------------------------------------------------- | ----------------------------------------- |
-| **Polled**     | master asks, tile answers                                         | simple, but slow and ineffesent           |
+| **Polled**     | central asks, peripheral answers                                  | simple, but slow and ineffesent           |
 | **Autonomous** | just say stuff whenever                                           | not consistant, needs 'store and forward' |
-| **Scheduled**  | master assigns each tile a window where it gets a 'talking stick' | needs 'global' clock of some sort         |
+| **Scheduled**  | central assigns each peripheral a window where it gets a 'talking stick' | needs 'global' clock of some sort         |
 
 
-### how is data sent to master? (upstream)
+### how is data sent to central? (upstream)
 
 Ive been thinking in the back of my head from the start that if we do some sort of 'frame' or 'window' type thing then that would avoid the problem of colliding data and that makes stuff a lot faster if we don't need to worry about it.
 
@@ -83,11 +98,11 @@ options:
 - 'store and forward' aka relay a 'frame' at a time
 
 
-### how is data sent to non-master(s) (down stream)
+### how is data sent to peripherals (down stream)
 This data is probably not very time sensitive, it can afford 'store and forward', i see a few ways of doing it:
-- Master puts address at front, and any data received from master is read by each tile on the way and if 'this message isn't for me' then it will continue down the path, if 'this message is for me' then it doesn't continue.
+- Central puts address at front, and any data received from central is read by each tile on the way and if 'this message isn't for me' then it will continue down the path, if 'this message is for me' then it doesn't continue.
 - Same as above but sent to every tile every time
-- Same frame/window method as 'send to master' data, but this time it's the other way and would have to be sent to every tile
+- Same frame/window method as 'send to central' data, but this time it's the other way and would have to be sent to every tile
 - Frame method, but only relay frames that need to be relayed further
 
 ### What data is sent upstream every frame?
@@ -96,49 +111,61 @@ This data is probably not very time sensitive, it can afford 'store and forward'
 | -------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | Key presses          | 10       | normalized, digital                                                                               |
 | per key analog value | 7        | normalized                                                                                        |
-| tile address         | 6        | assigned during enumeration                                                                       |
+| slot                 | 6        | assigned during discovery then infured via timing                                                 |
 | general status       | 8        | 'I'm alive ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧' any (power) sense info, firmware version, pd gate(s) status, etc. |
 | submodule info       | 9        | like input devices and stuff (ex. rotery encoder)                                                 |
-| envelope             |          |                                                                                                   |
+| envelope             |          | sync, flags, etc.                                                                                 |
+
 
 ### What baud speed?
 depends on what data needs to be sent:
 the raw size of data being sent upstream
 
-| data           |  bytes |                                 |
-| -------------- | -----: | ------------------------------- |
-| key presses    |      4 | 30 bits                         |
-| per key analog |     45 | 30 × 12-bit, packed             |
-| tile address   |      0 | slot position is the address    |
-| general status |      3 | one rotating register per frame |
-| submodule info |     13 | length byte + payload           |
-| envelope       |      5 | sync, flags, counter, CRC16     |
-| **total**      | **70** | against ~140 B/tile available   |
+| data                                             |  bytes |                                                        |
+| ------------------------------------------------ | -----: | ------------------------------------------------------ |
+| key presses                                      |      4 | 30 bits                                                |
+| per key analog                                   |     30 | 30 × ~~12-bit~~ 8 bit is standard for analog keyboards |
+| slot                                             |      0 | position in the frame is the slot                      |
+| general status                                   |      3 | one rotating register per frame                        |
+| submodule info                                   |     13 | length byte + payload (probably for all 4)             |
+| envelope                                         |      5 | sync, flags, counter, CRC16                            |
+| something else i will <br>realize i forgot later |      9 | mainly buffer and 64 total is nice number              |
+| **total**                                        | **64** | plus whatever there is room for                        |
+
 
 rapid trigger is run locally per tile so it can scan way faster than 1kHz and run debounce stuff or whatever.
 
-so 70 B/tile, 72 with a bit of buffer.
+**5(-1 (Central)) × 64 = 256 B per period**
 
-**4 × 72 = 288 B per period.**
+PIO divides the 150MHz system clock by whole cycles per bit, and it has to be whole
+options:
 
-PIO divides the 150MHz system clock by whole cycles per bit, and it has to be whole (a fractional divider jitters the bit period by a full system clock), so my options are discrete:
-
-| cycles/bit |    baud | 288 B takes |
+| cycles/bit |    baud | 256 B takes |
 | ---------: | ------: | ----------: |
-|          8 | 18.75 M |      154 µs |
-|         16 | 9.375 M |      307 µs |
-|         32 | 4.688 M |      614 µs |
+|          8 | 18.75 M |      137 µs |
+|         16 | 9.375 M |      273 µs |
+|         32 | 4.688 M |      546 µs |
 I want to pick the fastest stable option (for scalability)
 
-uart trace lengths(2D mm)
 
-|        |     Tx |     Rx |
-| ------ | -----: | -----: |
-| top    |  38.48 |  40.93 |
-| right  | 129.43 | 158.73 |
-| bottom |  92.92 | 107.27 |
-| left   |  52.13 |  60.13 |
-The longest path is also the 99% use case path. *Yippee.*
+#### Ringing and series termination
+uart trace lengths(2D mm):
+
+| Connection |     Tx |     Rx |
+| ---------- | -----: | -----: |
+| N          |  38.48 |  40.93 |
+| E          | 129.43 | 158.73 |
+| S          |  92.92 | 107.27 |
+| W          |  52.13 |  60.13 |
+
+
+Longest link is a flipped neighbour on E: 129.43 Tx + 158.73 Rx = ~288 mm.
+Main use cases:
+E: 129.43 Tx + W: 60.13 Rx = ~190 mm
+W: 52.13 Tx + E: 158.73 Rx = ~211 mm
+The longer paths are also the main use case paths. *Yippee.* ✺◟(¬_¬)◞✺
+
+ngl a lot of this is just 'does it work in practice' so ill just have to test it
 
 
 ## Select
@@ -149,9 +176,9 @@ i do some ~~meth~~ maths for these:
 
 |          |     per hop | window, 5 tiles |
 | -------- | ----------: | --------------: |
-| bit      |       ~7 ns |          307 µs |
-| **byte** | **1.07 µs** |      **311 µs** |
-| frame    |       77 µs |          614 µs |
+| bit      |       ~7 ns |          273 µs |
+| **byte** | **1.07 µs** |      **277 µs** |
+| frame    |       68 µs |          546 µs |
 byte gains clean regenerated data every hop, byte counting (free clock/sync) and only loses ~4µs vs bit relaying and gains that back with (probably) more reliable data stream.
 frame was never really a option cuz it sucks and is slow and yeah.
 ### scheduling
@@ -190,9 +217,9 @@ i want the highest one that is consistent/stable, which is a different question.
 | **9.375 M** | **107 ns** | **53 ns** | **43 ns = 6.5 cycles** |
 | 4.688 M     |     213 ns |    107 ns |    97 ns = 14.5 cycles |
 
-18.75 saves 153 µs of window out of 1000 vs 9.375, which is basically irrelevant, and USB caps at 1kHz so there's not much to gain. 
+18.75 saves 137 µs out of 1000 vs 9.375. basically irrelevant; USB caps at 1kHz so there's not much to gain. 
 
-I can probably test 18.75 later, 9.375 is the safe pick.
+I can probably test 18.75 later, 9.375 is enough/safe.
 
 **9.375 Mbaud, 16 cycles/bit.**
 
