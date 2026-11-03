@@ -133,30 +133,24 @@ how do i test each parameter, and what parameters are 'base' ones
 
 
 ### Test plans
-three ways to go about it, pick one (or mix) in the next section.
+(I excluded variable that have such a minute effect or are basically impossable to get wrong)
 
 ### Plan A: one variable at a time
 Slow and careful, the base gets stable before anything else is touched.
 
 #### Phase 1: get the plastic working (no magnets, no sensor)
-Small coupons or stripped down switches, they print fast and dont waste magnets.
-1. **Printer + nozzle:** Voron with the 0.25mm nozzle (a 0.2mm wall is thinner than a 0.4mm line). Try 0.15mm later if the wall is the problem. Resin is skipped for now.
-2. **Filament type:** try one or two (PETG, PLA). Material changes shrinkage and friction, so everything below gets redone if it changes.
-3. **Filament tuning:** temp tower, flow, retraction.
-4. **Layer height:** coupled to the wall (0.2mm wall = 1 layer only at 0.2mm layers). Check stem fit and the wall.
-5. **Dimensional compensation:** print test pieces, measure with calipers until the printed sizes match the design.
-6. **Stem tolerance:** print 4 or 5 clearances, keep the one with no wobble and no binding (stem falls through under its own weight).
-
+1. Filament type
+2. Printer + nozzle
+3. Layer height
 #### Phase 2: baseline switch
-7. Print the full switch with riskable's defaults (4×1mm N52, 0.2mm wall, ~2mm travel). Print 10, count the 'good' ones (8+ hits the 80% goal).
-8. Log the ADC while pressing a few of them. Is the signal usable and consistent?
-
-#### Phase 3: the less important stuff
-Only once the baseline works, one per batch:
-9. Magnet size (3×1, 4×1, 4×2), judged by feel and ADC range
-10. Stem size, down toward 2mm
-11. Cooling and print speed
-12. Filament dryness, then brand, then lubricant (last because it can hide a bad print)
+4. Stem tolerance
+5. Stem size
+6. Magnet size
+7. Other random settings (in the scad generation)
+#### Phase 3: other stuff
+8. Travel
+9. Cooling and print speed
+10. Lubricant
 
 ### Plan B: batch plates
 Print a bunch of variants on one plate (a few clearances × a couple of layer heights), then look at all of them at once.
@@ -168,23 +162,87 @@ Print a bunch of variants on one plate (a few clearances × a couple of layer he
 
 Faster (fewer print sessions), but harder to tell *why* something is good since two things changed at once.
 
-### Plan C: 'i think this should work', then fix what breaks
-1. Pick the settings i think will work (filament, 0.25mm nozzle, layer height, tolerance, compensation) from what i already know and riskable's switch (his magnets, wall, travel), and write them down
+### Plan C: 'i think this should work', then tune
+1. Pick the settings i think will work from what i already know, and write them down
 2. Print a batch of 10 and see how it does
-3. Look at *how* the bad ones fail (stem binds, wall tears, loose, weak return)
-4. Change only the setting that targets that failure
-5. Repeat until ~80%+ are good
+3. Look at how/why the bad ones are bad
+4. Change settings targeting the failure
+5. Repeat
 
 Quickest way to a working switch, and it uses what i already know, but the first guess could be way off, it can stall on a failure that has several causes, and the settings i end up with might not be optimal.
 
 
 ## Select
 
-| Criteria                              | Weight | A: One at a time | B: Batch plates | C: Educated guess, fix what breaks |
-| ------------------------------------- | :----: | :--------------: | :-------------: | :--------------------------------: |
-| Time to a working switch              |   6    |        2         |        6        |                 8                  |
-| Know *why* it works                   |   5    |        9         |        4        |                 5                  |
-| Settings end up close to optimal      |   5    |        8         |        6        |                 4                  |
-| Easy to document                      |   4    |        8         |        5        |                 6                  |
-| **Weighted Total**                    |        |       141        |       121       |                135                 |
-Winner: One at a time
+| Criteria                         | Weight | A: One at a time | B: Batch plates | C: Educated guess, fix what breaks |
+| -------------------------------- | :----: | :--------------: | :-------------: | :--------------------------------: |
+| Time to a working switch         |   6    |        2         |        6        |                 8                  |
+| Know *why* it works              |   5    |        9         |        4        |                 5                  |
+| Settings end up close to optimal |   5    |        8         |        6        |                 4                  |
+| Easy to document                 |   4    |        8         |        5        |                 6                  |
+| **Weighted Total**               |        |       129        |       106       |                117                 |
+
+Winner: A. One at a time
+
+## Implement
+
+### Phase 1
+#### 1. Filament type
+In my past attempts i have tried PLA, PETG, ASA, and ABS. PETG by far worked the best, and is also the one suggested by riskable (crazy that the one suggested is the one that works best) 
+therefore i am just gonna forgo any new testing because i think it has already been tested thoroughly enough.
+
+#### 2. Printer + Nozzle
+my options
+
+| Printer                 | Nozzles           | Notes                   |
+| ----------------------- | ----------------- | ----------------------- |
+| Voron 2.4               | 0.6,0.4,0.25,0.15 | Mine, works well.       |
+| Flashforge AD5          | idk               | Not mine, but has a MMU |
+| Anycubic Photon mono X2 | N/A               | Messy                   |
+Really the only real option is my Voron.
+Nozzle size is the question:
+- 0.6mm 
+	not a chance
+- 0.4mm
+	Riskable uses this
+- 0.25mm
+	haven't tested much
+- 0.15mm
+	gotten quite a bit of luck with it in the past
+
+##### Test Method
+- Tune PA per nozzle first
+- Use 'default' switch parameters
+- Print like 5 with each nozzle size
+- Decide which one is best (feel+stickiness)
+- Maybe retest later down the road when other things are tuned
+
+
+#### 3. Layer height
+This depends a lot on the nozzle size, and riskable said something about 'match to the stem thickness' and it is affected by the stem tolerance.
+
+##### Test Method
+- uh ngl this one is so subjective that it should really be later in the list
+- why not move it then? idk, im just a girl (╥﹏╥)
+
+### Phase 2
+
+#### 4. Stem Tolerance
+
+##### Test Method
+- Print a 'gradient' of tolerances (with multiple of the same tolerance)
+- Test which ones are good
+
+#### 5-7 
+
+##### Test Method
+- Really the same thing: One Parameter, multiple values
+
+### Phase 3
+
+#### 8-10
+- More of the same, this is a lot more personal preference based so it can be changed by other things
+
+
+## Test
+Need to do that at some point, is that point now? idk, like i said, i'm just a girl™
