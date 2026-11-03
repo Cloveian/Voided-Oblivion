@@ -52,16 +52,16 @@ There are a few chips i can think of, grouped by whether they have PIO (the thin
 
 Gated first: needs PIO-like flexible I/O + native USB, which knocks out the radio chips and the no-PIO STM32/SAMD/CH32/GD32 options (kept only as fallback if PIO is ever abandoned). RP2350A/RP2354A are dominated by their B-variants (same chip, fewer GPIO), so only the B's are scored. That leaves four:
 
-| Criteria                          | Weight | RP2040 | RP2350B | RP2354B | Teensy (i.MX RT1062) |
-| --------------------------------- | :----: | :----: | :-----: | :-----: | :------------------: |
-| PIO / flexible-IO (bus+RGB)       |   9    |   3    |    9    |    9    |          6           |
-| GPIO count                        |   8    |   5    |    9    |    9    |          8           |
-| Cost per unit (xN tiles)          |   7    |   9    |    7    |    7    |          1           |
-| Integrated flash / fewer parts    |   6    |   4    |    4    |    9    |          8           |
-| On-device steno (16-32 MB flash)  |   5    |   8    |    9    |    2    |          6           |
-| Compute (scan, rapid-trigger)     |   5    |   5    |    7    |    7    |         10           |
-| Availability / sourcing           |   5    |   9    |    8    |    5    |          7           |
-| Security (FIDO2)                  |   3    |   2    |    7    |    7    |          7           |
-| **Weighted Total**                |        |  270   | **367** |   347   |         309          |
+| Criteria                         | Weight | RP2040 | RP2350B | RP2354B | Teensy (i.MX RT1062) |
+| -------------------------------- | :----: | :----: | :-----: | :-----: | :------------------: |
+| PIO / flexible-IO (bus+RGB)      |   9    |   3    |    9    |    9    |          6           |
+| GPIO count                       |   8    |   5    |    9    |    9    |          8           |
+| Cost per unit (xN tiles)         |   7    |   9    |    7    |    7    |          1           |
+| Integrated flash / fewer parts   |   6    |   4    |    4    |    9    |          8           |
+| On-device steno (16-32 MB flash) |   5    |   8    |    9    |    2    |          6           |
+| Compute (scan, rapid-trigger)    |   5    |   5    |    7    |    7    |          10          |
+| Availability / sourcing          |   5    |   9    |    8    |    5    |          7           |
+| Security (FIDO2)                 |   3    |   2    |    7    |    7    |          7           |
+| **Weighted Total**               |        |  270   | **367** |   347   |         309          |
 
 **Winner: RP2350B (367 / 76.5%)**, paired with a big external QSPI flash (16-32 MB) for the steno dictionary.
