@@ -187,9 +187,11 @@ Winner: A. One at a time
 ## Implement
 
 ### Phase 1
-#### 1. Filament type
+#### 1. Filament
 In my past attempts i have tried PLA, PETG, ASA, and ABS. PETG by far worked the best, and is also the one suggested by riskable (crazy that the one suggested is the one that works best) 
 therefore i am just gonna forgo any new testing because i think it has already been tested thoroughly enough.
+
+Then tune the filament directly
 
 #### 2. Printer + Nozzle
 my options
@@ -245,4 +247,4 @@ This depends a lot on the nozzle size, and riskable said something about 'match 
 
 
 ## Test
-Need to do that at some point, is that point now? idk, like i said, i'm just a girl™
+
