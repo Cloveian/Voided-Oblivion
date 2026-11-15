@@ -8,16 +8,16 @@ RP2350B GPIO connections and some info (see [truth table](truth-table.md) for wh
 |  1   | `PD EN RIGHT`  | out        |                                                                                                                                                   |
 |  2   | `PD EN BOTTOM` | out        |                                                                                                                                                   |
 |  3   | `PD EN LEFT`   | out        |                                                                                                                                                   |
-|  4   | `Tx BOTTOM`    | PIO        |                                                                                                                                                   |
-|  5   | `Rx BOTTOM`    | PIO        | Default pulled low, if high=neighbor there                                                                                                        |
+|  4   | `Tx TOP`       | PIO        |                                                                                                                                                   |
+|  5   | `Rx TOP`       | PIO        | Default pulled low, if high=neighbor there                                                                                                        |
 |  6   | `Tx RIGHT`     | PIO        |                                                                                                                                                   |
 |  7   | `Rx RIGHT`     | PIO        |                                                                                                                                                   |
 |  8   | `AS0`          | out        | Mux select, shared by both muxes ~10–15 µs settling                                                                                               |
 |  9   | `AS1`          | out        |                                                                                                                                                   |
 |  10  | `AS2`          | out        |                                                                                                                                                   |
 |  11  | `AS3`          | out        |                                                                                                                                                   |
-|  12  | `Tx TOP`       | PIO        |                                                                                                                                                   |
-|  13  | `Rx TOP`       | PIO        |                                                                                                                                                   |
+|  12  | `Tx BOTTOM`    | PIO        |                                                                                                                                                   |
+|  13  | `Rx BOTTOM`    | PIO        |                                                                                                                                                   |
 |  14  | `+5VP EN`      | out        |                                                                                                                                                   |
 |  15  | `PD1 INT`      | in         | PD chip #1, active low                                                                                                                            |
 |  16  | `Tx LEFT`      | PIO        |                                                                                                                                                   |

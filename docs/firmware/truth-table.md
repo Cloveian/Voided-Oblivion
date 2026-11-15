@@ -8,9 +8,9 @@ Also see [pin map](pin-map.md).
 
 | Link                    | Tx  | Rx  | Peripheral     | Notes                            |
 | ----------------------- | :-: | :-: | -------------- | -------------------------------- |
-| Inter-tile **top**      | 12  | 13  | PIO            | Rx pulled low = neighbour detect |
+| Inter-tile **top**      |  4  |  5  | PIO            | Rx pulled low = neighbour detect |
 | Inter-tile **right**    |  6  |  7  | PIO            |                                  |
-| Inter-tile **bottom**   |  4  |  5  | PIO            |                                  |
+| Inter-tile **bottom**   | 12  | 13  | PIO            |                                  |
 | Inter-tile **left**     | 16  | 17  | PIO            |                                  |
 | Top left sub-module     | 22  | 23  | PIO            |                                  |
 | Top right sub-module    | 24  | 25  | **UART1** (F2) |                                  |
