@@ -32,7 +32,7 @@
         "fab_text_size_v": 1.0,
         "fab_text_thickness": 0.15,
         "fab_text_upright": false,
-        "other_line_width": 0.1,
+        "other_line_width": 0.05,
         "other_text_italic": false,
         "other_text_size_h": 1.0,
         "other_text_size_v": 1.0,
@@ -279,6 +279,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -290,6 +291,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -301,6 +303,7 @@
         {
           "td_allow_use_two_tracks": true,
           "td_curve_segcount": 0,
+          "td_enabled": false,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -612,6 +615,7 @@
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
+      "same_local_global_power": "warning",
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
@@ -745,8 +749,8 @@
     "meta": {
       "version": 5
     },
-    "net_colors": null,
-    "netclass_assignments": null,
+    "net_colors": {},
+    "netclass_assignments": {},
     "netclass_patterns": [
       {
         "netclass": "Power Delivery",
@@ -838,7 +842,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
@@ -1023,7 +1027,7 @@
         "uuid": "d39297fe-343b-4cf0-9c31-a16e101c76da"
       }
     ],
-    "used_designators": "H1-15,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-238,Y2,Q1-14,U2,U4-18,D1-6,C1,C5,C23-45,C76-77,C114,C116-131,L2-3,P1,R5,R9,R12,R14-51,R53-56,R62-104,TP37,USB2-3,PD2,J1-3,J5-20,#FLG1-12,FID1-7",
+    "used_designators": "#FLG1-12,#PWR1-3,#PWR7,#PWR9-11,#PWR26-28,#PWR33-35,#PWR43,#PWR51,#PWR54,#PWR56,#PWR58,#PWR60,#PWR62,#PWR64,#PWR66,#PWR68,#PWR70,#PWR72,#PWR74,#PWR76,#PWR78,#PWR80,#PWR82-141,#PWR143-145,#PWR151-158,#PWR175-200,#PWR204-238,C1,C5,C23-45,C76-77,C114,C116-131,D1-6,FID1-7,H1-15,J1-3,J5-20,L2-3,P1,PD2,Q1-14,R5,R9,R12,R14-51,R53-56,R62-104,TP37,U2,U4-18,USB2-3,Y2",
     "variants": []
   },
   "sheets": [
